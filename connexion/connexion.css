@@ -1,44 +1,139 @@
+* {
+    margin: 0px;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.wrapleft {
+    border-right: 2px solid gray;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+#logo {
+    grid-row: 1/4;
+    width: 65px;
+    float: left;
+    justify-self: left;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+#searchbar {
+    grid-row: 2;
+    grid-column: 2;
+    float: left;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 2px solid rgb(94, 94, 94);
+}
+
+#search {
+    grid-row: 2;
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+}
+
+#butSearch {
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 20px;
+    background-color: white;
+}
+
+#butSearch:hover {
+    box-shadow: 2px 2px 2px black;
+    background-color: rgb(215, 215, 215);
+}
+
+#butSearch i:hover {
+    text-shadow: none;
+}
+
+#nom {
+    grid-column: 3;
+    justify-self: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 34px;
+}
+
+.fa-solid {
+    justify-self: center;
+}
+
+.fa-solid:hover {
+    text-shadow: 2px 2px 2px black;
+}
+
+.fa-house:hover {
+    color: rgb(87, 87, 242);
+}
+
+.fa-square-plus:hover {
+    color: rgb(126, 224, 241);
+}
+
+.fa-bookmark:hover {
+    color: rgb(243, 84, 84);
+}
+
+.fa-user:hover {
+    color: gray;
+}
+
 .all {
     display: flex;
     justify-content: center;
-    margin-top: 8%;
+    margin-top: 3%;
     margin-left: 15%;
     margin-right: 15%;
 }
 
 .wrapper {
     display: grid;
-    grid-auto-columns: repeat(2,30%);
+    grid-template-columns: 2fr 2fr;
     grid-auto-rows: minmax(140px,auto);
-    background-color: rgb(199, 199, 199);
     border-radius: 20px;
-}
-
-#logo {
-    grid-column: 1;
-    grid-row: 1;
-    margin-top: 3%;
-    margin-left: 3%;
-    width: 100px;
+    background-image: url(./backgroundConnexion.jpg);
+    background-size: cover;
+    width: 80%;
 }
 
 .wrapper h1 {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
     justify-self: center;
     margin-top: 30%;
+    color: white;
 }
 
 .wrapper h2 {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 2/4;
     margin-left: 20%;
+    color: white;
 }
 
 .form {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1/4;
     margin:10%;
+    margin-top: 25%;
     background-color: white;
     border-radius: 20px;
 }
@@ -50,8 +145,12 @@
     width: 80%;
     padding-left: 5%;
     padding-right: 5%;
-    margin-top: 10%; 
+    margin-top: 8%; 
     margin-left: 5%;
+}
+
+#forgorPassword {
+    margin-bottom: 5%;
 }
 
 #connect {
