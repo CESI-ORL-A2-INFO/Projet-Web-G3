@@ -43,10 +43,6 @@
     border-radius: 20px;
 }
 
-.form a {
-    margin-left: 29%;
-}
-
 .champ {
     border: 1px solid black;
     border-radius: 10px;
@@ -64,4 +60,10 @@
 
 #connect:hover {
     background-color: rgb(199, 199, 199);
+}
+
+#forgorPassword {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
