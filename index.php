@@ -1,6 +1,6 @@
 <?php
 define('RACINE_DIR', __DIR__);
-require_once("./src/controllers/controller.php");
+require_once(RACINE_DIR . "/src/controllers/controller.php");
 if (isset($_GET['p']) && !empty($_GET['p'])) {
     $p = (string) strip_tags($_GET['p']);
 } else {
@@ -12,7 +12,12 @@ $redirection = new Controller();
 switch($p){
     default:
         $redirection->connexion();
+        break;
     case 'home':
         $redirection->home();
+        break;
+    case 'search':
+        $redirection->search();
+        break;
 }
 ?>

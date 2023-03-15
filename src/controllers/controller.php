@@ -15,6 +15,10 @@ class Controller {
     {
         $this->tpl->display('connexion.tpl');
     }
+    public function search()
+    {
+        $this->tpl->display('search.tpl');
+    }
 }
 
 ?>
