@@ -1,9 +1,9 @@
 {extends file='navbar.tpl'}
-{block name="head"}
+{block name="include"}
     <link rel="stylesheet" href="./connexion/connexion.css">
 {/block}
 
-{block name="content"}
+{block name=content}
     <div class="all">
             <div class="wrapper">
                 <div class="form">

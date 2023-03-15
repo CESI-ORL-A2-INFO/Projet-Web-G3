@@ -11,6 +11,8 @@ $redirection = new Controller();
 
 switch($p){
     default:
+        /* header('Location: ');
+        die(); */
         $redirection->connexion();
         break;
     case 'home':
