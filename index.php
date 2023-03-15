@@ -6,7 +6,7 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 } else {
     $p = null;
 }
-
+// Controller
 $redirection = new Controller();
 
 switch($p){
