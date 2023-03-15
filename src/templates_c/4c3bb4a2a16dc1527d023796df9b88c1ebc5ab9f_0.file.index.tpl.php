@@ -1,0 +1,99 @@
+<?php
+/* Smarty version 4.2.1, created on 2023-03-15 09:21:01
+  from 'C:\www\Projet-Web-G3\src\templates\index.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_64117fed1cd5c1_57702823',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4c3bb4a2a16dc1527d023796df9b88c1ebc5ab9f' => 
+    array (
+      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\index.tpl',
+      1 => 1678868383,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_64117fed1cd5c1_57702823 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php echo '<script'; ?>
+ src="https://kit.fontawesome.com/a82ab0d8d5.js" crossorigin="anonymous"><?php echo '</script'; ?>
+>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home/home.css">
+    <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_201305277064117fed1c4e10_38945273', "head");
+?>
+
+    <title>Home</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="wrapleft">
+            <a href="./index.php" id="logo"><img src="./logo.png" alt="logo" id="logo"></a>
+            <input type="search" id="searchbar" placeholder="Recherche...">
+            <form action="" method="get" id="search">
+                <button id="butSearch"><i class="fa-solid fa-magnifying-glass fa-2x"
+                        style="margin-left: -5px"></i></button>
+            </form>
+        </div>
+        <a href="./index.php" id="nom">CESIstage</a>
+        <i class="fa-solid fa-house fa-2x"></i>
+        <i class="fa-solid fa-square-plus fa-2x"></i>
+        <i class="fa-solid fa-bookmark fa-2x"></i>
+        <i class="fa-solid fa-user fa-2x"></i>
+    </header>
+    <main>
+        <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_54846580564117fed1ccfe1_00298412', "content");
+?>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html><?php }
+/* {block "head"} */
+class Block_201305277064117fed1c4e10_38945273 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'head' => 
+  array (
+    0 => 'Block_201305277064117fed1c4e10_38945273',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block "head"} */
+/* {block "content"} */
+class Block_54846580564117fed1ccfe1_00298412 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_54846580564117fed1ccfe1_00298412',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block "content"} */
+}

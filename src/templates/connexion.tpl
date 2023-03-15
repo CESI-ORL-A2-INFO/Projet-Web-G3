@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
+{extends file='navbar.tpl'}
+{block name="head"}
+    <link rel="stylesheet" href="./connexion/connexion.css">
+{/block}
 
-<head>
-    <script src="https://kit.fontawesome.com/a82ab0d8d5.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="connexion.css">
-    <title>Connexion</title>
-</head>
-
-<body>
-    <main>
-        <div class="all">
+{block name="content"}
+    <div class="all">
             <div class="wrapper">
                 <div class="form">
                     <form action="" method="post">
@@ -24,7 +16,4 @@
                 </div>
             </div>
         </div>
-    </main>
-</body>
-
-</html>
+{/block}
