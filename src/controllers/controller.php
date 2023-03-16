@@ -19,6 +19,10 @@ class Controller {
     {
         $this->tpl->display('search.tpl');
     }
+    public function profilEtudPerm()
+    {
+        $this->tpl->display('profilEtudPerm.tpl');
+    }
 }
 
 ?>

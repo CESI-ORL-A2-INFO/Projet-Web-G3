@@ -1,6 +1,6 @@
 {extends file="index.tpl"}
 {block name="head"}
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="./css/navbar.css">
     {block name="include"}
         
     {/block}

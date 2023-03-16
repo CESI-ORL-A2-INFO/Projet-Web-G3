@@ -8,7 +8,7 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 }
 // Controller
 $redirection = new Controller();
-$p = 'home';
+$p = 'search';
 switch($p){
     default:
         $redirection->connexion();
@@ -19,5 +19,10 @@ switch($p){
     case 'search':
         $redirection->search();
         break;
+    // Perm Admin/Pilote
+    case 'profilEtudPerm':
+        $redirection->profilEtudPerm();
+        break;
+    // Perm Admin
 }
 ?>

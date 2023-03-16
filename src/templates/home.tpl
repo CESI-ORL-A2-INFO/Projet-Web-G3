@@ -1,7 +1,7 @@
 {extends file='navbar.tpl'}
-{block name="include"}
+{block name="include"}    
+    <link rel="stylesheet" href="./css/home.css">
 {/block}
-
 {block name=content}
 
     <div class="card_container">

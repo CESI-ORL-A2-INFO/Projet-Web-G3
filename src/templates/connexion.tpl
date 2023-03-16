@@ -1,6 +1,6 @@
 {extends file='navbar.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./connexion/connexion.css">
+    <link rel="stylesheet" href="./css/connexion.css">
 {/block}
 
 {block name=content}
