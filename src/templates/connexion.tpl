@@ -1,5 +1,5 @@
-{extends file='navbar.tpl'}
-{block name="include"}
+{extends file='index.tpl'}
+{block name="head"}
     <link rel="stylesheet" href="./css/connexion.css">
 {/block}
 

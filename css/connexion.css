@@ -8,10 +8,10 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-auto-rows: minmax(140px,auto);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     border-radius: 20px;
-    background-image: url(./backgroundConnexion.jpg);
+    background-image: url(../backgroundConnexion.jpg);
     background-size: cover;
     width: 85%;
 }
