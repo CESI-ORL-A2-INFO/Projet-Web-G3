@@ -1,50 +1,73 @@
-{extends file="navbar.tpl"}
+{extends file='navbar.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./home/home.css">
 {/block}
 
 {block name=content}
-    <div>
-        <section class="carousel" aria-label="Gallery">
-            <ol class="carousel__viewport">
-                <li id="carousel__slide1" tabindex="0" class="carousel__slide">
-                    <div class="carousel__snapper">
-                        <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
-                        <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
-                    </div>
-                </li>
-                <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-                    <div class="carousel__snapper"></div>
-                    <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-                    <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-                </li>
-                <li id="carousel__slide3" tabindex="0" class="carousel__slide">
-                    <div class="carousel__snapper"></div>
-                    <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-                    <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-                </li>
-                <li id="carousel__slide4" tabindex="0" class="carousel__slide">
-                    <div class="carousel__snapper"></div>
-                    <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-                    <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-                </li>
-            </ol>
-            <aside class="carousel__navigation">
-                <ol class="carousel__navigation-list">
-                    <li class="carousel__navigation-item">
-                        <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                        <a href="#carousel__slide2" class="carousel__navigation-button">Go to slide 2</a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                        <a href="#carousel__slide3" class="carousel__navigation-button">Go to slide 3</a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                        <a href="#carousel__slide4" class="carousel__navigation-button">Go to slide 4</a>
-                    </li>
-                </ol>
-            </aside>
-        </section>
+
+    <div class="card_container">
+        <div class="card one">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+        <div class="card two">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+        <div class="card three">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+        <div class="card four">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+        <div class="card five">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+        <div class="card six">
+            <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+            <h1 class="title">Offre 1</h1>
+            <p class="nomEntreprise">Nom de l'entreprise<br>
+            Secteur d'activité</p>
+            <p class="duree">Durée : Length</p>
+            <p class="promo">Promo : A2/A3 </p>
+            <p class="ville">Ville : ville</p>
+            <p class="competence">Competences : </p>
+        </div>
+    </div>
+    <div class="about">
+        <h1>Qui sommes nous ?</h1>
+        <p>lorem ipsum</p>
     </div>
 {/block}

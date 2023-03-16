@@ -16,7 +16,7 @@
                         style="margin-left: -5px"></i></button>
             </form>
         </div>
-        <a href="./index.php" id="nom">CESIstage</a>
+        <a href="./index.php" id="nom">C'Stage</a>
         <i class="fa-solid fa-house fa-2x"></i>
         <i class="fa-solid fa-square-plus fa-2x"></i>
         <i class="fa-solid fa-bookmark fa-2x"></i>
