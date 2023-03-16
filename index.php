@@ -8,11 +8,9 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 }
 // Controller
 $redirection = new Controller();
-
+$p = 'home';
 switch($p){
     default:
-        /* header('Location: ');
-        die(); */
         $redirection->connexion();
         break;
     case 'home':
