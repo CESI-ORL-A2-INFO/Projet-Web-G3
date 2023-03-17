@@ -4,7 +4,7 @@ class Database {
     private $user;
     private $pass;
     private $pdo;
-    public function __construct($host = 'localhost', $name = 'prosit 8', $user = 'root', $pass = '')
+    public function __construct($host = 'localhost', $name = 'projetweb', $user = 'root', $pass = '')
     {
         $this->dsn = "mysql:host=$host;dbname=$name";
         $this->user = $user;
