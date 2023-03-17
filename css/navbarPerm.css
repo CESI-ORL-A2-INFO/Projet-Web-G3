@@ -4,7 +4,7 @@
 
 .navbar {
     display: grid;
-    grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr;
     align-items: center;
     border-bottom: 2px solid black;
 }
@@ -74,8 +74,10 @@
     font-size: 34px;
 }
 
-.fa-solid {
+.icons {
     justify-self: center;
+    text-decoration: none;
+    color: black;
 }
 
 .fa-solid:hover {
@@ -88,10 +90,6 @@
 
 .fa-square-plus:hover {
     color: rgb(126, 224, 241);
-}
-
-.fa-bookmark:hover {
-    color: rgb(243, 84, 84);
 }
 
 .fa-user:hover {
