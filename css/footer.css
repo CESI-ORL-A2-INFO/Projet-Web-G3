@@ -2,14 +2,69 @@
     background-color: #565656;
     color: white; 
     padding: 3%;
+    height: 120px;
 }
 
 #join {
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
-#message1 {
+.text {
+    float: left;
 }
 
-#message2 {
+.social {
+    float: right;
+    padding: 2%;
+    width: 300px;
+    text-decoration: none;
+}
+
+.a {
+    color: white;
+}
+
+.fa-twitter {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.fa-instagram {
+    margin-right: 5%;
+}
+
+.twit:hover {
+    color: rgb(94, 94, 232);
+}
+
+.face:hover {
+    color:rgb(115, 115, 213);
+}
+
+.insta:hover {
+    color: rgb(244, 94, 94);
+}
+
+.linked:hover {
+    color: rgb(37, 37, 155);
+}
+
+.bas {
+    float: left;
+    width: 80%;
+    padding-left: 10%;
+}
+
+#textbas {
+    float: left;
+    margin-right: 5%;
+}
+
+#cookie {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.bot {
+    color: white;
 }
