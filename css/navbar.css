@@ -1,7 +1,6 @@
 * {
     margin: 0px;
 }
-
 .navbar {
     display: grid;
     grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr 1fr;
@@ -41,7 +40,7 @@
     padding-left: 20px;
     align-content: center;
     font-size: 18px;
-    width: 70%; 
+    width: 70%;
     height: 100%;
     border: 2px solid rgb(94, 94, 94);
 }
@@ -98,4 +97,54 @@
 
 .fa-user:hover {
     color: gray;
+}
+
+@media only screen and (max-width: 830px) {
+    .navbar {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        align-items: center;
+        border-bottom: 2px solid black;
+    }
+    #nom{
+        display:none;
+    }
+    .wrapleft {
+        border-right: none;
+    }
+    .icons {
+        text-decoration: none;
+        color: black;
+        flex-wrap: nowrap;
+    }
+    .fa-house{
+        grid-column: 2;
+        grid-row:1;
+    }
+    .fa-square-plus{
+        grid-column: 3;
+        grid-row:1;
+    }
+    .fa-bookmark{
+        grid-column: 4;
+        grid-row:1;
+    }
+    .fa-user{
+        grid-column: 5;
+        grid-row:1;
+    }
+
+    #logo{
+        grid-column: 1;
+        grid-row : 1;
+    }
+    #search{
+        grid-row: 3;
+    }
+    #butSearch{
+        margin-left:10px;
+    }
+    #searchbar{
+        display :none;
+    }
 }
