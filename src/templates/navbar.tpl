@@ -1,5 +1,5 @@
-{extends file="index.tpl"}
-{block name="head"}
+{extends file="footer.tpl"}
+{block name="navbarcss"}
     <link rel="stylesheet" href="./css/navbar.css">
     {block name="include"}
         
@@ -17,9 +17,9 @@
             </form>
         </div>
         <a href="./index.php" id="nom">C'Stage</a>
-        <i class="fa-solid fa-house fa-2x"></i>
-        <i class="fa-solid fa-square-plus fa-2x"></i>
-        <i class="fa-solid fa-bookmark fa-2x"></i>
-        <i class="fa-solid fa-user fa-2x"></i>
+        <a href="./index.php?p=home" class="icons"><i class="fa-solid fa-house fa-2x"></i></a>
+        <a href="./index.php?p=search" class="icons"><i class="fa-solid fa-square-plus fa-2x"></i></a>
+        <a href="./index.php?p=suivi" class="icons"><i class="fa-solid fa-bookmark fa-2x"></i></a>
+        <a href="./index.php?p=profilEtud" class="icons"><i class="fa-solid fa-user fa-2x"></i></a>
     </header>
 {/block}

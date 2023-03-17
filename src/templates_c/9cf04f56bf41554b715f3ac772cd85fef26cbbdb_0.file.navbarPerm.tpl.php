@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-16 16:13:06
+/* Smarty version 4.2.1, created on 2023-03-17 09:12:14
   from 'C:\www\Projet-Web-G3\src\templates\navbarPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641332029ee229_38075084',
+  'unifunc' => 'content_641420de4e5c01_26394726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9cf04f56bf41554b715f3ac772cd85fef26cbbdb' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\navbarPerm.tpl',
-      1 => 1678978932,
+      1 => 1679040369,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641332029ee229_38075084 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641420de4e5c01_26394726 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_808795697641332029ecab1_65036284', "head");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_290959540641420de4e4821_26776816', "head");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_796342727641332029edac5_02763783', 'navbar');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1825479147641420de4e5661_84138770', 'navbar');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "index.tpl");
 }
 /* {block "include"} */
-class Block_2093668043641332029ecf80_89878244 extends Smarty_Internal_Block
+class Block_1890000314641420de4e4d24_80314456 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -48,16 +48,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block "head"} */
-class Block_808795697641332029ecab1_65036284 extends Smarty_Internal_Block
+class Block_290959540641420de4e4821_26776816 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_808795697641332029ecab1_65036284',
+    0 => 'Block_290959540641420de4e4821_26776816',
   ),
   'include' => 
   array (
-    0 => 'Block_2093668043641332029ecf80_89878244',
+    0 => 'Block_1890000314641420de4e4d24_80314456',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -65,7 +65,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <link rel="stylesheet" href="./css/navbarPerm.css">
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2093668043641332029ecf80_89878244', "include", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1890000314641420de4e4d24_80314456', "include", $this->tplIndex);
 ?>
 
 <?php
@@ -73,12 +73,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_209366804364133202
 }
 /* {/block "head"} */
 /* {block 'navbar'} */
-class Block_796342727641332029edac5_02763783 extends Smarty_Internal_Block
+class Block_1825479147641420de4e5661_84138770 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'navbar' => 
   array (
-    0 => 'Block_796342727641332029edac5_02763783',
+    0 => 'Block_1825479147641420de4e5661_84138770',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -94,9 +94,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             </form>
         </div>
         <a href="./index.php" id="nom">C'Stage</a>
-        <i class="fa-solid fa-house fa-2x"></i>
-        <i class="fa-solid fa-square-plus fa-2x"></i>
-        <i class="fa-solid fa-user fa-2x"></i>
+        <a href="./index.php?p=homePilote" class="icons"><i class="fa-solid fa-house fa-2x"></i></a>
+        <a href="./index.php?p=search" class="icons"><i class="fa-solid fa-square-plus fa-2x"></i></a>
+        <a href="./index.php?p=profilPil" class="icons"><i class="fa-solid fa-user fa-2x"></i></a>
     </header>
 <?php
 }

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {* <link rel="stylesheet" href="navbar.css"> *}
     {block name="head"}{/block}
     <title>Home</title>
 </head>
@@ -19,7 +18,7 @@
         {/block}
     </main>
     <footer>
-        {block name=footer}
+        {block name="footer"}
             
         {/block}
     </footer>

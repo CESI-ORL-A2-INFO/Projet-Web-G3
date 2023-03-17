@@ -25,5 +25,11 @@ class Database {
         $statment = $this->pdo->prepare($request) == false ? die("Request failed") : $this->pdo->prepare($request);
         $statment->execute($param);
     }
+    public function executeReturn($request, $param = array())
+    {
+        $statment = $this->pdo->prepare($request) == false ? die("Request failed") : $this->pdo->prepare($request);
+        $statment->execute($param);
+        return $statment->fetchAll();
+    }
 }
 ?>

@@ -74,8 +74,10 @@
     font-size: 34px;
 }
 
-.fa-solid {
+.icons {
     justify-self: center;
+    text-decoration: none;
+    color: black;
 }
 
 .fa-solid:hover {
