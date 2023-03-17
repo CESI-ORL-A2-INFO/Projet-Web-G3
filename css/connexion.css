@@ -70,3 +70,79 @@
     justify-content: center;
     align-content: center;
 }
+
+@media only screen and (max-width: 830px){
+    .all {
+        display: flex;
+        justify-content: center;
+        margin-top: 6%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 6%;       
+    }
+    
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        border-radius: 20px;
+        background-image: url(../backgroundConnexion.jpg);
+        background-size: cover;
+        width: 100%;
+        padding: 12%;
+    }
+    
+    .wrapper h1 {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+        margin-top: 30%;
+        color: white;
+    }
+    
+    .wrapper h2 {
+        grid-column: 2;
+        grid-row: 2/4;
+        margin-left: 20%;
+        color: white;
+    }
+    
+    .form {
+        grid-row: 4/4;
+        margin:10%;
+        margin-top: 15%;
+        margin-right: 12%;
+        border-radius: 20px;
+        background-image: url(../backgroundmobile.jpg);
+    }
+    
+    .champ {
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 70px;
+        width: 80%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 8%; 
+        margin-left: 5%;
+    }
+    
+    #forgorPassword {
+        margin-bottom: 5%;
+    }
+    
+    #connect {
+        width: 90%;
+        margin-bottom: 8%;
+    }
+    
+    #connect:hover {
+        background-color: rgb(199, 199, 199);
+    }
+    
+    #forgorPassword {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+}
