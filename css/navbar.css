@@ -103,13 +103,14 @@
     .navbar {
         display: grid;
         grid-template-columns: repeat(5,1fr);
-        align-items: center;
-        border-bottom: 2px solid black;
+        grid-template-rows: 1fr 1fr;
+
     }
     #nom{
         display:none;
     }
     .wrapleft {
+        display:grid;
         border-right: none;
     }
     .icons {
@@ -117,29 +118,13 @@
         color: black;
         flex-wrap: nowrap;
     }
-    .fa-house{
-        grid-column: 2;
-        grid-row:1;
-    }
-    .fa-square-plus{
-        grid-column: 3;
-        grid-row:1;
-    }
-    .fa-bookmark{
-        grid-column: 4;
-        grid-row:1;
-    }
-    .fa-user{
-        grid-column: 5;
-        grid-row:1;
-    }
-
     #logo{
-        grid-column: 1;
+        grid-column: 4;
         grid-row : 1;
     }
     #search{
-        grid-row: 3;
+        grid-column: 1;
+        grid-row: 2;
     }
     #butSearch{
         margin-left:10px;
