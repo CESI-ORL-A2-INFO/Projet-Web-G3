@@ -14,10 +14,10 @@
             <p id="message2">pouvoir suivre l'actualité CESI.</p>
         </div>
         <div class="social">
-            <a href="./index.php?p=home" class="face"><i class="fa-brands fa-facebook fa-3x a face"></i></a>
-            <a href="./index.php?p=home" class="twit"><i class="fa-brands fa-twitter fa-3x a twit"></i></a>
-            <a href="./index.php?p=home" class="insta"><i class="fa-brands fa-instagram fa-3x a insta"></i></a>
-            <a href="./index.php?p=home" class="linked"><i class="fa-brands fa-linkedin fa-3x a linked"></i></a>
+            <a href="https://www.facebook.com/CESIingenieurs/" class="face"><i class="fa-brands fa-facebook fa-3x a face"></i></a>
+            <a href="https://twitter.com/cesi_officiel?lang=fr" class="twit"><i class="fa-brands fa-twitter fa-3x a twit"></i></a>
+            <a href="https://www.instagram.com/cesi_officiel/?hl=fr" class="insta"><i class="fa-brands fa-instagram fa-3x a insta"></i></a>
+            <a href="https://fr.linkedin.com/school/cesi-officiel/" class="linked"><i class="fa-brands fa-linkedin fa-3x a linked"></i></a>
         </div>
         <div class="bas">
             <p id="textbas">© 2023 C'Stage</p>

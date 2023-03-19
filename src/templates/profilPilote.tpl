@@ -1,4 +1,4 @@
-{extends file='navbar.tpl'}
+{extends file='navbarPerm.tpl'}
 {block name="include"}
     <link rel="stylesheet" href="./css/profilPilote.css">
 {/block}
@@ -15,7 +15,7 @@
         <div class="form">
             <form action="index.php" method="post">
                 <div>
-                <input class="champ" id="Nom" type="text" value="" placeholder="Nom" readonly>
+                <input class="champ" id="name" type="text" value="" placeholder="Nom" readonly>
                 </div>
                 <div>
                 <input class="champ" id="Prenom" type="text" value="" placeholder="Prenom" readonly>

@@ -17,6 +17,12 @@
     justify-content: center;
     border: 2px solid;
     border-radius: 20px;
+    text-align: left;
+    overflow-x: hidden;
+}
+
+.card:hover {
+    background-color: #fff;
 }
 
 .logoEnt {
