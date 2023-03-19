@@ -46,10 +46,10 @@
 .champ {
     border: 1px solid black;
     border-radius: 10px;
-    width: 73.5%;
+    width: 80%;
     padding: 3%;
     background-color: mintcream;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -60,18 +60,15 @@ select {
     border-radius: 8px;
     box-shadow: 2px 2px 8px #999;
     background: #eee;
-
 }
 
-
-#promotion {
+.promotion {
     width: 80%;
     margin-left: 10%;
 }
 
-.radio {
-    margin-top: 3%;
-    margin-left: 12%;
+#last {
+    margin-bottom: 3%;
 }
 
 .wrapperStage {

@@ -9,7 +9,11 @@ class Database {
         $this->dsn = "mysql:host=$host;dbname=$name";
         $this->user = $user;
         $this->pass = $pass;
+        try {
         $this->pdo = new PDO($this->dsn, $this->user, $this->pass);
+        } catch (PDOException $e) {
+            die("Erreur !: " . $e->getMessage() . "<br/>");
+        }
     }
     public function getPDO()
     {
@@ -17,17 +21,18 @@ class Database {
     }
     public function query($request)
     {
-        $statment = $this->pdo->query($request) == false ? die("Request failed") : $this->pdo->query($request);
+        $statment = $this->pdo->query($request);
         return $statment->fetchall();
     }
     public function execute($request, $param = array())
     {
-        $statment = $this->pdo->prepare($request) == false ? die("Request failed") : $this->pdo->prepare($request);
-        $statment->execute($param);
+        $statment = $this->pdo->prepare($request);
+        return         $statment->execute($param);
+
     }
     public function executeReturn($request, $param = array())
     {
-        $statment = $this->pdo->prepare($request) == false ? die("Request failed") : $this->pdo->prepare($request);
+        $statment = $this->pdo->prepare($request);
         $statment->execute($param);
         return $statment->fetchAll();
     }
