@@ -1,9 +1,16 @@
-.all {
+* {
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.allh {
     display: flex;
     justify-content: center;
     margin-top: 6%;
     margin-left: 15%;
     margin-right: 15%;
+    margin-bottom: 6%;
 }
 
 .wrapper {
@@ -57,8 +64,8 @@
 }
 
 #connect {
-    width: 90%;
     margin-bottom: 8%;
+    width: 90%;
 }
 
 #connect:hover {
