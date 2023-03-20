@@ -17,19 +17,20 @@ class Controller
     public function home() // waiting
     {
         $lastOffres = $this->home->getOffrePage6();
-        $ville = $this->home->getVille6();        
-        $entr = $this->home->getEntr6();
         for ($i=5; $i >= 0; $i--) { 
             $promo[$i] = $this->home->getPromo($lastOffres[$i]['IdOffre']);
             $secteur[$i] = $this->home->getSecteur($lastOffres[$i]['IdOffre']);
             $comp[$i] = $this->home->getComp($lastOffres[$i]['IdOffre']);
+            $ville[$i] = $this->home->getVille($lastOffres[$i]['IdOffre']);        
+            $entr[$i] = $this->home->getEntr($lastOffres[$i]['IdOffre']);
         }
         for ($i = 0; $i < count($lastOffres); $i++) {
             $nomOffre[$i] = $lastOffres[$i]['nomOffre'];
             $duree[$i] = $lastOffres[$i]['DuréeStage'];
-            $nomEntr[$i] = $entr[$i]['NomEntreprise'];
-            $vil[$i] = $ville[$i]['Ville'];
+            $nomEntr[$i] = $entr[$i][0];
+            $vil[$i] = $ville[$i][0];
         }
+        print_r($vil);
         $this->tpl->assign('promo', $promo);
         $this->tpl->assign('competences', $comp);
         $this->tpl->assign('secteur', $secteur);
