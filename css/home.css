@@ -18,8 +18,8 @@
     border: 2px solid;
     border-radius: 20px;
     text-align: left;
-    overflow-x: hidden;
-}
+/*     overflow: hidden;
+ */}
 
 .card:hover {
     background-color: #fff;
@@ -63,8 +63,10 @@
 }
 
 .title {
+    grid-column: 2/4;
+    grid-row-gap: 1;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .nomEntreprise {

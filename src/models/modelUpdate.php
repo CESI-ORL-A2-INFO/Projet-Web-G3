@@ -13,7 +13,11 @@ class ModelUpdate
     }
     public function updStatutOffre(int $idEtud, int $idOffre, int $idStatut)
     {
-        return $this->bdd->execute("update postule set postule.IdStatut = ? where postule.IdEtudiant = ? and postule.IdOffre = ?", [($idStatut + 1), $idEtud, $idOffre]);
+        $this->bdd->execute("update postule set postule.IdStatut = ? where postule.IdEtudiant = ? and postule.IdOffre = ?", [($idStatut + 1), $idEtud, $idOffre]);
+    }
+    public function addStatutOffre(int $idEtud, int $idOffre, int $idStatut)
+    {
+        $this->bdd->execute("insert into postule values(?,?,?) ", [$idEtud, $idOffre, $idStatut + 1]);
     }
 }
 ?>

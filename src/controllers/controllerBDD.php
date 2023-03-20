@@ -1,11 +1,15 @@
 <?php
 require_once(RACINE_DIR . "/src/models/modelConnexion.php");
+require_once(RACINE_DIR . "/src/models/modelHomePage.php");
+
 class ControllerBDD {
 
     private $con;
+    private $home;
     public function __construct()
     {
         $this->con = new ModelConnexion();
+        $this->home = new ModelHomePage();
     }
     public function __destruct()
     {
@@ -37,6 +41,7 @@ class ControllerBDD {
     {
         return $this->con->idPilote($id);
     }
+
 }
 
 ?>
