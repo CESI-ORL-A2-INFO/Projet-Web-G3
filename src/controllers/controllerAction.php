@@ -16,5 +16,9 @@ class ControllerAction
     {
         $this->upd->updStatutOffre($idEtud, $idOffre, $idStatut);
     }
+    public function addStatutOffre(int $idEtud, int $idOffre, int $idStatut)
+    {
+        $this->upd->addStatutOffre($idEtud, $idOffre, $idStatut);
+    }
 }
 ?>
