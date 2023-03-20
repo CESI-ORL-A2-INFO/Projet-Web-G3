@@ -7,18 +7,18 @@
     <div class="wrapper">
         <div id="left">
             <h1>Profile</h1>
-            <h3>Le site qui te fera avancer</h3>
+            <h3>Etudiant</h3>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
         <div class="form">
             <div>
-                <input class="champ" id="name" type="text" value="" placeholder="{$nom}" readonly>
-                <input class="champ" id="Prenom" type="text" value="" placeholder="{$prenom}" readonly>
-                <input class="champ" id="centre" type="text" value="" placeholder="{$centre}" readonly>
-                <input class="champ" id="pilote" type="text" value="" placeholder="{$nomPilote} {$prenomPilote}" readonly>
-                <input class="champ" id="last" type="text" value="" placeholder="{$promo}" readonly>        
+                <input class="champ" id="name" type="text" value="" placeholder="Nom : {$nom}" readonly>
+                <input class="champ" id="Prenom" type="text" value="" placeholder="Prénom : {$prenom}" readonly>
+                <input class="champ" id="centre" type="text" value="" placeholder="Centre : {$centre}" readonly>
+                <input class="champ" id="pilote" type="text" value="" placeholder="Pilote : {$nomPilote} {$prenomPilote}" readonly>
+                <input class="champ" id="last" type="text" value="" placeholder="Promotion : {$promo}" readonly>        
             </div>
         </div>
     </div>

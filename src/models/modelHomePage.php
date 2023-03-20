@@ -20,13 +20,13 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage from offre ORDER BY offre.IdOffre desc LIMIT 0,6");
     }
-    public function getVille6()
+    public function getVille(int $id)
     {
-        return $this->bdd->executeReturn("select adresse.Ville from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise left join se_situe on entreprise.IdEntreprise = se_situe.IdEntreprise left join adresse on se_situe.IdAdresse = adresse.IdAdresse order by offre.IdOffre LIMIT 0,6");
+        return $this->bdd->executeReturn("select adresse.Ville from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise left join se_situe on entreprise.IdEntreprise = se_situe.IdEntreprise left join adresse on se_situe.IdAdresse = adresse.IdAdresse where offre.IdOffre = ?", [$id]);
     }
-    public function getEntr6()
+    public function getEntr(int $id)
     {
-        return $this->bdd->executeReturn("select entreprise.NomEntreprise from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise order by offre.IdOffre LIMIT 0,6");
+        return $this->bdd->executeReturn("select entreprise.NomEntreprise from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise where offre.IdOffre = ?", [$id]);
     }
     public function getComp(int $id)
     {
