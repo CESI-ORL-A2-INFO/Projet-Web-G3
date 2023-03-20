@@ -47,6 +47,9 @@
         <p class="descr">{$descr}</p>
         <form action="./index.php" method="post">
             <select class="statut" name="statut">
+                {if $currentStatut == array()}
+                    <option value="" selected>null</option>
+                {/if}
                 {foreach $statut as $stat key=$k}
                     {if $stat[0] == $currentStatut}
                         <option value="{$k}" selected>{$stat[0]}</option>

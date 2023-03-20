@@ -62,8 +62,12 @@ if (isset($_GET['action'])) {
     }
 }
 
-if (isset($_POST['statut'])) {
-    $change->changeStatutOffre($_SESSION['idTypeUser'], $_SESSION['offre'], $_POST['statut']);
+if (isset($_POST['statut']) && $_POST['statut'] != null) {
+    if ($redirection->haveCurrentStatut($_SESSION['offre'], $_SESSION['idTypeUser']) == true){
+        $change->changeStatutOffre($_SESSION['idTypeUser'], $_SESSION['offre'], $_POST['statut']);
+    } else {
+        $change->addStatutOffre($_SESSION['idTypeUser'], $_SESSION['offre'], $_POST['statut']);
+    }
 }
 
 /* var_dump($_SESSION['p']);

@@ -16,16 +16,27 @@ class Controller
     }
     public function home() // waiting
     {
-        /* $lastOffres = $this->home->getOffrePage6();
-        for ($i = 0; $i < count($lastOffres); $i++) {
-
+        $lastOffres = $this->home->getOffrePage6();
+        $ville = $this->home->getVille6();        
+        $entr = $this->home->getEntr6();
+        for ($i=5; $i >= 0; $i--) { 
+            $promo[$i] = $this->home->getPromo($lastOffres[$i]['IdOffre']);
+            $secteur[$i] = $this->home->getSecteur($lastOffres[$i]['IdOffre']);
+            $comp[$i] = $this->home->getComp($lastOffres[$i]['IdOffre']);
         }
-        $ville = $this->home->getVille6($idOffres);
-        $competences = $this->home->getComp6($idOffres);
-        $promo = $this->home->getPromo6($idOffres);
-        $entr = $this->home->getEntr6($idOffres);
-        $this->tpl->assign('nomOffre', $idOffres);
-        $this->tpl->assign('nomEntr', $entr); */
+        for ($i = 0; $i < count($lastOffres); $i++) {
+            $nomOffre[$i] = $lastOffres[$i]['nomOffre'];
+            $duree[$i] = $lastOffres[$i]['DuréeStage'];
+            $nomEntr[$i] = $entr[$i]['NomEntreprise'];
+            $vil[$i] = $ville[$i]['Ville'];
+        }
+        $this->tpl->assign('promo', $promo);
+        $this->tpl->assign('competences', $comp);
+        $this->tpl->assign('secteur', $secteur);
+        $this->tpl->assign('nomOffre', $nomOffre);
+        $this->tpl->assign('nomEntr', $nomEntr); 
+        $this->tpl->assign('ville', $vil);
+        $this->tpl->assign('duree', $duree);
         $this->tpl->display('home.tpl');
     }
     public function connexion() // finished
@@ -120,7 +131,11 @@ class Controller
         $this->tpl->assign('paie', $lastOffre[0]['Paie']);
         $this->tpl->assign('mail', $lastOffre[0]['adresse_mail']);
         $this->tpl->assign('statut', $statut);
-        $this->tpl->assign('currentStatut', $currentStatut[0]['statut']);
+        if ($currentStatut != array()) {
+            $this->tpl->assign('currentStatut', $currentStatut[0]['statut']);
+        } else {
+            $this->tpl->assign('currentStatut', null);
+        }
         $this->tpl->display('offre.tpl');
         return $lastOffre[0]['IdOffre'];
     }
@@ -147,7 +162,11 @@ class Controller
         $this->tpl->assign('paie', $lastOffre[0]['Paie']);
         $this->tpl->assign('mail', $lastOffre[0]['adresse_mail']);
         $this->tpl->assign('statut', $statut);
-        $this->tpl->assign('currentStatut', $currentStatut[0]['statut']);
+        if ($currentStatut != array()) {
+            $this->tpl->assign('currentStatut', $currentStatut[0]['statut']);
+        } else {
+            $this->tpl->assign('currentStatut', null);
+        }
         $this->tpl->display('offre.tpl');
     }
     public function promotionPerm() // not started
@@ -165,6 +184,13 @@ class Controller
     public function searchPerm() // not started
     {
         $this->tpl->display('searchPerm.tpl');
+    }
+    public function haveCurrentStatut(int $idOffre, $idEtud)
+    {
+        if ($this->home->getStatutEtud($idOffre, $idEtud) != array()) {
+            return true;
+        }
+        return false;
     }
 }
 

@@ -20,21 +20,17 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage from offre ORDER BY offre.IdOffre desc LIMIT 0,6");
     }
-    public function getVille6(array $idOffre)
+    public function getVille6()
     {
-        return $this->bdd->executeReturn("", $idOffre);
+        return $this->bdd->executeReturn("select adresse.Ville from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise left join se_situe on entreprise.IdEntreprise = se_situe.IdEntreprise left join adresse on se_situe.IdAdresse = adresse.IdAdresse order by offre.IdOffre LIMIT 0,6");
     }
-    public function getEntr6(array $idOffre)
+    public function getEntr6()
     {
-        return $this->bdd->executeReturn("", $idOffre);
+        return $this->bdd->executeReturn("select entreprise.NomEntreprise from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise order by offre.IdOffre LIMIT 0,6");
     }
-    public function getPromo6(array $idOffre)
+    public function getComp(int $id)
     {
-        return $this->bdd->executeReturn("", $idOffre);
-    }
-    public function getComp6(array $idOffre)
-    {
-        return $this->bdd->executeReturn("", $idOffre);
+        return $this->bdd->executeReturn("select offre.IdOffre, compétences.Compétences, demande.niveau from offre left join demande on offre.IdOffre = demande.IdOffre left join compétences on demande.IdComp = compétences.IdComp where offre.IdOffre = ?", [$id]);
     }
     public function getOffre(int $idOffre)
     {
