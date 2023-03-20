@@ -21,7 +21,6 @@ $controlBDD = new ControllerBDD();
 $change = new ControllerAction();
 $isAdmin = false;
 
-
 if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     $connected = $controlBDD->verifConnexion($_POST['mail'], $_POST['mdp']);
     if ($connected != null) {
@@ -74,8 +73,14 @@ if (isset($_POST['statut']) && $_POST['statut'] != null) {
 var_dump($_SESSION['isAdmin']);
 var_dump($_SESSION['typeUser']);
 */
+$deco = false;
 
-if (isset($_SESSION['id_user'])) {
+if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == true){
+    session_destroy();
+    $deco = true;
+}
+
+if (isset($_SESSION['id_user']) && $deco == false) {
     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
             case 'profilEtud':

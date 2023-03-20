@@ -23,6 +23,9 @@
         </div>
     </div>
     <div class="wrapperStage">
+    <form method="get" action="index.php">
+        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+    </form>
 
     </div>
 {{/block}}
