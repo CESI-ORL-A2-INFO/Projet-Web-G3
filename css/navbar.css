@@ -115,8 +115,8 @@
     .wrapleft {
         border-right: 2px solid gray;
         display: block;
-        /*grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;*/
+        border-right: none;
+
     }
 
 
