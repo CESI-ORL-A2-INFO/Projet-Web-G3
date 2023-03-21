@@ -1,5 +1,6 @@
 <?php
-class Database {
+class Database
+{
     private $dsn;
     private $user;
     private $pass;
@@ -10,7 +11,7 @@ class Database {
         $this->user = $user;
         $this->pass = $pass;
         try {
-        $this->pdo = new PDO($this->dsn, $this->user, $this->pass);
+            $this->pdo = new PDO($this->dsn, $this->user, $this->pass);
         } catch (PDOException $e) {
             die("Erreur !: " . $e->getMessage() . "<br/>");
         }
@@ -27,7 +28,7 @@ class Database {
     public function execute($request, $param = array())
     {
         $statment = $this->pdo->prepare($request);
-        return         $statment->execute($param);
+        return $statment->execute($param);
 
     }
     public function executeReturn($request, $param = array())
