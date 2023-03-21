@@ -16,9 +16,9 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, offre.DuréeStage, offre.DateDebut, offre.Paie, offre.NbrePlace, offre.DateEmission, offre.Description, entreprise.NomEntreprise, mail.adresse_mail FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise LEFT JOIN mail ON offre.Id_Adresse =  mail.Id_Adresse WHERE offre.IdOffre = ?", [$idOffre]);
     }
-    public function getIdLastOffre(int $nbOffre)
+    public function getIdLastOffre(int $nbOffre, int $offset)
     {
-        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc LIMIT " . $nbOffre . " ");
+        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc LIMIT ". $offset ."," . $nbOffre . " ");
     }
     public function getOffrePage6()
     {

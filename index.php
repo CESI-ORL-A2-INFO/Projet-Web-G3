@@ -62,7 +62,7 @@ if (isset($_GET['offreLast'])) {
 
 // Offre other pages
 
-if (isset($_GET['offre'])){
+if (isset($_GET['offre'])) {
     $_SESSION['offre'] = $_GET['offre'];
     $_SESSION['p'] = 'offre';
 }
@@ -98,6 +98,24 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
 if (isset($_GET['entr'])) {
     $_SESSION['p'] = 'profilEntr';
     $_SESSION['entr'] = $_GET['entr'];
+}
+
+// Commentaire entreprise
+
+if (isset($_POST['action']) && $_SESSION['p'] == 'profilEntr') {
+    if ($_POST['action'] == 'add') {
+        $change->addCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
+    } else if ($_POST['action'] == 'upd'){
+        $change->updCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
+    } else if ($_POST['action'] == 'del'){
+        $change->delCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr']);
+    }
+}
+
+// Suivi
+
+if (isset($_GET['bookmark']) && $_GET['bookmark'] == true) {
+    $change->isBook((int) $_SESSION['idTypeUser'], $_SESSION['offre']);
 }
 
 // Choix page
@@ -164,9 +182,6 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'suivi':
                 $redirection->suivi($_SESSION['idTypeUser']);
-                break;
-            case 'evalOffre':
-                $redirection->evalOffre($_SESSION['offre']);
                 break;
         }
     }
