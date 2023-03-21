@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-18 00:42:50
+/* Smarty version 4.2.1, created on 2023-03-21 13:16:46
   from 'C:\www\Projet-Web-G3\src\templates\suivi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6414fafa20c1d7_02134135',
+  'unifunc' => 'content_6419a02e8f6548_53298630',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bb08f43b4bb516b5be8d7d91e7cb1dcac8dfe6e' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\suivi.tpl',
-      1 => 1679096501,
+      1 => 1679401004,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6414fafa20c1d7_02134135 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419a02e8f6548_53298630 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6017138266414fafa20aa14_70541195', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13954355386419a02e8ea991_41547203', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8881500026414fafa20bca9_53324062', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7061891776419a02e8eb435_83437034', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_6017138266414fafa20aa14_70541195 extends Smarty_Internal_Block
+class Block_13954355386419a02e8ea991_41547203 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_6017138266414fafa20aa14_70541195',
+    0 => 'Block_13954355386419a02e8ea991_41547203',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,18 +52,54 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_8881500026414fafa20bca9_53324062 extends Smarty_Internal_Block
+class Block_7061891776419a02e8eb435_83437034 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_8881500026414fafa20bca9_53324062',
+    0 => 'Block_7061891776419a02e8eb435_83437034',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-    
+    <form class="cardContainer" method="get" action="./index.php">
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['card']->value, 'data', false, 'i');
+$_smarty_tpl->tpl_vars['data']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['i']->value => $_smarty_tpl->tpl_vars['data']->value) {
+$_smarty_tpl->tpl_vars['data']->do_else = false;
+?>
+            <button class="card" name="offre" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['IdOffre'];?>
+">
+                <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+                <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['data']->value['nomOffre'];?>
+</h3>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['data']->value['nomEntr'][0]['NomEntreprise'];?>
+<br>secteur :
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['data']->value['secteur'], 'sect');
+$_smarty_tpl->tpl_vars['sect']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['sect']->value) {
+$_smarty_tpl->tpl_vars['sect']->do_else = false;
+?>
+                        <?php echo $_smarty_tpl->tpl_vars['sect']->value['Secteur_Activite'];?>
+ /
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </h4>
+                <p class="debut">Date de début : <?php echo $_smarty_tpl->tpl_vars['data']->value['dateDebut'];?>
+</p>
+                <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['data']->value['duree'];?>
+ semaines</p>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['data']->value['ville'][$_smarty_tpl->tpl_vars['i']->value]['Ville'];?>
+</p>
+            </button>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    </form>
 <?php
 }
 }

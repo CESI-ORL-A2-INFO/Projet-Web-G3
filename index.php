@@ -60,6 +60,13 @@ if (isset($_GET['offreLast'])) {
     $_SESSION['p'] = 'offreLast';
 }
 
+// Offre other pages
+
+if (isset($_GET['offre'])){
+    $_SESSION['offre'] = $_GET['offre'];
+    $_SESSION['p'] = 'offre';
+}
+
 // Statut offre
 
 if (isset($_POST['statut']) && $_POST['statut'] != null) {
@@ -149,7 +156,7 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 $redirection->home();
                 break;
             case 'suivi':
-                $redirection->suivi();
+                $redirection->suivi($_SESSION['idTypeUser']);
                 break;
         }
     }
