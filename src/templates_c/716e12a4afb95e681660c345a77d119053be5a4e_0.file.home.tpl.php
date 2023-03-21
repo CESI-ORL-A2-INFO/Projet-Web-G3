@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-20 08:56:14
+/* Smarty version 4.2.1, created on 2023-03-20 15:30:59
   from 'C:\www\Projet-Web-G3\src\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6418119e0bebb4_88960114',
+  'unifunc' => 'content_64186e23906176_15782388',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '716e12a4afb95e681660c345a77d119053be5a4e' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\home.tpl',
-      1 => 1679298973,
+      1 => 1679322658,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6418119e0bebb4_88960114 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64186e23906176_15782388 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2794978196418119e0859f2_11341428', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_193411335264186e238cc723_52348509', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16361154906418119e087c15_46824205', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_28156622264186e238cd6c4_37213307', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_2794978196418119e0859f2_11341428 extends Smarty_Internal_Block
+class Block_193411335264186e238cc723_52348509 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_2794978196418119e0859f2_11341428',
+    0 => 'Block_193411335264186e238cc723_52348509',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_16361154906418119e087c15_46824205 extends Smarty_Internal_Block
+class Block_28156622264186e238cd6c4_37213307 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_16361154906418119e087c15_46824205',
+    0 => 'Block_28156622264186e238cd6c4_37213307',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -68,7 +68,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[0];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[0];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[5][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[5], 'sect');
@@ -83,7 +83,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[0];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[5], 'prom');
@@ -97,7 +97,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[0];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[5][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php
@@ -117,7 +117,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[1];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[1];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[4][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[4], 'sect');
@@ -131,7 +131,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[1];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[4], 'prom');
@@ -145,7 +145,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[1];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[4][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php
@@ -165,7 +165,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[2];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[2];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[3][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[3], 'sect');
@@ -179,7 +179,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[2];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[3], 'prom');
@@ -193,7 +193,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[2];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[3][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php
@@ -213,7 +213,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[3];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[3];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[2][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[2], 'sect');
@@ -227,7 +227,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[3];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[2], 'prom');
@@ -241,7 +241,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[3];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[2][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php
@@ -261,7 +261,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[4];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[4];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[1][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[1], 'sect');
@@ -275,7 +275,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[4];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[1], 'prom');
@@ -289,7 +289,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[4];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[1][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php
@@ -309,7 +309,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value[5];?>
 </h3>
-                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[5];?>
+                <h4 class="nomEntreprise"><?php echo $_smarty_tpl->tpl_vars['nomEntr']->value[0][0];?>
 <br>secteur :
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value[0], 'sect');
@@ -323,7 +323,7 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[5];?>
-</p>
+ semaines</p>
                 <p class="promo">Promo : 
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promo']->value[0], 'prom');
@@ -337,7 +337,7 @@ $_smarty_tpl->tpl_vars['prom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </p>
-                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[5];?>
+                <p class="ville">Ville : <?php echo $_smarty_tpl->tpl_vars['ville']->value[0][0];?>
 </p>
                 <p class="competence">Compétences : 
                 <?php

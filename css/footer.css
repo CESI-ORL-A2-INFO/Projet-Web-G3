@@ -3,6 +3,9 @@
     color: white; 
     padding: 3%;
     height: 120px;
+    position :relative;
+    bottom: 0;
+    width : 94%;
 }
 
 #join {
@@ -67,4 +70,21 @@
 
 .bot {
     color: white;
+}
+
+@media only screen and (max-width:830px)
+{
+    .foot {
+        position :relative;
+        bottom: 0;
+        display : grid;
+        grid-template-columns: 1fr;
+        grid-template-rows : 1fr;
+        background-color: #565656;
+        color: white; 
+        padding: 3%;
+        height: 20%;
+    }
+    
+    
 }

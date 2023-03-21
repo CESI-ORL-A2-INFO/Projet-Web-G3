@@ -4,9 +4,13 @@ require_once(RACINE_DIR . "/src/controllers/controllerPage.php");
 require_once(RACINE_DIR . "/src/controllers/controllerBDD.php");
 require_once(RACINE_DIR . "/src/controllers/controllerAction.php");
 
+// Session
+
 if (session_status() != 2) {
     session_start();
 }
+
+// Page
 
 if (isset($_GET['p']) && !empty($_GET['p'])) {
     $_SESSION['p'] = (string) strip_tags($_GET['p']);
@@ -20,6 +24,8 @@ $redirection = new Controller();
 $controlBDD = new ControllerBDD();
 $change = new ControllerAction();
 $isAdmin = false;
+
+// Connexion
 
 if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     $connected = $controlBDD->verifConnexion($_POST['mail'], $_POST['mdp']);
@@ -47,38 +53,40 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     }
 }
 
+// Offre home page
+
 if (isset($_GET['offreLast'])) {
     $_SESSION['offreLast'] = $_GET['offreLast'];
     $_SESSION['p'] = 'offreLast';
 }
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-    if ($action == 'modif') {
-        $_SESSION['p'] = 'offre';
-    } else {
-        $_SESSION['p'] = 'home';
-    }
-}
+// Statut offre
 
 if (isset($_POST['statut']) && $_POST['statut'] != null) {
-    if ($redirection->haveCurrentStatut($_SESSION['offre'], $_SESSION['idTypeUser']) == true){
+    if ($redirection->haveCurrentStatut($_SESSION['offre'], $_SESSION['idTypeUser']) == true) {
         $change->changeStatutOffre($_SESSION['idTypeUser'], $_SESSION['offre'], $_POST['statut']);
     } else {
         $change->addStatutOffre($_SESSION['idTypeUser'], $_SESSION['offre'], $_POST['statut']);
     }
 }
 
-/* var_dump($_SESSION['p']);
-var_dump($_SESSION['isAdmin']);
-var_dump($_SESSION['typeUser']);
-*/
+// Deconnexion session
 $deco = false;
 
-if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == true){
+if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == true) {
     session_destroy();
     $deco = true;
 }
+
+// Gestion search
+
+if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
+    $currentPage = (int) strip_tags($_GET['current_page']);
+} else if ($_SESSION['p'] == 'search') {
+    $currentPage = 1;
+}
+
+// Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
@@ -122,7 +130,7 @@ if (isset($_SESSION['id_user']) && $deco == false) {
     } else {
         switch ($_SESSION['p']) {
             case 'search':
-                $redirection->search();
+                $redirection->search($currentPage, 6);
                 break;
             case 'profilEtud':
                 $redirection->profilEtud($_SESSION['idTypeUser']);
@@ -148,63 +156,5 @@ if (isset($_SESSION['id_user']) && $deco == false) {
 } else {
     $redirection->connexion();
 }
-
-/* switch ($_SESSION['p']) {
-// Admin / Pilote
-case 'profilEtudPerm':
-$redirection->profilEtudPerm();
-break;
-case 'offrePerm':
-$redirection->offrePerm($_SESSION['offrePerm']);
-break;
-case 'profilEntrPerm':
-$redirection->profilEntrPerm();
-break;
-case 'promotionPerm':
-$redirection->promotionPerm();
-break;
-case 'searchPerm':
-$redirection->searchPerm();
-// Admin
-case 'profilPilPerm':
-$redirection->profilPilPerm();
-break;
-case 'homePerm':
-$redirection->homePerm();
-break;
-// Pilote / Student
-case 'profilPilote':
-$redirection->profilPilote();
-break;
-case 'suivi':
-$redirection->suivi();
-break;
-// Pilote
-case 'homePilote':
-$redirection->homePilote();
-break;
-// Student
-case 'search':
-$redirection->search();
-break;
-case 'profilEtud':
-$redirection->profilEtud();
-break;
-case 'offre':
-$redirection->offre($_SESSION['offre']);
-break;
-case 'profilEntr':
-$redirection->profilEntr();
-break;
-case 'promotion':
-$redirection->promotion();
-break;
-case 'home':
-$redirection->home();
-break;
-default:
-$redirection->connexion();
-break;
-} */
 
 ?>
