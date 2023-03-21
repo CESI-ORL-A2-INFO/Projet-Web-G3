@@ -21,7 +21,7 @@
                         {$prom['Promotion']} /
                     {/foreach}
                 </p>
-                <p class="ville">Ville : {$data['ville'][$i]['Ville']}</p>
+                <p class="ville">Ville : {$data['ville'][0]['Ville']}</p>
                 <p class="competence">Compétences :
                     {foreach $data['competences'] as $comp}
                         {$comp['Compétences']} - {$comp['niveau']} /

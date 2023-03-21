@@ -16,7 +16,7 @@
                 </h4>
                 <p class="debut">Date de début : {$data['dateDebut']}</p>
                 <p class="duree">Durée : {$data['duree']} semaines</p>
-                <p class="ville">Ville : {$data['ville'][$i]['Ville']}</p>
+                <p class="ville">Ville : {$data['ville'][0]['Ville']}</p>
             </button>
         {/foreach}
     </form>

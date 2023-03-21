@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-19 11:47:20
+/* Smarty version 4.2.1, created on 2023-03-22 00:47:52
   from 'C:\www\Projet-Web-G3\src\templates\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6416e83898f4f9_60252368',
+  'unifunc' => 'content_641a4228580713_52499132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '862df5ba529eb3a8d6715bf13c8ac9efbf36c310' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\offre.tpl',
-      1 => 1679222838,
+      1 => 1679442470,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6416e83898f4f9_60252368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a4228580713_52499132 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9112180246416e83897f3e6_73711063', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1477938905641a422856cb54_23666356', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_258645186416e83897fc68_64178238', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1991611643641a422856d5d9_85491216', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "navbar.tpl");
 }
 /* {block "include"} */
-class Block_9112180246416e83897f3e6_73711063 extends Smarty_Internal_Block
+class Block_1477938905641a422856cb54_23666356 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_9112180246416e83897f3e6_73711063',
+    0 => 'Block_1477938905641a422856cb54_23666356',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_258645186416e83897fc68_64178238 extends Smarty_Internal_Block
+class Block_1991611643641a422856d5d9_85491216 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_258645186416e83897fc68_64178238',
+    0 => 'Block_1991611643641a422856d5d9_85491216',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -65,7 +65,13 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="offre">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <a href="./index.php?" class="icons"><i class="fa-solid fa-bookmark fa-2x"></i></a>
+        <a href="./index.php?bookmark=true" class="icons" style="color: 
+        <?php if ($_smarty_tpl->tpl_vars['isBook']->value == array()) {?>
+            gray
+        <?php } else { ?>
+            red
+        <?php }?>
+        "><i class="fa-solid fa-bookmark fa-2x"></i></a>
         <h1 class="nomOffre"><?php echo $_smarty_tpl->tpl_vars['nomOffre']->value;?>
 </h1>
         <a href="./index.php?p=profilEntr&entr=<?php echo $_smarty_tpl->tpl_vars['nomEntr']->value;?>
@@ -111,10 +117,10 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['i']->value => $_
 $_smarty_tpl->tpl_vars['add']->do_else = false;
 ?>
                 adresse : <?php echo $_smarty_tpl->tpl_vars['add']->value[0];?>
- <?php echo $_smarty_tpl->tpl_vars['add']->value[1];?>
- <?php echo $_smarty_tpl->tpl_vars['add']->value[2];?>
- <?php echo $_smarty_tpl->tpl_vars['add']->value[3];?>
- <?php echo $_smarty_tpl->tpl_vars['add']->value[4];?>
+, <?php echo $_smarty_tpl->tpl_vars['add']->value[1];?>
+, <?php echo $_smarty_tpl->tpl_vars['add']->value[3];?>
+, <?php echo $_smarty_tpl->tpl_vars['add']->value[2];?>
+, <?php echo $_smarty_tpl->tpl_vars['add']->value[4];?>
 
             <?php
 }
@@ -178,6 +184,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <button type="submit">Changer le statut</button>
         </form>
     </div>
+    
 <?php
 }
 }
