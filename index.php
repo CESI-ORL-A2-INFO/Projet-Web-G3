@@ -93,6 +93,13 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = 1;
 }
 
+// Profil entreprise
+
+if (isset($_GET['entr'])) {
+    $_SESSION['p'] = 'profilEntr';
+    $_SESSION['entr'] = $_GET['entr'];
+}
+
 // Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
@@ -150,13 +157,16 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 $redirection->offre($_SESSION['offre'], $_SESSION['idTypeUser']);
                 break;
             case 'profilEntr':
-                $redirection->profilEntr();
+                $redirection->profilEntr($_SESSION['entr'], $_SESSION['idTypeUser']);
                 break;
             case 'home':
                 $redirection->home();
                 break;
             case 'suivi':
                 $redirection->suivi($_SESSION['idTypeUser']);
+                break;
+            case 'evalOffre':
+                $redirection->evalOffre($_SESSION['offre']);
                 break;
         }
     }

@@ -61,4 +61,5 @@
             <button type="submit">Changer le statut</button>
         </form>
     </div>
+    
 {/block}

@@ -25,11 +25,13 @@ class Controller
             $entr[$i] = $this->home->getEntr($lastOffres[$i]['IdOffre']);
         }
         for ($i = 0; $i < count($lastOffres); $i++) {
+            $idOffre[$i] = $lastOffres[$i]['IdOffre'];
             $nomOffre[$i] = $lastOffres[$i]['nomOffre'];
             $duree[$i] = $lastOffres[$i]['DuréeStage'];
             $nomEntr[$i] = $entr[$i][0];
             $vil[$i] = $ville[$i][0];
         }
+        $this->tpl->assign('idOffre', $idOffre);
         $this->tpl->assign('promo', $promo);
         $this->tpl->assign('competences', $comp);
         $this->tpl->assign('secteur', $secteur);
@@ -104,8 +106,16 @@ class Controller
     {
         $this->tpl->display('profilEntrPerm.tpl');
     }
-    public function profilEntr() // not started
+    public function profilEntr(string $nomEntr, int $idUser) // not started
     {
+        $infoEntr = $this->home->getEntrByName($nomEntr);
+        $comPilote = $this->home->getComPilote($infoEntr[0]['IdEntreprise']);
+        $comEtud = $this->home->getComEtud($infoEntr[0]['IdEntreprise']);
+        $comEtudIdUser = $this->home->getComEtudById($infoEntr[0]['IdEntreprise'], $idUser);
+        $this->tpl->assign('infoEntr', $infoEntr[0]);
+        $this->tpl->assign('comUser', $comEtudIdUser[0]);
+        $this->tpl->assign('comPil', $comPilote);
+        $this->tpl->assign('comEtud', $comEtud);
         $this->tpl->display('profilEntr.tpl');
     }
     public function profilPilote() // waiting
@@ -115,22 +125,43 @@ class Controller
     public function suivi(int $idUser) // not started
     {
         $suivi = $this->home->getSuivi($idUser);
-        $temp = $this->home->getOffre($suivi[0]['IdOffre']);
-        for ($i = 0; $i < count($suivi); $i++) {
-            $card[$i]['IdOffre'] = $temp[0]['IdOffre'];
-            $card[$i]['nomOffre'] = $temp[0]['nomOffre'];
-            $card[$i]['duree'] = $temp[0]['DuréeStage'];
-            $card[$i]['dateDebut'] = $temp[0]['DateDebut'];
-            $card[$i]['secteur'] = $this->home->getSecteur($temp[$i]['IdOffre']);
-            $card[$i]['ville'] = $this->home->getVille($temp[$i]['IdOffre']);
-            $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i]['IdOffre']);
+        if ($suivi != null) {
+            $temp = $this->home->getOffre($suivi[0]['IdOffre']);
+            for ($i = 0; $i < count($suivi); $i++) {
+                $card[$i]['IdOffre'] = $temp[0]['IdOffre'];
+                $card[$i]['nomOffre'] = $temp[0]['nomOffre'];
+                $card[$i]['duree'] = $temp[0]['DuréeStage'];
+                $card[$i]['dateDebut'] = $temp[0]['DateDebut'];
+                $card[$i]['secteur'] = $this->home->getSecteur($temp[$i]['IdOffre']);
+                $card[$i]['ville'] = $this->home->getVille($temp[$i]['IdOffre']);
+                $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i]['IdOffre']);
+            }
+        } else {
+            $card = [];
         }
         $this->tpl->assign('card', $card);
         $this->tpl->display('suivi.tpl');
     }
-    public function profilEtud(int $id) // waiting
+    public function profilEtud(int $idUser) // waiting
     {
-        $etudiant = $this->profilEtud->getInfo($id);
+        $etudiant = $this->profilEtud->getInfo($idUser);
+        $idOffre = $this->home->getIdPostule($idUser);
+        if ($idOffre != null) {
+            $temp = $this->home->getOffre($idOffre[0]['IdOffre']);
+            for ($i = 0; $i < 1; $i++) {
+                $card[$i]['IdOffre'] = $temp[0]['IdOffre'];
+                $card[$i]['nomOffre'] = $temp[0]['nomOffre'];
+                $card[$i]['duree'] = $temp[0]['DuréeStage'];
+                $card[$i]['dateDebut'] = $temp[0]['DateDebut'];
+                $card[$i]['secteur'] = $this->home->getSecteur($temp[$i]['IdOffre']);
+                $card[$i]['ville'] = $this->home->getVille($temp[$i]['IdOffre']);
+                $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i]['IdOffre']);
+                $card[$i]['statut'] = $this->home->getStatutEtud($temp[$i]['IdOffre'], $idUser);
+            }
+        } else {
+            $card = [];
+        }
+        $this->tpl->assign('card', $card);
         $this->tpl->assign('nom', $etudiant[0]['NomEtudiant']);
         $this->tpl->assign('prenom', $etudiant[0]['PrenomEtudiant']);
         $this->tpl->assign('centre', $etudiant[0]['Centre']);
@@ -177,8 +208,9 @@ class Controller
         $adresse = $this->home->getAdresse($lastOffre[0]['IdOffre']);
         $promo = $this->home->getPromo($lastOffre[0]['IdOffre']);
         $secteur = $this->home->getSecteur($lastOffre[0]['IdOffre']);
-        $statut = $this->home->getStatut();
         $currentStatut = $this->home->getStatutEtud($lastOffre[0]['IdOffre'], $id);
+        $statut = $this->home->getStatut();
+        $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $lastOffre[0]['NomEntreprise']);
         $this->tpl->assign('secteur', $secteur);
@@ -222,6 +254,11 @@ class Controller
             return true;
         }
         return false;
+    }
+    public function evalOffre(int $idOffre)
+    {
+
+        $this->tpl->display('evalOffre.tpl');
     }
 }
 
