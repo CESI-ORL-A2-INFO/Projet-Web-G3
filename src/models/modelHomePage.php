@@ -68,6 +68,10 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT COUNT(IdOffre) from offre");
     }
+    public function getSuivi(int $id)
+    {
+        return $this->bdd->executeReturn("SELECT enregistre.IdOffre FROM enregistre WHERE enregistre.IdEtudiant = ?", [$id]);
+    }
 }
 
 ?>

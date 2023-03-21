@@ -6,7 +6,7 @@
 {block name=content}
     <form class="cardContainer" method="get" action="./index.php">
         {foreach $card as $data key=$i}
-            <button class="card" name="offre" value="">
+            <button class="card" name="offre" value="{$data['IdOffre']}">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
                 <h3 class="title">{$data['nomOffre']}</h3>
                 <h4 class="nomEntreprise">{$data['nomEntr'][0]['NomEntreprise']}<br>secteur :

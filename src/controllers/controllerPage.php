@@ -50,6 +50,7 @@ class Controller
         // $id = $this->home->getIdLastOffre(1);
         $temp = $this->home->getOffre(2);
         for ($i = 0; $i < 1; $i++) {
+            $card[$i]['IdOffre'] = $temp[0]['IdOffre'];
             $card[$i]['nomOffre'] = $temp[0]['nomOffre'];
             $card[$i]['duree'] = $temp[0]['DuréeStage'];
             $card[$i]['dateDebut'] = $temp[0]['DateDebut'];
@@ -111,8 +112,20 @@ class Controller
     {
         $this->tpl->display('profilPilote.tpl');
     }
-    public function suivi() // not started
+    public function suivi(int $idUser) // not started
     {
+        $suivi = $this->home->getSuivi($idUser);
+        $temp = $this->home->getOffre($suivi[0]['IdOffre']);
+        for ($i = 0; $i < count($suivi); $i++) {
+            $card[$i]['IdOffre'] = $temp[0]['IdOffre'];
+            $card[$i]['nomOffre'] = $temp[0]['nomOffre'];
+            $card[$i]['duree'] = $temp[0]['DuréeStage'];
+            $card[$i]['dateDebut'] = $temp[0]['DateDebut'];
+            $card[$i]['secteur'] = $this->home->getSecteur($temp[$i]['IdOffre']);
+            $card[$i]['ville'] = $this->home->getVille($temp[$i]['IdOffre']);
+            $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i]['IdOffre']);
+        }
+        $this->tpl->assign('card', $card);
         $this->tpl->display('suivi.tpl');
     }
     public function profilEtud(int $id) // waiting
