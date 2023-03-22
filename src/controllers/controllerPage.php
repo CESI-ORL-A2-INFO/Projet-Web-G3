@@ -3,10 +3,12 @@ require(RACINE_DIR . "/src/lib/appSmartyLib.php");
 require_once(RACINE_DIR . "/src/models/modelHomePage.php");
 require_once(RACINE_DIR . "/src/models/modelProfil.php");
 require_once(RACINE_DIR . "/src/models/modelUpdate.php");
+require_once(RACINE_DIR . "/src/models/modelSearch.php");
 class Controller
 {
     private $tpl;
     private $home;
+    private $search;
     private $profilEtud;
     private $upd;
     public function __construct()
@@ -15,6 +17,7 @@ class Controller
         $this->home = new ModelHomePage();
         $this->profilEtud = new ModelProfil();
         $this->upd = new ModelUpdate();
+        $this->search = new modelSearch();
     }
     public function home() // waiting
     {
@@ -52,7 +55,7 @@ class Controller
         $nbOffre = $this->home->getNbOffre();
         $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        $id = $this->home->getIdLastOffre($nbParPage, $offset);
+        $id = $this->home->getIdLastOffre($nbParPage, $offset); //changer pour les fonctions search
         for ($i = 0; $i < count($id); $i++) {
             $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
             $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
@@ -321,7 +324,14 @@ class Controller
             return true;
         }
         return false;
+    }           
+    public function SearchOffre(String $Nom)
+        {
+            $request = $this->search->Search($Nom);
+            
+        }
     }
+    ?>
 }
 
 ?>
