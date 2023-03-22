@@ -7,7 +7,9 @@
     <form class="offre" method="post" action="./index.php">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
         <h1 class="nomOffre">{$nomOffre}</h1>
-        <h3 class="nomEntr">{$nomEntr}</h3>
+        <a href="./index.php?p=profilEntr&entr={$nomEntr}" class="nomEntr">
+            <h3 class="nomEntr">{$nomEntr}</h3>
+        </a>
         <ul class="secteur">
         {foreach $secteur as $sec}
             <li>

@@ -7,13 +7,13 @@ class Controller
 {
     private $tpl;
     private $home;
-    private $profilEtud;
+    private $profil;
     private $upd;
     public function __construct()
     {
         $this->tpl = new AppSmarty();
         $this->home = new ModelHomePage();
-        $this->profilEtud = new ModelProfil();
+        $this->profil = new ModelProfil();
         $this->upd = new ModelUpdate();
     }
     public function home() // waiting
@@ -143,7 +143,7 @@ class Controller
     }
     public function profilEtud(int $idUser) // waiting
     {
-        $etudiant = $this->profilEtud->getInfo($idUser);
+        $etudiant = $this->profil->getInfoEtud($idUser);
         $idOffre = $this->home->getIdPostule($idUser);
         if ($idOffre != null) {
             for ($i = 0; $i < count($idOffre); $i++) {
@@ -280,19 +280,16 @@ class Controller
         $this->tpl->assign('place', $lastOffre[0]['NbrePlace']);
         $this->tpl->assign('paie', $lastOffre[0]['Paie']);
         $this->tpl->assign('mail', $lastOffre[0]['adresse_mail']);
-        $this->tpl->display('offre.tpl');
+        $this->tpl->display('offrePerm.tpl');
         return $lastOffre[0]['IdOffre'];
     }
-    public function offrePil(int $idOffre, int $id) // not started
+    public function offrePil(int $idOffre) // not started
     {
         $lastOffre = $this->home->getOffre($idOffre);
         $comp = $this->home->getCompetences($lastOffre[0]['IdOffre']);
         $adresse = $this->home->getAdresse($lastOffre[0]['IdOffre']);
         $promo = $this->home->getPromo($lastOffre[0]['IdOffre']);
         $secteur = $this->home->getSecteur($lastOffre[0]['IdOffre']);
-        $currentStatut = $this->home->getStatutEtud($lastOffre[0]['IdOffre'], $id);
-        $statut = $this->home->getStatut();
-        $this->tpl->assign('isBook', $this->upd->getBook($id, $idOffre));
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $lastOffre[0]['NomEntreprise']);
@@ -307,13 +304,17 @@ class Controller
         $this->tpl->assign('place', $lastOffre[0]['NbrePlace']);
         $this->tpl->assign('paie', $lastOffre[0]['Paie']);
         $this->tpl->assign('mail', $lastOffre[0]['adresse_mail']);
-        $this->tpl->assign('statut', $statut);
-        if ($currentStatut != array()) {
-            $this->tpl->assign('currentStatut', $currentStatut[0]['statut']);
-        } else {
-            $this->tpl->assign('currentStatut', null);
-        }
-        $this->tpl->display('offre.tpl');
+        $this->tpl->display('offrePerm.tpl');
+    }
+    public function profilPil(int $idUser)
+    {
+        $pilote = $this->profil->getInfoPil($idUser);
+        $promo = $this->profil->getPromoPil($idUser);
+        $this->tpl->assign('nom', $pilote[0]['NomPilote']);
+        $this->tpl->assign('prenom', $pilote[0]['PrenomPilote']);
+        $this->tpl->assign('centre', $pilote[0]['Centre']);
+        $this->tpl->assign('promotion', $promo);
+        $this->tpl->display('profilPilote.tpl');
     }
     public function haveCurrentStatut(int $idOffre, $idEtud)
     {

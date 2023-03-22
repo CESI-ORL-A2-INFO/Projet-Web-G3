@@ -146,16 +146,16 @@ if (isset($_SESSION['id_user']) && $deco == false) {
     }*/ if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
             case 'profil':
-                $redirectionPil->profilPil();
+                $redirection->profilPil($_SESSION['idTypeUser']);
                 break;
             case 'home':
-                $redirectionPil->homePilote();
+                $redirection->homePilote();
                 break;
             case 'offre':
-                $redirectionPil->offrePil($_SESSION['offre']);
+                $redirection->offrePil($_SESSION['offre']);
                 break;
             case 'offreLast':
-                $_SESSION['offre'] = $redirectionPil->offreLastPil($_SESSION['offreLast'], $_SESSION['idTypeUser']);
+                $_SESSION['offre'] = $redirection->offreLastPil($_SESSION['offreLast']);
                 $_SESSION['p'] = 'offre';
                 break;
         }
