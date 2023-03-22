@@ -87,8 +87,31 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = (int) strip_tags($_GET['current_page']);
 } else if ($_SESSION['p'] == 'search') {
     $currentPage = 1;
+}// filtre search searchfiltre
+if (isset($_GET['filtre'])) {
+    $_SESSION['filtre'] = $_GET['filtre'];
+}
+else{
+    $_SESSION['filtre'] = "";
+}
+if (isset($_GET['search'])) {
+    $_SESSION['search'] = $_GET['search'];
+}
+else{
+    $_SESSION['search'] = "";
 }
 
+if (isset($_GET['searchfiltre'])) {
+    $_SESSION['searchfiltre'] = $_GET['searchfiltre'];
+}
+else{
+    $_SESSION['searchfiltre'] = "";
+}
+
+
+/* if(isset($_GET['search'])){
+    $redirection->search()
+} */
 // Profil entreprise
 
 if (isset($_GET['entr'])) {
@@ -162,7 +185,7 @@ if (isset($_SESSION['id_user']) && $deco == false) {
     } else {
         switch ($_SESSION['p']) {
             case 'search':
-                $redirection->search($currentPage, 6);
+                $redirection->search($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
                 break;
             case 'profilEtud':
                 $redirection->profilEtud($_SESSION['idTypeUser']);

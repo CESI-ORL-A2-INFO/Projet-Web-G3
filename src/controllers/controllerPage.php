@@ -3,18 +3,22 @@ require(RACINE_DIR . "/src/lib/appSmartyLib.php");
 require_once(RACINE_DIR . "/src/models/modelHomePage.php");
 require_once(RACINE_DIR . "/src/models/modelProfil.php");
 require_once(RACINE_DIR . "/src/models/modelUpdate.php");
+require_once(RACINE_DIR . "/src/models/modelSearch.php");
 class Controller
 {
     private $tpl;
     private $home;
     private $profilEtud;
     private $upd;
+
+    private $search;
     public function __construct()
     {
         $this->tpl = new AppSmarty();
         $this->home = new ModelHomePage();
         $this->profilEtud = new ModelProfil();
         $this->upd = new ModelUpdate();
+        $this->search = new modelSearch();
     }
     public function home() // waiting
     {
@@ -47,12 +51,32 @@ class Controller
     {
         $this->tpl->display('connexion.tpl');
     }
-    public function search(int $currentPage, int $nbParPage) // not started
+    public function search(int $currentPage, int $nbParPage, String $filtre, String $nom, String $nomfilter) // not started
     {
         $nbOffre = $this->home->getNbOffre();
         $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        $id = $this->home->getIdLastOffre($nbParPage, $offset);
+        switch($filtre){
+            default :
+                $id = $this->home->getIdLastOffre($nbParPage, $offset);// Juste pour offre sans filtre
+                break;
+            case "offre" :
+                $id = $this->search->Search($nom, $offset, $nbParPage);
+                break;
+            case "entreprise" :
+                $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
+                break;
+            case "comp" :
+                $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
+                break;
+            case "secteur" :
+                $id = $this->search->SearchSecteur($nom, $nomfilter, $offset, $nbParPage);
+                break;
+            case "promotion":
+                $id = $this->search->SearchPromo($nom, $nomfilter, $offset, $nbParPage);
+                break;
+        }
+        
         for ($i = 0; $i < count($id); $i++) {
             $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
             $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
@@ -68,6 +92,7 @@ class Controller
         }
         $this->tpl->assign('card', $card);
         $this->tpl->assign('lastPage', $lastPage);
+        $this->tpl->assign('content', $nom);
         $this->tpl->assign('current_page', $currentPage);
         $this->tpl->display('search.tpl');
     }
