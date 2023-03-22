@@ -19,6 +19,6 @@
         <a href="./index.php?p=home" id="nom">C'Stage</a>
         <a href="./index.php?p=home" class="icons"><i class="fa-solid fa-house fa-2x"></i></a>
         <a href="./index.php?p=search" class="icons"><i class="fa-solid fa-square-plus fa-2x"></i></a>
-        <a href="./index.php?p=profilPil" class="icons"><i class="fa-solid fa-user fa-2x"></i></a>
+        <a href="./index.php?p=profil" class="icons"><i class="fa-solid fa-user fa-2x"></i></a>
     </header>
 {/block}

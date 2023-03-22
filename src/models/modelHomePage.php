@@ -12,21 +12,29 @@ class ModelHomePage
     {
         $this->bdd = null;
     }
-    public function getOffrePage(int $lastOffre)
+    public function getOffrePage(int $idOffre)
     {
-        return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage, offre.Paie, offre.DateDebut, offre.NbrePlace, offre.DateEmission, offre.Description, mail.adresse_mail, entreprise.NomEntreprise from (offre left join mail on offre.Id_Adresse = mail.Id_Adresse) left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise ORDER BY offre.IdOffre desc LIMIT ".($lastOffre -1).",1");
+        return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, offre.DuréeStage, offre.DateDebut, offre.Paie, offre.NbrePlace, offre.DateEmission, offre.Description, entreprise.NomEntreprise, mail.adresse_mail FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise LEFT JOIN mail ON offre.Id_Adresse =  mail.Id_Adresse WHERE offre.IdOffre = ?", [$idOffre]);
+    }
+    public function getIdLastOffre(int $nbOffre, int $offset)
+    {
+        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc LIMIT ". $offset ."," . $nbOffre . " ");
     }
     public function getOffrePage6()
     {
         return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage from offre ORDER BY offre.IdOffre desc LIMIT 0,6");
     }
-    public function getVille6()
+    public function getVille(int $id)
     {
-        return $this->bdd->executeReturn("select adresse.Ville from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise left join se_situe on entreprise.IdEntreprise = se_situe.IdEntreprise left join adresse on se_situe.IdAdresse = adresse.IdAdresse order by offre.IdOffre LIMIT 0,6");
+        return $this->bdd->executeReturn("select adresse.Ville from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise left join se_situe on entreprise.IdEntreprise = se_situe.IdEntreprise left join adresse on se_situe.IdAdresse = adresse.IdAdresse where offre.IdOffre = ?", [$id]);
     }
-    public function getEntr6()
+    public function getEntr(int $id)
     {
-        return $this->bdd->executeReturn("select entreprise.NomEntreprise from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise order by offre.IdOffre LIMIT 0,6");
+        return $this->bdd->executeReturn("select entreprise.NomEntreprise from offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise where offre.IdOffre = ?", [$id]);
+    }
+    public function getEntrByName(string $nom)
+    {
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise, entreprise.NomEntreprise, adresse.NumRue, adresse.NomRue, adresse.Ville, adresse.CodePostale, adresse.Pays FROM entreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse WHERE entreprise.NomEntreprise = ?", [$nom]);
     }
     public function getComp(int $id)
     {
@@ -54,11 +62,39 @@ class ModelHomePage
     }
     public function getStatutEtud(int $idOffre, int $id)
     {
-        return $this->bdd->executeReturn("SELECT statutoffre.statut FROM (postule LEFT JOIN statutoffre on postule.IdStatut = statutoffre.IdStatut) WHERE postule.IdEtudiant = ? and postule.IdOffre = ?", [$id,$idOffre]);
+        return $this->bdd->executeReturn("SELECT statutoffre.statut FROM (postule LEFT JOIN statutoffre on postule.IdStatut = statutoffre.IdStatut) WHERE postule.IdEtudiant = ? and postule.IdOffre = ?", [$id, $idOffre]);
     }
     public function getStatut()
     {
         return $this->bdd->executeReturn("SELECT statutoffre.statut from statutoffre");
+    }
+    public function getNbOffre()
+    {
+        return $this->bdd->executeReturn("SELECT COUNT(IdOffre) from offre");
+    }
+    public function getSuivi(int $id)
+    {
+        return $this->bdd->executeReturn("SELECT enregistre.IdOffre FROM enregistre WHERE enregistre.IdEtudiant = ?", [$id]);
+    }
+    public function getIdPostule(int $idUser)
+    {
+        return $this->bdd->executeReturn("SELECT postule.IdOffre FROM postule WHERE postule.IdEtudiant = ?", [$idUser]);
+    }
+    public function getComEtud(int $id)
+    {
+        return $this->bdd->executeReturn("SELECT etudiant.NomEtudiant, etudiant.PrenomEtudiant, évalue_stagiaire.note, évalue_stagiaire.commentaire FROM évalue_stagiaire RIGHT JOIN etudiant ON évalue_stagiaire.IdEtudiant = etudiant.IdEtudiant WHERE évalue_stagiaire.IdEntreprise = ?", [$id]);
+    }
+    public function getComEtudById(int $idCom, int $idUser)
+    {
+        return $this->bdd->executeReturn("SELECT évalue_stagiaire.note, évalue_stagiaire.commentaire FROM évalue_stagiaire RIGHT JOIN etudiant ON évalue_stagiaire.IdEtudiant = etudiant.IdEtudiant WHERE évalue_stagiaire.IdEntreprise = ? AND évalue_stagiaire.IdEtudiant = ?", [$idCom, $idUser]);
+    }
+    public function getComPilote(int $id)
+    {
+        return $this->bdd->executeReturn("SELECT pilote.NomPilote, pilote.PrenomPilote, évalue_pilote.confiance, évalue_pilote.commentaire FROM évalue_pilote RIGHT JOIN pilote ON évalue_pilote.IdPilote = pilote.IdPilote WHERE évalue_pilote.IdEntreprise = ?", [$id]);
+    }
+    public function getOffreEntr(int $idEntr)
+    {
+        return $this->bdd->executeReturn("SELECT offre.IdOffre FROM offre WHERE offre.IdEntreprise = ?", [$idEntr]);
     }
 }
 
