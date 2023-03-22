@@ -3,7 +3,6 @@ define('RACINE_DIR', __DIR__);
 require_once(RACINE_DIR . "/src/controllers/controllerPage.php");
 require_once(RACINE_DIR . "/src/controllers/controllerBDD.php");
 require_once(RACINE_DIR . "/src/controllers/controllerAction.php");
-require_once(RACINE_DIR . "/src/controllers/controllerPagePil.php");
 
 // Session
 
@@ -22,7 +21,6 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 
 // Controller
 $redirection = new Controller();
-$redirectionPil = new controllerPagePil();
 $controlBDD = new ControllerBDD();
 $change = new ControllerAction();
 $isAdmin = false;
