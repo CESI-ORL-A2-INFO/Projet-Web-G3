@@ -13,18 +13,21 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
         <div class="form">
-            <form action="index.php" method="post">
-                <div>
-                <input class="champ" id="name" type="text" value="" placeholder="Nom" readonly>
-                </div>
-                <div>
-                <input class="champ" id="Prenom" type="text" value="" placeholder="Prenom" readonly>
-                </div>
-                <input class="champ" id="Centre" type="text" value="" placeholder="Orléans" readonly>
-            </form>
+            <input class="champ" id="name" type="text" value="" placeholder="{$nom}" readonly>
+            <input class="champ" id="Prenom" type="text" value="" placeholder="{$prenom}" readonly>
+            <input class="champ" id="Centre" type="text" value="" placeholder="{$centre}" readonly>
         </div>
     </div>
-    <div class="wrapperPromo">
-
-    </div>
+    <form method="get" action="index.php">
+        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+    </form>
+    <form class="wrapperPromo" method="get" action="index.php">
+        {foreach $promotion as $promo}
+            <button type="submit" name="promo" value="{$promo['IdPromo']}">
+                <h2 class="promotion">
+                    {$promo['Promotion']}
+                </h2>
+            </button>
+        {/foreach}
+    </form>
 {{/block}}
