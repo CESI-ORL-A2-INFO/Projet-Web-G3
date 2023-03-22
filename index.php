@@ -3,6 +3,7 @@ define('RACINE_DIR', __DIR__);
 require_once(RACINE_DIR . "/src/controllers/controllerPage.php");
 require_once(RACINE_DIR . "/src/controllers/controllerBDD.php");
 require_once(RACINE_DIR . "/src/controllers/controllerAction.php");
+require_once(RACINE_DIR . "/src/controllers/controllerPagePil.php");
 
 // Session
 
@@ -21,6 +22,7 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 
 // Controller
 $redirection = new Controller();
+$redirectionPil = new controllerPagePil();
 $controlBDD = new ControllerBDD();
 $change = new ControllerAction();
 $isAdmin = false;
@@ -34,7 +36,6 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
         $isAdmin = $controlBDD->isAdmin($connected);
         if ($isAdmin == true) {
             $_SESSION['isAdmin'] = $isAdmin;
-            $_SESSION['p'] = 'homePerm';
         } else {
             $_SESSION['isAdmin'] = false;
         }
@@ -42,14 +43,11 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
         if ($isPilote != null) {
             $_SESSION['typeUser'] = 'pilote';
             $_SESSION['idTypeUser'] = (int) $controlBDD->getIdPilote($_SESSION['id_user'])[0][0];
-            $_SESSION['p'] = 'homePilote';
-
         } else {
             $_SESSION['typeUser'] = 'etudiant';
             $_SESSION['idTypeUser'] = (int) $controlBDD->getIDEtud($_SESSION['id_user'])[0][0];
-            $_SESSION['p'] = 'home';
         }
-
+        $_SESSION['p'] = 'home';
     }
 }
 
@@ -105,9 +103,9 @@ if (isset($_GET['entr'])) {
 if (isset($_POST['action']) && $_SESSION['p'] == 'profilEntr') {
     if ($_POST['action'] == 'add') {
         $change->addCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
-    } else if ($_POST['action'] == 'upd'){
+    } else if ($_POST['action'] == 'upd') {
         $change->updCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
-    } else if ($_POST['action'] == 'del'){
+    } else if ($_POST['action'] == 'del') {
         $change->delCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr']);
     }
 }
@@ -121,7 +119,7 @@ if (isset($_GET['bookmark']) && $_GET['bookmark'] == true) {
 // Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
-    if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
+/*     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
             case 'profilEtud':
                 $redirection->profilEtudPerm();
@@ -146,17 +144,21 @@ if (isset($_SESSION['id_user']) && $deco == false) {
             case 'home':
                 $redirection->homePerm();
                 break;
-        }
-    } elseif ($_SESSION['typeUser'] == 'pilote') {
+        } 
+    }*/ if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
-            case 'profilPil':
-                $redirection->profilPilote();
+            case 'profil':
+                $redirectionPil->profilPil();
                 break;
             case 'home':
-                $redirection->homePilote();
+                $redirectionPil->homePilote();
                 break;
             case 'offre':
-                $redirection->offrePerm($_SESSION['offre']);
+                $redirectionPil->offrePil($_SESSION['offre']);
+                break;
+            case 'offreLast':
+                $_SESSION['offre'] = $redirectionPil->offreLastPil($_SESSION['offreLast'], $_SESSION['idTypeUser']);
+                $_SESSION['p'] = 'offre';
                 break;
         }
     } else {

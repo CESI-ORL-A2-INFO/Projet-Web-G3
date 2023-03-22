@@ -92,6 +92,10 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT pilote.NomPilote, pilote.PrenomPilote, évalue_pilote.confiance, évalue_pilote.commentaire FROM évalue_pilote RIGHT JOIN pilote ON évalue_pilote.IdPilote = pilote.IdPilote WHERE évalue_pilote.IdEntreprise = ?", [$id]);
     }
+    public function getOffreEntr(int $idEntr)
+    {
+        return $this->bdd->executeReturn("SELECT offre.IdOffre FROM offre WHERE offre.IdEntreprise = ?", [$idEntr]);
+    }
 }
 
 ?>
