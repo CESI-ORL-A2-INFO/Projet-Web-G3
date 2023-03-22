@@ -82,6 +82,7 @@
                         <option value="5" selected>5</option>
                     {/if}
                 </select>
+                <textarea>Envoyez votre commenraires à l'auteur.</textarea><br>
                 <input class="com" type="text" name="commentaire" value="{$comUser['commentaire']}">
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
                 <button class="del" type="submit" name="action" value="del">Delete</button>
@@ -97,5 +98,9 @@
             <p class="note">{$etud['note']}</p>
             <p class="comEtud">{$etud['commentaire']}</p>
         {/foreach}
+
+
+
+      
     </div>
 {/block}
