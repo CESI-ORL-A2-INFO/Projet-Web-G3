@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-22 16:29:59
-  from 'C:\www\Projet-Web-G3\src\templates\profilEntr.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-22 16:15:01
+  from 'C:\prosit\Projet-Web-G3-1\Projet-Web-G3\src\templates\profilEntr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641b1ef79b3897_06540466',
+  'unifunc' => 'content_641b1b759ff258_30377930',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c18cac8a045041816e9b78540a58912f07a96933' => 
+    '9235ab073f4bf877c2c32900acbb3c93edc909ad' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEntr.tpl',
-      1 => 1679498997,
+      0 => 'C:\\prosit\\Projet-Web-G3-1\\Projet-Web-G3\\src\\templates\\profilEntr.tpl',
+      1 => 1679498098,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641b1ef79b3897_06540466 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641b1b759ff258_30377930 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1786592886641b1ef799f435_79921360', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1213735406641b1b759ebe28_55717900', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1195641813641b1ef799fd77_35076898', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_199149225641b1b759ecaf9_46287603', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_1786592886641b1ef799f435_79921360 extends Smarty_Internal_Block
+class Block_1213735406641b1b759ebe28_55717900 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1786592886641b1ef799f435_79921360',
+    0 => 'Block_1213735406641b1b759ebe28_55717900',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1195641813641b1ef799fd77_35076898 extends Smarty_Internal_Block
+class Block_199149225641b1b759ecaf9_46287603 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1195641813641b1ef799fd77_35076898',
+    0 => 'Block_199149225641b1b759ecaf9_46287603',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -119,7 +119,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <textarea class="com" type="text" name="commentaire"></textarea>
+                <input class="com" type="text" name="commentaire" placeholder="">
                 <button class="add" type="submit" name="action" value="add">Ajouter</button>
             <?php } else { ?>
                 <select class="noteUser" name="note">
@@ -167,8 +167,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <option value="5" selected>5</option>
                     <?php }?>
                 </select>
-                <textarea class="com" type="text" name="commentaire"><?php echo $_smarty_tpl->tpl_vars['comUser']->value['commentaire'];?>
-</textarea>
+                <textarea>Envoyez votre commenraires à l'auteur.</textarea><br>
+                <input class="com" type="text" name="commentaire" value="<?php echo $_smarty_tpl->tpl_vars['comUser']->value['commentaire'];?>
+">
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
                 <button class="del" type="submit" name="action" value="del">Delete</button>
             <?php }?>
@@ -205,6 +206,10 @@ $_smarty_tpl->tpl_vars['etud']->do_else = false;
         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+
+
+      
     </div>
 <?php
 }
