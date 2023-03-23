@@ -60,6 +60,7 @@
 .six {
     grid-column: 3;
     grid-row: 2;
+
 }
 
 .title {
@@ -105,11 +106,11 @@
 @media only screen and (max-width: 830px) {
     .card_container {
         margin-top: 5%;
-        margin-left: 10%;
-        margin-bottom: 25%;
+        margin-left: 10%;;
         width: 80%;
         display: grid;
         grid-gap: 2%;
+        margin-bottom : 40%;
         grid-template-columns: repeat(1, 2fr);
         grid-template-rows: 1fr;
     }
@@ -153,8 +154,9 @@
         grid-column: 1;
     }
     .competence {
+        grid-column: 1/4;
         grid-row: 6;
-        grid-column: 1;
+        
     }
     
 }
