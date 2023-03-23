@@ -16,7 +16,11 @@
                 {/if}
             {/foreach}
         </select>
-
+        {foreach $nomEntr as $name}
+            {if $name['NomEntreprise'] == $nomEntrSelect}
+                <button class="getEntr" name="entr" value="{$name['NomEntreprise']}">Page entreprise</button>
+            {/if}
+        {/foreach}
         <ul class="secteur">
             {foreach $secteur as $sec}
                 <li>
@@ -122,7 +126,7 @@
         </select>
         <input type="text" name="lvl5" value="{$compOffre[4]['niveau']}">
         <p class="addresse">
-            {foreach from=$addresse item=$add key=i}
+            {foreach from=$adresse item=$add key=i}
                 adresse :
                 {$add[0]},
                 {$add[1]},

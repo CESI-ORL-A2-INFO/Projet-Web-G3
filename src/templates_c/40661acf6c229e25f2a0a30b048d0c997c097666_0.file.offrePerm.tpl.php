@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-23 11:23:20
+/* Smarty version 4.2.1, created on 2023-03-23 13:40:11
   from 'C:\www\Projet-Web-G3\src\templates\offrePerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641c2898ca0f67_94120991',
+  'unifunc' => 'content_641c48abb39c79_13289956',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40661acf6c229e25f2a0a30b048d0c997c097666' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\offrePerm.tpl',
-      1 => 1679566354,
+      1 => 1679575209,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641c2898ca0f67_94120991 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641c48abb39c79_13289956 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1804169582641c2898c7c200_71690714', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_493007387641c48ab96a1e0_39458590', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_448788146641c2898c7cb31_22686676', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1574085150641c48ab96c767_52744459', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "navbarPerm.tpl");
 }
 /* {block "include"} */
-class Block_1804169582641c2898c7c200_71690714 extends Smarty_Internal_Block
+class Block_493007387641c48ab96a1e0_39458590 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1804169582641c2898c7c200_71690714',
+    0 => 'Block_493007387641c48ab96a1e0_39458590',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_448788146641c2898c7cb31_22686676 extends Smarty_Internal_Block
+class Block_1574085150641c48ab96c767_52744459 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_448788146641c2898c7cb31_22686676',
+    0 => 'Block_1574085150641c48ab96c767_52744459',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -87,7 +87,19 @@ $_smarty_tpl->tpl_vars['name']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nomEntr']->value, 'name');
+$_smarty_tpl->tpl_vars['name']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['name']->value) {
+$_smarty_tpl->tpl_vars['name']->do_else = false;
+?>
+            <?php if ($_smarty_tpl->tpl_vars['name']->value['NomEntreprise'] == $_smarty_tpl->tpl_vars['nomEntrSelect']->value) {?>
+                <button class="getEntr" name="entr" value="<?php echo $_smarty_tpl->tpl_vars['name']->value['NomEntreprise'];?>
+">Page entreprise</button>
+            <?php }?>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <ul class="secteur">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value, 'sec');
@@ -306,7 +318,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ">
         <p class="addresse">
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['addresse']->value, 'add', false, 'i');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['adresse']->value, 'add', false, 'i');
 $_smarty_tpl->tpl_vars['add']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['i']->value => $_smarty_tpl->tpl_vars['add']->value) {
 $_smarty_tpl->tpl_vars['add']->do_else = false;

@@ -38,6 +38,21 @@ class ControllerAction
         $idEntr = $this->upd->getIdEntr($nomEntr);
         $this->upd->delComEntr($idEtud, $idEntr[0]['IdEntreprise']);
     }
+    public function addCommentairePerm(int $idPil, string $nomEntr, int $note, string $com)
+    {
+        $idEntr = $this->upd->getIdEntr($nomEntr);
+        $this->upd->addComEntrPil($idPil, $note, $com, $idEntr[0]['IdEntreprise']);
+    }
+    public function updCommentairePerm(int $idPil, string $nomEntr, int $note, string $com)
+    {
+        $idEntr = $this->upd->getIdEntr($nomEntr);
+        $this->upd->updComEntrPil($idPil, $note, $com, $idEntr[0]['IdEntreprise']);
+    }
+    public function delCommentairePerm(int $idPil, string $nomEntr)
+    {
+        $idEntr = $this->upd->getIdEntr($nomEntr);
+        $this->upd->delComEntrPil($idPil, $idEntr[0]['IdEntreprise']);
+    }
     public function isBook(int $idUser, $idOffre)
     {
         $book = $this->upd->getBook($idUser, $idOffre);
@@ -107,19 +122,76 @@ class ControllerAction
             if ($comp[$i]['comp'] != "") {
                 $idComp = $this->upd->getIdComp($comp[$i]['comp']);
                 if (!isset($currentComp[$i]['Compétences']) && isset($idComp[0]['IdComp'])) {
-                    $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $idComp[0]['lvl']);
-                } else if ($comp[$i]['comp'] == "none" && isset($currentComp[$i]['Compétences'])){
-                    print_r('del');
+                    $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $comp[0]['lvl']);
+                } else if ($comp[$i]['comp'] == "none" && isset($currentComp[$i]['Compétences'])){  
                     $this->upd->delDemComp($idOffre, $currentComp[$i]['IdComp']);
                 } else if (isset($currentComp[$i]['Compétences']) && $comp[$i]['comp'] != $currentComp[$i]['Compétences']) {
-                    if ($this->upd->getComp($currentComp[$i]['IdComp'], $idComp[0]['IdComp']) == array()) {
-                        $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $idComp[0]['lvl']);
+                    if ($this->upd->getCompOffre($currentComp[$i]['IdComp'], $currentComp[0]['IdOffre']) == array()) {
+                        $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $comp[0]['lvl']);
                     } else {
-                        $this->upd->updDemComp($idOffre, $idComp[0]['IdComp'], $currentComp[$i]['IdComp'], $idComp[0]['lvl']);
+                        $this->upd->updDemComp($idOffre, $idComp[0]['IdComp'], $currentComp[$i]['IdComp'], $comp[0]['lvl']);
                     }
                 }
             }
         }
+    }
+    public function modifEntr(int $idEntr, string $nomEntr, array $adr, array $sect, int $nbStagiaire)
+    {
+        if ($this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']) != array()) {
+            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+        } else {
+            $this->upd->addAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+        }
+        $this->upd->updAdrEntr($idEntr, $idAdr[0]['IdAdresse']);
+        $this->upd->updEntr($idEntr, $nomEntr, $nbStagiaire);
+        $currentSect = $this->home->getSecteurEntr($idEntr);
+        for ($i = 0; $i < count($sect); $i++) {
+            if ($sect[$i] != "") {
+                $idSect = $this->upd->getIdSect($sect[$i]);
+                if (!isset($currentSect[$i]['Secteur_Activite']) && isset($idSect[0]['Id_Secteur'])) {
+                    $this->upd->addTravailDans($idEntr, $idSect[0]['Id_Secteur']);
+                } else if ($sect[$i] == "none" && isset($currentSect[$i]['Secteur_Activite'])){
+                    $this->upd->delTravailDans($idEntr, $currentSect[$i]['Id_Secteur']);
+                } else if (isset($currentSect[$i]['Secteur_Activite']) && $sect[$i] != $currentSect[$i]['Secteur_Activite']) {
+                    if ($this->upd->getSect($currentSect[$i]['Id_Secteur'], $idEntr) == array()) {
+                        $this->upd->addTravailDans($idEntr, $idSect[0]['Id_Secteur']);
+                    } else {
+                        $this->upd->updTravailDans($idEntr, $idSect[0]['Id_Secteur'], $currentSect[$i]['Id_Secteur']);
+                    }
+                }
+            }
+        }
+        return $this->home->getEntrById($idEntr)[0]['NomEntreprise'];
+    }
+    public function supprEntr(int $idEntr)
+    {
+        $this->upd->delTravailDansIdEntr($idEntr);
+        $this->upd->delSeSitue($idEntr);
+        $this->upd->delComEntrByIdEntr($idEntr);
+        $this->upd->delOffreByIdEntr($idEntr);
+        $this->upd->delEntr($idEntr);
+    }
+    public function ajouterEntr(string $nomEntr, array $adr, array $sect, int $nbStagiaire)
+    {
+        $this->upd->addEntr($nomEntr, $nbStagiaire);
+        $idEntr = $this->upd->getEntrIdLast();
+        if ($this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']) != array()) {
+            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+            $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
+        } else {
+            $this->upd->addAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+            $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
+        }
+        $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
+        for ($i = 0; $i < count($sect); $i++) {
+            if ($sect[$i] != "none") {
+                $idSect = $this->upd->getIdSect($sect[$i]);
+                $this->upd->addTravailDans($idEntr[0]['IdEntreprise'], $idSect[0]['Id_Secteur']);
+            }
+        }
+        return $this->home->getEntrById($idEntr[0]['IdEntreprise'])[0]['NomEntreprise'];
     }
 }
 ?>
