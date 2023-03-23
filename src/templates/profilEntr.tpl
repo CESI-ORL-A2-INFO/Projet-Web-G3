@@ -34,7 +34,8 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <textarea name="commentaire"></textarea>
+
+                <textarea class="com" type="text" name="commentaire"></textarea>
                 <button class="add" type="submit" name="action" value="add">Ajouter</button>
             {else}
                 <select class="noteUser" name="note">
@@ -46,7 +47,10 @@
                         {/if}
                     {/for}
                 </select>
-                <textarea name="commentaire" class="com">{$comUser['commentaire']}</textarea>
+
+                <textarea class="com" type="text" name="commentaire">{$comUser['commentaire']}</textarea>
+
+
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
                 <button class="del" type="submit" name="action" value="del">Delete</button>
             {/if}

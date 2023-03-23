@@ -22,7 +22,7 @@ class ModelHomePage
     }
     public function getOffrePage6()
     {
-        return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage from offre ORDER BY offre.IdOffre desc LIMIT 0,6");
+        return $this->bdd->executeReturn("select offre.IdOffre, offre.nomOffre, offre.DuréeStage from offre ORDER BY offre.dateEmission desc LIMIT 0,6");
     }
     public function getVille(int $id)
     {
@@ -46,7 +46,7 @@ class ModelHomePage
     }
     public function getCompetences(int $offre)
     {
-        return $this->bdd->executeReturn("SELECT compétences.Compétences, demande.niveau FROM (offre left join demande on offre.IdOffre = demande.IdOffre) INNER JOIN compétences on demande.IdComp = compétences.IdComp where offre.IdOffre = ?", [$offre]);
+        return $this->bdd->executeReturn("SELECT compétences.IdComp, compétences.Compétences, demande.niveau FROM (offre left join demande on offre.IdOffre = demande.IdOffre) INNER JOIN compétences on demande.IdComp = compétences.IdComp where offre.IdOffre = ?", [$offre]);
     }
     public function getAdresse(int $offre)
     {
@@ -54,7 +54,7 @@ class ModelHomePage
     }
     public function getPromo(int $offre)
     {
-        return $this->bdd->executeReturn("SELECT promotion.Promotion FROM (offre left join demande_promo on offre.IdOffre = demande_promo.IdOffre) INNER JOIN promotion on demande_promo.IdPromo = promotion.IdPromo where offre.IdOffre = ?", [$offre]);
+        return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM (offre left join demande_promo on offre.IdOffre = demande_promo.IdOffre) INNER JOIN promotion on demande_promo.IdPromo = promotion.IdPromo where offre.IdOffre = ?", [$offre]);
     }
     public function getSecteur(int $offre)
     {
@@ -96,6 +96,23 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT offre.IdOffre FROM offre WHERE offre.IdEntreprise = ?", [$idEntr]);
     }
+    public function getAllComp()
+    {
+        return $this->bdd->executeReturn("SELECT compétences.IdComp, compétences.Compétences FROM compétences", []);
+    }
+    public function getAllNomEntr()
+    {
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise ,entreprise.NomEntreprise FROM entreprise", []);
+    }
+    public function getAllPromo()
+    {
+        return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM promotion", []);
+    }    
+    function getAllSect()
+    {
+        return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite FROM secteuractivite", []);
+    }
+
 }
 
 ?>

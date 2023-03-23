@@ -87,8 +87,31 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = (int) strip_tags($_GET['current_page']);
 } else if ($_SESSION['p'] == 'search') {
     $currentPage = 1;
+}// filtre search searchfiltre
+if (isset($_GET['filtre'])) {
+    $_SESSION['filtre'] = $_GET['filtre'];
+}
+else{
+    $_SESSION['filtre'] = "";
+}
+if (isset($_GET['search'])) {
+    $_SESSION['search'] = $_GET['search'];
+}
+else{
+    $_SESSION['search'] = "";
 }
 
+if (isset($_GET['searchfiltre'])) {
+    $_SESSION['searchfiltre'] = $_GET['searchfiltre'];
+}
+else{
+    $_SESSION['searchfiltre'] = "";
+}
+
+
+/* if(isset($_GET['search'])){
+    $redirection->search()
+} */
 // Profil entreprise
 
 if (isset($_GET['entr'])) {
@@ -114,36 +137,128 @@ if (isset($_GET['bookmark']) && $_GET['bookmark'] == true) {
     $change->isBook((int) $_SESSION['idTypeUser'], $_SESSION['offre']);
 }
 
+// Ajout, modification et suppression Offre
+
+if (isset($_POST['addOffre']) && $_POST['addOffre'] == true) {
+    $_SESSION['p'] = 'home';
+    $data = [
+        'nomOffre' => $_POST['nomOffre'],
+        'nomEntr' => $_POST['nomEntr'],
+        'duree' => $_POST['duree'],
+        'dateDebut' => $_POST['dateDebut'],
+        'dateEmi' => $_POST['dateEmi'],
+        'remu' => $_POST['remuneration'],
+        'email' => $_POST['email'],
+        'desc' => $_POST['descr'],
+        'nbPlace' => $_POST['nbPlace']
+    ];
+    $promo = [
+        $_POST['promo1'],
+        $_POST['promo2'],
+        $_POST['promo3'],
+        $_POST['promo4']
+    ];
+    $comp[0] = [
+        'comp' => $_POST['comp1'],
+        'lvl' => $_POST['lvl1']
+    ];
+    $comp[1] = [
+        'comp' => $_POST['comp2'],
+        'lvl' => $_POST['lvl2']
+    ];
+    $comp[2] = [
+        'comp' => $_POST['comp3'],
+        'lvl' => $_POST['lvl3']
+    ];
+    $comp[3] = [
+        'comp' => $_POST['comp4'],
+        'lvl' => $_POST['lvl4']
+    ];
+    $comp[4] = [
+        'comp' => $_POST['comp5'],
+        'lvl' => $_POST['lvl5']
+    ];
+    $change->addOffre($data, $promo, $comp);
+}
+if (isset($_POST['action']) && isset($_SESSION['p']) == 'offre') {
+    switch ($_POST['action']) {
+        case 'suppr':
+            $change->supprOffre($_SESSION['offre']);
+            $_SESSION['p'] = 'home';
+            break;
+        case 'modif':
+            $data = [
+                'nomOffre' => $_POST['nomOffre'],
+                'nomEntr' => $_POST['nomEntr'],
+                'duree' => $_POST['duree'],
+                'dateDebut' => $_POST['dateDebut'],
+                'dateEmi' => $_POST['dateEmi'],
+                'remu' => $_POST['remuneration'],
+                'email' => $_POST['email'],
+                'desc' => $_POST['descr'],
+                'nbPlace' => $_POST['nbPlace']
+            ];
+            $promo = [
+                $_POST['promo1'],
+                $_POST['promo2'],
+                $_POST['promo3'],
+                $_POST['promo4']
+            ];
+            $comp[0] = [
+                'comp' => $_POST['comp1'],
+                'lvl' => $_POST['lvl1']
+            ];
+            $comp[1] = [
+                'comp' => $_POST['comp2'],
+                'lvl' => $_POST['lvl2']
+            ];
+            $comp[2] = [
+                'comp' => $_POST['comp3'],
+                'lvl' => $_POST['lvl3']
+            ];
+            $comp[3] = [
+                'comp' => $_POST['comp4'],
+                'lvl' => $_POST['lvl4']
+            ];
+            $comp[4] = [
+                'comp' => $_POST['comp5'],
+                'lvl' => $_POST['lvl5']
+            ];
+            $change->modifOffre($data, $promo, $comp, $_SESSION['offre']);
+            break;
+    }
+}
+
 // Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
-/*     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
-        switch ($_SESSION['p']) {
-            case 'profilEtud':
-                $redirection->profilEtudPerm();
-                break;
-            case 'offre':
-                $redirection->offrePerm($_SESSION['offrePerm']);
-                break;
-            case 'profilEntr':
-                $redirection->profilEntrPerm();
-                break;
-            case 'promotion':
-                $redirection->promotionPerm();
-                break;
-            case 'search':
-                $redirection->searchPerm();
-        }
+    /*     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
+    switch ($_SESSION['p']) {
+    case 'profilEtud':
+    $redirection->profilEtudPerm();
+    break;
+    case 'offre':
+    $redirection->offrePerm($_SESSION['offrePerm']);
+    break;
+    case 'profilEntr':
+    $redirection->profilEntrPerm();
+    break;
+    case 'promotion':
+    $redirection->promotionPerm();
+    break;
+    case 'search':
+    $redirection->searchPerm();
+    }
     } elseif ($_SESSION['isAdmin'] == true) {
-        switch ($_SESSION['p']) {
-            case 'profilPil':
-                $redirection->profilPilPerm();
-                break;
-            case 'home':
-                $redirection->homePerm();
-                break;
-        } 
-    }*/ if ($_SESSION['typeUser'] == 'pilote') {
+    switch ($_SESSION['p']) {
+    case 'profilPil':
+    $redirection->profilPilPerm();
+    break;
+    case 'home':
+    $redirection->homePerm();
+    break;
+    } 
+    }*/if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
             case 'profil':
                 $redirection->profilPil($_SESSION['idTypeUser']);
@@ -158,11 +273,20 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 $_SESSION['offre'] = $redirection->offreLastPil($_SESSION['offreLast']);
                 $_SESSION['p'] = 'offre';
                 break;
+            case 'addOffre':
+                $redirection->addOffre();
+                break;
+            case 'addEntr':
+                $redirection->addEntr();
+                break;
+            case 'search':
+                $redirection->searchPerm($currentPage, 6);
+                break;
         }
     } else {
         switch ($_SESSION['p']) {
             case 'search':
-                $redirection->search($currentPage, 6);
+                $redirection->search($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
                 break;
             case 'profilEtud':
                 $redirection->profilEtud($_SESSION['idTypeUser']);
