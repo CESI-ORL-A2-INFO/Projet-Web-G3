@@ -12,6 +12,7 @@
                 <option value="{$name['NomEntreprise']}">{$name['NomEntreprise']}</option>
             {/foreach}
         </select>
+
         <ul class="secteur">
             {foreach $secteur as $sec}
                 <li>

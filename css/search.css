@@ -1,3 +1,85 @@
-.logoEnt {
-    width : 65px;
-}
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    padding: 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 352px;
+    flex-grow: 1;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .logoEnt {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .nomEntreprise {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .debut,
+  .duree,
+  .promo,
+  .ville,
+  .competence {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .descr {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: justify;
+  }
+
+  .firstPage,
+  .lastPage,
+  .pagePrec,
+  .pageSuiv {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    margin: 1rem;
+  }
+
+  .firstPage:hover,
+  .lastPage:hover,
+  .pagePrec:hover,
+  .pageSuiv:hover {
+    background-color: #333;
+    color: #f0f0f0;
+  }
