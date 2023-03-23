@@ -24,5 +24,6 @@ class ModelProfil
     {
         return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM pilote LEFT JOIN pilote_promo ON pilote.IdPilote = pilote_promo.IdPilote LEFT JOIN promotion ON pilote_promo.IdPromo = promotion.IdPromo WHERE pilote.IdPilote = ?", [$id]);
     }
+
 }
 ?>
