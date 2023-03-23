@@ -77,7 +77,7 @@
 .icons {
     justify-self: center;
     text-decoration: none;
-    color: black;
+    color: #999;
 }
 
 .fa-solid:hover {
@@ -101,6 +101,14 @@
 }
 #Afficher{
     display:none;
+}
+
+#butSearch{
+    border: 2px solid #696969;
+}
+
+.fa-magnifying-glass{
+    color: #999;
 }
 
 @media only screen and (max-width: 830px) {
@@ -136,7 +144,7 @@
 
     .icons {
         text-decoration: none;
-        color: black;
+        color: #999;
         flex-wrap: nowrap;
     }
 
