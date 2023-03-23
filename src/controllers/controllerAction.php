@@ -87,19 +87,36 @@ class ControllerAction
         $this->upd->updOffre($data['nomOffre'], $data['duree'], $data['remu'], $data['dateDebut'], $data['nbPlace'], $data['dateEmi'], $idMail[0]['Id_Adresse'], $idEntr[0]['IdEntreprise'], $data['desc'], $idOffre);
         $currentPromo = $this->home->getPromo($idOffre);
         for ($i = 0; $i < count($promo); $i++) {
-            if ($promo[$i] != null) {
-                if ($promo[$i] != $currentPromo[$i]['Promotion']) {
-                    $idPromo = $this->upd->getIdPromo($promo[$i]);
+            if ($promo[$i] != "") {
+                $idPromo = $this->upd->getIdPromo($promo[$i]);
+                if (!isset($currentPromo[$i]['Promotion']) && isset($idPromo[0]['IdPromo'])) {
                     $this->upd->addDemPromo($idOffre, $idPromo[0]['IdPromo']);
+                } else if ($promo[$i] == "none" && isset($currentPromo[$i]['Promotion'])){
+                    $this->upd->delDemPromo($idOffre, $currentPromo[$i]['IdPromo']);
+                } else if (isset($currentPromo[$i]['Promotion']) && $promo[$i] != $currentPromo[$i]['Promotion']) {
+                    if ($this->upd->getPromo($currentPromo[$i]['IdPromo'], $idPromo[0]['IdPromo']) == array()) {
+                        $this->upd->addDemPromo($idOffre, $idPromo[0]['IdPromo']);
+                    } else {
+                        $this->upd->updDemPromo($idOffre, $idPromo[0]['IdPromo'], $currentPromo[$i]['IdPromo']);
+                    }
                 }
             }
         }
         $currentComp = $this->home->getComp($idOffre);
         for ($i = 0; $i < count($comp); $i++) {
             if ($comp[$i]['comp'] != "") {
-                if ($comp[$i]['comp'] != $currentComp[$i]['Compétences']) {
-                    $idComp = $this->upd->getIdComp($comp[$i]['comp']);
-                    $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $comp[$i]['lvl']);
+                $idComp = $this->upd->getIdComp($comp[$i]['comp']);
+                if (!isset($currentComp[$i]['Compétences']) && isset($idComp[0]['IdComp'])) {
+                    $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $idComp[0]['lvl']);
+                } else if ($comp[$i]['comp'] == "none" && isset($currentComp[$i]['Compétences'])){
+                    print_r('del');
+                    $this->upd->delDemComp($idOffre, $currentComp[$i]['IdComp']);
+                } else if (isset($currentComp[$i]['Compétences']) && $comp[$i]['comp'] != $currentComp[$i]['Compétences']) {
+                    if ($this->upd->getComp($currentComp[$i]['IdComp'], $idComp[0]['IdComp']) == array()) {
+                        $this->upd->addDemComp($idOffre, $idComp[0]['IdComp'], $idComp[0]['lvl']);
+                    } else {
+                        $this->upd->updDemComp($idOffre, $idComp[0]['IdComp'], $currentComp[$i]['IdComp'], $idComp[0]['lvl']);
+                    }
                 }
             }
         }

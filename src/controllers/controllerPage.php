@@ -152,7 +152,7 @@ class Controller
         $suivi = $this->home->getSuivi($idUser);
         if ($suivi != null) {
             for ($i = 0; $i < count($suivi); $i++) {
-                $temp[$i] = $this->home->getOffre($suivi[0]['IdOffre']);
+                $temp[$i] = $this->home->getOffre($suivi[$i]['IdOffre']);
                 $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
                 $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
                 $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
@@ -305,6 +305,7 @@ class Controller
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $nomEntr);
+        $this->tpl->assign('nomEntrSelect', $lastOffre[0]['NomEntreprise']);
         $this->tpl->assign('secteur', $secteur);
         $this->tpl->assign('promotion', $promo);
         $this->tpl->assign('promoOffre', $promoOffre);
@@ -340,6 +341,7 @@ class Controller
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $nomEntr);
+        $this->tpl->assign('nomEntrSelect', $lastOffre[0]['NomEntreprise']);
         $this->tpl->assign('secteur', $secteur);
         $this->tpl->assign('promotion', $promo);
         $this->tpl->assign('promoOffre', $promoOffre);
