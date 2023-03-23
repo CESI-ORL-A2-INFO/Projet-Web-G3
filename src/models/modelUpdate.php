@@ -95,5 +95,29 @@ class ModelUpdate
     {
         $this->bdd->execute("UPDATE offre SET offre.nomOffre = ?, offre.DuréeStage = ?, offre.Paie = ?, offre.DateDebut = ?, offre.NbrePlace = ?, offre.DateEmission = ?, offre.Id_Adresse = ?, offre.IdEntreprise = ?, offre.Description = ? WHERE offre.IdOffre = ?",  [$nomOffre, $duree, $paie, $dateDebut, $nbPlace, $dateEmi, $idMail, $idEntr, $desc, $idOffre]);
     }
+    public function getPromo(int $idPromo, int $idOffre)
+    {
+        return $this->bdd->executeReturn("SELECT * FROM demande_promo WHERE demande_promo.IdPromo = ? AND demande_promo.IdOffre = ?", [$idPromo, $idOffre]);
+    }
+    public function updDemPromo(int $idOffre, int $idPromo, int $idPromoAncient)
+    {
+        $this->bdd->execute("UPDATE demande_promo SET demande_promo.IdOffre = ?, demande_promo.IdPromo = ? WHERE demande_promo.IdOffre = ? AND demande_promo.IdPromo = ?", [$idOffre, $idPromo, $idOffre, $idPromoAncient]);
+    }
+    public function delDemPromo(int $idOffre, int $idPromo)
+    {
+        $this->bdd->execute("DELETE FROM demande_promo WHERE demande_promo.IdOffre = ? AND demande_promo.IdPromo = ?", [$idOffre, $idPromo]);   
+    }
+    public function delDemComp(int $idOffre, int $idComp)
+    {
+        $this->bdd->execute("DELETE FROM demande WHERE demande.IdOffre = ? AND demande.IdComp = ?", [$idOffre, $idComp]);
+    }
+    public function updDemComp(int $idOffre, int $idComp, int $idCompAncient, string $lvl)
+    {
+        $this->bdd->execute("UPDATE demande SET demande.IdComp = ?, demande.niveau = ? WHERE demande.IdComp = ? AND demande.IdOffre = ?", [$idComp, $lvl, $idCompAncient, $idOffre]);
+    }
+    public function getComp(int $idComp, int $idOffre)
+    {
+        return $this->bdd->executeReturn("SELECT * FROM demande WHERE demande.IdComp = ? AND demande.IdOffre = ?", [$idComp, $idOffre]);
+    }
 }
 ?>
