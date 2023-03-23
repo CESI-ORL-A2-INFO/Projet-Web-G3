@@ -1,6 +1,6 @@
 {extends file="navbarPerm.tpl"}
 {block name="include"}
-    <link rel="stylesheet" href="./css/offre.css">
+    <link rel="stylesheet" href="./css/offreperm.css">
 {/block}
 
 {block name=content}
