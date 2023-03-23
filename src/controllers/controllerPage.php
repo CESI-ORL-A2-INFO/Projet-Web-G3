@@ -313,6 +313,7 @@ class Controller
                 $compOffre[$i]['niveau'] = "";
             }
         }
+
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $nomEntr);

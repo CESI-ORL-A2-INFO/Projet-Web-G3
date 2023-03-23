@@ -1,11 +1,13 @@
 <?php
 /* Smarty version 4.2.1, created on 2023-03-23 00:04:17
+
   from 'C:\www\Projet-Web-G3\src\templates\offrePerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
   'unifunc' => 'content_641b8971557377_58996724',
+
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -13,6 +15,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\offrePerm.tpl',
       1 => 1679526256,
+
       2 => 'file',
     ),
   ),
@@ -21,12 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
 ),false)) {
 function content_641b8971557377_58996724 (Smarty_Internal_Template $_smarty_tpl) {
+
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1551926201641b8971530c51_34586182', "include");
+
 ?>
 
 
@@ -36,11 +41,13 @@ $_smarty_tpl->inheritance->endChild($_smarty_tpl, "navbarPerm.tpl");
 }
 /* {block "include"} */
 class Block_1551926201641b8971530c51_34586182 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'include' => 
   array (
     0 => 'Block_1551926201641b8971530c51_34586182',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +59,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
+
 class Block_1462446420641b8971532ff7_31103736 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'content' => 
   array (
     0 => 'Block_1462446420641b8971532ff7_31103736',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -81,6 +91,7 @@ $_smarty_tpl->tpl_vars['name']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+
         <ul class="secteur">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['secteur']->value, 'sec');
