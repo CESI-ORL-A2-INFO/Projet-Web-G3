@@ -87,24 +87,58 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = (int) strip_tags($_GET['current_page']);
 } else if ($_SESSION['p'] == 'search') {
     $currentPage = 1;
+}// filtre search searchfiltre
+if (isset($_GET['filtre'])) {
+    $_SESSION['filtre'] = $_GET['filtre'];
+}
+else{
+    $_SESSION['filtre'] = "";
+}
+if (isset($_GET['search'])) {
+    $_SESSION['search'] = $_GET['search'];
+}
+else{
+    $_SESSION['search'] = "";
 }
 
+if (isset($_GET['searchfiltre'])) {
+    $_SESSION['searchfiltre'] = $_GET['searchfiltre'];
+}
+else{
+    $_SESSION['searchfiltre'] = "";
+}
+
+
+/* if(isset($_GET['search'])){
+    $redirection->search()
+} */
 // Profil entreprise
 
 if (isset($_GET['entr'])) {
     $_SESSION['p'] = 'profilEntr';
     $_SESSION['entr'] = $_GET['entr'];
+} else if (isset($_POST['entr'])) {
+    $_SESSION['p'] = 'profilEntr';
+    $_SESSION['entr'] = $_POST['entr'];
 }
 
 // Commentaire entreprise
 
-if (isset($_POST['action']) && $_SESSION['p'] == 'profilEntr') {
+if (isset($_POST['action']) && $_SESSION['p'] == 'profilEntr' && $_SESSION['typeUser'] == 'etudiant') {
     if ($_POST['action'] == 'add') {
         $change->addCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
     } else if ($_POST['action'] == 'upd') {
         $change->updCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
     } else if ($_POST['action'] == 'del') {
         $change->delCommentaire((int) $_SESSION['idTypeUser'], $_SESSION['entr']);
+    }
+} else if (isset($_POST['action']) && $_SESSION['p'] == 'profilEntr' && $_SESSION['typeUser'] != 'etudiant') {
+    if ($_POST['action'] == 'add') {
+        $change->addCommentairePerm((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
+    } else if ($_POST['action'] == 'upd') {
+        $change->updCommentairePerm((int) $_SESSION['idTypeUser'], $_SESSION['entr'], (int) $_POST['note'], $_POST['commentaire']);
+    } else if ($_POST['action'] == 'del') {
+        $change->delCommentairePerm((int) $_SESSION['idTypeUser'], $_SESSION['entr']);
     }
 }
 
@@ -157,7 +191,7 @@ if (isset($_POST['addOffre']) && $_POST['addOffre'] == true) {
     ];
     $change->addOffre($data, $promo, $comp);
 }
-if (isset($_POST['action']) && isset($_SESSION['p']) == 'offre') {
+if (isset($_POST['action']) && $_SESSION['p'] == 'offre') {
     switch ($_POST['action']) {
         case 'suppr':
             $change->supprOffre($_SESSION['offre']);
@@ -204,6 +238,50 @@ if (isset($_POST['action']) && isset($_SESSION['p']) == 'offre') {
             $change->modifOffre($data, $promo, $comp, $_SESSION['offre']);
             break;
     }
+}
+
+// Ajout, modification et suppression entreprise
+
+if (isset($_POST['actionEntr']) && $_SESSION['p'] == 'profilEntr') {
+    switch ($_POST['actionEntr']) {
+        case 'modif':
+            $sect = [
+                $_POST['secteur1'],
+                $_POST['secteur2'],
+                $_POST['secteur3']
+            ];
+            $adresse = [
+                'numRue' => $_POST['numRue'],
+                'nomRue' => $_POST['nomRue'],
+                'ville' => $_POST['ville'],
+                'cp' => $_POST['cp'],
+                'pays' => $_POST['pays']
+            ];
+            $nomEntr = $change->modifEntr($_SESSION['idEntr'], $_POST['nomEntr'], $adresse, $sect, $_POST['nbStagiaire']);
+            $_SESSION['entr'] = $nomEntr;
+            break;
+        case 'suppr':
+            $change->supprEntr($_SESSION['idEntr']);
+            $_SESSION['p'] = 'home';
+            break;
+    }
+}
+if (isset($_POST['actionEntr']) && $_POST['actionEntr'] == 'add') {
+    $sect = [
+        $_POST['secteur1'],
+        $_POST['secteur2'],
+        $_POST['secteur3']
+    ];
+    $adresse = [
+        'numRue' => $_POST['numRue'],
+        'nomRue' => $_POST['nomRue'],
+        'ville' => $_POST['ville'],
+        'cp' => $_POST['cp'],
+        'pays' => $_POST['pays']
+    ];
+    $nomEntr = $change->ajouterEntr($_POST['nomEntr'], $adresse, $sect, $_POST['nbStagiaire']);
+    $_SESSION['entr'] = $nomEntr;
+    $_SESSION['p'] = 'profilEntr';
 }
 
 // Choix page
@@ -259,11 +337,14 @@ if (isset($_SESSION['id_user']) && $deco == false) {
             case 'search':
                 $redirection->searchPerm($currentPage, 6);
                 break;
+            case 'profilEntr':
+                $_SESSION['idEntr'] = $redirection->profilEntrPerm($_SESSION['entr'], $_SESSION['idTypeUser']);
+                break;
         }
     } else {
         switch ($_SESSION['p']) {
             case 'search':
-                $redirection->search($currentPage, 6);
+                $redirection->search($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
                 break;
             case 'profilEtud':
                 $redirection->profilEtud($_SESSION['idTypeUser']);

@@ -3,18 +3,22 @@ require(RACINE_DIR . "/src/lib/appSmartyLib.php");
 require_once(RACINE_DIR . "/src/models/modelHomePage.php");
 require_once(RACINE_DIR . "/src/models/modelProfil.php");
 require_once(RACINE_DIR . "/src/models/modelUpdate.php");
+require_once(RACINE_DIR . "/src/models/modelSearch.php");
 class Controller
 {
     private $tpl;
     private $home;
     private $profil;
     private $upd;
+
+    private $search;
     public function __construct()
     {
         $this->tpl = new AppSmarty();
         $this->home = new ModelHomePage();
         $this->profil = new ModelProfil();
         $this->upd = new ModelUpdate();
+        $this->search = new modelSearch();
     }
     public function home() // waiting
     {
@@ -47,15 +51,33 @@ class Controller
     {
         $this->tpl->display('connexion.tpl');
     }
-    public function search(int $currentPage, int $nbParPage) // not started
+    public function search(int $currentPage, int $nbParPage, String $filtre, String $nom, String $nomfilter) // not started
     {
         $nbOffre = $this->home->getNbOffre();
         $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        if ($offset != 0){
-            $offset++;
+
+        switch($filtre){
+            default :
+                $id = $this->home->getIdLastOffre($nbParPage, $offset);// Juste pour offre sans filtre
+                break;
+            case "offre" :
+                $id = $this->search->Search($nom, $offset, $nbParPage);
+                break;
+            case "entreprise" :
+                $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
+                break;
+            case "comp" :
+                $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
+                break;
+            case "secteur" :
+                $id = $this->search->SearchSecteur($nom, $nomfilter, $offset, $nbParPage);
+                break;
+            case "promotion":
+                $id = $this->search->SearchPromo($nom, $nomfilter, $offset, $nbParPage);
+                break;
         }
-        $id = $this->home->getIdLastOffre($nbParPage, $offset);
+        
         for ($i = 0; $i < count($id); $i++) {
             $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
             $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
@@ -71,6 +93,7 @@ class Controller
         }
         $this->tpl->assign('card', $card);
         $this->tpl->assign('lastPage', $lastPage);
+        $this->tpl->assign('content', $nom);
         $this->tpl->assign('current_page', $currentPage);
         $this->tpl->display('search.tpl');
     }
@@ -124,12 +147,43 @@ class Controller
         $this->tpl->assign('comEtud', $comEtud);
         $this->tpl->display('profilEntr.tpl');
     }
+    public function profilEntrPerm(string $nomEntr, int $idUser) // not started
+    {
+        $infoEntr = $this->home->getEntrByName($nomEntr);
+        $secteur = $this->home->getAllSect();
+        $comPilote = $this->home->getComPilote($infoEntr[0]['IdEntreprise']);
+        $comEtud = $this->home->getComEtud($infoEntr[0]['IdEntreprise']);
+        $comPilIdUser = $this->home->getComPilById($infoEntr[0]['IdEntreprise'], $idUser);
+        $comPilIdUser[0] = $comPilIdUser == array() ? array() : $comPilIdUser[0];
+        $idOffre = $this->home->getOffreEntr($infoEntr[0]['IdEntreprise']);
+        if ($idOffre != null) {
+            for ($i = 0; $i < count($idOffre); $i++) {
+                $temp[$i] = $this->home->getOffre($idOffre[$i]['IdOffre']);
+                $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
+                $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
+                $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
+                $card[$i]['dateDebut'] = $temp[$i][0]['DateDebut'];
+                $card[$i]['secteur'] = $this->home->getSecteur($temp[$i][0]['IdOffre']);
+                $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
+            }
+        } else {
+            $card = [];
+        }
+        $this->tpl->assign('card', $card);
+        $this->tpl->assign('secteur', $secteur);
+        $this->tpl->assign('infoEntr', $infoEntr[0]);
+        $this->tpl->assign('comUser', $comPilIdUser[0]);
+        $this->tpl->assign('comPil', $comPilote);
+        $this->tpl->assign('comEtud', $comEtud);
+        $this->tpl->display('profilEntrPerm.tpl');
+        return $infoEntr[0]['IdEntreprise'];
+    }
     public function suivi(int $idUser) // not started
     {
         $suivi = $this->home->getSuivi($idUser);
         if ($suivi != null) {
             for ($i = 0; $i < count($suivi); $i++) {
-                $temp[$i] = $this->home->getOffre($suivi[0]['IdOffre']);
+                $temp[$i] = $this->home->getOffre($suivi[$i]['IdOffre']);
                 $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
                 $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
                 $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
@@ -282,11 +336,12 @@ class Controller
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $nomEntr);
+        $this->tpl->assign('nomEntrSelect', $lastOffre[0]['NomEntreprise']);
         $this->tpl->assign('secteur', $secteur);
         $this->tpl->assign('promotion', $promo);
         $this->tpl->assign('promoOffre', $promoOffre);
         $this->tpl->assign('compOffre', $compOffre);
-        $this->tpl->assign('addresse', $adresse);
+        $this->tpl->assign('adresse', $adresse);
         $this->tpl->assign('duree', $lastOffre[0]['DuréeStage']);
         $this->tpl->assign('competences', $comp);
         $this->tpl->assign('descr', $lastOffre[0]['Description']);
@@ -313,10 +368,10 @@ class Controller
                 $compOffre[$i]['niveau'] = "";
             }
         }
-
         $this->tpl->assign('idOffre', $lastOffre[0]['IdOffre']);
         $this->tpl->assign('nomOffre', $lastOffre[0]['nomOffre']);
         $this->tpl->assign('nomEntr', $nomEntr);
+        $this->tpl->assign('nomEntrSelect', $lastOffre[0]['NomEntreprise']);
         $this->tpl->assign('secteur', $secteur);
         $this->tpl->assign('promotion', $promo);
         $this->tpl->assign('promoOffre', $promoOffre);
@@ -361,7 +416,9 @@ class Controller
     }
     public function addEntr()
     { 
-        $this->tpl->display('addEntr.tpl');
+        $secteur = $this->home->getAllSect();
+        $this->tpl->assign('secteur', $secteur);
+        $this->tpl->display('addEntreprise.tpl');
     }
     public function searchPerm(int $currentPage, int $nbParPage) // not started
     {
