@@ -12,7 +12,7 @@
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 2fr 2fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr 1fr 1fr;
     padding: 2%;
     justify-content: center;
     border: 2px solid;
@@ -86,13 +86,13 @@
 }
 
 .promo {
-    grid-row: 3;
-    grid-column: 1;
+    grid-row: 5;
+    grid-column: 1/4;
 }
 
 .ville {
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
 }
 
 .about {
@@ -158,3 +158,29 @@
     }
     
 }
+
+
+
+
+
+
+.about {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  
+  .about h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .about p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  
+  
