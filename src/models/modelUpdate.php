@@ -31,6 +31,18 @@ class ModelUpdate
     {
         $this->bdd->execute("DELETE FROM évalue_stagiaire WHERE IdEtudiant = ? AND IdEntreprise = ?", [$idEtud, $idEntr]);
     }
+    public function addComEntrPil(int $idPil, int $note, string $com, int $idEntr)
+    {
+        $this->bdd->execute("INSERT INTO évalue_pilote VALUES(?, ?, ?, ?)", [$idPil, $note, $com, $idEntr]);
+    }
+    public function updComEntrPil(int $idPil, int $note, string $com, int $idEntr)
+    {
+        $this->bdd->execute("UPDATE évalue_pilote SET IdPilote = ?, confiance = ?, commentaire = ?, IdEntreprise = ? WHERE IdPilote = ? AND IdEntreprise = ?", [$idPil, $note, $com, $idEntr, $idPil, $idEntr]);
+    }
+    public function delComEntrPil(int $idPil, int $idEntr)
+    {
+        $this->bdd->execute("DELETE FROM évalue_pilote WHERE IdPilote = ? AND IdEntreprise = ?", [$idPil, $idEntr]);
+    }
     public function getIdEntr(string $nomEntr)
     {
         return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise FROM entreprise WHERE entreprise.NomEntreprise = ?", [$nomEntr]);
@@ -62,6 +74,10 @@ class ModelUpdate
     public function getIdPromo(string $nomPromo)
     {
         return $this->bdd->executeReturn("SELECT promotion.IdPromo FROM promotion WHERE promotion.Promotion = ?", [$nomPromo]);
+    }
+    public function getIdSect(string $nomSect)
+    {
+        return $this->bdd->executeReturn("SELECT secteuractivite.Id_Secteur FROM secteuractivite WHERE secteuractivite.Secteur_Activite = ?", [$nomSect]);
     }
     public function addDemPromo(int $idOffre, int $idPromo)
     {
@@ -99,6 +115,10 @@ class ModelUpdate
     {
         return $this->bdd->executeReturn("SELECT * FROM demande_promo WHERE demande_promo.IdPromo = ? AND demande_promo.IdOffre = ?", [$idPromo, $idOffre]);
     }
+    public function getSect(int $idSect, int $idEntr)
+    {
+        return $this->bdd->executeReturn("SELECT * FROM travail_dans WHERE travail_dans.Id_Secteur = ? AND travail_dans.IdEntreprise = ?", [$idSect, $idEntr]);
+    }
     public function updDemPromo(int $idOffre, int $idPromo, int $idPromoAncient)
     {
         $this->bdd->execute("UPDATE demande_promo SET demande_promo.IdOffre = ?, demande_promo.IdPromo = ? WHERE demande_promo.IdOffre = ? AND demande_promo.IdPromo = ?", [$idOffre, $idPromo, $idOffre, $idPromoAncient]);
@@ -115,9 +135,58 @@ class ModelUpdate
     {
         $this->bdd->execute("UPDATE demande SET demande.IdComp = ?, demande.niveau = ? WHERE demande.IdComp = ? AND demande.IdOffre = ?", [$idComp, $lvl, $idCompAncient, $idOffre]);
     }
-    public function getComp(int $idComp, int $idOffre)
+    public function getCompOffre(int $idComp, int $idOffre)
     {
-        return $this->bdd->executeReturn("SELECT * FROM demande WHERE demande.IdComp = ? AND demande.IdOffre = ?", [$idComp, $idOffre]);
+        return $this->bdd->executeReturn("SELECT demande.IdOffre, demande.IdComp, demande.niveau, compétences.Compétences FROM demande LEFT JOIN compétences ON demande.IdComp = compétences.IdComp WHERE demande.IdComp = ? AND demande.IdOffre = ?", [$idComp, $idOffre]);
+    }
+    public function updEntr(int $idEntr, string $nomEntr, int $NbreStagiaire)
+    {
+        $this->bdd->execute("UPDATE entreprise SET entreprise.NomEntreprise = ?, entreprise.NbreStagiaire = ? WHERE entreprise.IdEntreprise = ?", [$nomEntr, $NbreStagiaire, $idEntr]);
+    }
+    public function updAdrEntr(int $idEntr, int $idAdr)
+    {
+        $this->bdd->execute("UPDATE se_situe SET se_situe.IdAdresse = ? WHERE se_situe.IdEntreprise = ?", [$idAdr, $idEntr]);
+    }
+    public function addTravailDans(int $idEntr, int $idSect)
+    {
+        $this->bdd->execute("INSERT INTO travail_dans VALUES(?,?)", [$idEntr, $idSect]);
+    }
+    public function updTravailDans(int $idEntr, int $idSect, int $idSectAncient)
+    {
+        $this->bdd->execute("UPDATE travail_dans SET travail_dans.IdEntreprise = ?, travail_dans.Id_Secteur = ? WHERE travail_dans.IdEntreprise = ? AND travail_dans.Id_Secteur = ?", [$idEntr, $idSect, $idEntr, $idSectAncient]);
+    }
+    public function delTravailDans(int $idEntr, int $idSect)
+    {
+        $this->bdd->execute("DELETE FROM travail_dans WHERE travail_dans.IdEntreprise = ? AND travail_dans.Id_Secteur = ?", [$idEntr, $idSect]);   
+    }
+    public function delEntr(int $idEntr)
+    {
+        $this->bdd->execute("DELETE FROM entreprise WHERE idEntreprise = ?", [$idEntr]);
+    }
+    public function delTravailDansIdEntr(int $idEntr)
+    {
+        $this->bdd->execute("DELETE FROM travail_dans WHERE idEntreprise = ?", [$idEntr]);
+    }
+    public function delSeSitue(int $idEntr)
+    {
+        $this->bdd->execute("DELETE FROM se_situe WHERE idEntreprise = ?", [$idEntr]);
+    }
+    public function delComEntrByIdEntr($idEntr)
+    {
+        $this->bdd->execute("DELETE FROM évalue_pilote WHERE IdEntreprise = ?", [$idEntr]);
+        $this->bdd->execute("DELETE FROM évalue_stagiaire WHERE IdEntreprise = ?", [$idEntr]);
+    }
+    public function delOffreByIdEntr(int $idEntr) 
+    {
+        $this->bdd->execute("DELETE FROM offre WHERE IdEntreprise = ?", [$idEntr]);
+    }
+    public function addEntr(string $nomEntr, int $NbreStagiaire)
+    {
+        $this->bdd->execute("INSERT INTO entreprise VALUES(0,?,?)", [$nomEntr, $NbreStagiaire]);
+    }
+    public function getEntrIdLast()
+    {
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise FROM entreprise ORDER BY entreprise.IdEntreprise DESC LIMIT 0,1", []);
     }
 }
 ?>

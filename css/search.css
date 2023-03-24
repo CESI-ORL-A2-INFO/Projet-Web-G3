@@ -12,7 +12,8 @@
     cursor: pointer;
     box-sizing: border-box;
     overflow: hidden;
-    height: 350px;
+    height: 320px;
+
     flex-grow: 1;
   }
 
