@@ -83,7 +83,6 @@
                     {/if}
                 </select>
                 <textarea class="com" type="text" name="commentaire">{$comUser['commentaire']}</textarea>
-
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
                 <button class="del" type="submit" name="action" value="del">Delete</button>
             {/if}
@@ -98,7 +97,6 @@
             <p class="note">{$etud['note']}</p>
             <p class="comEtud">{$etud['commentaire']}</p>
         {/foreach}
-
 
 
       
