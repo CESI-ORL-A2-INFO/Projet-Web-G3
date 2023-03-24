@@ -8,7 +8,7 @@
         function validateForm() {
             var mail = document.forms["formulaire"]["mail"];
             var mdp = document.forms["formulaire"]["mdp"]
-            var bool = false;
+            var bool = true;
 
             if (mail.value == "") {
                 document.getElementById('errormail').innerHTML = "* Veuillez entrez un mail valide!";
