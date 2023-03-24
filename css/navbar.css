@@ -17,6 +17,7 @@
 }
 
 .logo {
+    display :grid;
     grid-row: 1/4;
     width: 65px;
     float: left;
@@ -128,9 +129,8 @@
     }
 
 
-
-    #nom {
-        display: none;
+    #filtre, #typefiltre,#nom{
+        display:none;
     }
 
     #butSearch {
