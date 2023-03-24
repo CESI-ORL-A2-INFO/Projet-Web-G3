@@ -219,8 +219,8 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'offre') {
 
 // Ajout, modification et suppression entreprise
 
-if (isset($_POST['actionEntr']) && $_SESSION['p'] == 'profilEntr'){
-    switch ($_POST['actionEntr']){
+if (isset($_POST['actionEntr']) && $_SESSION['p'] == 'profilEntr') {
+    switch ($_POST['actionEntr']) {
         case 'modif':
             $sect = [
                 $_POST['secteur1'],
@@ -234,7 +234,7 @@ if (isset($_POST['actionEntr']) && $_SESSION['p'] == 'profilEntr'){
                 'cp' => $_POST['cp'],
                 'pays' => $_POST['pays']
             ];
-            $nomEntr = $change->modifEntr($_SESSION['idEntr'],$_POST['nomEntr'], $adresse, $sect, $_POST['nbStagiaire']);
+            $nomEntr = $change->modifEntr($_SESSION['idEntr'], $_POST['nomEntr'], $adresse, $sect, $_POST['nbStagiaire']);
             $_SESSION['entr'] = $nomEntr;
             break;
         case 'suppr':
@@ -243,7 +243,7 @@ if (isset($_POST['actionEntr']) && $_SESSION['p'] == 'profilEntr'){
             break;
     }
 }
-if (isset($_POST['actionEntr']) && $_POST['actionEntr'] == 'add'){
+if (isset($_POST['actionEntr']) && $_POST['actionEntr'] == 'add') {
     $sect = [
         $_POST['secteur1'],
         $_POST['secteur2'],

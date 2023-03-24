@@ -176,7 +176,7 @@ class ModelUpdate
         $this->bdd->execute("DELETE FROM évalue_pilote WHERE IdEntreprise = ?", [$idEntr]);
         $this->bdd->execute("DELETE FROM évalue_stagiaire WHERE IdEntreprise = ?", [$idEntr]);
     }
-    public function delOffreByIdEntr(int $idEntr)
+    public function delOffreByIdEntr(int $idEntr) 
     {
         $this->bdd->execute("DELETE FROM offre WHERE IdEntreprise = ?", [$idEntr]);
     }
