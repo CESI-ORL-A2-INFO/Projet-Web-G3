@@ -193,5 +193,29 @@ class ControllerAction
         }
         return $this->home->getEntrById($idEntr[0]['IdEntreprise'])[0]['NomEntreprise'];
     }
+    public function addEtudiant(int $idPil, string $nomEtud, string $prenomEtud, int $idPromo)
+    {
+        $pil = $this->home->getPil($idPil);
+        $this->upd->createUser($nomEtud.$prenomEtud."@viacesi.fr", $nomEtud);
+        $idUser = $this->upd->getLastUser();
+        $this->upd->addEtud($nomEtud, $prenomEtud, $idUser[0]['Id_user'], $idPromo, $pil[0]['IdCentre'], $idPil);
+    }
+    public function updEtudiant(int $idEtud, string $nom, string $prenom, int $idCentre, int $idPilote, string $promo)
+    {
+        $idPromo = $this->upd->getIdPromo($promo)[0][0];
+        $this->upd->updEtud($idEtud, $nom, $prenom, $idCentre, $idPilote, $idPromo);
+    }
+    public function delEtud(int $idEtud)
+    {
+        $this->upd->delEtudiant($idEtud);
+    }
+    public function addPromo(int $idPil, int $idPromo)
+    {
+        $this->upd->addPromotion($idPil, $idPromo);
+    }
+    public function delPromo(int $idPil, int $idPromo)
+    {
+        $this->upd->delPromotion($idPil, $idPromo);
+    }
 }
 ?>
