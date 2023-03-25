@@ -1,19 +1,4 @@
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
- 
-  header {
-    background-color: #ffffff;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
   
   header a {
     color: #fff;
@@ -100,6 +85,8 @@ body {
 .comUser {
     display: flex;
     margin-bottom: 20px;
+    flex-direction: column;
+  
 }
 
 .noteUser {
@@ -112,11 +99,12 @@ body {
 .com {
     flex-grow: 1;
     font-size: 16px;
-    padding: 5px;
+    padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    white-space: pre-wrap;
+    resize:none ;
+    box-sizing: border-box;
  }
 
 .add, .upd, .del {

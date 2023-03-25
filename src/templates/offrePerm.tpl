@@ -9,10 +9,18 @@
         <input type="text" name="nomOffre" value="{$nomOffre}">
         <select name="nomEntr">
             {foreach $nomEntr as $name}
-                <option value="{$name['NomEntreprise']}">{$name['NomEntreprise']}</option>
+                {if $name['NomEntreprise'] == $nomEntrSelect}
+                    <option value="{$name['NomEntreprise']}" selected>{$name['NomEntreprise']}</option>
+                {else}
+                    <option value="{$name['NomEntreprise']}">{$name['NomEntreprise']}</option>
+                {/if}
             {/foreach}
         </select>
-
+        {foreach $nomEntr as $name}
+            {if $name['NomEntreprise'] == $nomEntrSelect}
+                <button class="getEntr" name="entr" value="{$name['NomEntreprise']}">Page entreprise</button>
+            {/if}
+        {/foreach}
         <ul class="secteur">
             {foreach $secteur as $sec}
                 <li>
@@ -22,7 +30,7 @@
         </ul>
         <h3>Promotion : </h3>
         <select name="promo1">
-            <option value="">Promotion</option>
+            <option value="none">Promotion</option>
             {foreach $promotion as $promo1}
                 {if $promoOffre[0]['Promotion'] == $promo1['Promotion']}
                     <option value="{$promo1['Promotion']}" selected>{$promo1['Promotion']}</option>
@@ -32,7 +40,7 @@
             {/foreach}
         </select>
         <select name="promo2">
-            <option value="">Promotion</option>
+            <option value="none">Promotion</option>
             {foreach $promotion as $promo2}
                 {if $promoOffre[1]['Promotion'] == $promo2['Promotion']}
                     <option value="{$promo2['Promotion']}" selected>{$promo2['Promotion']}</option>
@@ -42,7 +50,7 @@
             {/foreach}
         </select>
         <select name="promo3">
-            <option value="">Promotion</option>
+            <option value="none">Promotion</option>
             {foreach $promotion as $promo3}
                 {if $promoOffre[2]['Promotion'] == $promo3['Promotion']}
                     <option value="{$promo3['Promotion']}" selected>{$promo3['Promotion']}</option>
@@ -52,7 +60,7 @@
             {/foreach}
         </select>
         <select name="promo4">
-            <option value="">Promotion</option>
+            <option value="none">Promotion</option>
             {foreach $promotion as $promo4}
                 {if $promoOffre[3]['Promotion'] == $promo4['Promotion']}
                     <option value="{$promo4['Promotion']}" selected>{$promo4['Promotion']}</option>
@@ -63,7 +71,7 @@
         </select>
         <h3>Compétences : </h3>
         <select name="comp1">
-            <option value="">Compétence</option>
+            <option value="none">Compétence</option>
             {foreach $competences as $comp1}
                 {if $compOffre[0]['Compétences'] == $comp1['Compétences']}
                     <option value="{$comp1['Compétences']}" selected>{$comp1['Compétences']}</option>
@@ -74,7 +82,7 @@
         </select>
         <input type="text" name="lvl1" value="{$compOffre[0]['niveau']}">
         <select name="comp2">
-            <option value="">Compétence</option>
+            <option value="none">Compétence</option>
             {foreach $competences as $comp2}
                 {if $compOffre[1]['Compétences'] == $comp2['Compétences']}
                     <option value="{$comp2['Compétences']}" selected>{$comp2['Compétences']}</option>
@@ -85,7 +93,7 @@
         </select>
         <input type="text" name="lvl2" value="{$compOffre[1]['niveau']}">
         <select name="comp3">
-            <option value="">Compétence</option>
+            <option value="none">Compétence</option>
             {foreach $competences as $comp3}
                 {if $compOffre[2]['Compétences'] == $comp3['Compétences']}
                     <option value="{$comp3['Compétences']}" selected>{$comp3['Compétences']}</option>
@@ -96,7 +104,7 @@
         </select>
         <input type="text" name="lvl3" value="{$compOffre[2]['niveau']}">
         <select name="comp4">
-            <option value="">Compétence</option>
+            <option value="none">Compétence</option>
             {foreach $competences as $comp4}
                 {if $compOffre[3]['Compétences'] == $comp4['Compétences']}
                     <option value="{$comp4['Compétences']}" selected>{$comp4['Compétences']}</option>
@@ -107,7 +115,7 @@
         </select>
         <input type="text" name="lvl4" value="{$compOffre[3]['niveau']}">
         <select name="comp5">
-            <option value="">Compétence</option>
+            <option value="none">Compétence</option>
             {foreach $competences as $comp5}
                 {if $compOffre[4]['Compétences'] == $comp5['Compétences']}
                     <option value="{$comp5['Compétences']}" selected>{$comp5['Compétences']}</option>
@@ -118,7 +126,7 @@
         </select>
         <input type="text" name="lvl5" value="{$compOffre[4]['niveau']}">
         <p class="addresse">
-            {foreach from=$addresse item=$add key=i}
+            {foreach from=$adresse item=$add key=i}
                 adresse :
                 {$add[0]},
                 {$add[1]},
