@@ -124,6 +124,26 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite FROM secteuractivite", []);
     }
+    public function getPil(int $idPil)
+    {
+        return $this->bdd->executeReturn("SELECT * FROM pilote WHERE pilote.IdPilote = ?", [$idPil]);
+    }
+    public function getNomPromo(int $idPromo)
+    {
+        return $this->bdd->executeReturn("SELECT promotion.Promotion FROM promotion WHERE promotion.IdPromo = ?", [$idPromo]);
+    }
+    public function getEtudByCentrePromo(int $idCentr, int $idPromo)
+    {
+        return $this->bdd->executeReturn("SELECT etudiant.IdEtudiant, etudiant.NomEtudiant, etudiant.PrenomEtudiant FROM etudiant WHERE etudiant.IdCentre = ? AND etudiant.IdPromo = ?", [$idCentr, $idPromo]);
+    }
+    public function getAllCentre()
+    {
+        return $this->bdd->executeReturn("SELECT * FROM centre", []);
+    }
+    public function getAllPilote()
+    {
+        return $this->bdd->executeReturn("SELECT pilote.NomPilote, pilote.PrenomPilote, pilote.IdPilote FROM pilote");
+    }
 }
 
 ?>

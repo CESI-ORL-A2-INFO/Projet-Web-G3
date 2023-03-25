@@ -87,31 +87,28 @@ if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = (int) strip_tags($_GET['current_page']);
 } else if ($_SESSION['p'] == 'search') {
     $currentPage = 1;
-}// filtre search searchfiltre
+}
+
+// filtre search searchfiltre
+
 if (isset($_GET['filtre'])) {
     $_SESSION['filtre'] = $_GET['filtre'];
-}
-else{
+} else {
     $_SESSION['filtre'] = "";
 }
 if (isset($_GET['search'])) {
     $_SESSION['search'] = $_GET['search'];
-}
-else{
+} else {
     $_SESSION['search'] = "";
 }
 
 if (isset($_GET['searchfiltre'])) {
     $_SESSION['searchfiltre'] = $_GET['searchfiltre'];
-}
-else{
+} else {
     $_SESSION['searchfiltre'] = "";
 }
 
 
-/* if(isset($_GET['search'])){
-    $redirection->search()
-} */
 // Profil entreprise
 
 if (isset($_GET['entr'])) {
@@ -284,6 +281,49 @@ if (isset($_POST['actionEntr']) && $_POST['actionEntr'] == 'add') {
     $_SESSION['p'] = 'profilEntr';
 }
 
+// Gestion promo
+
+if (isset($_GET['promo']) && $_SESSION['p'] == 'profil') {
+    $_SESSION['promo'] = $_GET['promo'];
+    $_SESSION['p'] = 'promotion';
+}
+
+// Ajout etudiant promo
+
+if (isset($_POST['nomEtud']) && isset($_POST['prenomEtud']) && $_SESSION['p'] == 'promotion' && isset($_POST['action'])) {
+    if ($_POST['action'] == 'add') {
+        $change->addEtudiant($_SESSION['idTypeUser'], $_POST['nomEtud'], $_POST['prenomEtud'], $_SESSION['promo']);
+    }
+}
+
+// Profil etudiant perm
+
+if (isset($_GET['etud']) && $_SESSION['p'] == 'promotion') {
+    $_SESSION['p'] = 'profilEtud';
+    $_SESSION['etud'] = $_GET['etud'];
+}
+
+// Gestion etudiant
+
+if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
+    if ($_POST['action'] == 'modif') {
+        $change->updEtudiant($_SESSION['etud'], $_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['pilote'], $_POST['promo']);
+    } else {
+        $_SESSION['p'] = 'promotion';
+        $change->delEtud($_SESSION['etud']);
+    }
+}
+
+// Add/del promotion
+
+if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
+    $change->addPromo($_SESSION['idTypeUser'], $_GET['promoAdd']);
+} else if (isset($_POST['actionPromo']) && $_SESSION['p'] == 'promotion') {
+    $change->delPromo($_SESSION['idTypeUser'], $_SESSION['promo']);
+    $_SESSION['p'] = 'profil';
+}
+
+
 // Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
@@ -335,11 +375,19 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 $redirection->addEntr();
                 break;
             case 'search':
-                $redirection->searchPerm($currentPage, 6);
+                $redirection->searchPerm($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
                 break;
             case 'profilEntr':
                 $_SESSION['idEntr'] = $redirection->profilEntrPerm($_SESSION['entr'], $_SESSION['idTypeUser']);
                 break;
+            case 'promotion':
+                $redirection->promoPerm($_SESSION['idTypeUser'], $_SESSION['promo']);
+                break;
+            case 'profilEtud':
+                $redirection->profilEtudPerm($_SESSION['etud']);
+                break;
+            case 'CDC':
+                $redirection->cdcPerm();
         }
     } else {
         switch ($_SESSION['p']) {
@@ -365,6 +413,8 @@ if (isset($_SESSION['id_user']) && $deco == false) {
             case 'suivi':
                 $redirection->suivi($_SESSION['idTypeUser']);
                 break;
+            case 'CDC':
+                $redirection->cdc();
         }
     }
 } else {

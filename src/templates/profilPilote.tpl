@@ -21,6 +21,15 @@
     <form method="get" action="index.php">
         <button type="submit" name="deconnexion" value="true">Déconnexion</button>
     </form>
+    <form method="get" action="index.php" id="formPromo">
+        <select name="promoAdd" id="promo">
+            <option value="none">Promotion</option>
+            {foreach $pasPromo as $pPromo}
+                <option value="{$pPromo['IdPromo']}">{$pPromo['Promotion']}</option>
+            {/foreach}
+        </select>
+        <button name="addPromo" value="true">Ajouter promotion</button>
+    </form>
     <form class="wrapperPromo" method="get" action="index.php">
         {foreach $promotion as $promo}
             <button type="submit" name="promo" value="{$promo['IdPromo']}">
@@ -30,4 +39,19 @@
             </button>
         {/foreach}
     </form>
-{{/block}}
+{/block}
+
+{block name="script"}
+    <script>
+        const form = document.querySelector("#formPromo");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var val = document.getElementById("promo").value;
+            if (val == "none"){
+                alert("Choisissez une promotion à ajouter");
+                return;
+            }
+            form.submit();
+        })
+    </script>
+{/block}

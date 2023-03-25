@@ -22,4 +22,7 @@
             
         {/block}
     </footer>
+        {block name="script"}
+            
+        {/block}
 </body>

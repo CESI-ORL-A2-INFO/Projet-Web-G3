@@ -188,5 +188,37 @@ class ModelUpdate
     {
         return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise FROM entreprise ORDER BY entreprise.IdEntreprise DESC LIMIT 0,1", []);
     }
+    public function createUser(string $nomUser, string $prenomUser)
+    {
+        $this->bdd->execute("INSERT INTO utilisateur VALUES(0,?,?,0)", [$nomUser, $prenomUser]);
+    }
+    public function getLastUser()
+    {
+        return $this->bdd->executeReturn("SELECT utilisateur.Id_user FROM utilisateur ORDER BY Id_user DESC LIMIT 0,1", []);
+    }
+    public function addEtud(string $nom, string $prenom, int $idUser, int $idPromo, int $idCentre, int $idPil)
+    {
+        $this->bdd->execute("INSERT INTO etudiant VALUES(0,?,?,?,?,?,?)", [$nom, $prenom, $idUser, $idPromo, $idCentre, $idPil]);
+    }
+
+    public function updEtud(int $idEtud, string $nom, string $prenom, int $idCentre, int $idPilote, int $idPromo)
+    {
+        $this->bdd->execute("UPDATE etudiant SET NomEtudiant = ?, PrenomEtudiant = ?, IdPromo = ?, IdCentre = ?, IdPilote = ? WHERE IdEtudiant = ?", [$nom, $prenom, $idPromo, $idCentre, $idPilote, $idEtud]); 
+    }
+    public function delEtudiant(int $idEtud)
+    {
+        $this->bdd->execute("DELETE FROM évalue_stagiaire WHERE IdEtudiant = ?", [$idEtud]);
+        $this->bdd->execute("DELETE FROM postule WHERE IdEtudiant = ?", [$idEtud]);
+        $this->bdd->execute("DELETE FROM enregistre WHERE IdEtudiant = ?", [$idEtud]);
+        $this->bdd->execute("DELETE FROM etudiant WHERE IdEtudiant = ?", [$idEtud]);
+    }
+    public function addPromotion(int $idPil, int $idPromo)
+    {
+        $this->bdd->execute("INSERT INTO pilote_promo VALUES(?,?)", [$idPil,$idPromo]);
+    }
+    public function delPromotion(int $idPil, int $idPromo)
+    {
+        $this->bdd->execute("DELETE FROM pilote_promo WHERE IdPilote = ? AND IdPromo = ?", [$idPil, $idPromo]);
+    }
 }
 ?>
