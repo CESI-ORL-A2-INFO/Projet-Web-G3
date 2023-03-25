@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-23 11:16:25
-  from 'C:\www\ProjetMobile\new\Projet-Web-G3\src\templates\home.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-23 11:07:01
+  from 'C:\www\ProjetMobile\new\Projet-Web-G3\src\templates\homePilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641c26f9ebd209_39470144',
+  'unifunc' => 'content_641c24c50c0fb2_93608059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '98c219b44c6c5deec4cc4044e707f627b4a3236d' => 
+    'b9899ac8f2cb596d44a490cff2694c2b9edbff49' => 
     array (
-      0 => 'C:\\www\\ProjetMobile\\new\\Projet-Web-G3\\src\\templates\\home.tpl',
+      0 => 'C:\\www\\ProjetMobile\\new\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
       1 => 1679565479,
       2 => 'file',
     ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641c26f9ebd209_39470144 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641c24c50c0fb2_93608059 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1114728609641c26f9ea6341_64043967', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1847057702641c24c4e954c7_86809827', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1203993389641c26f9ea6d52_34810320', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_297726648641c24c4e96a63_22767526', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_1114728609641c26f9ea6341_64043967 extends Smarty_Internal_Block
+class Block_1847057702641c24c4e954c7_86809827 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1114728609641c26f9ea6341_64043967',
+    0 => 'Block_1847057702641c24c4e954c7_86809827',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1203993389641c26f9ea6d52_34810320 extends Smarty_Internal_Block
+class Block_297726648641c24c4e96a63_22767526 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1203993389641c26f9ea6d52_34810320',
+    0 => 'Block_297726648641c24c4e96a63_22767526',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -359,6 +359,10 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
+        </form>
+        <form method="get" accept="index.php">
+            <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
+            <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
         </form>
         <div class="about">
             <h3>Qui sommes nous ?</h3>

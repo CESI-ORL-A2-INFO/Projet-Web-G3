@@ -155,4 +155,26 @@
     border-left: 5px solid #4CAF50;
     padding-left: 10px;
 }
-
+@media only screen and (max-width : 830px)
+{
+  .comUser{
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 7px 1fr;
+    padding-top : 2%;
+  }
+  .upd, .del{
+    grid-row : 3;
+    width: 50%;
+  }
+  .upd{
+    width: 90%;
+  }
+  .commentaire{
+    display : flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+}

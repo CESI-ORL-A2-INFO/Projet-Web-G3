@@ -1,11 +1,13 @@
 <?php
 /* Smarty version 4.2.1, created on 2023-03-23 14:10:51
+
   from 'C:\www\ProjetMobile\new\Projet-Web-G3\src\templates\profilEtud.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
   'unifunc' => 'content_641c4fdb9acb93_35951010',
+
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,28 +23,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
 ),false)) {
 function content_641c4fdb9acb93_35951010 (Smarty_Internal_Template $_smarty_tpl) {
+
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1797545557641c4fdb99f185_61044115', "include");
+
 ?>
 
 
 <?php ob_start();
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_309395312641c4fdb99fca9_30576614', 'content');
+
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
 class Block_1797545557641c4fdb99f185_61044115 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'include' => 
   array (
     0 => 'Block_1797545557641c4fdb99f185_61044115',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,11 +62,13 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 /* {/block "include"} */
 /* {block 'content'} */
 class Block_309395312641c4fdb99fca9_30576614 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'content' => 
   array (
     0 => 'Block_309395312641c4fdb99fca9_30576614',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

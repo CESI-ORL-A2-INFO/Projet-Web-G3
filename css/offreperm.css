@@ -1,0 +1,159 @@
+/* Style pour le conteneur principal */
+.offre {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  
+  /* Style pour le logo de l'entreprise */
+  .logoEnt {
+    float: left;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Style pour l'icône de marque-page */
+  .icons {
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #999;
+  }
+  
+  /* Style pour le titre de l'offre */
+  .nomOffre {
+    margin-top: 0;
+    font-size: 32px;
+  }
+  
+  /* Style pour le nom de l'entreprise */
+  .nomEntr {
+    margin-top: 0;
+    color: #555;
+    font-size: 24px;
+  }
+  
+  /* Style pour la liste des secteurs d'activité */
+  .secteur {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .secteur li:before {
+    content: '\2022';
+    color: #999;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  /* Style pour la liste des promotions */
+  .promo {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .promo li:before {
+    content: '\2022';
+    color: #999;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  /* Style pour l'adresse */
+  .addresse {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour la durée */
+  .duree {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour la liste des compétences */
+  .competence {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .competence li {
+    display: inline-block;
+    margin-right: 10px;
+    color: #999;
+  }
+  
+  /* Style pour la date de début */
+  .dateOffre {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour la date d'émission */
+  .dateEmission {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour le nombre de places */
+  .place {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour la rémunération */
+  .paie {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+/* Style pour l'adresse mail */
+.mail {
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Style pour la description de l'offre */
+  .descr {
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  /* Style pour le formulaire */
+  form {
+    margin-top: 10px;
+  }
+  
+  /* Style pour le menu déroulant */
+  select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #555;
+    border-radius: 4px;
+  }
+  
+  /* Style pour le bouton du formulaire */
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style pour le bouton du formulaire au survol */
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
