@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:18:01
+/* Smarty version 4.2.1, created on 2023-03-25 13:01:19
   from 'C:\www\Projet-Web-G3\src\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ed86972c794_87898296',
+  'unifunc' => 'content_641ee28fc10dd0_77530665',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '42b165bf4467ea1df1237a0929cdd575c94e495b' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\footer.tpl',
-      1 => 1679743078,
+      1 => 1679745673,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ed86972c794_87898296 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641ee28fc10dd0_77530665 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_481888984641ed8697273d4_72948658', "head");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2139840723641ee28fc0f4e7_73847416', "head");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_479494728641ed86972c056_84427529', "footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1126587755641ee28fc108d9_49441020', "footer");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "index.tpl");
 }
 /* {block "navbarcss"} */
-class Block_968959240641ed869728024_03644050 extends Smarty_Internal_Block
+class Block_1428494702641ee28fc0fbe9_25297080 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -46,16 +46,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "navbarcss"} */
 /* {block "head"} */
-class Block_481888984641ed8697273d4_72948658 extends Smarty_Internal_Block
+class Block_2139840723641ee28fc0f4e7_73847416 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_481888984641ed8697273d4_72948658',
+    0 => 'Block_2139840723641ee28fc0f4e7_73847416',
   ),
   'navbarcss' => 
   array (
-    0 => 'Block_968959240641ed869728024_03644050',
+    0 => 'Block_1428494702641ee28fc0fbe9_25297080',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,7 +63,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <link rel="stylesheet" href="./css/footer.css">
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_968959240641ed869728024_03644050', "navbarcss", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1428494702641ee28fc0fbe9_25297080', "navbarcss", $this->tplIndex);
 ?>
 
 <?php
@@ -71,12 +71,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_968959240641ed8697
 }
 /* {/block "head"} */
 /* {block "footer"} */
-class Block_479494728641ed86972c056_84427529 extends Smarty_Internal_Block
+class Block_1126587755641ee28fc108d9_49441020 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_479494728641ed86972c056_84427529',
+    0 => 'Block_1126587755641ee28fc108d9_49441020',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -97,8 +97,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <div class="bas">
             <p id="textbas">© 2023 C'Stage</p>
             <a href="index.php?p=CDC" class="bot" id="centre">Centre de confidentialité</a>
-            <a href="" class="bot" id="cookie">Cookies</a>
-            <a href="" class="bot" id="condition">Conditions d'utilisations</a>
+            <a href="index.php?p=CGU" class="bot" id="cookie">Cookies</a>
+            <a href="index.php?p=CGU" class="bot" id="condition">Conditions d'utilisations</a>
         </div>
     </div>
 <?php

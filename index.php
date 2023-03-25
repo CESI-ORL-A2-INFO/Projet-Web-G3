@@ -388,6 +388,8 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdcPerm();
+            case 'CGU':
+                $redirection->cguPerm();
         }
     } else {
         switch ($_SESSION['p']) {
@@ -415,6 +417,8 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdc();
+            case 'CGU':
+                $redirection->cgu();
         }
     }
 } else {
