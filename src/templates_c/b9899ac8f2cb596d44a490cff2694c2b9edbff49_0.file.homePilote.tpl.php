@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:51:35
-  from 'C:\www\Projet-Web-G3\src\templates\homePilote.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-23 11:07:01
+  from 'C:\www\ProjetMobile\new\Projet-Web-G3\src\templates\homePilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ee047394b54_70855232',
+  'unifunc' => 'content_641c24c50c0fb2_93608059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '884172e64408560b4d968e4a22ab5cfecff2b247' => 
+    'b9899ac8f2cb596d44a490cff2694c2b9edbff49' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
-      1 => 1679745093,
+      0 => 'C:\\www\\ProjetMobile\\new\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
+      1 => 1679565479,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ee047394b54_70855232 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641c24c50c0fb2_93608059 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_870602651641ee047370e38_86504353', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1847057702641c24c4e954c7_86809827', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1580570374641ee047371a58_45520044', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_297726648641c24c4e96a63_22767526', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_870602651641ee047370e38_86504353 extends Smarty_Internal_Block
+class Block_1847057702641c24c4e954c7_86809827 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_870602651641ee047370e38_86504353',
+    0 => 'Block_1847057702641c24c4e954c7_86809827',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1580570374641ee047371a58_45520044 extends Smarty_Internal_Block
+class Block_297726648641c24c4e96a63_22767526 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1580570374641ee047371a58_45520044',
+    0 => 'Block_297726648641c24c4e96a63_22767526',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -365,22 +365,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
         </form>
         <div class="about">
-            <h1>Qui sommes nous ?</h1><br>
-            <p>C'Stage est un site web dédié à la recherche et la publication d'offres de stage.
-                Ce portail offre une plateforme intuitive et facile d'utilisation pour les
-            étudiants et les entreprises souhaitant trouver ou proposer un stage de qualité. Grâce à C'Stage,
-                les entreprises peuvent publier des offres de stage pertinentes et ainsi attirer des candidats motivés et
-                qualifiés. Les étudiants peuvent quant à eux naviguer à travers les offres et postuler pour les stages
-                correspondant
-                à leur profil. Avec des fonctionnalités pratiques telles que la recherche de stage par mots-clés, par
-                secteur ou
-                par localisation, C'Stage offre une expérience de recherche de stage
-            efficace et optimisée. De plus, le site propose également des conseils pratiques pour
-            aider les étudiants dans leur recherche de stage et pour les accompagner tout au long
-            de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
-                étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
-                leurs projets.</p>
-
+            <h3>Qui sommes nous ?</h3>
+            <p>lorem ipsum</p>
         </div>
     </div>
 <?php

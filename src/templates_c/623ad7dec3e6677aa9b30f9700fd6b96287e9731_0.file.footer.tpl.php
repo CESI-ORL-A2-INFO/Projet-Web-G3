@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 13:01:19
-  from 'C:\www\Projet-Web-G3\src\templates\footer.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-24 08:52:31
+  from 'C:\prosit\v1\Projet-Web-G3\src\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ee28fc10dd0_77530665',
+  'unifunc' => 'content_641d56bf1fa771_09509776',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '42b165bf4467ea1df1237a0929cdd575c94e495b' => 
+    '623ad7dec3e6677aa9b30f9700fd6b96287e9731' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\footer.tpl',
-      1 => 1679745673,
+      0 => 'C:\\prosit\\v1\\Projet-Web-G3\\src\\templates\\footer.tpl',
+      1 => 1679644200,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ee28fc10dd0_77530665 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641d56bf1fa771_09509776 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2139840723641ee28fc0f4e7_73847416', "head");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1991982604641d56bf1f97c8_12908323', "head");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1126587755641ee28fc108d9_49441020', "footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_468123287641d56bf1fa410_27598500', "footer");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "index.tpl");
 }
 /* {block "navbarcss"} */
-class Block_1428494702641ee28fc0fbe9_25297080 extends Smarty_Internal_Block
+class Block_777074058641d56bf1f9c01_91756690 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -46,16 +46,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "navbarcss"} */
 /* {block "head"} */
-class Block_2139840723641ee28fc0f4e7_73847416 extends Smarty_Internal_Block
+class Block_1991982604641d56bf1f97c8_12908323 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_2139840723641ee28fc0f4e7_73847416',
+    0 => 'Block_1991982604641d56bf1f97c8_12908323',
   ),
   'navbarcss' => 
   array (
-    0 => 'Block_1428494702641ee28fc0fbe9_25297080',
+    0 => 'Block_777074058641d56bf1f9c01_91756690',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,7 +63,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <link rel="stylesheet" href="./css/footer.css">
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1428494702641ee28fc0fbe9_25297080', "navbarcss", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_777074058641d56bf1f9c01_91756690', "navbarcss", $this->tplIndex);
 ?>
 
 <?php
@@ -71,12 +71,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1428494702641ee28f
 }
 /* {/block "head"} */
 /* {block "footer"} */
-class Block_1126587755641ee28fc108d9_49441020 extends Smarty_Internal_Block
+class Block_468123287641d56bf1fa410_27598500 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_1126587755641ee28fc108d9_49441020',
+    0 => 'Block_468123287641d56bf1fa410_27598500',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -96,9 +96,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         </div>
         <div class="bas">
             <p id="textbas">© 2023 C'Stage</p>
-            <a href="index.php?p=CDC" class="bot" id="centre">Centre de confidentialité</a>
-            <a href="index.php?p=CGU" class="bot" id="cookie">Cookies</a>
-            <a href="index.php?p=CGU" class="bot" id="condition">Conditions d'utilisations</a>
+            <a href="" class="bot" id="centre">Centre de confidentialité</a>
+            <a href="" class="bot" id="cookie">Cookies</a>
+            <a href="" class="bot" id="condition">Conditions d'utilisations</a>
         </div>
     </div>
 <?php

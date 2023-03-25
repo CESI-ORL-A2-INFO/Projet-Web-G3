@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:51:35
-  from 'C:\www\Projet-Web-G3\src\templates\homePilote.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-24 10:10:27
+  from 'C:\prosit\v1\Projet-Web-G3\src\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ee047394b54_70855232',
+  'unifunc' => 'content_641d6903b902a2_72967345',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '884172e64408560b4d968e4a22ab5cfecff2b247' => 
+    '5c68e3a8fdb9d25d3a3f1e9e8ad6955e0522d9d4' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
-      1 => 1679745093,
+      0 => 'C:\\prosit\\v1\\Projet-Web-G3\\src\\templates\\home.tpl',
+      1 => 1679649025,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ee047394b54_70855232 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641d6903b902a2_72967345 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_870602651641ee047370e38_86504353', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2024287152641d6903b776e9_15474672', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1580570374641ee047371a58_45520044', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_962230986641d6903b784f7_52269755', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_870602651641ee047370e38_86504353 extends Smarty_Internal_Block
+class Block_2024287152641d6903b776e9_15474672 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_870602651641ee047370e38_86504353',
+    0 => 'Block_2024287152641d6903b776e9_15474672',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1580570374641ee047371a58_45520044 extends Smarty_Internal_Block
+class Block_962230986641d6903b784f7_52269755 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1580570374641ee047371a58_45520044',
+    0 => 'Block_962230986641d6903b784f7_52269755',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,6 +64,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="wrapper">
         <form class="card_container" method="get" action="./index.php">
+
+
+
+
+
             <button class="card one" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[5];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -114,6 +119,17 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
+
+
+
+
+
+
+
+
+
+
+
             <button class="card two" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[4];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -328,6 +344,8 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
+
+                    
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[0];?>
  semaines</p>
                 <p class="promo">Promo :
@@ -360,27 +378,20 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
         </form>
-        <form method="get" accept="index.php">
-            <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
-            <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
-        </form>
         <div class="about">
-            <h1>Qui sommes nous ?</h1><br>
-            <p>C'Stage est un site web dédié à la recherche et la publication d'offres de stage.
-                Ce portail offre une plateforme intuitive et facile d'utilisation pour les
-            étudiants et les entreprises souhaitant trouver ou proposer un stage de qualité. Grâce à C'Stage,
-                les entreprises peuvent publier des offres de stage pertinentes et ainsi attirer des candidats motivés et
-                qualifiés. Les étudiants peuvent quant à eux naviguer à travers les offres et postuler pour les stages
-                correspondant
-                à leur profil. Avec des fonctionnalités pratiques telles que la recherche de stage par mots-clés, par
-                secteur ou
-                par localisation, C'Stage offre une expérience de recherche de stage
-            efficace et optimisée. De plus, le site propose également des conseils pratiques pour
-            aider les étudiants dans leur recherche de stage et pour les accompagner tout au long
-            de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
-                étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
-                leurs projets.</p>
-
+        <h4>Qui sommes nous ?</h4>
+        <p>C'Stage est un site web dédié à la recherche et la publication d'offres de stage. 
+        Ce portail offre une plateforme intuitive et facile d'utilisation pour les 
+        étudiants et les entreprises souhaitant trouver ou proposer un stage de qualité. Grâce à C'Stage,
+        les entreprises peuvent publier des offres de stage pertinentes et ainsi attirer des candidats motivés et 
+        qualifiés. Les étudiants peuvent quant à eux naviguer à travers les offres et postuler pour les stages correspondant 
+        à leur profil. Avec des fonctionnalités pratiques telles que la recherche de stage par mots-clés, par secteur ou 
+        par localisation, C'Stage offre une expérience de recherche de stage 
+        efficace et optimisée. De plus, le site propose également des conseils pratiques pour 
+        aider les étudiants dans leur recherche de stage et pour les accompagner tout au long 
+        de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les 
+        étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour leurs projets.</p>
+            
         </div>
     </div>
 <?php

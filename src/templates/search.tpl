@@ -42,7 +42,6 @@
             {foreach $data['competences'] as $comp}
             {$comp['Compétences']} - {$comp['niveau']} /
             {/foreach}</p>
-        <p class="descr">{$data['descr']}</p>
         </button>
     {/foreach}
 </form>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:52:45
-  from 'C:\www\Projet-Web-G3\src\templates\searchPerm.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-24 08:52:30
+  from 'C:\prosit\v1\Projet-Web-G3\src\templates\search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ee08d365fd9_06286344',
+  'unifunc' => 'content_641d56beecea78_61304322',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f30ee8859374085eadb947bde49049c05c5d2b26' => 
+    '784f975cf92fd440196cc0e8003c0a8c2e305eab' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\searchPerm.tpl',
-      1 => 1679744671,
+      0 => 'C:\\prosit\\v1\\Projet-Web-G3\\src\\templates\\search.tpl',
+      1 => 1679644200,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ee08d365fd9_06286344 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641d56beecea78_61304322 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_397114027641ee08d34ddf8_20435956', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_71179124641d56bed9e115_94300961', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1696225683641ee08d34e789_68404011', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1786022864641d56bed9e9e8_96999337', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_397114027641ee08d34ddf8_20435956 extends Smarty_Internal_Block
+class Block_71179124641d56bed9e115_94300961 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_397114027641ee08d34ddf8_20435956',
+    0 => 'Block_71179124641d56bed9e115_94300961',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,33 +52,34 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1696225683641ee08d34e789_68404011 extends Smarty_Internal_Block
+class Block_1786022864641d56bed9e9e8_96999337 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1696225683641ee08d34e789_68404011',
+    0 => 'Block_1786022864641d56bed9e9e8_96999337',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
     <div class="formfiltre">
-            <form action="index.php?" method="get" id="formfiltre">
-                <input type="search" id="bar" value="<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
-" name="search" placeholder="Recherche...">
+        <form action="index.php?" method="get" id="formfiltre">
+            <input type="search" id="bar" value="<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+"  name="search" placeholder="Recherche...">
 
-                <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
-                <select id="typefiltre" name="filtre">
-                    <option value="offre">Offre</option>
-                    <option value="entreprise">Entreprise</option>
-                    <option value="promotion">Promotion</option>
-                    <option value="comp">Compétences</option>
-                    <option value="secteur">Secteur d'activité</option>
-            </select>
-            <button id="butbar" name="p" value="search">Recherche</button>
-        </form>
-    </div>
+            <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
+            <select id="typefiltre" name="filtre">
+                <option value="def">Choississez une option</option>
+                <option value="offre">Offre</option>
+                <option value="entreprise">Entreprise</option>
+                <option value="promotion">Promotion</option>
+                <option value="comp">Compétences</option>
+                <option value="secteur">Secteur d'activité</option>
+        </select>
+        <button id="butbar" name="p" value="search">Recherche</button>
+    </form>
+</div>
 
 <form class="cardContainer" method="get" action="./index.php">
     <?php
@@ -138,18 +139,19 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
-      
+        <p class="descr"><?php echo $_smarty_tpl->tpl_vars['data']->value['descr'];?>
+</p>
         </button>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </form>
 <a class="firstPage" href="./index.php?p=search&current_page=1">
-    <<</a>
+    <<< /a>
         <?php if ($_smarty_tpl->tpl_vars['current_page']->value != 1) {?>
             <a class="pagePrec" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;?>
 ">
-                <</a>
+                << /a>
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['current_page']->value != $_smarty_tpl->tpl_vars['lastPage']->value) {?>
                     <a class="pageSuiv" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;?>

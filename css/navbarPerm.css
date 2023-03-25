@@ -17,6 +17,7 @@
 }
 
 .logo {
+    display :grid;
     grid-row: 1/4;
     width: 65px;
     float: left;
@@ -41,7 +42,7 @@
     padding-left: 20px;
     align-content: center;
     font-size: 18px;
-    width: 70%; 
+    width: 70%;
     height: 100%;
     border: 2px solid rgb(94, 94, 94);
 }
@@ -92,8 +93,15 @@
     color: rgb(126, 224, 241);
 }
 
+.fa-bookmark:hover {
+    color: rgb(243, 84, 84);
+}
+
 .fa-user:hover {
     color: gray;
+}
+#Afficher{
+    display:none;
 }
 
 #butSearch{
@@ -102,4 +110,74 @@
 
 .fa-magnifying-glass{
     color: #999;
+}
+
+@media only screen and (max-width: 830px) {
+    
+    .navbar {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 20px, 10px;
+
+    }
+
+    .wrapleft {
+        border-right: 2px solid gray;
+        display: block;
+        border-right: none;
+
+    }
+
+
+    #filtre, #typefiltre,#nom{
+        display:none;
+    }
+
+    #butSearch {
+        width: 50%;
+        height: 90%;
+        float :right;
+        margin-right: 15%;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    .icons {
+        text-decoration: none;
+        color: #999;
+        flex-wrap: nowrap;
+    }
+
+
+
+    .logo {
+        grid-column: 1;
+        grid-row: 1;
+        float :left;
+    }
+
+    #search {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    #searchbar {
+        display: none;
+    }
+    #Afficher{
+        display:inline-block;
+        margin-left : 30%;
+    }
+    #searchbar {
+        float: left;
+        margin-left: 10px;
+        border-radius: 10px;
+        padding-left: 20px;
+        align-content: center;
+        font-size: 18px;
+        width: 150px;
+        height: 100%;
+        border: 2px solid rgb(94, 94, 94);
+    }
+    
 }
