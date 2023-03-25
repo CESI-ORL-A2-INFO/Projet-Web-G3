@@ -34,11 +34,15 @@ class ModelHomePage
     }
     public function getEntrByName(string $nom)
     {
-        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise, entreprise.NomEntreprise, adresse.NumRue, adresse.NomRue, adresse.Ville, adresse.CodePostale, adresse.Pays FROM entreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse WHERE entreprise.NomEntreprise = ?", [$nom]);
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise, entreprise.NbreStagiaire, entreprise.NomEntreprise, adresse.NumRue, adresse.NomRue, adresse.Ville, adresse.CodePostale, adresse.Pays FROM entreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse WHERE entreprise.NomEntreprise = ?", [$nom]);
+    }
+    public function getEntrById(int $idEntr)
+    {
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise, entreprise.NbreStagiaire, entreprise.NomEntreprise, adresse.NumRue, adresse.NomRue, adresse.Ville, adresse.CodePostale, adresse.Pays FROM entreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse WHERE entreprise.IdEntreprise = ?", [$idEntr]);
     }
     public function getComp(int $id)
     {
-        return $this->bdd->executeReturn("select offre.IdOffre, compétences.Compétences, demande.niveau from offre left join demande on offre.IdOffre = demande.IdOffre left join compétences on demande.IdComp = compétences.IdComp where offre.IdOffre = ?", [$id]);
+        return $this->bdd->executeReturn("select offre.IdOffre, compétences.Compétences, demande.niveau, compétences.IdComp from offre left join demande on offre.IdOffre = demande.IdOffre left join compétences on demande.IdComp = compétences.IdComp where offre.IdOffre = ?", [$id]);
     }
     public function getOffre(int $idOffre)
     {
@@ -59,6 +63,10 @@ class ModelHomePage
     public function getSecteur(int $offre)
     {
         return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite FROM ((offre left join entreprise on offre.IdEntreprise = entreprise.IdEntreprise) INNER JOIN travail_dans on entreprise.IdEntreprise = travail_dans.IdEntreprise) INNER JOIN secteuractivite on travail_dans.Id_Secteur = secteuractivite.Id_Secteur where offre.IdOffre = ?", [$offre]);
+    }
+    public function getSecteurEntr(int $idEntr)
+    {
+        return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite, secteuractivite.Id_Secteur FROM travail_dans LEFT JOIN secteuractivite ON travail_dans.Id_Secteur = secteuractivite.Id_Secteur WHERE travail_dans.IdEntreprise = ?", [$idEntr]);
     }
     public function getStatutEtud(int $idOffre, int $id)
     {
@@ -92,6 +100,10 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT pilote.NomPilote, pilote.PrenomPilote, évalue_pilote.confiance, évalue_pilote.commentaire FROM évalue_pilote RIGHT JOIN pilote ON évalue_pilote.IdPilote = pilote.IdPilote WHERE évalue_pilote.IdEntreprise = ?", [$id]);
     }
+    public function getComPilById(int $idCom, int $idUser)
+    {
+        return $this->bdd->executeReturn("SELECT évalue_pilote.confiance, évalue_pilote.commentaire FROM évalue_pilote RIGHT JOIN pilote ON évalue_pilote.IdPilote = pilote.IdPilote WHERE évalue_Pilote.IdEntreprise = ? AND évalue_pilote.IdPilote = ?", [$idCom, $idUser]);
+    }
     public function getOffreEntr(int $idEntr)
     {
         return $this->bdd->executeReturn("SELECT offre.IdOffre FROM offre WHERE offre.IdEntreprise = ?", [$idEntr]);
@@ -108,11 +120,10 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM promotion", []);
     }    
-    function getAllSect()
+    public function getAllSect()
     {
         return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite FROM secteuractivite", []);
     }
-
 }
 
 ?>
