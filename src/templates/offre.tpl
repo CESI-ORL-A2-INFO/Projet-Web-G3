@@ -41,7 +41,7 @@
         <ul class="competence">
             {foreach $competence as $comp}
                 <li>
-                    {$comp[0]} : {$comp[1]},
+                    {$comp[1]} : {$comp[2]},
                 </li>
             {/foreach}
         </ul>

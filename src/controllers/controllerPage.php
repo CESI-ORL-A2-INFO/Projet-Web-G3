@@ -522,6 +522,14 @@ class Controller
     {
         $this->tpl->display("CDCPerm.tpl");
     }
+    public function cgu()
+    {
+        $this->tpl->display("CGU.tpl");
+    }
+    public function cguPerm()
+    {
+        $this->tpl->display("CGUPerm.tpl");
+    }
 }
 
 ?>
