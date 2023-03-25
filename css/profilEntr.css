@@ -1,19 +1,4 @@
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
- 
-  header {
-    background-color: #ffffff;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
   
   header a {
     color: #fff;
