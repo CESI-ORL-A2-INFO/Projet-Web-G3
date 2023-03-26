@@ -220,5 +220,25 @@ class ModelUpdate
     {
         $this->bdd->execute("DELETE FROM pilote_promo WHERE IdPilote = ? AND IdPromo = ?", [$idPil, $idPromo]);
     }
+    public function updPil(int $idPil, string $nomPil, string $prenomPil, int $idCentre)
+    {
+        $this->bdd->execute("UPDATE pilote SET NomPilote = ?, PrenomPilote = ?, IdCentre = ? WHERE IdPilote = ?", [$nomPil, $prenomPil, $idCentre, $idPil]);
+    }
+    public function delPil(int $idPil)
+    {
+        $this->bdd->execute("DELETE FROM pilote WHERE IdPilote = ?", [$idPil]);
+    }
+    public function delPilPromo(int $idPil)
+    {
+        $this->bdd->execute("DELETE FROM pilote_promo WHERE IdPilote = ?", [$idPil]);
+    }
+    public function delComPil(int $idPil)
+    {
+        $this->bdd->execute("DELETE FROM évalue_pilote WHERE IdPilote = ?", [$idPil]);
+    }
+    public function updEtudIdPil(int $idPil)
+    {
+        $this->bdd->execute("UPDATE etudiant SET IdPilote = 1 WHERE IdPilote = ?", [$idPil]);
+    }
 }
 ?>
