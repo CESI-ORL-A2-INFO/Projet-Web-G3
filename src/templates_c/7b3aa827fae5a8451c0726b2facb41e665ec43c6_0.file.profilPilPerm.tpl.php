@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-26 11:04:57
+/* Smarty version 4.2.1, created on 2023-03-26 12:57:20
   from 'C:\www\Projet-Web-G3\src\templates\profilPilPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64200ab938ff36_92384402',
+  'unifunc' => 'content_642025108f4b63_64125797',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3aa827fae5a8451c0726b2facb41e665ec43c6' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilPilPerm.tpl',
-      1 => 1679821496,
+      1 => 1679826882,
       2 => 'file',
     ),
   ),
@@ -20,32 +20,32 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64200ab938ff36_92384402 (Smarty_Internal_Template $_smarty_tpl) {
+function content_642025108f4b63_64125797 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_71630233864200ab9379e34_91375055', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20200549976420251088c993_15422930', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_76460341564200ab937a6c4_55435923', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9595175486420251088d230_62115727', 'content');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11961578064200ab938f207_32673199', "script");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1286905408642025108f3e67_24840175', "script");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_71630233864200ab9379e34_91375055 extends Smarty_Internal_Block
+class Block_20200549976420251088c993_15422930 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_71630233864200ab9379e34_91375055',
+    0 => 'Block_20200549976420251088c993_15422930',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,12 +57,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_76460341564200ab937a6c4_55435923 extends Smarty_Internal_Block
+class Block_9595175486420251088d230_62115727 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_76460341564200ab937a6c4_55435923',
+    0 => 'Block_9595175486420251088d230_62115727',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -82,34 +82,34 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <input class="champ" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
 ">
             <select name="centre">
-                    <?php
+                <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allCentre']->value, 'cent');
 $_smarty_tpl->tpl_vars['cent']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['cent']->value) {
 $_smarty_tpl->tpl_vars['cent']->do_else = false;
 ?>
-                        <?php if ($_smarty_tpl->tpl_vars['centre']->value == $_smarty_tpl->tpl_vars['cent']->value['Centre']) {?>
-                            <option value="<?php echo $_smarty_tpl->tpl_vars['cent']->value['IdCentre'];?>
+                    <?php if ($_smarty_tpl->tpl_vars['centre']->value == $_smarty_tpl->tpl_vars['cent']->value['Centre']) {?>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['cent']->value['IdCentre'];?>
 " selected><?php echo $_smarty_tpl->tpl_vars['cent']->value['Centre'];?>
 </option>
-                        <?php } else { ?>
-                            <option value="<?php echo $_smarty_tpl->tpl_vars['cent']->value['IdCentre'];?>
+                    <?php } else { ?>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['cent']->value['IdCentre'];?>
 "><?php echo $_smarty_tpl->tpl_vars['cent']->value['Centre'];?>
 </option>
-                        <?php }?>
-                    <?php
+                    <?php }?>
+                <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </select>
+            </select>
             <button type="submit" name="actionPil" value="modif">Modifier</button>
             <button type="submit" name="actionPil" value="suppr">Supprimer</button>
         </form>
     </div>
     <?php if ($_smarty_tpl->tpl_vars['user']->value == $_smarty_tpl->tpl_vars['idPil']->value) {?>
-    <form method="get" action="index.php">
-        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
-    </form>
-    
+        <form method="get" action="index.php">
+            <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+        </form>
+
         <form method="get" action="index.php" id="formPromo">
             <select name="promoAdd" id="promo">
                 <option value="none">Promotion</option>
@@ -153,12 +153,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'content'} */
 /* {block "script"} */
-class Block_11961578064200ab938f207_32673199 extends Smarty_Internal_Block
+class Block_1286905408642025108f3e67_24840175 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'script' => 
   array (
-    0 => 'Block_11961578064200ab938f207_32673199',
+    0 => 'Block_1286905408642025108f3e67_24840175',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -192,6 +192,10 @@ class ModelUpdate
     {
         $this->bdd->execute("INSERT INTO utilisateur VALUES(0,?,?,0)", [$nomUser, $prenomUser]);
     }
+    public function createUserAdmin(string $nomUser, string $prenomUser, int $isAdmin)
+    {
+        $this->bdd->execute("INSERT INTO utilisateur VALUES(0,?,?,?)", [$nomUser, $prenomUser, $isAdmin]);
+    }
     public function getLastUser()
     {
         return $this->bdd->executeReturn("SELECT utilisateur.Id_user FROM utilisateur ORDER BY Id_user DESC LIMIT 0,1", []);
@@ -200,7 +204,6 @@ class ModelUpdate
     {
         $this->bdd->execute("INSERT INTO etudiant VALUES(0,?,?,?,?,?,?)", [$nom, $prenom, $idUser, $idPromo, $idCentre, $idPil]);
     }
-
     public function updEtud(int $idEtud, string $nom, string $prenom, int $idCentre, int $idPilote, int $idPromo)
     {
         $this->bdd->execute("UPDATE etudiant SET NomEtudiant = ?, PrenomEtudiant = ?, IdPromo = ?, IdCentre = ?, IdPilote = ? WHERE IdEtudiant = ?", [$nom, $prenom, $idPromo, $idCentre, $idPilote, $idEtud]); 
@@ -239,6 +242,10 @@ class ModelUpdate
     public function updEtudIdPil(int $idPil)
     {
         $this->bdd->execute("UPDATE etudiant SET IdPilote = 1 WHERE IdPilote = ?", [$idPil]);
+    }
+    public function addPil(string $nomPil, string $prenomPil, int $idUser, int $idCentre)
+    {
+        $this->bdd->execute("INSERT INTO pilote VALUES(0,?,?,?,?)", [$nomPil, $prenomPil, $idUser, $idCentre]);
     }
 }
 ?>

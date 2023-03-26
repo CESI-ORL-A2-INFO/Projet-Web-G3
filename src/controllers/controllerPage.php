@@ -559,6 +559,22 @@ class Controller
         $this->tpl->assign('user', $idUser);
         $this->tpl->display('profilPilPerm.tpl');
     }
+    public function addPil()
+    {
+        $centres = $this->home->getAllCentre();
+        $this->tpl->assign('allCentre', $centres);
+        $this->tpl->display('addPil.tpl');
+    }
+    public function addEtud()
+    {
+        $centres = $this->home->getAllCentre();
+        $promotions = $this->home->getAllPromo();
+        $pilotes = $this->home->getAllPilote();
+        $this->tpl->assign('allCentre', $centres);
+        $this->tpl->assign('allPromotion', $promotions);
+        $this->tpl->assign('allPilote', $pilotes);
+        $this->tpl->display('addEtud.tpl');
+    }
 }
 
 ?>

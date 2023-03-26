@@ -314,6 +314,11 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
     }
 }
 
+if (isset($_POST['addEtud']) && $_SESSION['p'] == 'addEtud'){
+    $change->addEtudiantCentre($_POST['pilote'], $_POST['nom'], $_POST['prenom'], $_POST['promo'], $_POST['centre']);
+    $_SESSION['p'] = 'home';
+}
+
 // Add/del promotion
 
 if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
@@ -323,7 +328,7 @@ if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
     $_SESSION['p'] = 'profil';
 }
 
-// id profilPilPerm
+// modif/add/suppr profilPilPerm
 
 if (isset($_GET['pil'])) {
     $_SESSION['pil'] = $_GET['pil'];
@@ -335,6 +340,11 @@ if (isset($_GET['actionPil'])){
         $change->supprPil($_SESSION['pil']);
         $_SESSION['p'] = 'home';
     }
+}
+
+if (isset($_POST['addPil']) && $_SESSION['p'] == 'addPil'){
+    $change->addPilote($_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['admin']);
+    $_SESSION['p'] = 'home';
 }
 
 
@@ -362,9 +372,19 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'addOffre':
                 $redirection->addOffre();
+                $_SESSION['p'] = 'home';
                 break;
             case 'addEntr':
                 $redirection->addEntr();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'addPil':
+                $redirection->addPil();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'addEtud':
+                $redirection->addEtud();
+                $_SESSION['p'] = 'home';
                 break;
             case 'search':
                 $redirection->searchPerm($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
@@ -402,9 +422,11 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'addOffre':
                 $redirection->addOffre();
+                $_SESSION['p'] = 'home';
                 break;
             case 'addEntr':
                 $redirection->addEntr();
+                $_SESSION['p'] = 'home';
                 break;
             case 'search':
                 $redirection->searchPerm($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
