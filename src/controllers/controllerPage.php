@@ -575,6 +575,14 @@ class Controller
         $this->tpl->assign('allPilote', $pilotes);
         $this->tpl->display('addEtud.tpl');
     }
+    public function cookie()
+    {
+        $this->tpl->display('cookie.tpl');
+    }
+    public function cookiePerm()
+    {
+        $this->tpl->display('cookiePerm.tpl');
+    }
 }
 
 ?>

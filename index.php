@@ -314,7 +314,7 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
     }
 }
 
-if (isset($_POST['addEtud']) && $_SESSION['p'] == 'addEtud'){
+if (isset($_POST['addEtud']) && $_SESSION['p'] == 'addEtud') {
     $change->addEtudiantCentre($_POST['pilote'], $_POST['nom'], $_POST['prenom'], $_POST['promo'], $_POST['centre']);
     $_SESSION['p'] = 'home';
 }
@@ -333,8 +333,8 @@ if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
 if (isset($_GET['pil'])) {
     $_SESSION['pil'] = $_GET['pil'];
 }
-if (isset($_GET['actionPil'])){
-    if ($_GET['actionPil'] == 'modif'){
+if (isset($_GET['actionPil'])) {
+    if ($_GET['actionPil'] == 'modif') {
         $change->modifPil($_SESSION['pil'], $_GET['nom'], $_GET['prenom'], $_GET['centre']);
     } else {
         $change->supprPil($_SESSION['pil']);
@@ -342,7 +342,7 @@ if (isset($_GET['actionPil'])){
     }
 }
 
-if (isset($_POST['addPil']) && $_SESSION['p'] == 'addPil'){
+if (isset($_POST['addPil']) && $_SESSION['p'] == 'addPil') {
     $change->addPilote($_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['admin']);
     $_SESSION['p'] = 'home';
 }
@@ -358,8 +358,8 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 $redirection->profilPilPerm($_SESSION['idTypeUser'], $_SESSION['pil']);
                 break;
             case 'profilPil':
-            $redirection->profilPilPerm($_SESSION['idTypeUser'], $_SESSION['pil']);
-            break;
+                $redirection->profilPilPerm($_SESSION['idTypeUser'], $_SESSION['pil']);
+                break;
             case 'home':
                 $redirection->homePerm();
                 break;
@@ -404,6 +404,9 @@ if (isset($_SESSION['id_user']) && $deco == false) {
             case 'CGU':
                 $redirection->cguPerm();
                 break;
+            case 'cookie':
+                $redirection->cookiePerm();
+                break;
         }
     } else if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
@@ -446,6 +449,9 @@ if (isset($_SESSION['id_user']) && $deco == false) {
             case 'CGU':
                 $redirection->cguPerm();
                 break;
+            case 'cookie':
+                $redirection->cookiePerm();
+                break;
         }
     } else {
         switch ($_SESSION['p']) {
@@ -476,6 +482,9 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CGU':
                 $redirection->cgu();
+                break;
+            case 'cookie':
+                $redirection->cookie();
                 break;
         }
     }
