@@ -16,23 +16,23 @@
             <input class="champ" id="name" type="text" name="nom" value="{$nom}">
             <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
             <select name="centre">
-                    {foreach $allCentre as $cent}
-                        {if $centre == $cent['Centre']}
-                            <option value="{$cent['IdCentre']}" selected>{$cent['Centre']}</option>
-                        {else}
-                            <option value="{$cent['IdCentre']}">{$cent['Centre']}</option>
-                        {/if}
-                    {/foreach}
-                </select>
+                {foreach $allCentre as $cent}
+                    {if $centre == $cent['Centre']}
+                        <option value="{$cent['IdCentre']}" selected>{$cent['Centre']}</option>
+                    {else}
+                        <option value="{$cent['IdCentre']}">{$cent['Centre']}</option>
+                    {/if}
+                {/foreach}
+            </select>
             <button type="submit" name="actionPil" value="modif">Modifier</button>
             <button type="submit" name="actionPil" value="suppr">Supprimer</button>
         </form>
     </div>
     {if $user == $idPil}
-    <form method="get" action="index.php">
-        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
-    </form>
-    
+        <form method="get" action="index.php">
+            <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+        </form>
+
         <form method="get" action="index.php" id="formPromo">
             <select name="promoAdd" id="promo">
                 <option value="none">Promotion</option>

@@ -18,7 +18,7 @@ class ModelHomePage
     }
     public function getAllOffre()
     {
-        return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, entreprise.NomEntreprise, offre.Description FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise", []);
+        return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, entreprise.NomEntreprise, offre.Description, adresse.Ville, adresse.NumRue, adresse.NomRue, adresse.CodePostale, adresse.Pays FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse", []);
     }
     public function getIdLastOffre(int $nbOffre, int $offset)
     {
@@ -150,7 +150,7 @@ class ModelHomePage
     }
     public function getAllPilote()
     {
-        return $this->bdd->executeReturn("SELECT pilote.IdPilote, pilote.NomPilote, pilote.PrenomPilote, centre.Centre FROM pilote LEFT JOIN centre ON pilote.IdCentre = centre.IdCentre");
+        return $this->bdd->executeReturn("SELECT pilote.IdPilote, pilote.NomPilote, pilote.PrenomPilote, centre.Centre, utilisateur.admin FROM pilote LEFT JOIN centre ON pilote.IdCentre = centre.IdCentre LEFT JOIN utilisateur ON pilote.Id_user = utilisateur.Id_user");
     }
     public function getAllEtud()
     {
