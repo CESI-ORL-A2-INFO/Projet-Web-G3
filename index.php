@@ -380,8 +380,10 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdcPerm();
+                break;
             case 'CGU':
                 $redirection->cguPerm();
+                break;
         }
     } else if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
@@ -418,8 +420,10 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdcPerm();
+                break;
             case 'CGU':
                 $redirection->cguPerm();
+                break;
         }
     } else {
         switch ($_SESSION['p']) {
@@ -447,8 +451,10 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdc();
+                break;
             case 'CGU':
                 $redirection->cgu();
+                break;
         }
     }
 } else {
