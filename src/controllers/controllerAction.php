@@ -217,5 +217,16 @@ class ControllerAction
     {
         $this->upd->delPromotion($idPil, $idPromo);
     }
+    public function modifPil(int $idPil, string $nomPil, string $prenomPil, int $idCentre)
+    {
+        $this->upd->updPil($idPil, $nomPil, $prenomPil, $idCentre);
+    }
+    public function supprPil(int $idPil)
+    {
+        $this->upd->delComPil($idPil);
+        $this->upd->delPilPromo($idPil);
+        $this->upd->updEtudIdPil($idPil);
+        $this->upd->delPil($idPil);
+    }
 }
 ?>
