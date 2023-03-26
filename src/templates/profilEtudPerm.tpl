@@ -22,7 +22,7 @@
                         {if $centre == $cent['Centre']}
                             <option value="{$cent['IdCentre']}" selected>{$cent['Centre']}</option>
                         {else}
-                            <option value="{$cent['IdCentre']}">{$cent['Centre']}}</option>
+                            <option value="{$cent['IdCentre']}">{$cent['Centre']}</option>
                         {/if}
                     {/foreach}
                 </select>

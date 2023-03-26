@@ -51,32 +51,33 @@ class Controller
     {
         $this->tpl->display('connexion.tpl');
     }
-    public function search(int $currentPage, int $nbParPage, String $filtre, String $nom, String $nomfilter) // not started
+    public function search(int $currentPage, int $nbParPage, string $filtre, string $nom, string $nomfilter) // not started
     {
-        $nbOffre = $this->home->getNbOffre();
-        $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        if ($offset != 0){
-            $offset++;
-        }
-        switch($filtre){
-            default :
-                $id = $this->home->getIdLastOffre($nbParPage, $offset);// Juste pour offre sans filtre
+        switch ($filtre) {
+            default:
+                $id = $this->home->getIdLastOffre($nbParPage, $offset); // Juste pour offre sans filtre
+                $lastPage = ceil(count($this->home->getIdAllLastOffre()) / $nbParPage);
                 break;
-            case "offre" :
+            case "offre":
                 $id = $this->search->Search($nom, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->searchAll($nom)) / $nbParPage);
                 break;
-            case "entreprise" :
+            case "entreprise":
                 $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchEntrepriseAll($nom)) / $nbParPage);
                 break;
-            case "comp" :
+            case "comp":
                 $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchCompAll($nom, $nomfilter)) / $nbParPage);
                 break;
-            case "secteur" :
+            case "secteur":
                 $id = $this->search->SearchSecteur($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchSecteurAll($nom, $nomfilter)) / $nbParPage);
                 break;
             case "promotion":
                 $id = $this->search->SearchPromo($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchPromoAll($nom, $nomfilter)) / $nbParPage);
                 break;
         }
         for ($i = 0; $i < count($id); $i++) {
@@ -308,7 +309,7 @@ class Controller
             $nomEntr[$i] = $entr[$i][0];
             $vil[$i] = $ville[$i][0];
         }
-        
+
         $this->tpl->assign('idOffre', $idOffre);
         $this->tpl->assign('promo', $promo);
         $this->tpl->assign('competences', $comp);
@@ -330,7 +331,7 @@ class Controller
         $promoOffre = $this->home->getPromo($lastOffre[0]['IdOffre']);
         $secteur = $this->home->getSecteur($lastOffre[0]['IdOffre']);
         for ($i = 0; $i < 5; $i++) {
-            if (isset($compOffre[$i]) == false){
+            if (isset($compOffre[$i]) == false) {
                 $compOffre[$i]['niveau'] = "";
             }
         }
@@ -365,7 +366,7 @@ class Controller
         $promoOffre = $this->home->getPromo($lastOffre[0]['IdOffre']);
         $secteur = $this->home->getSecteur($lastOffre[0]['IdOffre']);
         for ($i = 0; $i < 5; $i++) {
-            if (isset($compOffre[$i]) == false){
+            if (isset($compOffre[$i]) == false) {
                 $compOffre[$i]['niveau'] = "";
             }
         }
@@ -418,33 +419,33 @@ class Controller
         $this->tpl->display('addOffre.tpl');
     }
     public function addEntr()
-    { 
+    {
         $secteur = $this->home->getAllSect();
         $this->tpl->assign('secteur', $secteur);
         $this->tpl->display('addEntreprise.tpl');
     }
-    public function searchPerm(int $currentPage, int $nbParPage, String $filtre, String $nom, String $nomfilter)
+    public function searchPerm(int $currentPage, int $nbParPage, string $filtre, string $nom, string $nomfilter)
     {
         $nbOffre = $this->home->getNbOffre();
         $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        if ($offset != 0){
+        if ($offset != 0) {
             $offset++;
         }
-        switch($filtre){
-            default :
-                $id = $this->home->getIdLastOffre($nbParPage, $offset);// Juste pour offre sans filtre
+        switch ($filtre) {
+            default:
+                $id = $this->home->getIdLastOffre($nbParPage, $offset); // Juste pour offre sans filtre
                 break;
-            case "offre" :
+            case "offre":
                 $id = $this->search->Search($nom, $offset, $nbParPage);
                 break;
-            case "entreprise" :
+            case "entreprise":
                 $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
                 break;
-            case "comp" :
+            case "comp":
                 $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
                 break;
-            case "secteur" :
+            case "secteur":
                 $id = $this->search->SearchSecteur($nom, $nomfilter, $offset, $nbParPage);
                 break;
             case "promotion":
@@ -464,7 +465,7 @@ class Controller
             $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
             $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
         }
-        
+
         $this->tpl->assign('content', $nom);
         $this->tpl->assign('card', $card);
         $this->tpl->assign('lastPage', $lastPage);
@@ -474,7 +475,7 @@ class Controller
     public function promoPerm(int $idPil, int $promo)
     {
         $nomPromo = $this->home->getNomPromo($promo);
-        $infoPil = $this->home->getPil($idPil); 
+        $infoPil = $this->home->getPil($idPil);
         $etud = $this->home->getEtudByCentrePromo($infoPil[0]['IdCentre'], $promo);
         $this->tpl->assign('etudiant', $etud);
         $this->tpl->assign('promo', $nomPromo[0][0]);
@@ -529,6 +530,50 @@ class Controller
     public function cguPerm()
     {
         $this->tpl->display("CGUPerm.tpl");
+    }
+    public function homePerm()
+    {
+        $offre = $this->home->getAllOffre();
+        $entreprise = $this->home->getAllNomEntr();
+        $pilote = $this->home->getAllPilote();
+        $etudiant = $this->home->getAllEtud();
+        $this->tpl->assign('offre', $offre);
+        $this->tpl->assign('entr', $entreprise);
+        $this->tpl->assign('pilote', $pilote);
+        $this->tpl->assign('etud', $etudiant);
+        $this->tpl->display("homePerm.tpl");
+    }
+    public function profilPilPerm(int $idUser, int $idPil)
+    {
+        $pilote = $this->profil->getInfoPil($idPil);
+        $promo = $this->profil->getPromoPil($idUser);
+        $pasPromo = $this->profil->getPasPromo($idUser);
+        $centre = $this->home->getAllCentre();
+        $this->tpl->assign('allCentre', $centre);
+        $this->tpl->assign('promotion', $promo);
+        $this->tpl->assign('pasPromo', $pasPromo);
+        $this->tpl->assign('nom', $pilote[0]['NomPilote']);
+        $this->tpl->assign('prenom', $pilote[0]['PrenomPilote']);
+        $this->tpl->assign('centre', $pilote[0]['Centre']);
+        $this->tpl->assign('idPil', $idPil);
+        $this->tpl->assign('user', $idUser);
+        $this->tpl->display('profilPilPerm.tpl');
+    }
+    public function addPil()
+    {
+        $centres = $this->home->getAllCentre();
+        $this->tpl->assign('allCentre', $centres);
+        $this->tpl->display('addPil.tpl');
+    }
+    public function addEtud()
+    {
+        $centres = $this->home->getAllCentre();
+        $promotions = $this->home->getAllPromo();
+        $pilotes = $this->home->getAllPilote();
+        $this->tpl->assign('allCentre', $centres);
+        $this->tpl->assign('allPromotion', $promotions);
+        $this->tpl->assign('allPilote', $pilotes);
+        $this->tpl->display('addEtud.tpl');
     }
 }
 

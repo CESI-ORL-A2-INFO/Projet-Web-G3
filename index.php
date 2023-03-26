@@ -298,7 +298,7 @@ if (isset($_POST['nomEtud']) && isset($_POST['prenomEtud']) && $_SESSION['p'] ==
 
 // Profil etudiant perm
 
-if (isset($_GET['etud']) && $_SESSION['p'] == 'promotion') {
+if (isset($_GET['etud'])) {
     $_SESSION['p'] = 'profilEtud';
     $_SESSION['etud'] = $_GET['etud'];
 }
@@ -314,6 +314,11 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
     }
 }
 
+if (isset($_POST['addEtud']) && $_SESSION['p'] == 'addEtud'){
+    $change->addEtudiantCentre($_POST['pilote'], $_POST['nom'], $_POST['prenom'], $_POST['promo'], $_POST['centre']);
+    $_SESSION['p'] = 'home';
+}
+
 // Add/del promotion
 
 if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
@@ -323,37 +328,84 @@ if (isset($_GET['promoAdd']) && $_SESSION['p'] == 'profil') {
     $_SESSION['p'] = 'profil';
 }
 
+// modif/add/suppr profilPilPerm
+
+if (isset($_GET['pil'])) {
+    $_SESSION['pil'] = $_GET['pil'];
+}
+if (isset($_GET['actionPil'])){
+    if ($_GET['actionPil'] == 'modif'){
+        $change->modifPil($_SESSION['pil'], $_GET['nom'], $_GET['prenom'], $_GET['centre']);
+    } else {
+        $change->supprPil($_SESSION['pil']);
+        $_SESSION['p'] = 'home';
+    }
+}
+
+if (isset($_POST['addPil']) && $_SESSION['p'] == 'addPil'){
+    $change->addPilote($_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['admin']);
+    $_SESSION['p'] = 'home';
+}
+
 
 // Choix page
 
 if (isset($_SESSION['id_user']) && $deco == false) {
-    /*     if ($_SESSION['isAdmin'] == true && $_SESSION['typeUser'] == 'pilote') {
-    switch ($_SESSION['p']) {
-    case 'profilEtud':
-    $redirection->profilEtudPerm();
-    break;
-    case 'offre':
-    $redirection->offrePerm($_SESSION['offrePerm']);
-    break;
-    case 'profilEntr':
-    $redirection->profilEntrPerm();
-    break;
-    case 'promotion':
-    $redirection->promotionPerm();
-    break;
-    case 'search':
-    $redirection->searchPerm();
-    }
-    } elseif ($_SESSION['isAdmin'] == true) {
-    switch ($_SESSION['p']) {
-    case 'profilPil':
-    $redirection->profilPilPerm();
-    break;
-    case 'home':
-    $redirection->homePerm();
-    break;
-    } 
-    }*/if ($_SESSION['typeUser'] == 'pilote') {
+    if ($_SESSION['isAdmin'] == true) {
+        switch ($_SESSION['p']) {
+            case 'profil':
+                $_SESSION['pil'] = $_SESSION['idTypeUser'];
+                $redirection->profilPilPerm($_SESSION['idTypeUser'], $_SESSION['pil']);
+                break;
+            case 'profilPil':
+            $redirection->profilPilPerm($_SESSION['idTypeUser'], $_SESSION['pil']);
+            break;
+            case 'home':
+                $redirection->homePerm();
+                break;
+            case 'offre':
+                $redirection->offrePil($_SESSION['offre']);
+                break;
+            case 'offreLast':
+                $_SESSION['offre'] = $redirection->offreLastPil($_SESSION['offreLast']);
+                $_SESSION['p'] = 'offre';
+                break;
+            case 'addOffre':
+                $redirection->addOffre();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'addEntr':
+                $redirection->addEntr();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'addPil':
+                $redirection->addPil();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'addEtud':
+                $redirection->addEtud();
+                $_SESSION['p'] = 'home';
+                break;
+            case 'search':
+                $redirection->searchPerm($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
+                break;
+            case 'profilEntr':
+                $_SESSION['idEntr'] = $redirection->profilEntrPerm($_SESSION['entr'], $_SESSION['idTypeUser']);
+                break;
+            case 'promotion':
+                $redirection->promoPerm($_SESSION['idTypeUser'], $_SESSION['promo']);
+                break;
+            case 'profilEtud':
+                $redirection->profilEtudPerm($_SESSION['etud']);
+                break;
+            case 'CDC':
+                $redirection->cdcPerm();
+                break;
+            case 'CGU':
+                $redirection->cguPerm();
+                break;
+        }
+    } else if ($_SESSION['typeUser'] == 'pilote') {
         switch ($_SESSION['p']) {
             case 'profil':
                 $redirection->profilPil($_SESSION['idTypeUser']);
@@ -370,9 +422,11 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'addOffre':
                 $redirection->addOffre();
+                $_SESSION['p'] = 'home';
                 break;
             case 'addEntr':
                 $redirection->addEntr();
+                $_SESSION['p'] = 'home';
                 break;
             case 'search':
                 $redirection->searchPerm($currentPage, 6, $_SESSION['filtre'], $_SESSION['search'], $_SESSION['searchfiltre']);
@@ -388,8 +442,10 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdcPerm();
+                break;
             case 'CGU':
                 $redirection->cguPerm();
+                break;
         }
     } else {
         switch ($_SESSION['p']) {
@@ -417,8 +473,10 @@ if (isset($_SESSION['id_user']) && $deco == false) {
                 break;
             case 'CDC':
                 $redirection->cdc();
+                break;
             case 'CGU':
                 $redirection->cgu();
+                break;
         }
     }
 } else {
