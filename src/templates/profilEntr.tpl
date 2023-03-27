@@ -17,7 +17,7 @@
             {foreach $card as $data key=$i}
                 <button class="card" name="offre" value="{$data['IdOffre']}">
                     <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-                    <h3 class="title">{$data['nomOffre']}</h3>
+                    <h2 class="title">{$data['nomOffre']}</h2>
                     <p class="debut">Date de début : {$data['dateDebut']}</p>
                     <p class="duree">Durée : {$data['duree']} semaines</p>
                     <p class="ville">Ville : {$data['ville'][0]['Ville']}</p>
@@ -35,7 +35,7 @@
                     <option value="5">5</option>
                 </select>
 
-                <textarea class="com" type="text" name="commentaire"></textarea>
+                <textarea placeholder="Entrez votre commentaire ici" class="com" type="text" name="commentaire"></textarea>
                 <button class="add" type="submit" name="action" value="add">Ajouter</button>
             {else}
                 <select class="noteUser" name="note">
@@ -48,7 +48,7 @@
                     {/for}
                 </select>
 
-                <textarea class="com" type="text" name="commentaire">{$comUser['commentaire']}</textarea>
+                <textarea class="com" type="text" name="commentaire" placeholder="commentaire">{$comUser['commentaire']}</textarea>
 
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
                 <button class="del" type="submit" name="action" value="del">Delete</button>
