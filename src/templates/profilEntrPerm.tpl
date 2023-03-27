@@ -1,20 +1,81 @@
 {extends file='navbarPerm.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./css/profilEntr.css">
+    <link rel="stylesheet" href="./css/profilEntrPerm.css">
 {/block}
 
 {block name=content}
+    <script>
+    function validateForm() {
+        var nomEntr = document.forms["formulaire"]["nomEntr"];
+        var numRue = document.forms["formulaire"]["numRue"]
+        var nomRue = document.forms["formulaire"]["nomRue"]
+        var ville = document.forms["formulaire"]["ville"]
+        var CP = document.forms["formulaire"]["cp"]
+        var pays = document.forms["formulaire"]["pays"]
+        var bool = true;
+
+        if (nomEntr.value == "") {
+            document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrez un nom valide!";
+            nomEntr.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNomEntr').innerHTML = "";
+        }
+        if (numRue.value == "") {
+            document.getElementById('errorNumRue').innerHTML = "* Veuillez entrez un numéro de rue valide!";
+            numRue.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNumRue').innerHTML = "";
+        }
+        if (nomRue.value == "") {
+            document.getElementById('errorNomRue').innerHTML = "* Veuillez entrez un nom de rue valide!";
+            nomRue.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNomRue').innerHTML = "";
+        }
+        if (ville.value == "") {
+            document.getElementById('errorVille').innerHTML = "* Veuillez entrez une ville valide!";
+            ville.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorVille').innerHTML = "";
+        }
+        if (CP.value == "") {
+            document.getElementById('errorCP').innerHTML = "* Veuillez entrez un code postale valide!";
+            CP.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorCP').innerHTML = "";
+        }
+        if (pays.value == "") {
+            document.getElementById('errorPays').innerHTML = "* Veuillez entrez un pays valide!";
+            pays.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorPays').innerHTML = "";
+        }
+        return bool;
+    }
+    </script>
     <div class="info">
-        <form action="index.php" method="post">
-            <p>Nom de l'entreprise : </p>
+        <form name="formulaire" class="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
+            <p class="NomEntr">Nom de l'entreprise : </p>
             <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
+            <span class="error" id="errorNomEntr"></span>
             <p class="adresse">Adresse : </p>
             <input class="champ" name="numRue" value="{$infoEntr['NumRue']}">
+            <span class="error" id="errorNumRue"></span>
             <input class="champ" name="nomRue" value="{$infoEntr['NomRue']}">
+            <span class="error" id="errorNomRue"></span>
             <input class="champ" name="ville" value="{$infoEntr['Ville']}">
+            <span class="error" id="errorVille"></span>
             <input class="champ" name="cp" value="{$infoEntr['CodePostale']}">
+            <span class="error" id="errorCP"></span>
             <input class="champ" name="pays" value="{$infoEntr['Pays']}">
-            <p>Secteur : </p>
+            <span class="error" id="errorPays"></span>
+            <p class="selectTitle">Secteur : </p>
             <select class="secteur" name="secteur1">
                 <option value="none">Secteur</option>
                 {foreach $secteur as $sect1}
@@ -45,10 +106,12 @@
                     {/if}
                 {/foreach}
             </select>
-            <p>Nombre de stagiaire : </p>
-            <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
-            <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-            <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+            <div class="stagiaire">
+                <p class="StagTitle">Nombre de stagiaire : </p>
+                <input type="text" id="nbstagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <button type="submit" class="ButModifier" name="actionEntr" value="modif">Modifier l'entreprise</button>
+                <button type="submit" class="ButSuppr" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+            </div>
         </form>
         <form class="cardContainer" method="get" action="./index.php">
             {foreach $card as $data key=$i}
