@@ -247,5 +247,17 @@ class ModelUpdate
     {
         $this->bdd->execute("INSERT INTO pilote VALUES(0,?,?,?,?)", [$nomPil, $prenomPil, $idUser, $idCentre]);
     }
+    public function delDemCompOffre(int $idOffre)
+    {
+        $this->bdd->execute("DELETE FROM demande WHERE IdOffre = ?", [$idOffre]);
+    }
+    public function delEnregistreOffre(int $idOffre)
+    {
+        $this->bdd->execute("DELETE FROM enregistre WHERE IdOffre = ?", [$idOffre]);
+    }
+    public function delDemPromoOffre(int $idOffre)
+    {
+        $this->bdd->execute("DELETE FROM demande_promo WHERE IdOffre = ?", [$idOffre]);
+    }
 }
 ?>

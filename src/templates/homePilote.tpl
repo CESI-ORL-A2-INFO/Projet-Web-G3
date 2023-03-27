@@ -1,6 +1,6 @@
 {extends file='navbarPerm.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/homePilote.css">
 {/block}
 {block name=content}
     <div class="wrapper">
@@ -121,6 +121,7 @@
                     {/foreach}</p>
             </button>
         </form>
+        <div class="button-container">
         <form method="get" accept="index.php">
             <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
             <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
@@ -141,6 +142,7 @@
             de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
                 étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
                 leurs projets.</p>
+        </div>
 
         </div>
     </div>

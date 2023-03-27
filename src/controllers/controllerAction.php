@@ -88,6 +88,9 @@ class ControllerAction
     }
     public function supprOffre(int $idOffre)
     {
+        $this->upd->delDemPromoOffre($idOffre);
+        $this->upd->delEnregistreOffre($idOffre);
+        $this->upd->delDemCompOffre($idOffre);
         $this->upd->delOffre($idOffre);
     }
     public function modifOffre(array $data, array $promo, array $comp, int $idOffre)
