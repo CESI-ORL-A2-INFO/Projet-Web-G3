@@ -6,8 +6,7 @@
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
-            <h1>Tuteur</h1>
+            <h1>Profile Tuteur</h1>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
@@ -18,9 +17,17 @@
             <input class="champ" id="Centre" type="text" value="" placeholder="{$centre}" readonly>
         </div>
     </div>
+
+
+    <div class="button-container">
     <form method="get" action="index.php">
-        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+        <button type="submit" name="deconnexion" value="true" class="btn-deconnexion">Déconnexion</button>
+    </div>
     </form>
+
+
+
+    <div class="select-container">
     <form method="get" action="index.php" id="formPromo">
         <select name="promoAdd" id="promo">
             <option value="none">Promotion</option>
@@ -54,4 +61,4 @@
             form.submit();
         })
     </script>
-{/block}
+{/block}    
