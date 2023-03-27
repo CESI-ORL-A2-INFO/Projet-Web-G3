@@ -1,0 +1,14 @@
+{
+    "name" : "Cstage",
+    "short_name" : "cstage",
+    "description" : "Site d'offre de stage du CESI",
+    "icons" : [
+        
+    ],
+    "theme_color" : "#000000",
+    "background_color" : "#FFFFFF",
+    "display" : "fullscreen",
+    "orientation" : "portrait",
+    "start_url" : "/",
+    "scope": "/"
+}

@@ -4,7 +4,7 @@
 {/block}
 
 {block name=content}
-    <form class="wrapper" accept="index.php" method="post">
+    <form class="wrapper" action="index.php" method="post">
         <input type="text" name="nomOffre" placeholder="Nom de l'offre">
         <select name="nomEntr">
             {foreach $nomEntr as $name}

@@ -1,0 +1,4 @@
+<Files index.php>
+	order deny,allow
+	Deny from 10.145.128.133
+</Files>
