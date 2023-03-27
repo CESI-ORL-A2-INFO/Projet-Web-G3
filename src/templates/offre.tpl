@@ -6,7 +6,13 @@
 {block name=content}
     <div class="offre">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <a href="./index.php?" class="icons"><i class="fa-solid fa-bookmark fa-2x"></i></a>
+        <a href="./index.php?bookmark=true" class="icons" title="Enregistré" style="color: 
+        {if $isBook == array()}
+            gray
+        {else}
+            red
+        {/if}
+        "><i class="fa-solid fa-bookmark fa-2x"></i></a>
         <h1 class="nomOffre">{$nomOffre}</h1>
         <a href="./index.php?p=profilEntr&entr={$nomEntr}" class="nomEntr">
             <h3 class="nomEntr">{$nomEntr}</h3>
