@@ -83,20 +83,87 @@ select {
     border-radius: 10px;
 }
 
-#boutonSuppr {
-    margin-left: 3%;
-    margin-top: 1%;
-    margin-bottom: 5%;
-    padding: 2% 5% 2% 5%;
-    border: 1px solid;
-    border-radius: 10px;
-}
 
-#boutonSuppr:hover,#boutonModif:hover {
-    background-color: #dbdada;
-}
 
 .wrapperStage {
     display: flex;
     flex-wrap: wrap;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Style the input elements and the select element */
+  .form .champ,
+  .form select {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 20px;
+    outline: none;
+  }
+.form select {
+    width: 78%;
+}
+
+
+
+.form button[type="submit"][name="actionPil"][value="modif"] {
+    background-color: #008CBA;
+    color: #fff;
+    margin-right: 3%;
+  }
+  
+  .form button[type="submit"][name="actionPil"][value="modif"]:hover {
+    background-color: #0074a7;
+  }
+  
+  .form button[type="submit"][name="actionPil"][value="suppr"] {
+    background-color: #f44336;
+    color: #fff;
+    margin-left: 1%;
+  }
+  
+  .form button[type="submit"][name="actionPil"][value="suppr"]:hover {
+    background-color: #da190b;
+  }
+
+  /* Style the buttons container */
+.form .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+  }
+  /* Style the buttons with the same appearance as the "Modifier" and "Supprimer" buttons */
+.form .buttons-container button[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .form .buttons-container button[type="submit"]:first-child {
+    background-color: #008CBA;
+    color: #fff;
+    margin-right: 3%;
+  }
+  
+  .form .buttons-container button[type="submit"]:first-child:hover {
+    background-color: #0074a7;
+  }
+  
+  .form .buttons-container button[type="submit"]:last-child {
+    background-color: #f44336;
+    color: #fff;
+    margin-left: 1%;
+  }
+  
+  .form .buttons-container button[type="submit"]:last-child:hover {
+    background-color: #da190b;
+  }
+  
