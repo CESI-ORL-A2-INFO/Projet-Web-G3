@@ -106,7 +106,7 @@ if (isset($_GET['searchfiltre'])) {
 } else {
     $_SESSION['searchfiltre'] = "";
 }
-
+//test
 
 // Profil entreprise
 
