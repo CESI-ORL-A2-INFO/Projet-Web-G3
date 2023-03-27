@@ -19,6 +19,11 @@ select{
 h3{
     margin-bottom : 1%;
 }
+.error {
+    color: #D8000C;
+    padding-top: 5%;
+
+}
 #ButAddOffre{
     padding: 1%;
     font-size: 16px;
