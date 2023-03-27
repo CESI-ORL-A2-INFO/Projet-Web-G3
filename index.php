@@ -101,7 +101,6 @@ if (isset($_GET['search'])) {
 } else {
     $_SESSION['search'] = "";
 }
-
 if (isset($_GET['searchfiltre'])) {
     $_SESSION['searchfiltre'] = $_GET['searchfiltre'];
 } else {
