@@ -3,14 +3,12 @@ var CACHE_NAME = 'ma_pwa_cache';
 
 // Liste des ressources à enregistrer dans le cache
 var urlsToCache = [
-  './index.php',
-  './css/index.css',
-  './css/footer.css',
-  './css/navbar.css',
-  './css/navbarPerm.css',
-  './logo.png'
+  'logo.png'
 ];
 
+if (navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
 // Installation du service worker
 self.addEventListener('install', function(event) {
   // Enregistrer les ressources dans le cache
