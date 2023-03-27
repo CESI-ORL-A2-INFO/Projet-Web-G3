@@ -429,9 +429,6 @@ class Controller
         $nbOffre = $this->home->getNbOffre();
         $lastPage = ceil($nbOffre[0][0] / $nbParPage);
         $offset = ($currentPage - 1) * $nbParPage;
-        if ($offset != 0) {
-            $offset++;
-        }
         switch ($filtre) {
             default:
                 $id = $this->home->getIdLastOffre($nbParPage, $offset); // Juste pour offre sans filtre
@@ -468,6 +465,9 @@ class Controller
 
         $this->tpl->assign('content', $nom);
         $this->tpl->assign('card', $card);
+        $this->tpl->assign('filtre', $filtre);
+        $this->tpl->assign('search', $nom);
+        $this->tpl->assign('searchfiltre', $nomfilter);
         $this->tpl->assign('lastPage', $lastPage);
         $this->tpl->assign('current_page', $currentPage);
         $this->tpl->display('searchPerm.tpl');
