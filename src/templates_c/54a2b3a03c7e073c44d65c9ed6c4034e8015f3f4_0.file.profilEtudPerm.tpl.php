@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-26 15:59:00
+/* Smarty version 4.2.1, created on 2023-03-27 14:56:20
   from 'C:\www\Projet-Web-G3\src\templates\profilEtudPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64204fa464cad1_05919685',
+  'unifunc' => 'content_64219274104586_54480865',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54a2b3a03c7e073c44d65c9ed6c4034e8015f3f4' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEtudPerm.tpl',
-      1 => 1679827074,
+      1 => 1679921767,
       2 => 'file',
     ),
   ),
@@ -20,46 +20,46 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64204fa464cad1_05919685 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64219274104586_54480865 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_59500293464204fa45bd8e4_02953028', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_399113997642192740e8a24_75857847', "include");
 ?>
 
 
 <?php ob_start();
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_154789658464204fa45be247_31763245', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2047666735642192740f1533_65153378', 'content');
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_59500293464204fa45bd8e4_02953028 extends Smarty_Internal_Block
+class Block_399113997642192740e8a24_75857847 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_59500293464204fa45bd8e4_02953028',
+    0 => 'Block_399113997642192740e8a24_75857847',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-    <link rel="stylesheet" href="./css/profilEtud.css">
+    <link rel="stylesheet" href="./css/profilEtudPerm.css">
 <?php
 }
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_154789658464204fa45be247_31763245 extends Smarty_Internal_Block
+class Block_2047666735642192740f1533_65153378 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_154789658464204fa45be247_31763245',
+    0 => 'Block_2047666735642192740f1533_65153378',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -73,13 +73,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <div class="form">
-            <form method="post" action="index.php">
+
+        <form method="Post" action="index.php">
+            <div class="form">
+
                 <input class="champ" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
 ">
                 <input class="champ" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
 ">
-                <select name="centre">
+                <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allCentre']->value, 'cent');
@@ -100,7 +102,7 @@ $_smarty_tpl->tpl_vars['cent']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
-                <select name="pilote">
+                <select class="champ abxd" name="pilote">
                     <option value="none">Pilote</option>
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allPilote']->value, 'pil');
@@ -123,7 +125,7 @@ $_smarty_tpl->tpl_vars['pil']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
-                <select name="promo">
+                <select class="champ abxd" name="promo">
                     <option value="none">Promotion</option>
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allPromotion']->value, 'promo1');
@@ -144,11 +146,16 @@ $_smarty_tpl->tpl_vars['promo1']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
-                <button type="submit" name="action" value="modif">Modifier</button>
-                <button type="submit" name="action" value="suppr">Supprimer</button>
-            </form>
-        </div>
+                <div class="buttons-container">
+                    <button type="submit" name="actionPil" value="modif">Modifier</button>
+                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+                </div>
+            </div>
+        </form>
     </div>
+
+
+
     <div class="wrapperStage">
 
         <form class="cardContainer" method="get" action="./index.php">

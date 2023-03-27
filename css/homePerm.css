@@ -132,22 +132,22 @@ button:hover {
     }
 
     .offreTable {
-        grid-row: auto;
+        grid-row: 1;
         grid-column: auto;
     }
 
     .entrTable {
-        grid-row: auto;
+        grid-row: 2;
         grid-column: auto;
     }
 
     .piloteTable {
-        grid-row: auto;
+        grid-row: 3;
         grid-column: auto;
     }
 
     .etudTable {
-        grid-row: auto;
+        grid-row: 4;
         grid-column: auto;
     }
 
