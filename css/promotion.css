@@ -1,0 +1,48 @@
+.newEtud input[type="text"] {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+  }
+  
+  .newEtud button[type="submit"] {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    box-shadow: 0 0 5px #ccc;
+  }
+  
+  .newEtud button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* styles pour les cartes étudiants */
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }

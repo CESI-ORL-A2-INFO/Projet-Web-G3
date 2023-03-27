@@ -6,6 +6,7 @@
 {block name=content}
     <div class="offre">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+
         <a href="./index.php?bookmark=true" class="icons" title="Enregistré" style="color: 
         {if $isBook == array()}
             gray
@@ -33,7 +34,7 @@
         </ul>
         <p class="addresse">
             {foreach from=$addresse item=$add key=i}
-                adresse : {$add[0]} {$add[1]} {$add[2]} {$add[3]} {$add[4]}
+                adresse : {$add[0]}, {$add[1]}, {$add[3]}, {$add[2]}, {$add[4]}
             {/foreach}
 
         </p>
@@ -41,7 +42,7 @@
         <ul class="competence">
             {foreach $competence as $comp}
                 <li>
-                    {$comp[0]} : {$comp[1]},
+                    {$comp[1]} : {$comp[2]},
                 </li>
             {/foreach}
         </ul>
@@ -67,4 +68,5 @@
             <button type="submit">Changer le statut</button>
         </form>
     </div>
+    
 {/block}

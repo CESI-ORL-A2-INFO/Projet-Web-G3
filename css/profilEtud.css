@@ -7,7 +7,7 @@
     margin-left: 8%;
     margin-right: 8%;
     margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 1.5%;
 }
 
 #left {
@@ -24,7 +24,7 @@
     grid-row: 2/5;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 3%;
+    margin-bottom: 1.5%;
     background-color: aliceblue;
     border-radius: 20px;
 }
@@ -46,7 +46,7 @@
 .champ {
     border: 1px solid black;
     border-radius: 10px;
-    width: 75%;
+    width: 80%;
     padding: 3%;
     background-color: mintcream;
     margin-top: 3%;
@@ -75,6 +75,10 @@ select {
     display: flex;
     flex-wrap: wrap;
 }
+
+.btn-deconnexion{
+    text-align: center;
+  }
 
 @media only screen and (max-width : 830px)
 {
@@ -165,6 +169,7 @@ main {
     
     .btn-deconnexion:hover {
     background-color: #757272;
+
     }
     /* Style the Modifier and Supprimer buttons */
 .form button {

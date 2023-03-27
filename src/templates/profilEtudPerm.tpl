@@ -7,50 +7,76 @@
     <div class="wrapper">
         <div id="left">
             <h1>Profile</h1>
-            <h3>Le site qui te fera avancer</h3>
+            <h3>Etudiant</h3>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <div class="form">
-            <form action="index.php" method="post">
-                <input class="champ" id="Nom" type="text" value="" placeholder="Nom">
-                <input class="champ" id="Prenom" type="text" value="" placeholder="Prenom">
-                <select name="centre" id="promotion">
-                    <option value="Orléans" selected>Orléans</option>
+
+        <form method="Post" action="index.php">
+            <div class="form">
+
+                <input class="champ" id="name" type="text" name="nom" value="{$nom}">
+                <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
+                <select class="champ abxd" name="centre">
+                    <option value="none">Centre</option>
+                    {foreach $allCentre as $cent}
+                        {if $centre == $cent['Centre']}
+                            <option value="{$cent['IdCentre']}" selected>{$cent['Centre']}</option>
+                        {else}
+                            <option value="{$cent['IdCentre']}">{$cent['Centre']}</option>
+                        {/if}
+                    {/foreach}
                 </select>
-                <select name="pilote" id="promotion">
-                    <option value="Laporte--Chabasse" selected>Laporte--Chabasse</option>
+                <select class="champ abxd" name="pilote">
+                    <option value="none">Pilote</option>
+                    {foreach $allPilote as $pil}
+                        {if $nomPilote == $pil['NomPilote']}
+                            <option value="{$pil['IdPilote']}" selected>{$pil['NomPilote']} {$pil['PrenomPilote']}</option>
+                        {else}
+                            <option value="{$pil['IdPilote']}">{$pil['NomPilote']} {$pil['PrenomPilote']}</option>
+                        {/if}
+                    {/foreach}
                 </select>
-                <label>
-                    <select id="promotion">
-                        <option value="CPIA2">CPI A2</option>
-                        <option value="FISEA3">FISE A3</option>
-                        <option value="FISEA4">FISE A4</option>
-                        <option value="FISEA5">FISE A5</option>
-                        <option value="FISAA3">FISA A3</option>
-                        <option value="FISEA4">FISA A4</option>
-                        <option value="FISAA5">FISA A5</option>
-                    </select>
-                </label>
-                <div class="radio">
-                    <input type="radio" name="statut" value="libre" style="margin-bottom: 2%;text-align: center" />
-                    <label for="statut">Libre</label>
-                    <br>
-                    <input type="radio" name="statut2" value="recherche" style="margin-bottom: 2%" />
-                    <label for="statut2">En recherche</label>
-                    <br>
-                    <input type="radio" name="statut3" value="trouve" style="margin-bottom: 2%" />
-                    <label for="statut3">Stage trouvé</label>
+                <select class="champ abxd" name="promo">
+                    <option value="none">Promotion</option>
+                    {foreach $allPromotion as $promo1}
+                        {if $promo == $promo1['Promotion']}
+                            <option value="{$promo1['Promotion']}" selected>{$promo1['Promotion']}</option>
+                        {else}
+                            <option value="{$promo1['Promotion']}">{$promo1['Promotion']}</option>
+                        {/if}
+                    {/foreach}
+                </select>
+                <div class="buttons-container">
+                    <button type="submit" name="actionPil" value="modif">Modifier</button>
+                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
                 </div>
-                <div>
-                    <button id="boutonModif" type="submit" name="action" value="mod">Modifier</button>
-                    <button id="boutonSuppr" type="submit" name="action" value="sup">Supprimer</button>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+
+
+
     <div class="wrapperStage">
 
+        <form class="cardContainer" method="get" action="./index.php">
+            {foreach $card as $data key=$i}
+                <button class="card" name="offre" value="{$data['IdOffre']}">
+                    <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
+                    <h3 class="title">{$data['nomOffre']}</h3>
+                    <h4 class="nomEntreprise">{$data['nomEntr'][0]['NomEntreprise']}<br>secteur :
+                        {foreach $data['secteur'] as $sect}
+                            {$sect['Secteur_Activite']} /
+                        {/foreach}
+                    </h4>
+                    <p class="debut">Date de début : {$data['dateDebut']}</p>
+                    <p class="duree">Durée : {$data['duree']} semaines</p>
+                    <p class="ville">Ville : {$data['ville'][0]['Ville']}</p>
+                    <p class="statut">Statut : {$data['statut'][0]['statut']}</p>
+                </button>
+            {/foreach}
+        </form>
     </div>
+
 {{/block}}

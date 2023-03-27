@@ -13,18 +13,45 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
         <div class="form">
-            <form action="index.php" method="post">
-                <div>
-                <input class="champ" id="name" type="text" value="" placeholder="Nom" readonly>
-                </div>
-                <div>
-                <input class="champ" id="Prenom" type="text" value="" placeholder="Prenom" readonly>
-                </div>
-                <input class="champ" id="Centre" type="text" value="" placeholder="Orléans" readonly>
-            </form>
+            <input class="champ" id="name" type="text" value="" placeholder="{$nom}" readonly>
+            <input class="champ" id="Prenom" type="text" value="" placeholder="{$prenom}" readonly>
+            <input class="champ" id="Centre" type="text" value="" placeholder="{$centre}" readonly>
         </div>
     </div>
-    <div class="wrapperPromo">
+    <form method="get" action="index.php">
+        <button type="submit" name="deconnexion" value="true">Déconnexion</button>
+    </form>
+    <form method="get" action="index.php" id="formPromo">
+        <select name="promoAdd" id="promo">
+            <option value="none">Promotion</option>
+            {foreach $pasPromo as $pPromo}
+                <option value="{$pPromo['IdPromo']}">{$pPromo['Promotion']}</option>
+            {/foreach}
+        </select>
+        <button name="addPromo" value="true">Ajouter promotion</button>
+    </form>
+    <form class="wrapperPromo" method="get" action="index.php">
+        {foreach $promotion as $promo}
+            <button type="submit" name="promo" value="{$promo['IdPromo']}">
+                <h2 class="promotion">
+                    {$promo['Promotion']}
+                </h2>
+            </button>
+        {/foreach}
+    </form>
+{/block}
 
-    </div>
-{{/block}}
+{block name="script"}
+    <script>
+        const form = document.querySelector("#formPromo");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var val = document.getElementById("promo").value;
+            if (val == "none"){
+                alert("Choisissez une promotion à ajouter");
+                return;
+            }
+            form.submit();
+        })
+    </script>
+{/block}
