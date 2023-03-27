@@ -16,9 +16,17 @@ class ModelHomePage
     {
         return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, offre.DuréeStage, offre.DateDebut, offre.Paie, offre.NbrePlace, offre.DateEmission, offre.Description, entreprise.NomEntreprise, mail.adresse_mail FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise LEFT JOIN mail ON offre.Id_Adresse =  mail.Id_Adresse WHERE offre.IdOffre = ?", [$idOffre]);
     }
+    public function getAllOffre()
+    {
+        return $this->bdd->executeReturn("SELECT offre.IdOffre, offre.nomOffre, entreprise.NomEntreprise, offre.Description, adresse.Ville, adresse.NumRue, adresse.NomRue, adresse.CodePostale, adresse.Pays FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise LEFT JOIN se_situe ON entreprise.IdEntreprise = se_situe.IdEntreprise LEFT JOIN adresse ON se_situe.IdAdresse = adresse.IdAdresse", []);
+    }
     public function getIdLastOffre(int $nbOffre, int $offset)
     {
-        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc LIMIT ". $offset ."," . $nbOffre . " ");
+        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc LIMIT " . $offset . "," . $nbOffre . " ");
+    }
+    public function getIdAllLastOffre()
+    {
+        return $this->bdd->executeReturn("select offre.IdOffre from offre ORDER BY offre.DateEmission desc", []);
     }
     public function getOffrePage6()
     {
@@ -114,15 +122,43 @@ class ModelHomePage
     }
     public function getAllNomEntr()
     {
-        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise ,entreprise.NomEntreprise FROM entreprise", []);
+        return $this->bdd->executeReturn("SELECT entreprise.IdEntreprise ,entreprise.NomEntreprise, entreprise.NbreStagiaire FROM entreprise", []);
     }
     public function getAllPromo()
     {
         return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM promotion", []);
-    }    
+    }
     public function getAllSect()
     {
         return $this->bdd->executeReturn("SELECT secteuractivite.Secteur_Activite FROM secteuractivite", []);
+    }
+    public function getPil(int $idPil)
+    {
+        return $this->bdd->executeReturn("SELECT * FROM pilote WHERE pilote.IdPilote = ?", [$idPil]);
+    }
+    public function getNomPromo(int $idPromo)
+    {
+        return $this->bdd->executeReturn("SELECT promotion.Promotion FROM promotion WHERE promotion.IdPromo = ?", [$idPromo]);
+    }
+    public function getEtudByCentrePromo(int $idCentr, int $idPromo)
+    {
+        return $this->bdd->executeReturn("SELECT etudiant.IdEtudiant, etudiant.NomEtudiant, etudiant.PrenomEtudiant FROM etudiant WHERE etudiant.IdCentre = ? AND etudiant.IdPromo = ?", [$idCentr, $idPromo]);
+    }
+    public function getAllCentre()
+    {
+        return $this->bdd->executeReturn("SELECT * FROM centre", []);
+    }
+    public function getAllPilote()
+    {
+        return $this->bdd->executeReturn("SELECT pilote.IdPilote, pilote.NomPilote, pilote.PrenomPilote, centre.Centre, utilisateur.admin FROM pilote LEFT JOIN centre ON pilote.IdCentre = centre.IdCentre LEFT JOIN utilisateur ON pilote.Id_user = utilisateur.Id_user");
+    }
+    public function getAllEtud()
+    {
+        return $this->bdd->executeReturn("SELECT etudiant.IdEtudiant, etudiant.NomEtudiant, etudiant.PrenomEtudiant, promotion.Promotion, centre.Centre FROM etudiant LEFT JOIN promotion ON etudiant.IdPromo = promotion.IdPromo LEFT JOIN centre ON etudiant.IdCentre = centre.IdCentre", []);
+    }
+    public function getCentreByName(string $nomCentre)
+    {
+        return $this->bdd->executeReturn("SELECT centre.IdCentre FROM centre WHERE centre.Centre = ?", [$nomCentre]);
     }
 }
 

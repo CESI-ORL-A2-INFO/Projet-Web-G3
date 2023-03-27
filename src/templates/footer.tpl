@@ -21,9 +21,9 @@
         </div>
         <div class="bas">
             <p id="textbas">© 2023 C'Stage</p>
-            <a href="" class="bot" id="centre">Centre de confidentialité</a>
-            <a href="" class="bot" id="cookie">Cookies</a>
-            <a href="" class="bot" id="condition">Conditions d'utilisations</a>
+            <a href="index.php?p=CDC" class="bot" id="centre">Centre de confidentialité</a>
+            <a href="index.php?p=cookie" class="bot" id="cookie">Cookies</a>
+            <a href="index.php?p=CGU" class="bot" id="condition">Conditions d'utilisations</a>
         </div>
     </div>
 {/block}

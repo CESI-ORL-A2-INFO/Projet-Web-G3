@@ -1,14 +1,5 @@
 
   
-  header a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  header a:hover {
-    color: #ccc;
-  }
-  
   
   main {
     display: flex;

@@ -1,10 +1,11 @@
 * {
     margin: 0px;
+    font-family: "Open sans", sans-serif;
 }
 
 .navbar {
     display: grid;
-    grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 4fr 5px 3fr 1fr 1fr 1fr;
     align-items: center;
     border-bottom: 2px solid black;
 }

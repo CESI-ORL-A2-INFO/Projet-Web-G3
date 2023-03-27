@@ -193,5 +193,52 @@ class ControllerAction
         }
         return $this->home->getEntrById($idEntr[0]['IdEntreprise'])[0]['NomEntreprise'];
     }
+    public function addEtudiant(int $idPil, string $nomEtud, string $prenomEtud, int $idPromo)
+    {
+        $pil = $this->home->getPil($idPil);
+        $this->upd->createUser($nomEtud.$prenomEtud."@viacesi.fr", $nomEtud);
+        $idUser = $this->upd->getLastUser();
+        $this->upd->addEtud($nomEtud, $prenomEtud, $idUser[0]['Id_user'], $idPromo, $pil[0]['IdCentre'], $idPil);
+    }
+    public function addEtudiantCentre(int $idPil, string $nomEtud, string $prenomEtud, int $idPromo, int $centre)
+    {
+        $this->upd->createUser($nomEtud.$prenomEtud."@viacesi.fr", $nomEtud);
+        $idUser = $this->upd->getLastUser();
+        $this->upd->addEtud($nomEtud, $prenomEtud, $idUser[0]['Id_user'], $idPromo, $centre, $idPil);
+    }
+    public function updEtudiant(int $idEtud, string $nom, string $prenom, int $idCentre, int $idPilote, string $promo)
+    {
+        $idPromo = $this->upd->getIdPromo($promo)[0][0];
+        $this->upd->updEtud($idEtud, $nom, $prenom, $idCentre, $idPilote, $idPromo);
+    }
+    public function delEtud(int $idEtud)
+    {
+        $this->upd->delEtudiant($idEtud);
+    }
+    public function addPromo(int $idPil, int $idPromo)
+    {
+        $this->upd->addPromotion($idPil, $idPromo);
+    }
+    public function delPromo(int $idPil, int $idPromo)
+    {
+        $this->upd->delPromotion($idPil, $idPromo);
+    }
+    public function modifPil(int $idPil, string $nomPil, string $prenomPil, int $idCentre)
+    {
+        $this->upd->updPil($idPil, $nomPil, $prenomPil, $idCentre);
+    }
+    public function supprPil(int $idPil)
+    {
+        $this->upd->delComPil($idPil);
+        $this->upd->delPilPromo($idPil);
+        $this->upd->updEtudIdPil($idPil);
+        $this->upd->delPil($idPil);
+    }
+    public function addPilote(string $nomPil, string $prenomPil, int $centre, int $isAdmin)
+    {
+        $this->upd->createUserAdmin($nomPil.$prenomPil."@viacesi.fr", $nomPil, $isAdmin);
+        $idUser = $this->upd->getLastUser()[0][0];
+        $this->upd->addPil($nomPil, $prenomPil, $idUser, $centre);
+    }
 }
 ?>

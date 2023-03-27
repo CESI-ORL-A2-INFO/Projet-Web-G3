@@ -10,7 +10,6 @@
 
             <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
             <select id="typefiltre" name="filtre">
-                <option value="def">Choississez une option</option>
                 <option value="offre">Offre</option>
                 <option value="entreprise">Entreprise</option>
                 <option value="promotion">Promotion</option>
@@ -47,10 +46,10 @@
     {/foreach}
 </form>
 <a class="firstPage" href="./index.php?p=search&current_page=1">
-    <<< /a>
+    <<</a>
         {if $current_page != 1}
             <a class="pagePrec" href="./index.php?p=search&current_page={$current_page-1}">
-                << /a>
+                <</a>
                 {/if}
                 {if $current_page != $lastPage}
                     <a class="pageSuiv" href="./index.php?p=search&current_page={$current_page+1}">></a>

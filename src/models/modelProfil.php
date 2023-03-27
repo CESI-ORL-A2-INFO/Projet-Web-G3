@@ -24,6 +24,9 @@ class ModelProfil
     {
         return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM pilote LEFT JOIN pilote_promo ON pilote.IdPilote = pilote_promo.IdPilote LEFT JOIN promotion ON pilote_promo.IdPromo = promotion.IdPromo WHERE pilote.IdPilote = ?", [$id]);
     }
-
+    public function getPasPromo(int $idUser)
+    {
+        return $this->bdd->executeReturn("SELECT promotion.IdPromo, promotion.Promotion FROM promotion LEFT JOIN pilote_promo ON promotion.IdPromo = pilote_promo.IdPromo LEFT JOIN pilote ON pilote_promo.IdPilote = pilote.IdPilote WHERE promotion.IdPromo NOT IN (SELECT promotion.IdPromo FROM promotion INNER JOIN pilote_promo ON promotion.IdPromo = pilote_promo.IdPromo WHERE pilote_promo.IdPilote = ?)", [$idUser]);
+    }
 }
 ?>
