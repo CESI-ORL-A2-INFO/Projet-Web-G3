@@ -10,8 +10,10 @@
     <p class="adresse">Adresse : </p>
     <input class="champ" name="numRue" value="" placeholder="Numéro de rue">
     <input class="champ" name="nomRue" value="" placeholder="Nom de rue">
-    <input class="champ" name="ville" value="" placeholder="Ville">
-    <input class="champ" name="cp" value="" placeholder="Code Postal">
+    <input class="champ" id="cp" name="cp" value="" placeholder="Code Postal">
+    <select class="champ" id="ville" name="ville">
+        <option value="none">Ville</option>
+    </select>
     <input class="champ" name="pays" value="" placeholder="Pays">
     <p>Secteur : </p>
     <select class="secteur" name="secteur1">
@@ -36,4 +38,5 @@
     <input type="text" name="nbStagiaire" value="" placeholder="Nombre de stagiaires">
     <button type="submit" name="actionEntr" value="add">Ajouter une entreprise</button>
 </form>
+<script src="./js/CP.js"></script>
 {/block}
