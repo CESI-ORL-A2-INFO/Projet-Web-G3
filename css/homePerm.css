@@ -1,0 +1,136 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2vw;
+    margin: 2vw;
+  }
+  
+  .offreTable,
+  .entrTable,
+  .piloteTable,
+  .etudTable {
+    border: 1px solid #ccc;
+    padding: 1vw;
+    box-shadow: 0.5vw 0.5vw #ccc;
+    overflow-y: scroll;
+    max-height: 20vw;
+  }
+  
+  .offreTable table,
+  .entrTable table,
+  .piloteTable table,
+  .etudTable table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  .offreTable table td,
+  .entrTable table td,
+  .piloteTable table td,
+  .etudTable table td {
+    padding: 0.5vw;
+  }
+  
+  .offreTable table td:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+  
+  .offreTable table tr:nth-child(even),
+  .entrTable table tr:nth-child(even),
+  .piloteTable table tr:nth-child(even),
+  .etudTable table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .offreTable table th,
+  .entrTable table th,
+  .piloteTable table th,
+  .etudTable table th {
+    background-color: #4caf50;
+    color: rgb(0, 0, 0);
+    padding: 1vw;
+    text-align: center;
+    max-height: none;
+    overflow-y: visible;
+  }
+  /* Style pour le bouton du formulaire */
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2vw ;
+  }
+  
+  /* Style pour le bouton du formulaire au survol */
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .about {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  
+  .about h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .about p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .about {
+    text-align: center;
+    width: 80%;
+  
+    margin-left: 10%;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  
+    .offreTable,
+    .entrTable,
+    .piloteTable,
+    .etudTable {
+      max-height: 250px;
+      overflow-y: scroll;
+    }
+  
+    .offreTable {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  
+    .entrTable {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  
+    .piloteTable {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  
+    .etudTable {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  }

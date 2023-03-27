@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 09:19:29
+/* Smarty version 4.2.1, created on 2023-03-27 16:11:46
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\homePerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64214381bf65d7_76876032',
+  'unifunc' => 'content_6421a422b5ff34_98127808',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '317d8c808006ca8782e6b56871a8e9291fec4236' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\homePerm.tpl',
-      1 => 1679901532,
+      1 => 1679926303,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64214381bf65d7_76876032 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6421a422b5ff34_98127808 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_147732893264214381bebf11_46038807', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17954640836421a422b54ba6_83391197', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_186441648864214381bec614_94569402', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19702351686421a422b55397_33987486', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_147732893264214381bebf11_46038807 extends Smarty_Internal_Block
+class Block_17954640836421a422b54ba6_83391197 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_147732893264214381bebf11_46038807',
+    0 => 'Block_17954640836421a422b54ba6_83391197',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,17 +51,18 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_186441648864214381bec614_94569402 extends Smarty_Internal_Block
+class Block_19702351686421a422b55397_33987486 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_186441648864214381bec614_94569402',
+    0 => 'Block_19702351686421a422b55397_33987486',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
+<div class="container">
     <div class="offreTable">
         <h2>Offre</h2>
         <table>
@@ -186,6 +187,7 @@ $_smarty_tpl->tpl_vars['dataEtud']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </table>
     </div>
+    </div>
     <form method="get" accept="index.php">
         <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
         <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
@@ -208,7 +210,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
             étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
             leurs projets.</p>
-
     </div>
 <?php
 }

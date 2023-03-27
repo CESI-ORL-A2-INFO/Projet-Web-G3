@@ -66,8 +66,8 @@
             }
             return bool;
         }
-</script>
-    <form class="wrapper" name="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
+    </script>
+    <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
         <h3>Informations : </h3>
         <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
         <span class="error" id="errorNomOffre"></span>
@@ -129,11 +129,11 @@
         <span class="error" id="errorC1"></span>
         <select name="lvl1">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl1"></span>
         <select name="comp2">
@@ -145,11 +145,11 @@
         <span class="error" id="errorC2"></span>
         <select name="lvl2">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl2"></span>
         <select name="comp3">
@@ -161,11 +161,11 @@
         <span class="error" id="errorC3"></span>
         <select name="lvl3">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl3"></span>
         <select name="comp4">
@@ -177,11 +177,11 @@
         <span class="error" id="errorC4"></span>
         <select name="lvl4">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl4"></span>
         <select name="comp5">
@@ -193,17 +193,17 @@
         <span class="error" id="errorC5"></span>
         <select name="lvl5">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
         <span class="error" id="errorDescr"></span>
-        <button type="submit" id="ButAddOffre" name="addOffre" value="true">Ajouter</button>
+        <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
     </form>
 {/block}
 

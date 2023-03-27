@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 14:47:35
+/* Smarty version 4.2.1, created on 2023-03-27 15:28:45
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addOffre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_642190679ac2b1_15546122',
+  'unifunc' => 'content_64219a0d824cb0_06957343',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7668f5f1af349feab026cb14407a4c69c830f856' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
-      1 => 1679921254,
+      1 => 1679923626,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_642190679ac2b1_15546122 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64219a0d824cb0_06957343 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9647381296421906799eba5_73750991', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_51735602764219a0d815fb0_48852242', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8188365106421906799f3e6_23301864', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143805134164219a0d816835_08595125', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_9647381296421906799eba5_73750991 extends Smarty_Internal_Block
+class Block_51735602764219a0d815fb0_48852242 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_9647381296421906799eba5_73750991',
+    0 => 'Block_51735602764219a0d815fb0_48852242',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,12 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_8188365106421906799f3e6_23301864 extends Smarty_Internal_Block
+class Block_143805134164219a0d816835_08595125 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_8188365106421906799f3e6_23301864',
+    0 => 'Block_143805134164219a0d816835_08595125',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -129,9 +129,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             }
             return bool;
         }
-<?php echo '</script'; ?>
+    <?php echo '</script'; ?>
 >
-    <form class="wrapper" name="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
+    <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
         <h3>Informations : </h3>
         <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
         <span class="error" id="errorNomOffre"></span>
@@ -247,11 +247,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorC1"></span>
         <select name="lvl1">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl1"></span>
         <select name="comp2">
@@ -272,11 +272,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorC2"></span>
         <select name="lvl2">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl2"></span>
         <select name="comp3">
@@ -297,11 +297,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorC3"></span>
         <select name="lvl3">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl3"></span>
         <select name="comp4">
@@ -322,11 +322,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorC4"></span>
         <select name="lvl4">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl4"></span>
         <select name="comp5">
@@ -347,17 +347,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorC5"></span>
         <select name="lvl5">
             <option value="">Niveau</option>
-            <option value="debutant">Debutant</option>
-            <option value="intermediaire">Intermédiaire</option>
-            <option value="avance">Avancé</option>
-            <option value="Experimente">Expérimenté</option>
-            <option value="AllLvl">Tout Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
         </select>
         <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
         <span class="error" id="errorDescr"></span>
-        <button type="submit" id="ButAddOffre" name="addOffre" value="true">Ajouter</button>
+        <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
     </form>
 <?php
 }

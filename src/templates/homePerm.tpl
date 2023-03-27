@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="./css/homePerm.css">
 {/block}
 {block name=content}
+<div class="container">
     <div class="offreTable">
         <h2>Offre</h2>
         <table>
@@ -78,6 +79,7 @@
             {/foreach}
         </table>
     </div>
+    </div>
     <form method="get" accept="index.php">
         <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
         <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
@@ -100,6 +102,5 @@
         de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
             étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
             leurs projets.</p>
-
     </div>
 {/block}
