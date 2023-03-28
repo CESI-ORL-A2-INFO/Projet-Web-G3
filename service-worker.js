@@ -1,4 +1,4 @@
-// Nom du cache
+/* // Nom du cache
 var CACHE_NAME = 'ma_pwa_cache';
 
 // Liste des ressources à enregistrer dans le cache
@@ -61,4 +61,4 @@ self.addEventListener('fetch', function(event) {
           });
       })
   );
-});
+}); */

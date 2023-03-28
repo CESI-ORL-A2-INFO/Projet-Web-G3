@@ -63,16 +63,15 @@
 
         <form action="index.php" method="post">
             <p>Nom de l'entreprise : </p>
-                <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
+                <input class="champ" placeholder="Entrez le nom de l'entreprise" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
                 <p class="adresse">Adresse : </p>
-                <input class="champ" name="numRue" value="{$infoEntr['NumRue']}">
-                <input class="champ" name="nomRue" value="{$infoEntr['NomRue']}">
-                <input class="champ" id="cp" name="cp" value="" placeholder="Code Postal">
-                <select class="champ" id="ville" name="ville">
+                <input class="champ" placeholder="Numéro de rue" name="numRue" value="{$infoEntr['NumRue']}">
+                <input class="champ" placeholder="Nom de rue" name="nomRue" value="{$infoEntr['NomRue']}">
+                <input class="champ" placeholder="Code Postale" id="cp" name="cp" value="" placeholder="Code Postal">
+                <select class="champ" placeholder="Ville" id="ville" name="ville">
                     <option value="none">Ville</option>
                 </select>
-                <input class="champ" name="pays" value="" placeholder="Pays">
-                <input class="champ" name="pays" value="{$infoEntr['Pays']}">
+                <input class="champ" placeholder="Pays" name="pays" value="{$infoEntr['Pays']}">
                 <p>Secteur : </p>
                 <select class="secteur" name="secteur1">
                     <option value="none">Secteur</option>
@@ -120,7 +119,7 @@
 
                 </select>
                 <p>Nombre de stagiaire : </p>
-                <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
                 <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
                 <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
@@ -145,7 +144,7 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <textarea class="com" type="text" name="commentaire"></textarea>
+        <textarea placeholder="Entrez votre commentaire ici" class="com" type="text" name="commentaire"></textarea>
         <button class="add" type="submit" name="action" value="add">Ajouter</button>
         {else}
         <select class="noteUser" name="note">
