@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 13:13:46
+/* Smarty version 4.2.1, created on 2023-03-28 16:56:17
   from 'C:\www\Projet-Web-G3\src\templates\profilEntrPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422cbea3a8640_71886154',
+  'unifunc' => 'content_64230011183111_39279902',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e91b35ec9acf8b4f23a23a582398dad3f487f561' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEntrPerm.tpl',
-      1 => 1680002024,
+      1 => 1680015374,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422cbea3a8640_71886154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64230011183111_39279902 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_470283396422cbea387494_43625220', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120175710164230011164896_95801943', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3787803416422cbea388704_50710227', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_39831895564230011165b78_80416447', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_470283396422cbea387494_43625220 extends Smarty_Internal_Block
+class Block_120175710164230011164896_95801943 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_470283396422cbea387494_43625220',
+    0 => 'Block_120175710164230011164896_95801943',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_3787803416422cbea388704_50710227 extends Smarty_Internal_Block
+class Block_39831895564230011165b78_80416447 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_3787803416422cbea388704_50710227',
+    0 => 'Block_39831895564230011165b78_80416447',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -233,10 +233,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
         </select>
         <p>Nombre de stagiaire : </p>
-        <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="<?php echo $_smarty_tpl->tpl_vars['infoEntr']->value['NbreStagiaire'];?>
+        <input class="champ" type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="<?php echo $_smarty_tpl->tpl_vars['infoEntr']->value['NbreStagiaire'];?>
 ">
-        <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-        <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+        <button class="ButModifier" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
+        <button class="ButSuppr" type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
     <form class="cardContainer" method="get" action="./index.php">
         <?php
@@ -336,7 +336,7 @@ $_smarty_tpl->tpl_vars['pil']->do_else = false;
  <?php echo $_smarty_tpl->tpl_vars['pil']->value['PrenomPilote'];?>
 </h3>
     <p class="note"><?php echo $_smarty_tpl->tpl_vars['pil']->value['confiance'];?>
-</p>
+ / 5</p>
     <p class="comPil"><?php echo $_smarty_tpl->tpl_vars['pil']->value['commentaire'];?>
 </p>
     <?php
@@ -352,7 +352,7 @@ $_smarty_tpl->tpl_vars['etud']->do_else = false;
  <?php echo $_smarty_tpl->tpl_vars['etud']->value['PrenomEtudiant'];?>
 </h3>
     <p class="note"><?php echo $_smarty_tpl->tpl_vars['etud']->value['note'];?>
-</p>
+ / 5</p>
     <p class="comEtud"><?php echo $_smarty_tpl->tpl_vars['etud']->value['commentaire'];?>
 </p>
     <?php
