@@ -16,8 +16,8 @@
         <form method="Post" action="index.php">
             <div class="form">
 
-                <input class="champ" id="name" type="text" name="nom" value="{$nom}">
-                <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
+                <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+                <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
                 <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     {foreach $allCentre as $cent}
