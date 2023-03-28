@@ -35,7 +35,7 @@
             if (NbPlace.value == "") {
 
                 document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrer un nombre de stagiaire valide!";
-                nbPlace.focus();
+                NbPlace.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNbPlace').innerHTML = "";
@@ -69,7 +69,7 @@
                 document.getElementById('errorC1').innerHTML = "";
             }
             if (desc.value == "") {
-                document.getElementById('errorDesc').innerHTML = "* Veuillez entrez une description!";
+                document.getElementById('errorDesc').innerHTML = "* Veuillez entrer une description!";
                 desc.focus();
                 bool = false;
             } else {
