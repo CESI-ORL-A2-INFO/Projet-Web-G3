@@ -4,9 +4,9 @@
 {/block}
 
 {block name=content}
-    <form class="wrapper" accept="index.php" method="post">
-        <input type="text" name="nom" placeholder="Nom">
-        <input type="text" name="prenom" placeholder="Prenom">
+    <form class="wrapper" action="index.php" method="post">
+        <input class="champ" type="text" name="nom" placeholder="Nom">
+        <input class="champ" type="text" name="prenom" placeholder="Prenom">
         <select name="centre">
             <option value="none">Centre</option>
             {foreach $allCentre as $cent}
@@ -25,6 +25,6 @@
                 <option value="{$promo1['IdPromo']}">{$promo1['Promotion']}</option>
             {/foreach}
         </select>
-        <button type="submit" name="addEtud" value="add">Ajouter</button>
+        <button type="submit" id="ButAddEtud" name="addEtud" value="add">Ajouter</button>
     </form>
 {/block}
