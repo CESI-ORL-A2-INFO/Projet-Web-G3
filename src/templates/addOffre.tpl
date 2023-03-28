@@ -13,6 +13,9 @@
             var email = document.forms["formulaire"]["email"];
             var promo1 = document.forms["formulaire"]["promo1"];
             var comp1 = document.forms["formulaire"]["comp1"];
+            var desc = document.forms["formulaire"]["descr"];
+            var debut = document.forms["formulaire"]["dateDebut"];     
+            var emi = document.forms["formulaire"]["dateEmi"]; 
             var bool = true;
 
             if (nomOffre.value == "") {
@@ -30,6 +33,7 @@
                 document.getElementById('errorDuree').innerHTML = "";
             }
             if (NbPlace.value == "") {
+
                 document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrer un nombre de stagiaire valide!";
                 nbPlace.focus();
                 bool = false;
@@ -64,6 +68,27 @@
             } else {
                 document.getElementById('errorC1').innerHTML = "";
             }
+            if (desc.value == "") {
+                document.getElementById('errorDesc').innerHTML = "* Veuillez entrez une description!";
+                desc.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDesc').innerHTML = "";
+            }
+            if (debut.value == "") {
+                document.getElementById('errorDateDebut').innerHTML = "* Veuillez entrer une date de début valide!";
+                debut.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateDebut').innerHTML = "";
+            }
+            if (emi.value == "") {
+                document.getElementById('errorDateEmi').innerHTML = "* Veuillez entrer une date d'émission valide!";
+                emi.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateEmi').innerHTML = "";
+            }
             return bool;
         }
     </script>
@@ -82,10 +107,12 @@
         </br>
         <label for="dateDeb">Date de début : </label>
         <input id="dateDeb" type="date" class="champ" name="dateDebut" placeholder="Date de début du stage">
+        <span class="error" id="errorDateDebut"></span>
         </br>
         <label for="dateEmi">Date émission : </label>
         <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
-        <input type="text" name="nbPlace" class="champ" placeholder="Nombre de place pour ce stage">
+        <span class="error" id="errorDateEmi"></span>
+        <input type="text" name="nbPlace" class="champ" value="" placeholder="Nombre de place pour ce stage">
         <span class="error" id="errorNbPlace"></span>
         <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
         <span class="error" id="errorRemuneration"></span>
@@ -203,8 +230,9 @@
         <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
-        <span class="error" id="errorDescr"></span>
-        <button type="submit" id="ButAddOffre" name="addOffre" value="add">Ajouter</button>
+        <span class="error" id="errorDesc"></span>
+        <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
+
     </form>
 {/block}
 

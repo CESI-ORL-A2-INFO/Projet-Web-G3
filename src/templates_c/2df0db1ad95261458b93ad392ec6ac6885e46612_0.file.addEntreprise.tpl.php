@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 15:58:19
+/* Smarty version 4.2.1, created on 2023-03-28 11:21:32
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addEntreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6421a0fba4dd04_24883853',
+  'unifunc' => 'content_6422b19ca60a52_12997750',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2df0db1ad95261458b93ad392ec6ac6885e46612' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addEntreprise.tpl',
-      1 => 1679925495,
+      1 => 1679995290,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6421a0fba4dd04_24883853 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422b19ca60a52_12997750 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10030222096421a0fba44d76_29448532', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8555502596422b19ca568d8_99529513', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6788717056421a0fba455e4_33484051', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9687824586422b19ca57195_11792122', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_10030222096421a0fba44d76_29448532 extends Smarty_Internal_Block
+class Block_8555502596422b19ca568d8_99529513 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_10030222096421a0fba44d76_29448532',
+    0 => 'Block_8555502596422b19ca568d8_99529513',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_6788717056421a0fba455e4_33484051 extends Smarty_Internal_Block
+class Block_9687824586422b19ca57195_11792122 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_6788717056421a0fba455e4_33484051',
+    0 => 'Block_9687824586422b19ca57195_11792122',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -77,7 +77,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <input class="champ" name="cp" value="" placeholder="Code Postal">
         <span class="error" id="errorCP"></span>
         <input class="champ" name="pays" value="" placeholder="Pays">
-        <span class="error" id="errorpays"></span>
+        <span class="error" id="errorPays"></span>
         <p>Secteur : </p>
         <select class="secteur" name="secteur1">
             <option value="none">Secteur</option>
@@ -124,6 +124,7 @@ $_smarty_tpl->tpl_vars['sect3']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorSecteur"></span>
         <p>Nombre de stagiaire : </p>
         <input class="champ" name="nbStagiaire" value="" id="nbstagiaire" placeholder="Nombre de stagiaires">
         <span class="error" id="errorstg"></span>
@@ -139,7 +140,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         var CP = document.forms["formulaire"]["cp"]
         var pays = document.forms["formulaire"]["pays"]
         var stg = document.forms["formulaire"]["nbStagiaire"]
-        var bool = false;
+        var secteur = document.forms["formulaire"]["secteur1"]
+        var bool = true;
 
         if (nomEntr.value == "") {
             document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
@@ -190,10 +192,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         } else {
             document.getElementById('errorstg').innerHTML = "";
         }
+        if (secteur.value == "none") {
+            document.getElementById('errorSecteur').innerHTML = "Veuillez entrer un secteur!";
+            secteur.focus()
+            bool = false;
+        } else {
+            document.getElementById('errorSecteur').innerHTML = "";
+        }
         return bool;
     }
-<?php echo '</script'; ?>
+    <?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+ src="./js/CP.js"><?php echo '</script'; ?>
+>
+
 <?php
 }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 09:56:35
+/* Smarty version 4.2.1, created on 2023-03-28 14:31:40
   from 'C:\www\955\Projet-Web-G3\src\templates\promoPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64229db302cc69_27304834',
+  'unifunc' => 'content_6422de2cd05b09_52673820',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9494723b02f2c7e60b45533378e18ff236739c55' => 
     array (
       0 => 'C:\\www\\955\\Projet-Web-G3\\src\\templates\\promoPerm.tpl',
-      1 => 1679990160,
+      1 => 1680006699,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64229db302cc69_27304834 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422de2cd05b09_52673820 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8065313264229db301d745_61081596', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15920737096422de2ccfc1e0_01144904', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_105184832864229db301e839_24526930', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10810427186422de2ccfcc47_95633111', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_8065313264229db301d745_61081596 extends Smarty_Internal_Block
+class Block_15920737096422de2ccfc1e0_01144904 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_8065313264229db301d745_61081596',
+    0 => 'Block_15920737096422de2ccfc1e0_01144904',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,12 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_105184832864229db301e839_24526930 extends Smarty_Internal_Block
+class Block_10810427186422de2ccfcc47_95633111 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_105184832864229db301e839_24526930',
+    0 => 'Block_10810427186422de2ccfcc47_95633111',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -71,7 +71,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <form class="newEtud" method="post" accept="index.php">
         <input type="text" name="nomEtud" placeholder="Nom de l'étudiant">
         <input type="text" name="prenomEtud" placeholder="Prénom de l'étudiant">
-        <button type="submit" name="action" value="add">Ajouter un étudiant</button>
+        <br><button type="submit" name="action" value="add">Ajouter un étudiant</button>
         <button type="submit" name="actionPromo" value="del">Supprimer la promotion</button>
     </form>
     <h2>Etudiant : </h2>

@@ -8,7 +8,7 @@
     <form class="newEtud" method="post" accept="index.php">
         <input type="text" name="nomEtud" placeholder="Nom de l'étudiant">
         <input type="text" name="prenomEtud" placeholder="Prénom de l'étudiant">
-        <button type="submit" name="action" value="add">Ajouter un étudiant</button>
+        <br><button type="submit" name="action" value="add">Ajouter un étudiant</button>
         <button type="submit" name="actionPromo" value="del">Supprimer la promotion</button>
     </form>
     <h2>Etudiant : </h2>

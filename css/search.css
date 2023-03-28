@@ -88,10 +88,15 @@
     border-radius: 10px;
     align-self: center;
     align-content: center;
-    background-color: white;
+    background-color: #4caf50;
+    color: #e0e0e0;
   
   }
   
+  #butbar:hover{
+    box-shadow: 2px 2px 2px black;
+    background-color: rgb(1, 144, 4);
+  }
   #butSearch:hover {
     box-shadow: 2px 2px 2px black;
     background-color: rgb(215, 215, 215);

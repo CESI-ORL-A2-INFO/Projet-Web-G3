@@ -1,0 +1,40 @@
+.wrapper{
+    display:flex;
+    flex-direction: column;
+    margin : 5%;
+    align-items: center;
+}
+
+#ButAddPil{
+    padding: 1%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 15%;
+    background-color: #4CAF50;
+}
+
+.champ,
+.secteur,
+select{
+    border-radius: 12px;
+    margin-bottom: 2%;
+    border: 1px solid;
+}
+
+select{
+    width: 14%;
+}
+
+.champ{
+    width: 20%;
+    padding : 2%;
+}
+
+.error {
+    color: #D8000C;
+    margin-bottom:2%;
+
+}
