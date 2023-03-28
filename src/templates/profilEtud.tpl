@@ -6,7 +6,7 @@
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
+            <h1>Profil</h1>
             <h3>Etudiant</h3>
         </div>
         <div id="icon">
@@ -16,7 +16,7 @@
             <div>
                 <input class="champ" id="name" type="text" value="" placeholder="Nom : {$nom}" readonly>
                 <input class="champ" id="Prenom" type="text" value="" placeholder="Prénom : {$prenom}" readonly>
-                <input class="champ" id="centre" type="text" value="" placeholder="Centre : {$centre}" readonly>
+                <input class="champ" id="centre1" type="text" value="" placeholder="Centre : {$centre}" readonly>
                 <input class="champ" id="pilote" type="text" value="" placeholder="Pilote : {$nomPilote} {$prenomPilote}"
                     readonly>
                 <input class="champ" id="last" type="text" value="" placeholder="Promotion : {$promo}" readonly>

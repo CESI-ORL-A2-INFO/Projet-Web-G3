@@ -90,6 +90,7 @@ class ControllerAction
     {
         $this->upd->delDemPromoOffre($idOffre);
         $this->upd->delEnregistreOffre($idOffre);
+        $this->upd->delPostuleOffre($idOffre);
         $this->upd->delDemCompOffre($idOffre);
         $this->upd->delOffre($idOffre);
     }
@@ -179,15 +180,14 @@ class ControllerAction
     {
         $this->upd->addEntr($nomEntr, $nbStagiaire);
         $idEntr = $this->upd->getEntrIdLast();
-        if ($this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']) != array()) {
-            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
-            $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
-        } else {
+        if ($this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']) == array()) {
             $this->upd->addAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
             $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
-            $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
+            $this->upd->addAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
+        } else {
+            $idAdr = $this->upd->getAdresse($adr['numRue'], $adr['nomRue'], $adr['cp'], $adr['ville'], $adr['pays']);
+            $this->upd->addAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
         }
-        $this->upd->updAdrEntr($idEntr[0]['IdEntreprise'], $idAdr[0]['IdAdresse']);
         for ($i = 0; $i < count($sect); $i++) {
             if ($sect[$i] != "none") {
                 $idSect = $this->upd->getIdSect($sect[$i]);

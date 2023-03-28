@@ -56,7 +56,6 @@
 .etudTable table th {
     background-color: #4caf50;
     color: rgb(0, 0, 0);
-    padding: 1vw;
     text-align: center;
     max-height: none;
     overflow-y: visible;
@@ -68,7 +67,8 @@
 }
 
 /* Style pour le bouton du formulaire */
-button {
+
+.button {
     padding: 5px 10px;
     font-size: 16px;
     border: none;
@@ -80,8 +80,12 @@ button {
     margin-bottom: 2vw;
 }
 
+.but {
+    border: none;
+}
+
 /* Style pour le bouton du formulaire au survol */
-button:hover {
+.button:hover {
     background-color: #3e8e41;
 }
 
@@ -141,22 +145,22 @@ button:hover {
 
     .offreTable {
         grid-row: 1;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .entrTable {
         grid-row: 2;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .piloteTable {
         grid-row: 3;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .etudTable {
         grid-row: 4;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .about {

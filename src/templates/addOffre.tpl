@@ -19,49 +19,50 @@
             var bool = true;
 
             if (nomOffre.value == "") {
-                document.getElementById('errorNomOffre').innerHTML = "* Veuillez entrez un nom valide!";
+                document.getElementById('errorNomOffre').innerHTML = "* Veuillez entrer un nom valide!";
                 nomOffre.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNomOffre').innerHTML = "";
             }
             if (duree.value == "") {
-                document.getElementById('errorDuree').innerHTML = "* Veuillez entrez une durée valide!";
+                document.getElementById('errorDuree').innerHTML = "* Veuillez entrer une durée valide!";
                 duree.focus();
                 bool = false;
             } else {
                 document.getElementById('errorDuree').innerHTML = "";
             }
             if (NbPlace.value == "") {
-                document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrez un nombre de stagiaire valide!";
-                NbPlace.focus();
+
+                document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrer un nombre de stagiaire valide!";
+                nbPlace.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNbPlace').innerHTML = "";
             }
             if (remuneration.value == "") {
-                document.getElementById('errorRemuneration').innerHTML = "* Veuillez entrez un montant valide!";
+                document.getElementById('errorRemuneration').innerHTML = "* Veuillez entrer un montant valide!";
                 remuneration.focus();
                 bool = false;
             } else {
                 document.getElementById('errorRemuneration').innerHTML = "";
             }
             if (email.value == "") {
-                document.getElementById('errorEmail').innerHTML = "* Veuillez entrez un email valide!";
+                document.getElementById('errorEmail').innerHTML = "* Veuillez entrer un email valide!";
                 email.focus();
                 bool = false;
             } else {
                 document.getElementById('errorEmail').innerHTML = "";
             }
             if (promo1.value == "") {
-                document.getElementById('errorP1').innerHTML = "* Veuillez entrez une promotion!";
+                document.getElementById('errorP1').innerHTML = "* Veuillez entrer une promotion!";
                 promo1.focus();
                 bool = false;
             } else {
                 document.getElementById('errorP1').innerHTML = "";
             }
             if (comp1.value == "") {
-                document.getElementById('errorC1').innerHTML = "* Veuillez entrez une compétence!";
+                document.getElementById('errorC1').innerHTML = "* Veuillez entrer une compétence!";
                 comp1.focus();
                 bool = false;
             } else {
@@ -231,6 +232,7 @@
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
         <span class="error" id="errorDesc"></span>
         <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
+
     </form>
 {/block}
 

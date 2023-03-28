@@ -133,7 +133,7 @@ select {
   #icon {
     grid-column: 1;
     grid-row: 1/3;
-    font-size: 200%;
+    font-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -214,14 +214,26 @@ select {
     }
   
     .wrapper {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 5fr;
-      margin: 7% 6%;
+      display: flex;
+      flex-direction: column;
+      margin-left: 5%;
+      margin-right: 5%;
     }
-  
-    .champ {
-      margin-top: 7%;
-      margin-left: 6%;
+    #left {
+      grid-column: initial;
+      grid-row: initial;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-bottom: 3%;
+    }
+    .form {
+      grid-column: initial;
+      grid-row: initial;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .form select {
+      width: 82%;
     }
   }
   
@@ -244,7 +256,7 @@ select {
   .btn-promo {
     background-color: #008CBA;
     border: none;
-    color: #fff;
+    color: #000000;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 20px;
@@ -290,7 +302,8 @@ select {
 .select-container button {
   background-color: #008CBA;
   border: none;
-  color: #fff;
+  color: black;
+
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 20px;
@@ -366,7 +379,8 @@ select {
   
   .form button[type="submit"][name="actionPil"][value="modif"] {
     background-color: #008CBA;
-    color: #fff;
+    color: black;
+
     margin-right: 3%;
   }
   
@@ -376,12 +390,14 @@ select {
   
   .form button[type="submit"][name="actionPil"][value="suppr"] {
     background-color: #f44336;
-    color: #fff;
+    color: black;
+
     margin-left: 1%;
   }
   
   .form button[type="submit"][name="actionPil"][value="suppr"]:hover {
     background-color: #da190b;
+
   }
 
   /* Style the buttons container */

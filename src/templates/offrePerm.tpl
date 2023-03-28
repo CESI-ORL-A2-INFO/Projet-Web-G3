@@ -6,10 +6,11 @@
 {block name=content}
     <form name="formulaire" class="offre" method="post" action="./index.php" onsubmit="return validateForm()">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <label for="nomOffre" hidden>Nom Offre</label>
+        <label for="nomOffre" class="abvc" hidden>Nom Offre</label>
         <input type="text" id="nomOffre" name="nomOffre" value="{$nomOffre}">
         <span class="error" id="errorNomOffre"></span>
-        <select name="nomEntr">
+
+        <br><br><select name="nomEntr">
             {foreach $nomEntr as $name}
                 {if $name['NomEntreprise'] == $nomEntrSelect}
                     <option value="{$name['NomEntreprise']}" selected>{$name['NomEntreprise']}</option>
@@ -164,6 +165,7 @@
         <span class="error" id="errorEmail"></span></br>
         <textarea name="descr" rows="20" cols="120">{$descr}</textarea>
         <span class="error" id="errorDesc"></span>
+
         <button type="submit" name="action" value="modif">Modifier</button>
         <button type="submit" name="action" value="suppr">Supprimer</button>
     </form>

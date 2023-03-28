@@ -6,18 +6,18 @@
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
+            <h1>Profil</h1>
             <h3>Etudiant</h3>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="Post" action="index.php">
+        <form method="post" action="index.php">
             <div class="form">
 
-                <input class="champ" id="name" type="text" name="nom" value="{$nom}">
-                <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
+                <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+                <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
                 <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     {foreach $allCentre as $cent}
@@ -49,8 +49,8 @@
                     {/foreach}
                 </select>
                 <div class="buttons-container">
-                    <button type="submit" name="actionPil" value="modif">Modifier</button>
-                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>
         </form>
@@ -59,7 +59,6 @@
 
 
     <div class="wrapperStage">
-
         <form class="cardContainer" method="get" action="./index.php">
             {foreach $card as $data key=$i}
                 <button class="card" name="offre" value="{$data['IdOffre']}">
@@ -79,4 +78,4 @@
         </form>
     </div>
 
-{{/block}}
+{/block}
