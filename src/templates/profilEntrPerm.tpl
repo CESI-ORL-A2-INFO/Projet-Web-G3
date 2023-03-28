@@ -1,6 +1,6 @@
 {extends file='navbarPerm.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./css/profilEntr.css">
+    <link rel="stylesheet" href="./css/profilEntrPerm.css">
 {/block}
 
 {block name=content}
@@ -15,7 +15,9 @@
         var bool = true;
 
         if (nomEntr.value == "") {
+
             document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
+
             nomEntr.focus();
             bool = false;
         } else {
@@ -23,13 +25,16 @@
         }
         if (numRue.value == "") {
             document.getElementById('errorNumRue').innerHTML = "* Veuillez entrer un numéro de rue valide!";
+
             numRue.focus();
             bool = false;
         } else {
             document.getElementById('errorNumRue').innerHTML = "";
         }
         if (nomRue.value == "") {
+
             document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
+
             nomRue.focus();
             bool = false;
         } else {
@@ -37,6 +42,7 @@
         }
         if (ville.value == "") {
             document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
+
             ville.focus();
             bool = false;
         } else {
@@ -44,6 +50,7 @@
         }
         if (CP.value == "") {
             document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postale valide!";
+
             CP.focus();
             bool = false;
         } else {
@@ -51,6 +58,7 @@
         }
         if (pays.value == "") {
             document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
+
             pays.focus();
             bool = false;
         } else {
@@ -60,6 +68,7 @@
     }
     </script>
     <div class="info">
+
         <form action="index.php" method="post">
             <p>Nom de l'entreprise : </p>
                 <input class="champ" placeholder="Entrer le nom de l'entreprise" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
@@ -115,6 +124,7 @@
                     {/if}
 
                 {/foreach}
+
                 </select>
                 <p>Nombre de stagiaire : </p>
                 <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">

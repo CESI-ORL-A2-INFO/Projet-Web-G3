@@ -1,0 +1,35 @@
+form{
+    margin-top : 3%;
+    margin-left : 2%;
+}
+.champ,
+.secteur,
+select{
+    border-radius: 12px;
+    padding: 1%;
+    margin-bottom: 2%;
+    border: 1px solid;
+}
+
+#nbstagiaire{
+    width: 14%;
+    padding: 1%;
+    margin-bottom:3%; 
+}
+h3{
+    margin-bottom : 1%;
+}
+.error {
+    color: #D8000C;
+    padding-top: 5%;
+
+}
+#ButAddEntr{
+    padding: 1%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #4CAF50;
+}
