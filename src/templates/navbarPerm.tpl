@@ -9,7 +9,6 @@
 {block name=navbar}
     <header class="navbar">
         <div class="wrapleft">
-            <button id="Afficher" value="show">Search</button>
             <a href="./index.php?p=home" class="logo"><img src="./logo.png" alt="logo" class="logo"></a>
             <form action="index.php?" method="get" id="search">
 
