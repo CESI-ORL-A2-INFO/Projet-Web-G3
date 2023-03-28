@@ -290,7 +290,8 @@ select {
 .select-container button {
   background-color: #008CBA;
   border: none;
-  color: #000000;
+  color: black;
+
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 20px;
@@ -366,7 +367,8 @@ select {
   
   .form button[type="submit"][name="actionPil"][value="modif"] {
     background-color: #008CBA;
-    color: #000000;
+    color: black;
+
     margin-right: 3%;
   }
   
@@ -376,12 +378,14 @@ select {
   
   .form button[type="submit"][name="actionPil"][value="suppr"] {
     background-color: #f44336;
-    color: #000000;
+    color: black;
+
     margin-left: 1%;
   }
   
   .form button[type="submit"][name="actionPil"][value="suppr"]:hover {
     background-color: #da190b;
+
   }
 
   /* Style the buttons container */

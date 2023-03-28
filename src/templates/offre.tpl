@@ -50,7 +50,7 @@
         <p class="dateEmission">Date d'emission : {$dateEmission}</p>
         <p class="place">Nombre de place : {$place}</p>
         <p class="paie">Rémunération : {$paie}</p>
-        <p class="mail">email : {$mail}</p>
+        <a class="mail" href="mailto:{$mail}">email : {$mail}</a>
         <p class="descr">{$descr}</p>
         <form action="./index.php" method="post">
             <select class="statut" name="statut">
