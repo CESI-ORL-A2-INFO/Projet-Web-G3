@@ -6,7 +6,7 @@
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
+            <h1>Profil</h1>
             <h3>Etudiant</h3>
         </div>
         <div id="icon">

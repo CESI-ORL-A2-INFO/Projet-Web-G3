@@ -6,7 +6,7 @@
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>    Profile Tuteur</h1>
+            <h1>    Profil Tuteur</h1>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
