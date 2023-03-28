@@ -13,7 +13,7 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="Post" action="index.php">
+        <form method="post" action="index.php">
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">

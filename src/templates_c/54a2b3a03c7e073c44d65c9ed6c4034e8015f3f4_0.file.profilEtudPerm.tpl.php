@@ -1,11 +1,13 @@
 <?php
 /* Smarty version 4.2.1, created on 2023-03-28 14:07:42
+
   from 'C:\www\Projet-Web-G3\src\templates\profilEtudPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
   'unifunc' => 'content_6422d88e892693_57895839',
+
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -13,6 +15,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEtudPerm.tpl',
       1 => 1680005243,
+
       2 => 'file',
     ),
   ),
@@ -21,28 +24,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
 ),false)) {
 function content_6422d88e892693_57895839 (Smarty_Internal_Template $_smarty_tpl) {
+
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3640008076422d88e8768f6_67542218', "include");
+
 ?>
 
 
 <?php ob_start();
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3917277646422d88e878278_37138105', 'content');
+
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
 class Block_3640008076422d88e8768f6_67542218 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'include' => 
   array (
     0 => 'Block_3640008076422d88e8768f6_67542218',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,11 +63,13 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 /* {/block "include"} */
 /* {block 'content'} */
 class Block_3917277646422d88e878278_37138105 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'content' => 
   array (
     0 => 'Block_3917277646422d88e878278_37138105',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -74,12 +84,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="Post" action="index.php">
+        <form method="post" action="index.php">
             <div class="form">
 
-                <input class="champ" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
+                <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
 ">
-                <input class="champ" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
+                <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
 ">
                 <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>

@@ -1,11 +1,13 @@
 <?php
 /* Smarty version 4.2.1, created on 2023-03-28 14:22:14
+
   from 'C:\www\Projet-Web-G3\src\templates\addOffre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
   'unifunc' => 'content_6422dbf6b43790_60937326',
+
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -13,6 +15,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
       1 => 1680006131,
+
       2 => 'file',
     ),
   ),
@@ -21,17 +24,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
 ),false)) {
 function content_6422dbf6b43790_60937326 (Smarty_Internal_Template $_smarty_tpl) {
+
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10745188036422dbf6b310d8_67105410', "include");
+
 ?>
 
 
 <?php 
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20147120396422dbf6b31a02_99775344', 'content');
+
 ?>
 
 
@@ -39,11 +45,13 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20147120396422dbf6
 }
 /* {block "include"} */
 class Block_10745188036422dbf6b310d8_67105410 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'include' => 
   array (
     0 => 'Block_10745188036422dbf6b310d8_67105410',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -56,18 +64,88 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 /* {/block "include"} */
 /* {block 'content'} */
 class Block_20147120396422dbf6b31a02_99775344 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'content' => 
   array (
     0 => 'Block_20147120396422dbf6b31a02_99775344',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-    <form class="wrapper" accept="index.php" method="post">
-        <input type="text" name="nomOffre" placeholder="Nom de l'offre">
+    <?php echo '<script'; ?>
+>
+        function validateForm() {
+            var nomOffre = document.forms["formulaire"]["nomOffre"];
+            var duree = document.forms["formulaire"]["duree"];
+            var NbPlace = document.forms["formulaire"]["nbPlace"];
+            var remuneration = document.forms["formulaire"]["remuneration"];
+            var email = document.forms["formulaire"]["email"];
+            var promo1 = document.forms["formulaire"]["promo1"];
+            var comp1 = document.forms["formulaire"]["comp1"];
+            var bool = true;
+
+            if (nomOffre.value == "") {
+                document.getElementById('errorNomOffre').innerHTML = "* Veuillez entrez un nom valide!";
+                nomOffre.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorNomOffre').innerHTML = "";
+            }
+            if (duree.value == "") {
+                document.getElementById('errorDuree').innerHTML = "* Veuillez entrez une durée valide!";
+                duree.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDuree').innerHTML = "";
+            }
+            if (NbPlace.value == "") {
+                document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrez un nombre de stagiaire valide!";
+                nbPlace.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorNbPlace').innerHTML = "";
+            }
+            if (remuneration.value == "") {
+                document.getElementById('errorRemuneration').innerHTML = "* Veuillez entrez un montant valide!";
+                remuneration.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorRemuneration').innerHTML = "";
+            }
+            if (email.value == "") {
+                document.getElementById('errorEmail').innerHTML = "* Veuillez entrez un email valide!";
+                email.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorEmail').innerHTML = "";
+            }
+            if (promo1.value == "") {
+                document.getElementById('errorP1').innerHTML = "* Veuillez entrez une promotion!";
+                promo1.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorP1').innerHTML = "";
+            }
+            if (comp1.value == "") {
+                document.getElementById('errorC1').innerHTML = "* Veuillez entrez une compétence!";
+                comp1.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorC1').innerHTML = "";
+            }
+            return bool;
+        }
+    <?php echo '</script'; ?>
+>
+    <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
+        <h3>Informations : </h3>
+        <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
+        <span class="error" id="errorNomOffre"></span>
+
         <select name="nomEntr">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nomEntr']->value, 'name');
@@ -82,16 +160,22 @@ $_smarty_tpl->tpl_vars['name']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="duree" placeholder="Durée du stage">
+        <input type="text" name="duree" class="champ" placeholder="Durée du stage">
+        <span class="error" id="errorDuree"></span>
+        </br>
         <label for="dateDeb">Date de début : </label>
-        <input id="dateDeb" type="date" name="dateDebut" placeholder="Date de début du stage">
+        <input id="dateDeb" type="date" class="champ" name="dateDebut" placeholder="Date de début du stage">
+        </br>
         <label for="dateEmi">Date émission : </label>
-        <input id="dateEmi" type="date" name="dateEmi" placeholder="Date d'émission du stage">
-        <input type="text" name="nbPlace" placeholder="Nombre de place pour ce stage">
-        <input type="text" name="remuneration" placeholder="Rémunération de l'offre">
-        <input type="text" name="email" placeholder="Email de contact">
+        <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
+        <input type="text" name="nbPlace" class="champ" placeholder="Nombre de place pour ce stage">
+        <span class="error" id="errorNbPlace"></span>
+        <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
+        <span class="error" id="errorRemuneration"></span>
+        <input type="text" name="email" class="champ" placeholder="Email de contact">
+        <span class="error" id="errorEmail"></span>
         <h3>Promotion : </h3>
-        <select name="promo1">
+        <select name="promo1" >
             <option value="">Promotion</option>
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promotion']->value, 'promo1');
@@ -106,6 +190,7 @@ $_smarty_tpl->tpl_vars['promo1']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorP1"></span>
         <select name="promo2">
             <option value="">Promotion</option>
             <?php
@@ -121,6 +206,7 @@ $_smarty_tpl->tpl_vars['promo2']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorP2"></span>
         <select name="promo3">
             <option value="">Promotion</option>
             <?php
@@ -136,6 +222,7 @@ $_smarty_tpl->tpl_vars['promo3']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorP3"></span>
         <select name="promo4">
             <option value="">Promotion</option>
             <?php
@@ -151,6 +238,7 @@ $_smarty_tpl->tpl_vars['promo4']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorP4"></span>
         <h3>Compétences : </h3>
         <select name="comp1">
             <option value="">Compétence</option>
@@ -167,7 +255,16 @@ $_smarty_tpl->tpl_vars['comp1']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="lvl1" value="" placeholder="Niveau de la compétence 1">
+        <span class="error" id="errorC1"></span>
+        <select name="lvl1">
+            <option value="">Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
+        </select>
+        <span class="error" id="errorLvl1"></span>
         <select name="comp2">
             <option value="">Compétence</option>
             <?php
@@ -183,7 +280,16 @@ $_smarty_tpl->tpl_vars['comp2']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="lvl2" value="" placeholder="Niveau de la compétence 2">
+        <span class="error" id="errorC2"></span>
+        <select name="lvl2">
+            <option value="">Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
+        </select>
+        <span class="error" id="errorLvl2"></span>
         <select name="comp3">
             <option value="">Compétence</option>
             <?php
@@ -199,7 +305,16 @@ $_smarty_tpl->tpl_vars['comp3']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="lvl3" value="" placeholder="Niveau de la compétence 3">
+        <span class="error" id="errorC3"></span>
+        <select name="lvl3">
+            <option value="">Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
+        </select>
+        <span class="error" id="errorLvl3"></span>
         <select name="comp4">
             <option value="">Compétence</option>
             <?php
@@ -215,7 +330,16 @@ $_smarty_tpl->tpl_vars['comp4']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="lvl4" value="" placeholder="Niveau de la compétence 4">
+        <span class="error" id="errorC4"></span>
+        <select name="lvl4">
+            <option value="">Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
+        </select>
+        <span class="error" id="errorLvl4"></span>
         <select name="comp5">
             <option value="">Compétence</option>
             <?php
@@ -231,11 +355,21 @@ $_smarty_tpl->tpl_vars['comp5']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <input type="text" name="lvl5" value="" placeholder="Niveau de la compétence 5">
+        <span class="error" id="errorC5"></span>
+        <select name="lvl5">
+            <option value="">Niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermediaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+            <option value="Expérimenté">Expérimenté</option>
+            <option value="Tout niveau">Tout Niveau</option>
+        </select>
+        <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
         <span class="error" id="errorDescr"></span>
         <button type="submit" id="ButAddOffre" name="addOffre" value="add">Ajouter</button>
+
     </form>
 <?php
 }

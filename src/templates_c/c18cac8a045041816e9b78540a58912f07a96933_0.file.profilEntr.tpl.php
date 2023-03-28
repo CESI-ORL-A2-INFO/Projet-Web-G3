@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:36:51
+/* Smarty version 4.2.1, created on 2023-03-28 10:49:14
   from 'C:\www\Projet-Web-G3\src\templates\profilEntr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641edcd3c13431_02500291',
+  'unifunc' => 'content_6422aa0a97dc41_82357235',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c18cac8a045041816e9b78540a58912f07a96933' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEntr.tpl',
-      1 => 1679744184,
+      1 => 1679993120,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641edcd3c13431_02500291 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422aa0a97dc41_82357235 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1056717235641edcd3b60d34_82940017', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4024613706422aa0a90e3d1_94664489', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1255913520641edcd3b61615_87255496', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17811824746422aa0a90ed45_96419152', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_1056717235641edcd3b60d34_82940017 extends Smarty_Internal_Block
+class Block_4024613706422aa0a90e3d1_94664489 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1056717235641edcd3b60d34_82940017',
+    0 => 'Block_4024613706422aa0a90e3d1_94664489',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1255913520641edcd3b61615_87255496 extends Smarty_Internal_Block
+class Block_17811824746422aa0a90ed45_96419152 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1255913520641edcd3b61615_87255496',
+    0 => 'Block_17811824746422aa0a90ed45_96419152',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -96,8 +96,8 @@ $_smarty_tpl->tpl_vars['data']->do_else = false;
                 <button class="card" name="offre" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['IdOffre'];?>
 ">
                     <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-                    <h3 class="title"><?php echo $_smarty_tpl->tpl_vars['data']->value['nomOffre'];?>
-</h3>
+                    <h2 class="title"><?php echo $_smarty_tpl->tpl_vars['data']->value['nomOffre'];?>
+</h2>
                     <p class="debut">Date de début : <?php echo $_smarty_tpl->tpl_vars['data']->value['dateDebut'];?>
 </p>
                     <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['data']->value['duree'];?>
@@ -120,7 +120,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <option value="5">5</option>
                 </select>
 
-                <textarea class="com" type="text" name="commentaire"></textarea>
+                <textarea placeholder="Entrez votre commentaire ici" class="com" type="text" name="commentaire"></textarea>
                 <button class="add" type="submit" name="action" value="add">Ajouter</button>
             <?php } else { ?>
                 <select class="noteUser" name="note">
@@ -143,7 +143,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 ?>
                 </select>
 
-                <textarea class="com" type="text" name="commentaire"><?php echo $_smarty_tpl->tpl_vars['comUser']->value['commentaire'];?>
+                <textarea class="com" type="text" name="commentaire" placeholder="commentaire"><?php echo $_smarty_tpl->tpl_vars['comUser']->value['commentaire'];?>
 </textarea>
 
                 <button class="upd" type="submit" name="action" value="upd">Modifier</button>
