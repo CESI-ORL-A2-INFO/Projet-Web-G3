@@ -32,7 +32,7 @@
 #icon {
     grid-column: 1;
     grid-row: 1/3;
-    font-size: 200%;
+    font-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,17 +83,18 @@ select {
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
+
+=======
 
 
 .wrapperStage {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+
 }
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+
   
   /* Style the input elements and the select element */
   .form .champ,
@@ -107,6 +108,7 @@ select {
 .form select {
     width: 78%;
 }
+>>>>>>> dbe5b1184f5add379eb5ddd5e9c13fe5499e4cea
 
 
 
@@ -150,7 +152,9 @@ select {
   .form .buttons-container button[type="submit"]:first-child {
     background-color: #008CBA;
     color: #fff;
-    margin-right: 3%;
+    margin-right: 1%;
+    margin-bottom: 3%;
+    margin-top: 3%;
   }
   
   .form .buttons-container button[type="submit"]:first-child:hover {
@@ -161,9 +165,70 @@ select {
     background-color: #f44336;
     color: #fff;
     margin-left: 1%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+
   }
   
   .form .buttons-container button[type="submit"]:last-child:hover {
     background-color: #da190b;
   }
   
+
+  /* Style the buttons container */
+  .form .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+  }
+  
+  .card {
+    width: 300px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    box-shadow: 2px 2px 10px #333;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    margin: 10px;
+  }
+  
+
+  .cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+
+  .card button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .card button:hover {
+    background-color: #ccc;
+    color: #333;
+  }

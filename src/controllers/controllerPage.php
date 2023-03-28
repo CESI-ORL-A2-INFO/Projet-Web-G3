@@ -94,6 +94,9 @@ class Controller
             $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
         }
         $this->tpl->assign('card', $card);
+        $this->tpl->assign('filtre', $filtre);
+        $this->tpl->assign('search', $nom);
+        $this->tpl->assign('searchfiltre', $nomfilter);
         $this->tpl->assign('lastPage', $lastPage);
         $this->tpl->assign('content', $nom);
         $this->tpl->assign('current_page', $currentPage);
@@ -171,8 +174,10 @@ class Controller
         } else {
             $card = [];
         }
+        $secteurEntr = $this->home->getSecteurEntr($infoEntr[0]['IdEntreprise']);
         $this->tpl->assign('card', $card);
         $this->tpl->assign('secteur', $secteur);
+        $this->tpl->assign('secteurEntr', $secteurEntr);
         $this->tpl->assign('infoEntr', $infoEntr[0]);
         $this->tpl->assign('comUser', $comPilIdUser[0]);
         $this->tpl->assign('comPil', $comPilote);

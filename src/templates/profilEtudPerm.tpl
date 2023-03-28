@@ -1,22 +1,24 @@
 {extends file='navbarPerm.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./css/profilEtud.css">
+    <link rel="stylesheet" href="./css/profilEtudPerm.css">
 {/block}
 
 {block name=content}
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
+            <h1>Profil</h1>
             <h3>Etudiant</h3>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <div class="form">
-            <form method="post" action="index.php">
-                <input class="champ" id="name" type="text" name="nom" value="{$nom}">
-                <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
-                <select name="centre">
+
+        <form method="post" action="index.php">
+            <div class="form">
+
+                <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+                <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
+                <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     {foreach $allCentre as $cent}
                         {if $centre == $cent['Centre']}
@@ -26,7 +28,7 @@
                         {/if}
                     {/foreach}
                 </select>
-                <select name="pilote">
+                <select class="champ abxd" name="pilote">
                     <option value="none">Pilote</option>
                     {foreach $allPilote as $pil}
                         {if $nomPilote == $pil['NomPilote']}
@@ -36,7 +38,7 @@
                         {/if}
                     {/foreach}
                 </select>
-                <select name="promo">
+                <select class="champ abxd" name="promo">
                     <option value="none">Promotion</option>
                     {foreach $allPromotion as $promo1}
                         {if $promo == $promo1['Promotion']}
@@ -46,11 +48,16 @@
                         {/if}
                     {/foreach}
                 </select>
-                <button type="submit" name="action" value="modif">Modifier</button>
-                <button type="submit" name="action" value="suppr">Supprimer</button>
-            </form>
-        </div>
+                <div class="buttons-container">
+                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button type="submit" name="action" value="suppr">Supprimer</button>
+                </div>
+            </div>
+        </form>
     </div>
+
+
+
     <div class="wrapperStage">
         <form class="cardContainer" method="get" action="./index.php">
             {foreach $card as $data key=$i}

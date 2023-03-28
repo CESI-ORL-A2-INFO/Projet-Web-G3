@@ -32,7 +32,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     if ($connected != null) {
         $_SESSION['id_user'] = $connected;
         $isAdmin = $controlBDD->isAdmin($connected);
-        if ($isAdmin == true) {
+        if ($isAdmin == 1) {
             $_SESSION['isAdmin'] = $isAdmin;
         } else {
             $_SESSION['isAdmin'] = false;
@@ -73,21 +73,13 @@ if (isset($_POST['statut']) && $_POST['statut'] != null) {
     }
 }
 
-// Deconnexion session
-$deco = false;
-
-if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == true) {
-    session_destroy();
-    $deco = true;
-}
-
 // Gestion search
-
 if (isset($_GET['current_page']) && !empty($_GET['current_page'])) {
     $currentPage = (int) strip_tags($_GET['current_page']);
 } else if ($_SESSION['p'] == 'search') {
     $currentPage = 1;
 }
+
 
 // filtre search searchfiltre
 
@@ -106,7 +98,7 @@ if (isset($_GET['searchfiltre'])) {
 } else {
     $_SESSION['searchfiltre'] = "";
 }
-
+//test
 
 // Profil entreprise
 
@@ -345,7 +337,13 @@ if (isset($_POST['addPil']) && $_SESSION['p'] == 'addPil') {
     $change->addPilote($_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['admin']);
     $_SESSION['p'] = 'home';
 }
-
+// Deconnexion session
+$deco = false;
+if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 'true') {
+    session_unset();
+    session_destroy();
+    $deco = true;  
+}
 
 // Choix page
 

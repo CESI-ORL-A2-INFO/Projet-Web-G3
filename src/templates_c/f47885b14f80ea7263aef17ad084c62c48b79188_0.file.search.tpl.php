@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-24 09:29:57
+/* Smarty version 4.2.1, created on 2023-03-28 09:20:47
   from 'C:\www\Projet-Web-G3\src\templates\search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641d5f859b39d2_09942719',
+  'unifunc' => 'content_6422954fd56795_59107772',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f47885b14f80ea7263aef17ad084c62c48b79188' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\search.tpl',
-      1 => 1679646586,
+      1 => 1679901339,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641d5f859b39d2_09942719 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422954fd56795_59107772 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1891984907641d5f859a3f10_63656412', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18096989806422954fd46377_38260750', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1869566812641d5f859a4830_53087701', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1425273736422954fd46c64_02767201', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_1891984907641d5f859a3f10_63656412 extends Smarty_Internal_Block
+class Block_18096989806422954fd46377_38260750 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1891984907641d5f859a3f10_63656412',
+    0 => 'Block_18096989806422954fd46377_38260750',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1869566812641d5f859a4830_53087701 extends Smarty_Internal_Block
+class Block_1425273736422954fd46c64_02767201 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1869566812641d5f859a4830_53087701',
+    0 => 'Block_1425273736422954fd46c64_02767201',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -66,7 +66,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <div class="formfiltre">
         <form action="index.php?" method="get" id="formfiltre">
             <input type="search" id="bar" value="<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
-"  name="search" placeholder="Recherche...">
+" name="search" placeholder="Recherche...">
 
             <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
             <select id="typefiltre" name="filtre">
@@ -138,25 +138,39 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
-        <p class="descr"><?php echo $_smarty_tpl->tpl_vars['data']->value['descr'];?>
-</p>
-        </button>
+    </button>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </form>
-<a class="firstPage" href="./index.php?p=search&current_page=1">
+<a class="firstPage"
+    href="./index.php?p=search&current_page=1&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
+">
     <<</a>
         <?php if ($_smarty_tpl->tpl_vars['current_page']->value != 1) {?>
-            <a class="pagePrec" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;?>
+            <a class="pagePrec"
+                href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">
                 <</a>
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['current_page']->value != $_smarty_tpl->tpl_vars['lastPage']->value) {?>
-                    <a class="pageSuiv" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;?>
+                    <a class="pageSuiv"
+                        href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">></a>
                 <?php }?>
-                <a class="lastPage" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['lastPage']->value;?>
+                <a class="lastPage"
+                    href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['lastPage']->value;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">>></a>
 <?php
 }
