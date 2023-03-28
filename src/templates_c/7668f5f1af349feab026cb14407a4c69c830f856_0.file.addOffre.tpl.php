@@ -1,10 +1,73 @@
-{extends file='navbarPerm.tpl'}
-{block name="include"}
-    <link rel="stylesheet" href="./css/addOffre.css">
-{/block}
+<?php
+/* Smarty version 4.2.1, created on 2023-03-27 15:28:45
+  from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addOffre.tpl' */
 
-{block name=content}
-    <script>
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_64219a0d824cb0_06957343',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7668f5f1af349feab026cb14407a4c69c830f856' => 
+    array (
+      0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
+      1 => 1679923626,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_64219a0d824cb0_06957343 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_51735602764219a0d815fb0_48852242', "include");
+?>
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143805134164219a0d816835_08595125', 'content');
+?>
+
+
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
+}
+/* {block "include"} */
+class Block_51735602764219a0d815fb0_48852242 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'include' => 
+  array (
+    0 => 'Block_51735602764219a0d815fb0_48852242',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+    <link rel="stylesheet" href="./css/addOffre.css">
+<?php
+}
+}
+/* {/block "include"} */
+/* {block 'content'} */
+class Block_143805134164219a0d816835_08595125 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_143805134164219a0d816835_08595125',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+    <?php echo '<script'; ?>
+>
         function validateForm() {
             var nomOffre = document.forms["formulaire"]["nomOffre"];
             var duree = document.forms["formulaire"]["duree"];
@@ -66,16 +129,25 @@
             }
             return bool;
         }
-    </script>
+    <?php echo '</script'; ?>
+>
     <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
         <h3>Informations : </h3>
         <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
         <span class="error" id="errorNomOffre"></span>
-
         <select name="nomEntr">
-            {foreach $nomEntr as $name}
-                <option value="{$name['NomEntreprise']}">{$name['NomEntreprise']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nomEntr']->value, 'name');
+$_smarty_tpl->tpl_vars['name']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['name']->value) {
+$_smarty_tpl->tpl_vars['name']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['name']->value['NomEntreprise'];?>
+"><?php echo $_smarty_tpl->tpl_vars['name']->value['NomEntreprise'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <input type="text" name="duree" class="champ" placeholder="Durée du stage">
         <span class="error" id="errorDuree"></span>
@@ -94,38 +166,83 @@
         <h3>Promotion : </h3>
         <select name="promo1" >
             <option value="">Promotion</option>
-            {foreach $promotion as $promo1}
-                <option value="{$promo1['Promotion']}">{$promo1['Promotion']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promotion']->value, 'promo1');
+$_smarty_tpl->tpl_vars['promo1']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['promo1']->value) {
+$_smarty_tpl->tpl_vars['promo1']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['promo1']->value['Promotion'];?>
+"><?php echo $_smarty_tpl->tpl_vars['promo1']->value['Promotion'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorP1"></span>
         <select name="promo2">
             <option value="">Promotion</option>
-            {foreach $promotion as $promo2}
-                <option value="{$promo2['Promotion']}">{$promo2['Promotion']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promotion']->value, 'promo2');
+$_smarty_tpl->tpl_vars['promo2']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['promo2']->value) {
+$_smarty_tpl->tpl_vars['promo2']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['promo2']->value['Promotion'];?>
+"><?php echo $_smarty_tpl->tpl_vars['promo2']->value['Promotion'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorP2"></span>
         <select name="promo3">
             <option value="">Promotion</option>
-            {foreach $promotion as $promo3}
-                <option value="{$promo3['Promotion']}">{$promo3['Promotion']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promotion']->value, 'promo3');
+$_smarty_tpl->tpl_vars['promo3']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['promo3']->value) {
+$_smarty_tpl->tpl_vars['promo3']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['promo3']->value['Promotion'];?>
+"><?php echo $_smarty_tpl->tpl_vars['promo3']->value['Promotion'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorP3"></span>
         <select name="promo4">
             <option value="">Promotion</option>
-            {foreach $promotion as $promo4}
-                <option value="{$promo4['Promotion']}">{$promo4['Promotion']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['promotion']->value, 'promo4');
+$_smarty_tpl->tpl_vars['promo4']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['promo4']->value) {
+$_smarty_tpl->tpl_vars['promo4']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['promo4']->value['Promotion'];?>
+"><?php echo $_smarty_tpl->tpl_vars['promo4']->value['Promotion'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorP4"></span>
         <h3>Compétences : </h3>
         <select name="comp1">
             <option value="">Compétence</option>
-            {foreach $competences as $comp1}
-                <option value="{$comp1['Compétences']}">{$comp1['Compétences']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competences']->value, 'comp1');
+$_smarty_tpl->tpl_vars['comp1']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comp1']->value) {
+$_smarty_tpl->tpl_vars['comp1']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['comp1']->value['Compétences'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comp1']->value['Compétences'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorC1"></span>
         <select name="lvl1">
@@ -139,9 +256,18 @@
         <span class="error" id="errorLvl1"></span>
         <select name="comp2">
             <option value="">Compétence</option>
-            {foreach $competences as $comp2}
-                <option value="{$comp2['Compétences']}">{$comp2['Compétences']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competences']->value, 'comp2');
+$_smarty_tpl->tpl_vars['comp2']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comp2']->value) {
+$_smarty_tpl->tpl_vars['comp2']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['comp2']->value['Compétences'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comp2']->value['Compétences'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorC2"></span>
         <select name="lvl2">
@@ -155,9 +281,18 @@
         <span class="error" id="errorLvl2"></span>
         <select name="comp3">
             <option value="">Compétence</option>
-            {foreach $competences as $comp3}
-                <option value="{$comp3['Compétences']}">{$comp3['Compétences']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competences']->value, 'comp3');
+$_smarty_tpl->tpl_vars['comp3']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comp3']->value) {
+$_smarty_tpl->tpl_vars['comp3']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['comp3']->value['Compétences'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comp3']->value['Compétences'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorC3"></span>
         <select name="lvl3">
@@ -171,9 +306,18 @@
         <span class="error" id="errorLvl3"></span>
         <select name="comp4">
             <option value="">Compétence</option>
-            {foreach $competences as $comp4}
-                <option value="{$comp4['Compétences']}">{$comp4['Compétences']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competences']->value, 'comp4');
+$_smarty_tpl->tpl_vars['comp4']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comp4']->value) {
+$_smarty_tpl->tpl_vars['comp4']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['comp4']->value['Compétences'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comp4']->value['Compétences'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorC4"></span>
         <select name="lvl4">
@@ -187,9 +331,18 @@
         <span class="error" id="errorLvl4"></span>
         <select name="comp5">
             <option value="">Compétence</option>
-            {foreach $competences as $comp5}
-                <option value="{$comp5['Compétences']}">{$comp5['Compétences']}</option>
-            {/foreach}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competences']->value, 'comp5');
+$_smarty_tpl->tpl_vars['comp5']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['comp5']->value) {
+$_smarty_tpl->tpl_vars['comp5']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['comp5']->value['Compétences'];?>
+"><?php echo $_smarty_tpl->tpl_vars['comp5']->value['Compétences'];?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <span class="error" id="errorC5"></span>
         <select name="lvl5">
@@ -206,5 +359,8 @@
         <span class="error" id="errorDescr"></span>
         <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
     </form>
-{/block}
-
+<?php
+}
+}
+/* {/block 'content'} */
+}
