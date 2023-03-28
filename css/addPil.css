@@ -1,7 +1,6 @@
 .wrapper{
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 2fr 1fr 1fr 1fr 1fr ;
+    display:flex;
+    flex-direction: column;
     margin : 5%;
     align-items: center;
 }

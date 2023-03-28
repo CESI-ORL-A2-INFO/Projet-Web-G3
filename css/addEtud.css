@@ -1,9 +1,8 @@
 .wrapper{
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 2fr 1fr 1fr 1fr 1fr ;
+    display:flex;
     margin : 5%;
     align-items: center;
+    flex-direction: column;
 }
 
 #ButAddEtud{
@@ -15,6 +14,8 @@
     cursor: pointer;
     width: 15%;
     background-color: #4CAF50;
+    grid-column: 1;
+    grid-row:6;
 }
 
 .champ,
@@ -32,4 +33,9 @@ select{
 .champ{
     width: 20%;
     padding : 2%;
+}
+
+.error {
+    color: #D8000C;
+
 }
