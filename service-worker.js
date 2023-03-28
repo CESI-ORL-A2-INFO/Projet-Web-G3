@@ -1,35 +1,40 @@
 // Nom du cache
 var CACHE_NAME = 'ma_pwa_cache';
 
-// Liste des ressources à enregistrer dans le cache
-var urlsToCache = [
-  'logo.png'
-];
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("./service-worker.js")
+    .then(serviceWorker => {
+      console.log("Service Worker registered: ", serviceWorker);
+    })
+    .catch(error => {
+      console.error("Error registering the Service Worker: ", error);
+    });
+}
 
-if (navigator && navigator.serviceWorker) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
 // Installation du service worker
-self.addEventListener('install', function(event) {
-  // Enregistrer les ressources dans le cache
+self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Cache ouvert.');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open('v1').then(function (cache) {
+      return cache.addAll([
+        'logo.png',
+        'backgroundConnexion.jpg',
+        'backgroundmobile.jpg',
+        'logoEnt.png'
+      ]);
+    })
   );
 });
 
 // Activation du service worker
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function (event) {
   // Supprimer les anciens caches
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then(function (cacheNames) {
       return Promise.all(
-        cacheNames.filter(function(cacheName) {
+        cacheNames.filter(function (cacheName) {
           return cacheName !== CACHE_NAME;
-        }).map(function(cacheName) {
+        }).map(function (cacheName) {
           return caches.delete(cacheName);
         })
       );
@@ -38,10 +43,10 @@ self.addEventListener('activate', function(event) {
 });
 
 // Intercepter les requêtes pour vérifier si elles sont dans le cache
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
+      .then(function (response) {
         // Retourner la réponse depuis le cache
         if (response) {
           console.log('Ressource trouvée dans le cache.');
@@ -51,10 +56,10 @@ self.addEventListener('fetch', function(event) {
         // Récupérer la ressource depuis le réseau
         console.log('Ressource non trouvée dans le cache. Récupération depuis le réseau.');
         return fetch(event.request)
-          .then(function(response) {
+          .then(function (response) {
             // Enregistrer la réponse dans le cache
             return caches.open(CACHE_NAME)
-              .then(function(cache) {
+              .then(function (cache) {
                 cache.put(event.request, response.clone());
                 return response;
               });
