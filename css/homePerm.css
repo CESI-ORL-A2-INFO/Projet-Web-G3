@@ -64,7 +64,7 @@
 }
 
 /* Style pour le bouton du formulaire */
-button {
+.but {
     padding: 5px 10px;
     font-size: 16px;
     border: none;
