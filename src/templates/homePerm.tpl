@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="./css/homePerm.css">
 {/block}
 {block name=content}
+
     <div class="container">
         <div class="offreTable">
             <h2>Offre</h2>
@@ -70,6 +71,7 @@
                     <th scope="col">Promotion</th>
                     <th scope="col">Centre</th>
                 </tr>
+
                 {foreach $etud as $dataEtud}
                     <tr>
                         <td><button class="but"><a href="./index.php?p=profilEtud&etud={$dataEtud['IdEtudiant']}">{$dataEtud['NomEtudiant']}
@@ -104,5 +106,6 @@
                 leurs projets.</p>
 
         </div>
+
     </div>
 {/block}

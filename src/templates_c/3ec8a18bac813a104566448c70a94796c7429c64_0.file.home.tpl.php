@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 16:33:22
-  from 'C:\www\Projet-Web-G3\src\templates\homePilote.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-27 16:41:41
+  from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6421a932a74300_04006529',
+  'unifunc' => 'content_6421ab25aa9587_15818440',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '884172e64408560b4d968e4a22ab5cfecff2b247' => 
+    '3ec8a18bac813a104566448c70a94796c7429c64' => 
     array (
-      0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
-      1 => 1679927595,
+      0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\home.tpl',
+      1 => 1679901532,
       2 => 'file',
     ),
   ),
@@ -20,43 +20,43 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6421a932a74300_04006529 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6421ab25aa9587_15818440 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10280504996421a932a4eb76_52303776', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8945410506421ab25a925b3_15698183', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18313329096421a932a4f497_94144593', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14387143446421ab25a92d97_94974772', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_10280504996421a932a4eb76_52303776 extends Smarty_Internal_Block
+class Block_8945410506421ab25a925b3_15698183 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_10280504996421a932a4eb76_52303776',
+    0 => 'Block_8945410506421ab25a925b3_15698183',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-    <link rel="stylesheet" href="./css/homePilote.css">
+    <link rel="stylesheet" href="./css/home.css">
 <?php
 }
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_18313329096421a932a4f497_94144593 extends Smarty_Internal_Block
+class Block_14387143446421ab25a92d97_94974772 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_18313329096421a932a4f497_94144593',
+    0 => 'Block_14387143446421ab25a92d97_94974772',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,6 +64,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="wrapper">
         <form class="card_container" method="get" action="./index.php">
+
+
+
+
+
             <button class="card one" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[5];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -114,6 +119,17 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
+
+
+
+
+
+
+
+
+
+
+
             <button class="card two" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[4];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -328,6 +344,8 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
+
+
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[0];?>
  semaines</p>
                 <p class="promo">Promo :
@@ -360,11 +378,6 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
         </form>
-        <div class="button-container">
-        <form method="get" accept="index.php">
-            <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
-            <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
-        </form>
         <div class="about">
             <h1>Qui sommes nous ?</h1><br>
             <p>C'Stage est un site web dédié à la recherche et la publication d'offres de stage.
@@ -381,7 +394,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             de leur expérience de stage. C'Stage est donc un outil incontournable pour tous les
                 étudiants et les entreprises qui souhaitent trouver les meilleurs stages ou les meilleurs candidats pour
                 leurs projets.</p>
-        </div>
 
         </div>
     </div>

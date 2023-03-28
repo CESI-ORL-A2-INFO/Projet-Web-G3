@@ -123,18 +123,17 @@
     }
 
     .wrapleft {
-        border-right: 2px solid gray;
-        display: block;
+        grid-row: 1;
         border-right: none;
-
+        display: block;
     }
 
-
-    #filtre, #typefiltre,#nom{
+    #nom{
         display:none;
     }
 
     #butSearch {
+        display:none;
         width: 50%;
         height: 90%;
         float :right;
@@ -149,7 +148,9 @@
         flex-wrap: nowrap;
     }
 
-
+    .fa-magnifying-glass{
+        display:none;
+    }
 
     .logo {
         grid-column: 1;
@@ -158,6 +159,7 @@
     }
 
     #search {
+        display: none;
         grid-column: 1;
         grid-row: 2;
     }
@@ -166,10 +168,12 @@
         display: none;
     }
     #Afficher{
+        display: none;
         display:inline-block;
         margin-left : 30%;
     }
     #searchbar {
+        display: none;
         float: left;
         margin-left: 10px;
         border-radius: 10px;
