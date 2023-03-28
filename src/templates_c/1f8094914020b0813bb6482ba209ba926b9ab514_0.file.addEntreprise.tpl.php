@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 15:20:48
+/* Smarty version 4.2.1, created on 2023-03-28 16:56:32
   from 'C:\www\Projet-Web-G3\src\templates\addEntreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422e9b0080da2_47047852',
+  'unifunc' => 'content_64230020d35ac0_08531531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1f8094914020b0813bb6482ba209ba926b9ab514' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\addEntreprise.tpl',
-      1 => 1680009646,
+      1 => 1680010091,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422e9b0080da2_47047852 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64230020d35ac0_08531531 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10566698396422e9b006e2f0_68533903', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_210549474964230020d2b4e8_08795210', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3131434756422e9b006f111_85319021', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18272347464230020d2bdf4_11361970', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_10566698396422e9b006e2f0_68533903 extends Smarty_Internal_Block
+class Block_210549474964230020d2b4e8_08795210 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_10566698396422e9b006e2f0_68533903',
+    0 => 'Block_210549474964230020d2b4e8_08795210',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_3131434756422e9b006f111_85319021 extends Smarty_Internal_Block
+class Block_18272347464230020d2bdf4_11361970 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_3131434756422e9b006f111_85319021',
+    0 => 'Block_18272347464230020d2bdf4_11361970',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -144,49 +144,49 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         var bool = true;
 
         if (nomEntr.value == "") {
-            document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
+            document.getElementById('errorNomEntr').innerHTML = "*Veuillez entrer un nom valide!";
             nomEntr.focus();
             bool = false;
         } else {
             document.getElementById('errorNomEntr').innerHTML = "";
         }
         if (numRue.value == "") {
-            document.getElementById('errorNumRue').innerHTML = "* Veuillez entrer un numéro de rue valide!";
+            document.getElementById('errorNumRue').innerHTML = "*Veuillez entrer un numéro de rue valide!";
             numRue.focus();
             bool = false;
         } else {
             document.getElementById('errorNumRue').innerHTML = "";
         }
         if (nomRue.value == "") {
-            document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
+            document.getElementById('errorNomRue').innerHTML = "*Veuillez entrer un nom de rue valide!";
             nomRue.focus();
             bool = false;
         } else {
             document.getElementById('errorNomRue').innerHTML = "";
         }
         if (ville.value == "") {
-            document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
+            document.getElementById('errorVille').innerHTML = "*Veuillez entrer une ville valide!";
             ville.focus();
             bool = false;
         } else {
             document.getElementById('errorVille').innerHTML = "";
         }
         if (CP.value == "") {
-            document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postale valide!";
+            document.getElementById('errorCP').innerHTML = "*Veuillez entrer un code postale valide!";
             CP.focus();
             bool = false;
         } else {
             document.getElementById('errorCP').innerHTML = "";
         }
         if (pays.value == "") {
-            document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
+            document.getElementById('errorPays').innerHTML = "*Veuillez entrer un pays valide!";
             pays.focus();
             bool = false;
         } else {
             document.getElementById('errorPays').innerHTML = "";
         }
         if (stg.value == "") {
-            document.getElementById('errorstg').innerHTML = "Veuillez entrer un nombre de stagiaire valide!";
+            document.getElementById('errorstg').innerHTML = "*Veuillez entrer un nombre de stagiaire valide!";
             nbstagiaire.focus()
             bool = false;
         } else {

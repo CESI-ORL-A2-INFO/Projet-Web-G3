@@ -144,13 +144,14 @@
 
             {/foreach}
 
+
                 </select>
                 <span class="error" id="errorSecteur"></span>
                 <p>Nombre de stagiaire : </p>
                 <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
                 <span class="error" id="errorStg"></span>
-                <br><button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-                <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+                <br><button class="ButModifier" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
+                <button class="ButSuppr" type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
 
     </form>
     <form class="cardContainer" method="get" action="./index.php">
@@ -230,12 +231,12 @@
     </form>
     {foreach $comPil as $pil}
     <h3 class="nomPil">{$pil['NomPilote']} {$pil['PrenomPilote']}</h3>
-    <p class="note">{$pil['confiance']}</p>
+    <p class="note">{$pil['confiance']} / 5</p>
     <p class="comPil">{$pil['commentaire']}</p>
     {/foreach}
     {foreach $comEtud as $etud}
     <h3 class="nomEtud">{$etud['NomEtudiant']} {$etud['PrenomEtudiant']}</h3>
-    <p class="note">{$etud['note']}</p>
+    <p class="note">{$etud['note']} / 5</p>
     <p class="comEtud">{$etud['commentaire']}</p>
     {/foreach}
 
