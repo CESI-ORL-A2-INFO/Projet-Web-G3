@@ -1,30 +1,18 @@
 <?php
-<<<<<<< HEAD
 /* Smarty version 4.2.1, created on 2023-03-28 14:32:43
-=======
-/* Smarty version 4.2.1, created on 2023-03-28 11:16:05
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
   from 'C:\www\Projet-Web-G3\src\templates\addEntreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-<<<<<<< HEAD
   'unifunc' => 'content_6422de6b7d3000_06359322',
-=======
-  'unifunc' => 'content_6422b0553d7ce1_19566241',
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1f8094914020b0813bb6482ba209ba926b9ab514' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\addEntreprise.tpl',
-<<<<<<< HEAD
       1 => 1680006762,
-=======
-      1 => 1679994958,
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
       2 => 'file',
     ),
   ),
@@ -32,47 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-<<<<<<< HEAD
 function content_6422de6b7d3000_06359322 (Smarty_Internal_Template $_smarty_tpl) {
-=======
-function content_6422b0553d7ce1_19566241 (Smarty_Internal_Template $_smarty_tpl) {
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-<<<<<<< HEAD
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8131897496422de6b7c72d9_18733738', "include");
-=======
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11708035526422b0553cbea3_44085512', "include");
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
 ?>
 
 
 <?php 
-<<<<<<< HEAD
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7747299016422de6b7c7d88_35078238', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
 class Block_8131897496422de6b7c72d9_18733738 extends Smarty_Internal_Block
-=======
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2618855866422b0553cc7f6_61805723', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
-}
-/* {block "include"} */
-class Block_11708035526422b0553cbea3_44085512 extends Smarty_Internal_Block
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
 {
 public $subBlocks = array (
   'include' => 
   array (
-<<<<<<< HEAD
     0 => 'Block_8131897496422de6b7c72d9_18733738',
-=======
-    0 => 'Block_11708035526422b0553cbea3_44085512',
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -84,20 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-<<<<<<< HEAD
 class Block_7747299016422de6b7c7d88_35078238 extends Smarty_Internal_Block
-=======
-class Block_2618855866422b0553cc7f6_61805723 extends Smarty_Internal_Block
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
 {
 public $subBlocks = array (
   'content' => 
   array (
-<<<<<<< HEAD
     0 => 'Block_7747299016422de6b7c7d88_35078238',
-=======
-    0 => 'Block_2618855866422b0553cc7f6_61805723',
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -112,19 +72,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <span class="error" id="errorNumRue"></span>
         <input class="champ" name="nomRue" value="" placeholder="Nom de rue">
         <span class="error" id="errorNomRue"></span>
-<<<<<<< HEAD
         <input class="champ" name="ville" value="" placeholder="Ville">
         <span class="error" id="errorVille"></span>
         <input class="champ" name="cp" value="" placeholder="Code Postal">
         <span class="error" id="errorCP"></span>
-=======
-        <input class="champ" placeholder="Code Postale" id="cp" name="cp" value="" placeholder="Code Postal">
-        <span class="error" id="errorCP"></span>
-        <select class="champ" placeholder="Ville" id="ville" name="ville">
-            <option value="none">Ville</option>
-        </select>
-        <span class="error" id="errorVille"></span>
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
         <input class="champ" name="pays" value="" placeholder="Pays">
         <span class="error" id="errorpays"></span>
         <p>Secteur : </p>

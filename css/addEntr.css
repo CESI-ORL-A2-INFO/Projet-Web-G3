@@ -19,15 +19,6 @@ select {
     width: 100%;
     box-sizing: border-box;
     font-size: 14px;
-<<<<<<< HEAD
-}
-
-#nbstagiaire {
-    width: 14%;
-    padding: 1%;
-    margin-bottom: 3%;
-=======
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
 }
 
 
@@ -44,11 +35,7 @@ h3 {
     font-weight: bold;
 }
 
-<<<<<<< HEAD
 #ButAddEntr {
-=======
-#ButAddOffre {
->>>>>>> 0f6490c5caad3b5a1a8042d1b5f4ab233a8dba87
     padding: 1%;
     font-size: 16px;
     border: none;
