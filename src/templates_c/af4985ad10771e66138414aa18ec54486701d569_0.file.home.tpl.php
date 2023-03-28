@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 16:08:13
-  from 'C:\www\1111\Projet-Web-G3\src\templates\homePilote.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-28 10:10:58
+  from 'C:\www\955\Projet-Web-G3\src\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6421a34d70c129_71325027',
+  'unifunc' => 'content_6422a112318e06_94531138',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd621ad77c091bde3f580d6c8281a16e796e84745' => 
+    'af4985ad10771e66138414aa18ec54486701d569' => 
     array (
-      0 => 'C:\\www\\1111\\Projet-Web-G3\\src\\templates\\homePilote.tpl',
-      1 => 1679924590,
+      0 => 'C:\\www\\955\\Projet-Web-G3\\src\\templates\\home.tpl',
+      1 => 1679990160,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6421a34d70c129_71325027 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422a112318e06_94531138 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8734781106421a34d6e64f0_31516540', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1935596706422a1122d6645_13213572', "include");
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17570952246421a34d6e6fc3_10472468', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20483948336422a1122d7b23_16599421', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbar.tpl');
 }
 /* {block "include"} */
-class Block_8734781106421a34d6e64f0_31516540 extends Smarty_Internal_Block
+class Block_1935596706422a1122d6645_13213572 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_8734781106421a34d6e64f0_31516540',
+    0 => 'Block_1935596706422a1122d6645_13213572',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_17570952246421a34d6e6fc3_10472468 extends Smarty_Internal_Block
+class Block_20483948336422a1122d7b23_16599421 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_17570952246421a34d6e6fc3_10472468',
+    0 => 'Block_20483948336422a1122d7b23_16599421',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,6 +64,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="wrapper">
         <form class="card_container" method="get" action="./index.php">
+
+
+
+
+
             <button class="card one" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[5];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -114,6 +119,17 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
+
+
+
+
+
+
+
+
+
+
+
             <button class="card two" name="offreLast" value="<?php echo $_smarty_tpl->tpl_vars['idOffre']->value[4];?>
 ">
                 <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
@@ -328,6 +344,8 @@ $_smarty_tpl->tpl_vars['sect']->do_else = false;
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></h4>
+
+
                 <p class="duree">Durée : <?php echo $_smarty_tpl->tpl_vars['duree']->value[0];?>
  semaines</p>
                 <p class="promo">Promo :
@@ -359,10 +377,6 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
             </button>
-        </form>
-        <form method="get" accept="index.php">
-            <button class="but" type="submit" name="p" value="addEntr">Ajouter une entreprise</button>
-            <button class="but" type="submit" name="p" value="addOffre">Ajouter une offre</button>
         </form>
         <div class="about">
             <h1>Qui sommes nous ?</h1><br>
