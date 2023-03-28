@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 15:43:24
-  from 'C:\www\1111\Projet-Web-G3\src\templates\navbar.tpl' */
+/* Smarty version 4.2.1, created on 2023-03-28 10:10:58
+  from 'C:\www\955\Projet-Web-G3\src\templates\navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64219d7c21e9c8_93918704',
+  'unifunc' => 'content_6422a112ac04f3_54662398',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '703f9e47205fbba0287cd340eaf6b53172a31cb5' => 
+    'e09d63b3066a0fa9c91f622018e80bbb49771955' => 
     array (
-      0 => 'C:\\www\\1111\\Projet-Web-G3\\src\\templates\\navbar.tpl',
-      1 => 1679924590,
+      0 => 'C:\\www\\955\\Projet-Web-G3\\src\\templates\\navbar.tpl',
+      1 => 1679990160,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64219d7c21e9c8_93918704 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422a112ac04f3_54662398 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_155719961464219d7c21d4b6_20838919', "navbarcss");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15727380336422a112abe534_44611402', "navbarcss");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_185949051164219d7c21e403_52357004', 'navbar');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9291642316422a112abfc36_39555904', 'navbar');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "footer.tpl");
 }
 /* {block "include"} */
-class Block_110385534664219d7c21da25_45870158 extends Smarty_Internal_Block
+class Block_16847470356422a112abed91_57793808 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -46,16 +46,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block "navbarcss"} */
-class Block_155719961464219d7c21d4b6_20838919 extends Smarty_Internal_Block
+class Block_15727380336422a112abe534_44611402 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'navbarcss' => 
   array (
-    0 => 'Block_155719961464219d7c21d4b6_20838919',
+    0 => 'Block_15727380336422a112abe534_44611402',
   ),
   'include' => 
   array (
-    0 => 'Block_110385534664219d7c21da25_45870158',
+    0 => 'Block_16847470356422a112abed91_57793808',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,7 +63,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <link rel="stylesheet" href="./css/navbar.css">
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_110385534664219d7c21da25_45870158', "include", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16847470356422a112abed91_57793808', "include", $this->tplIndex);
 ?>
 
 <?php
@@ -71,12 +71,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_110385534664219d7c
 }
 /* {/block "navbarcss"} */
 /* {block 'navbar'} */
-class Block_185949051164219d7c21e403_52357004 extends Smarty_Internal_Block
+class Block_9291642316422a112abfc36_39555904 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'navbar' => 
   array (
-    0 => 'Block_185949051164219d7c21e403_52357004',
+    0 => 'Block_9291642316422a112abfc36_39555904',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
