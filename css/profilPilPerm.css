@@ -203,7 +203,11 @@ select {
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
+  .error {
+    color: #D8000C;
+    margin-left : 5%;
+
+}
   .wrapperPromo button:hover {
     background-color: #eee;
   }

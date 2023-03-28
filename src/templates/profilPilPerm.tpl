@@ -12,9 +12,11 @@
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <form action="index.php" method="get" class="form">
+        <form name="formulaire" action="index.php" method="get" class="form" onsubmit="return validateForm()">
             <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+            <span class="error" id="errorNom"></span>
             <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
+            <span class="error" id="errorPrenom"></span>
             <select class="champ abxd" name="centre">
                 {foreach $allCentre as $cent}
                     {if $centre == $cent['Centre']}
@@ -79,6 +81,26 @@
                 }
                 form.submit();
             })
+            function validateForm(){
+                var nom = document.forms['formulaire']['nom'];
+                var prenom = document.forms['formulaire']['prenom'];
+                var bool = true;
+                if (nom.value == ""){
+                    document.getElementById('errorNom').innerHTML = "*Veuillez entrer un nom valide!"
+                    nom.focus()
+                    bool = false
+                }else{
+                    document.getElementById('errorNom').innerHTML = ""
+                }
+                if (prenom.value == ""){
+                    document.getElementById('errorPrenom').innerHTML = "*Veuillez entrer un prenom valide!"
+                    prenom.focus()
+                    bool = false
+                }else{
+                    document.getElementById('errorPrenom').innerHTML = ""
+                }
+            return bool;
+            }
         </script>
     {/if}
 {/block}

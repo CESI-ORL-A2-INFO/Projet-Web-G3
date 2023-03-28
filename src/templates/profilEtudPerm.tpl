@@ -13,11 +13,13 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="post" action="index.php">
+        <form name="formulaire "method="post" action="index.php" onsubmit="return validateForm()">
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+                <span class="error" id="errorNom"></span>
                 <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
+                <span class="error" id="errorPrenom"></span>
                 <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     {foreach $allCentre as $cent}
@@ -28,6 +30,7 @@
                         {/if}
                     {/foreach}
                 </select>
+                <span class="error" id="errorCentre"></span>
                 <select class="champ abxd" name="pilote">
                     <option value="none">Pilote</option>
                     {foreach $allPilote as $pil}
@@ -38,6 +41,7 @@
                         {/if}
                     {/foreach}
                 </select>
+                <span class="error" id="errorPilote"></span>
                 <select class="champ abxd" name="promo">
                     <option value="none">Promotion</option>
                     {foreach $allPromotion as $promo1}
@@ -48,6 +52,7 @@
                         {/if}
                     {/foreach}
                 </select>
+                <span class="error" id="errorPromo"></span>
                 <div class="buttons-container">
                     <button type="submit" name="action" value="modif">Modifier</button>
                     <button type="submit" name="action" value="suppr">Supprimer</button>
@@ -77,5 +82,54 @@
             {/foreach}
         </form>
     </div>
+    <script>
+    function validateForm(){
+        var nom = document.forms['formulaire']['nom'];
+        var prenom = document.forms['formulaire']['prenom'];
+        var centre = document.forms['formulaire']['centre'];
+        var pilote = document.forms['formulaire']['pilote'];
+        var promo = document.forms['formulaire']['promo'];
+        var bool = true;
 
+        if (nom.value=""){
+            document.getElementById('errorNom').innerHTML = "*Veuillez entrer un nom valide!"
+            nom.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorNom').innerHTML = "";
+        }
+
+        if (prenom.value=""){
+            document.getElementById('errorPrenom').innerHTML = "*Veuillez entrer un prenom valide!"
+            prenom.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPrenom').innerHTML = "";
+        }
+
+        if (centre.value="none"){
+            document.getElementById('errorCentre').innerHTML = "*Veuillez entrer un centre valide!"
+            centre.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorCentre').innerHTML = "";
+        }
+
+        if (pilote.value="none"){
+            document.getElementById('errorPilote').innerHTML = "*Veuillez entrer un pilote valide!"
+            pilote.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPilote').innerHTML = "";
+        }
+
+        if (promo.value="none"){
+            document.getElementById('errorPromo').innerHTML = "*Veuillez entrer une promotion valide!"
+            promo.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPromo').innerHTML = "";
+        }
+    }
+    </script>
 {/block}
