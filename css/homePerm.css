@@ -56,7 +56,6 @@
 .etudTable table th {
     background-color: #4caf50;
     color: rgb(0, 0, 0);
-    padding: 1vw;
     text-align: center;
     max-height: none;
     overflow-y: visible;
@@ -146,22 +145,22 @@
 
     .offreTable {
         grid-row: 1;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .entrTable {
         grid-row: 2;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .piloteTable {
         grid-row: 3;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .etudTable {
         grid-row: 4;
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .about {
