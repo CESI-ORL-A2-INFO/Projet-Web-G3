@@ -33,17 +33,10 @@
             } else {
                 document.getElementById('errorCentre').innerHTML = "";
             }
-            if (admin.value == "none") {
-                document.getElementById('errorAdmin').innerHTML = "* Veuillez entrer un paramètre valide!";
-                admin.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorAdmin').innerHTML = "";
-            }
             return bool;
         }
     </script>
-    <form class="wrapper" nom="formulaire" accept="index.php" method="post" onsubmit="return validateForm()">
+    <form class="wrapper" name="formulaire" accept="index.php" method="post" onsubmit="return validateForm()">
         <input class="champ" type="text" name="nom" placeholder="Nom">
         <span class="error" id="errorNom"></span>
         <input class="champ" type="text" name="prenom" placeholder="Prenom">

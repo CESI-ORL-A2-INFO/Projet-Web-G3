@@ -123,6 +123,12 @@
   color: #666;
 }
 
+
+
+  .error {
+    color: #D8000C;
+    padding-top: 5%;
+  }
 /* Style pour l'adresse mail */
 .mail {
   margin-top: 10px;

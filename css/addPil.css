@@ -32,3 +32,9 @@ select{
     width: 20%;
     padding : 2%;
 }
+
+.error {
+    color: #D8000C;
+    margin-bottom:2%;
+
+}

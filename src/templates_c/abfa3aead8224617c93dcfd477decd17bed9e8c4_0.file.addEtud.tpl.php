@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 09:56:36
+/* Smarty version 4.2.1, created on 2023-03-28 10:42:16
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addEtud.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64229db4c33b70_78821873',
+  'unifunc' => 'content_6422a86874db14_70301568',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'abfa3aead8224617c93dcfd477decd17bed9e8c4' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addEtud.tpl',
-      1 => 1679990195,
+      1 => 1679992934,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64229db4c33b70_78821873 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422a86874db14_70301568 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_130337398564229db4c28d48_07738474', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13672360516422a868744553_81593994', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_101117175864229db4c29594_90306646', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18004393006422a868745206_26222475', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_130337398564229db4c28d48_07738474 extends Smarty_Internal_Block
+class Block_13672360516422a868744553_81593994 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_130337398564229db4c28d48_07738474',
+    0 => 'Block_13672360516422a868744553_81593994',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_101117175864229db4c29594_90306646 extends Smarty_Internal_Block
+class Block_18004393006422a868745206_26222475 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_101117175864229db4c29594_90306646',
+    0 => 'Block_18004393006422a868745206_26222475',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             var prenom = document.forms['formulaire']['prenom']
             var centre = document.forms['formulaire']['centre']
             var pilote = document.forms['formulaire']['pilote']
-            var promo = document.forms['formulaire']['pilote']
+            var promo = document.forms['formulaire']['promo']
             var bool = true;
 
             if (nom.value == "") {
@@ -112,7 +112,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         }
     <?php echo '</script'; ?>
 >
-    <form nom="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
+    <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
         <input class="champ" type="text" name="nom" placeholder="Nom">
         <span class="error" id="errorNom"></span>
         <input class="champ" type="text" name="prenom" placeholder="Prenom">
@@ -149,7 +149,7 @@ $_smarty_tpl->tpl_vars['pil']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <span class="error" id="errorCentre"></span>
+        <span class="error" id="errorPilote"></span>
         <select name="promo">
             <option value="none">Promotion</option>
             <?php
@@ -165,7 +165,7 @@ $_smarty_tpl->tpl_vars['promo1']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
-        <span class="error" id="errorCentre"></span>
+        <span class="error" id="errorPromo"></span>
         <button type="submit" id="ButAddEtud" name="addEtud" value="add">Ajouter</button>
     </form>
 <?php

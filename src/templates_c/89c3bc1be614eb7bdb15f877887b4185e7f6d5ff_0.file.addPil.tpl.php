@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 10:09:14
+/* Smarty version 4.2.1, created on 2023-03-28 10:45:09
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addPil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422a0aa201830_35207924',
+  'unifunc' => 'content_6422a91578fb36_54809932',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89c3bc1be614eb7bdb15f877887b4185e7f6d5ff' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addPil.tpl',
-      1 => 1679990912,
+      1 => 1679993108,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422a0aa201830_35207924 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422a91578fb36_54809932 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10728602596422a0aa1fb006_28394334', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17690255326422a9157894f5_84307188', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13744365496422a0aa1fb784_57391111', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15292124506422a915789cb8_99620809', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_10728602596422a0aa1fb006_28394334 extends Smarty_Internal_Block
+class Block_17690255326422a9157894f5_84307188 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_10728602596422a0aa1fb006_28394334',
+    0 => 'Block_17690255326422a9157894f5_84307188',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_13744365496422a0aa1fb784_57391111 extends Smarty_Internal_Block
+class Block_15292124506422a915789cb8_99620809 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_13744365496422a0aa1fb784_57391111',
+    0 => 'Block_15292124506422a915789cb8_99620809',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -93,18 +93,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             } else {
                 document.getElementById('errorCentre').innerHTML = "";
             }
-            if (admin.value == "none") {
-                document.getElementById('errorAdmin').innerHTML = "* Veuillez entrer un paramètre valide!";
-                admin.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorAdmin').innerHTML = "";
-            }
             return bool;
         }
     <?php echo '</script'; ?>
 >
-    <form class="wrapper" nom="formulaire" accept="index.php" method="post">
+    <form class="wrapper" name="formulaire" accept="index.php" method="post" onsubmit="return validateForm()">
         <input class="champ" type="text" name="nom" placeholder="Nom">
         <span class="error" id="errorNom"></span>
         <input class="champ" type="text" name="prenom" placeholder="Prenom">
