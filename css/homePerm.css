@@ -68,7 +68,8 @@
 }
 
 /* Style pour le bouton du formulaire */
-.but {
+
+.button {
     padding: 5px 10px;
     font-size: 16px;
     border: none;
@@ -80,8 +81,12 @@
     margin-bottom: 2vw;
 }
 
+.but {
+    border: none;
+}
+
 /* Style pour le bouton du formulaire au survol */
-button:hover {
+.button:hover {
     background-color: #3e8e41;
 }
 

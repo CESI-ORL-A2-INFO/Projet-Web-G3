@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" href="./icons/apple-icon-180.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#FFFFFF"/>
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <meta name="description" content="Site d'offre de stage du CESI.">
+    <meta name="theme-color" content="#FFFFFF" />
     {block name="head"}{/block}
     <title>Home</title>
 </head>

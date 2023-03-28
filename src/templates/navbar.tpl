@@ -13,7 +13,7 @@
             <button id="Afficher" value="show">Search</button>
             <form action="index.php?" method="get" id="search">
                 <input type="search" id="searchbar" name="search" placeholder="Recherche...">
-                <button id="butSearch" name="p" value="search"><i class="fa-solid fa-magnifying-glass fa-2x"
+                <button id="butSearch" name="p" value="search" title="Recherche"><i class="fa-solid fa-magnifying-glass fa-2x"
                         style="margin-left: -5px"></i></button>
             </form>
         </div>
