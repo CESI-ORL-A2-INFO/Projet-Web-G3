@@ -71,6 +71,7 @@
         <h3>Informations : </h3>
         <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
         <span class="error" id="errorNomOffre"></span>
+
         <select name="nomEntr">
             {foreach $nomEntr as $name}
                 <option value="{$name['NomEntreprise']}">{$name['NomEntreprise']}</option>
