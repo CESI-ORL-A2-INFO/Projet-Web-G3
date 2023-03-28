@@ -6,9 +6,9 @@
 {block name=content}
     <form class="offre" method="post" action="./index.php">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <label for="nomOffre" hidden>Nom Offre</label>
+        <label for="nomOffre" class="abvc" hidden>Nom Offre</label>
         <input type="text" id="nomOffre" name="nomOffre" value="{$nomOffre}">
-        <select name="nomEntr">
+        <br><br><select name="nomEntr">
             {foreach $nomEntr as $name}
                 {if $name['NomEntreprise'] == $nomEntrSelect}
                     <option value="{$name['NomEntreprise']}" selected>{$name['NomEntreprise']}</option>
@@ -151,7 +151,7 @@
         <input type="text" name="remuneration" value="{$paie}">
         <p class="mail">email : </p>
         <input type="text" name="email" value="{$mail}"><br>
-        <textarea name="descr" rows="20" cols="120">{$descr}</textarea>
+        <textarea class="abxd" name="descr" rows="20" cols="120">{$descr}</textarea>
         <button type="submit" name="action" value="modif">Modifier</button>
         <button type="submit" name="action" value="suppr">Supprimer</button>
     </form>
