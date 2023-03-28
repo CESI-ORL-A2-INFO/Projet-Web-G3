@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 11:15:10
+/* Smarty version 4.2.1, created on 2023-03-28 15:37:14
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addOffre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422b01e3ff407_31381053',
+  'unifunc' => 'content_6422ed8a8dd068_05019813',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7668f5f1af349feab026cb14407a4c69c830f856' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
-      1 => 1679994905,
+      1 => 1680010633,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422b01e3ff407_31381053 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422ed8a8dd068_05019813 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20483001556422b01e3f0af1_51065969', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12389273196422ed8a8cf091_04229814', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17289451136422b01e3f12e9_61941463', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10243001326422ed8a8cf940_42182614', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_20483001556422b01e3f0af1_51065969 extends Smarty_Internal_Block
+class Block_12389273196422ed8a8cf091_04229814 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_20483001556422b01e3f0af1_51065969',
+    0 => 'Block_12389273196422ed8a8cf091_04229814',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,12 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_17289451136422b01e3f12e9_61941463 extends Smarty_Internal_Block
+class Block_10243001326422ed8a8cf940_42182614 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_17289451136422b01e3f12e9_61941463',
+    0 => 'Block_10243001326422ed8a8cf940_42182614',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,6 +76,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             var email = document.forms["formulaire"]["email"];
             var promo1 = document.forms["formulaire"]["promo1"];
             var comp1 = document.forms["formulaire"]["comp1"];
+            var desc = document.forms["formulaire"]["descr"];
+            var debut = document.forms["formulaire"]["dateDebut"];     
+            var emi = document.forms["formulaire"]["dateEmi"]; 
             var bool = true;
 
             if (nomOffre.value == "") {
@@ -127,6 +130,27 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             } else {
                 document.getElementById('errorC1').innerHTML = "";
             }
+            if (desc.value == "") {
+                document.getElementById('errorDesc').innerHTML = "* Veuillez entrez une description!";
+                desc.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDesc').innerHTML = "";
+            }
+            if (debut.value == "") {
+                document.getElementById('errorDateDebut').innerHTML = "* Veuillez entrer une date de début valide!";
+                debut.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateDebut').innerHTML = "";
+            }
+            if (emi.value == "") {
+                document.getElementById('errorDateEmi').innerHTML = "* Veuillez entrer une date d'émission valide!";
+                emi.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateEmi').innerHTML = "";
+            }
             return bool;
         }
     <?php echo '</script'; ?>
@@ -155,9 +179,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </br>
         <label for="dateDeb">Date de début : </label>
         <input id="dateDeb" type="date" class="champ" name="dateDebut" placeholder="Date de début du stage">
+        <span class="error" id="errorDateDebut"></span>
         </br>
         <label for="dateEmi">Date émission : </label>
         <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
+        <span class="error" id="errorDateEmi"></span>
         <input type="text" name="nbPlace" class="champ" value="" placeholder="Nombre de place pour ce stage">
         <span class="error" id="errorNbPlace"></span>
         <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
@@ -357,7 +383,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
-        <span class="error" id="errorDescr"></span>
+        <span class="error" id="errorDesc"></span>
         <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
     </form>
 <?php
