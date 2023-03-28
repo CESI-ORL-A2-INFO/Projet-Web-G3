@@ -11,14 +11,14 @@
             var bool = true;
 
             if (mail.value == "") {
-                document.getElementById('errormail').innerHTML = "* Veuillez entrez un mail valide!";
+                document.getElementById('errormail').innerHTML = "* Veuillez entrer un mail valide!";
                 mail.focus();
                 bool = false;
             } else {
                 document.getElementById('errormail').innerHTML = "";
             }
             if (mdp.value == "") {
-                document.getElementById('errorpass').innerHTML = "* Veuillez entrez un Mot de passe valide!";
+                document.getElementById('errorpass').innerHTML = "* Veuillez entrer un Mot de passe valide!";
                 mdp.focus();
                 bool = false;
             } else {
