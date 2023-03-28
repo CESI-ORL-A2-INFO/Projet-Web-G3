@@ -1,18 +1,21 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 11:02:53
+/* Smarty version 4.2.1, created on 2023-03-28 14:07:42
+
   from 'C:\www\Projet-Web-G3\src\templates\profilEtudPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422ad3dc499e7_73041662',
+  'unifunc' => 'content_6422d88e892693_57895839',
+
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54a2b3a03c7e073c44d65c9ed6c4034e8015f3f4' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEtudPerm.tpl',
-      1 => 1679994171,
+      1 => 1680005243,
+
       2 => 'file',
     ),
   ),
@@ -20,29 +23,34 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422ad3dc499e7_73041662 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422d88e892693_57895839 (Smarty_Internal_Template $_smarty_tpl) {
+
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10717589146422ad3dc2e781_85614383', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3640008076422d88e8768f6_67542218', "include");
+
 ?>
 
 
 <?php ob_start();
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19696094666422ad3dc2f204_69343613', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3917277646422d88e878278_37138105', 'content');
+
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_10717589146422ad3dc2e781_85614383 extends Smarty_Internal_Block
+class Block_3640008076422d88e8768f6_67542218 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_10717589146422ad3dc2e781_85614383',
+    0 => 'Block_3640008076422d88e8768f6_67542218',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +62,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_19696094666422ad3dc2f204_69343613 extends Smarty_Internal_Block
+class Block_3917277646422d88e878278_37138105 extends Smarty_Internal_Block
+
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_19696094666422ad3dc2f204_69343613',
+    0 => 'Block_3917277646422d88e878278_37138105',
+
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -147,8 +157,8 @@ $_smarty_tpl->tpl_vars['promo1']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
                 <div class="buttons-container">
-                    <button type="submit" name="actionPil" value="modif">Modifier</button>
-                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>
         </form>
