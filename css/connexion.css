@@ -12,14 +12,18 @@
     margin-right: 15%;
     margin-bottom: 6%;
 }
-
+body{
+    background-image: url(../backgroundConnexion.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    
+}
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     border-radius: 20px;
-    background-image: url(../backgroundConnexion.jpg);
-    background-size: cover;
+
     width: 85%;
 }
 
@@ -93,8 +97,8 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         border-radius: 20px;
-        background-image: url(../backgroundConnexion.jpg);
-        background-size: cover;
+        /* background-image: url(../backgroundConnexion.jpg);
+        background-size: cover; */
         width: 100%;
         padding: 12%;
     }
@@ -120,7 +124,7 @@
         margin-top: 15%;
         margin-right: 12%;
         border-radius: 20px;
-        }
+    }
     
     .champ {
         border: 1px solid black;
