@@ -204,7 +204,7 @@
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
         <span class="error" id="errorDescr"></span>
-        <button type="submit" id="ButAddOffre" name="AddOffre" value="add">Ajouter</button>
+        <button type="submit" id="ButAddOffre" name="addOffre" value="add">Ajouter</button>
     </form>
 {/block}
 

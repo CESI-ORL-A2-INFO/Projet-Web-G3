@@ -13,7 +13,7 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="Post" action="index.php">
+        <form method="post" action="index.php">
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
@@ -49,8 +49,8 @@
                     {/foreach}
                 </select>
                 <div class="buttons-container">
-                    <button type="submit" name="actionPil" value="modif">Modifier</button>
-                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>
         </form>
