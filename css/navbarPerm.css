@@ -117,9 +117,7 @@
     
     .navbar {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 20px, 10px;
-
+        grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
     }
 
     .wrapleft {

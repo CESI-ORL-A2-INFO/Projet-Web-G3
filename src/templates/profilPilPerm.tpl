@@ -7,11 +7,12 @@
     <div class="wrapper">
         <div id="left">
             <h1>    Profil Tuteur</h1>
+
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <div class="form">
+        <form action="index.php" method="get" class="form">
             <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
             <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
             <select class="champ abxd" name="centre">
@@ -24,31 +25,31 @@
                 {/foreach}
             </select>
             <div class="buttons-container">
-            <button type="submit" name="actionPil" value="modif">Modifier</button>
-            <button type="submit" name="actionPil" value="suppr">Supprimer</button>
-        </div>
+                <button type="submit" name="actionPil" value="modif">Modifier</button>
+                <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+        </form>
     </div>
 
 
-        
+
     </div>
     {if $user == $idPil}
-       <div class="button-container">
-    <form method="get" action="index.php">
-        <button type="submit" name="deconnexion" value="true" class="btn-deconnexion">Déconnexion</button>
-    </div>
-    </form>
-    <div class="select-container">
-    <form method="get" action="index.php" id="formPromo">
-        <select name="promoAdd" id="promo">
-            <option value="none">Promotion</option>
-            {foreach $pasPromo as $pPromo}
-                <option value="{$pPromo['IdPromo']}">{$pPromo['Promotion']}</option>
-            {/foreach}
-        </select>
-        <button name="addPromo" value="true">Ajouter promotion</button>
-    </form>
-    </div>
+        <div class="button-container">
+            <form method="get" action="index.php">
+                <button type="submit" name="deconnexion" value="true" class="btn-deconnexion">Déconnexion</button>
+        </div>
+        </form>
+        <div class="select-container">
+            <form method="get" action="index.php" id="formPromo">
+                <select name="promoAdd" id="promo">
+                    <option value="none">Promotion</option>
+                    {foreach $pasPromo as $pPromo}
+                        <option value="{$pPromo['IdPromo']}">{$pPromo['Promotion']}</option>
+                    {/foreach}
+                </select>
+                <button name="addPromo" value="true">Ajouter promotion</button>
+            </form>
+        </div>
 
 
         <form class="wrapperPromo" method="get" action="index.php">

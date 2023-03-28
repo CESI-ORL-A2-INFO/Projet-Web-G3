@@ -13,10 +13,12 @@
         <span class="error" id="errorNumRue"></span>
         <input class="champ" name="nomRue" value="" placeholder="Nom de rue">
         <span class="error" id="errorNomRue"></span>
-        <input class="champ" name="ville" value="" placeholder="Ville">
-        <span class="error" id="errorVille"></span>
-        <input class="champ" name="cp" value="" placeholder="Code Postal">
+        <input class="champ" placeholder="Code Postale" id="cp" name="cp" value="" placeholder="Code Postal">
         <span class="error" id="errorCP"></span>
+        <select class="champ" placeholder="Ville" id="ville" name="ville">
+            <option value="none">Ville</option>
+        </select>
+        <span class="error" id="errorVille"></span>
         <input class="champ" name="pays" value="" placeholder="Pays">
         <span class="error" id="errorpays"></span>
         <p>Secteur : </p>
