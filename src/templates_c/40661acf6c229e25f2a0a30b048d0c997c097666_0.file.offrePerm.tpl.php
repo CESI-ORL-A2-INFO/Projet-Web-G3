@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-26 16:16:39
+/* Smarty version 4.2.1, created on 2023-03-28 15:33:11
   from 'C:\www\Projet-Web-G3\src\templates\offrePerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_642053c7585052_13722897',
+  'unifunc' => 'content_6422ec97ac3923_09734095',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40661acf6c229e25f2a0a30b048d0c997c097666' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\offrePerm.tpl',
-      1 => 1679840193,
+      1 => 1680010382,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_642053c7585052_13722897 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422ec97ac3923_09734095 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1204168136642053c7560dd8_91359160', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3806992236422ec97a90787_09981437', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1621588636642053c7561671_35927816', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8611210696422ec97a91562_75544582', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "navbarPerm.tpl");
 }
 /* {block "include"} */
-class Block_1204168136642053c7560dd8_91359160 extends Smarty_Internal_Block
+class Block_3806992236422ec97a90787_09981437 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_1204168136642053c7560dd8_91359160',
+    0 => 'Block_3806992236422ec97a90787_09981437',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1621588636642053c7561671_35927816 extends Smarty_Internal_Block
+class Block_8611210696422ec97a91562_75544582 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1621588636642053c7561671_35927816',
+    0 => 'Block_8611210696422ec97a91562_75544582',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -65,10 +65,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <form class="offre" method="post" action="./index.php">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <label for="nomOffre" hidden>Nom Offre</label>
+        <label for="nomOffre" class="abvc" hidden>Nom Offre</label>
         <input type="text" id="nomOffre" name="nomOffre" value="<?php echo $_smarty_tpl->tpl_vars['nomOffre']->value;?>
 ">
-        <select name="nomEntr">
+        <br><br><select name="nomEntr">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nomEntr']->value, 'name');
 $_smarty_tpl->tpl_vars['name']->do_else = true;
@@ -360,7 +360,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <p class="mail">email : </p>
         <input type="text" name="email" value="<?php echo $_smarty_tpl->tpl_vars['mail']->value;?>
 "><br>
-        <textarea name="descr" rows="20" cols="120"><?php echo $_smarty_tpl->tpl_vars['descr']->value;?>
+        <textarea class="abxd" name="descr" rows="20" cols="120"><?php echo $_smarty_tpl->tpl_vars['descr']->value;?>
 </textarea>
         <button type="submit" name="action" value="modif">Modifier</button>
         <button type="submit" name="action" value="suppr">Supprimer</button>
