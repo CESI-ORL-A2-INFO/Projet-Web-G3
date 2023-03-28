@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-27 15:28:45
+/* Smarty version 4.2.1, created on 2023-03-28 11:15:10
   from 'C:\www\ProjetMobile\new2\Projet-Web-G3\src\templates\addOffre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64219a0d824cb0_06957343',
+  'unifunc' => 'content_6422b01e3ff407_31381053',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7668f5f1af349feab026cb14407a4c69c830f856' => 
     array (
       0 => 'C:\\www\\ProjetMobile\\new2\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
-      1 => 1679923626,
+      1 => 1679994905,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64219a0d824cb0_06957343 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422b01e3ff407_31381053 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_51735602764219a0d815fb0_48852242', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20483001556422b01e3f0af1_51065969', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143805134164219a0d816835_08595125', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17289451136422b01e3f12e9_61941463', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_51735602764219a0d815fb0_48852242 extends Smarty_Internal_Block
+class Block_20483001556422b01e3f0af1_51065969 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_51735602764219a0d815fb0_48852242',
+    0 => 'Block_20483001556422b01e3f0af1_51065969',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,12 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_143805134164219a0d816835_08595125 extends Smarty_Internal_Block
+class Block_17289451136422b01e3f12e9_61941463 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_143805134164219a0d816835_08595125',
+    0 => 'Block_17289451136422b01e3f12e9_61941463',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -94,7 +94,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             }
             if (NbPlace.value == "") {
                 document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrez un nombre de stagiaire valide!";
-                nbPlace.focus();
+                NbPlace.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNbPlace').innerHTML = "";
@@ -135,6 +135,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <h3>Informations : </h3>
         <input type="text" class="champ" name="nomOffre" placeholder="Nom de l'offre">
         <span class="error" id="errorNomOffre"></span>
+
         <select name="nomEntr">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nomEntr']->value, 'name');
@@ -157,7 +158,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </br>
         <label for="dateEmi">Date émission : </label>
         <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
-        <input type="text" name="nbPlace" class="champ" placeholder="Nombre de place pour ce stage">
+        <input type="text" name="nbPlace" class="champ" value="" placeholder="Nombre de place pour ce stage">
         <span class="error" id="errorNbPlace"></span>
         <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
         <span class="error" id="errorRemuneration"></span>

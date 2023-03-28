@@ -31,7 +31,7 @@
             }
             if (NbPlace.value == "") {
                 document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrez un nombre de stagiaire valide!";
-                nbPlace.focus();
+                NbPlace.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNbPlace').innerHTML = "";
@@ -85,7 +85,7 @@
         </br>
         <label for="dateEmi">Date émission : </label>
         <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
-        <input type="text" name="nbPlace" class="champ" placeholder="Nombre de place pour ce stage">
+        <input type="text" name="nbPlace" class="champ" value="" placeholder="Nombre de place pour ce stage">
         <span class="error" id="errorNbPlace"></span>
         <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
         <span class="error" id="errorRemuneration"></span>

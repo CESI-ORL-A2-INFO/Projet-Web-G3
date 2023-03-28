@@ -12,6 +12,8 @@
         var ville = document.forms["formulaire"]["ville"]
         var CP = document.forms["formulaire"]["cp"]
         var pays = document.forms["formulaire"]["pays"]
+        var secteur = document.forms["formulaire"]["secteur1"]
+        var stg = document.forms["formulaire"]["nbStagiaire"]
         var bool = true;
 
         if (nomEntr.value == "") {
@@ -29,50 +31,82 @@
             document.getElementById('errorNumRue').innerHTML = "";
         }
         if (nomRue.value == "") {
-            document.getElementById('errorNomRue').innerHTML = "* Veuillez entrez un nom de rue valide!";
+            document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
             nomRue.focus();
             bool = false;
         } else {
             document.getElementById('errorNomRue').innerHTML = "";
         }
-        if (ville.value == "") {
-            document.getElementById('errorVille').innerHTML = "* Veuillez entrez une ville valide!";
+        if (ville.value == "none") {
+            document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
             ville.focus();
             bool = false;
         } else {
             document.getElementById('errorVille').innerHTML = "";
         }
         if (CP.value == "") {
-            document.getElementById('errorCP').innerHTML = "* Veuillez entrez un code postale valide!";
+            document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postal valide!";
             CP.focus();
             bool = false;
         } else {
             document.getElementById('errorCP').innerHTML = "";
         }
         if (pays.value == "") {
-            document.getElementById('errorPays').innerHTML = "* Veuillez entrez un pays valide!";
+            document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
             pays.focus();
             bool = false;
         } else {
             document.getElementById('errorPays').innerHTML = "";
+        }
+        if (secteur.value == "none") {
+            document.getElementById('errorSecteur').innerHTML = "Veuillez entrer un secteur!";
+            secteur.focus()
+            bool = false;
+        } else {
+            document.getElementById('errorSecteur').innerHTML = "";
+        }
+        if (stg.value == "") {
+            document.getElementById('errorStg').innerHTML = "Veuillez entrer un nombre de stagiaire valide!";
+            stg.focus()
+            bool = false;
+        } else {
+            document.getElementById('errorStg').innerHTML = "";
+        }
+        
+        return bool;
+    }
+    function validateFormCom(){
+        var com = document.forms["commentaire"]["com"]
+        var bool = true
+        if(com.value == ""){
+            document.getElementById('errorCom').innerHTML = "*Veuillez insérer un commentaire!";
+            com.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorCom').innerHTML = "";
         }
         return bool;
     }
     </script>
     <div class="info">
 
-        <form action="index.php" method="post">
+        <form name="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
             <p>Nom de l'entreprise : </p>
                 <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
+                <span class="error" id="errorNomEntr"></span>
                 <p class="adresse">Adresse : </p>
                 <input class="champ" name="numRue" value="{$infoEntr['NumRue']}">
+                <span class="error" id="errorNumRue"></span>
                 <input class="champ" name="nomRue" value="{$infoEntr['NomRue']}">
+                <span class="error" id="errorNomRue"></span>
                 <input class="champ" id="cp" name="cp" value="" placeholder="Code Postal">
+                <span class="error" id="errorCP"></span>
                 <select class="champ" id="ville" name="ville">
                     <option value="none">Ville</option>
                 </select>
+                <span class="error" id="errorVille"></span>
                 <input class="champ" name="pays" value="" placeholder="Pays">
-                <input class="champ" name="pays" value="{$infoEntr['Pays']}">
+                <span class="error" id="errorPays"></span>
                 <p>Secteur : </p>
                 <select class="secteur" name="secteur1">
                     <option value="none">Secteur</option>
@@ -119,8 +153,10 @@
                 {/foreach}
 
                 </select>
+                <span class="error" id="errorSecteur"></span>
                 <p>Nombre de stagiaire : </p>
                 <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <span class="error" id="errorStg"></span>
                 <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
                 <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
@@ -135,7 +171,7 @@
         </button>
         {/foreach}
     </form>
-    <form class="comUser" action="index.php" method="post">
+    <form name="commentaire" class="comUser" action="index.php" method="post" onsubmit="return validateFormCom()">
         {if $comUser == null}
         <select class="noteUser" name="note">
             <option value="0">0</option>
@@ -193,8 +229,8 @@
             <option value="5" selected>5</option>
             {/if}
         </select>
-        <textarea class="com" type="text" name="commentaire">{$comUser['commentaire']}</textarea>
-
+        <textarea class="com" name="com" value="" type="text" name="commentaire">{$comUser['commentaire']}</textarea>
+        <span class="error" id="errorCom"></span>
         <button class="upd" type="submit" name="action" value="upd">Modifier</button>
         <button class="del" type="submit" name="action" value="del">Delete</button>
         {/if}

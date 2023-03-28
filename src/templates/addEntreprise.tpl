@@ -18,7 +18,7 @@
         <input class="champ" name="cp" value="" placeholder="Code Postal">
         <span class="error" id="errorCP"></span>
         <input class="champ" name="pays" value="" placeholder="Pays">
-        <span class="error" id="errorpays"></span>
+        <span class="error" id="errorPays"></span>
         <p>Secteur : </p>
         <select class="secteur" name="secteur1">
             <option value="none">Secteur</option>
@@ -38,6 +38,7 @@
                     <option value="{$sect3['Secteur_Activite']}">{$sect3['Secteur_Activite']}</option>
                 {/foreach}
         </select>
+        <span class="error" id="errorSecteur"></span>
         <p>Nombre de stagiaire : </p>
         <input class="champ" name="nbStagiaire" value="" id="nbstagiaire" placeholder="Nombre de stagiaires">
         <span class="error" id="errorstg"></span>
@@ -52,6 +53,7 @@
         var CP = document.forms["formulaire"]["cp"]
         var pays = document.forms["formulaire"]["pays"]
         var stg = document.forms["formulaire"]["nbStagiaire"]
+        var secteur = document.forms["formulaire"]["secteur1"]
         var bool = true;
 
         if (nomEntr.value == "") {
@@ -103,9 +105,16 @@
         } else {
             document.getElementById('errorstg').innerHTML = "";
         }
+        if (secteur.value == "none") {
+            document.getElementById('errorSecteur').innerHTML = "Veuillez entrer un secteur!";
+            secteur.focus()
+            bool = false;
+        } else {
+            document.getElementById('errorSecteur').innerHTML = "";
+        }
         return bool;
     }
-</script>
-<script src="./js/CP.js"></script>
+    </script>
+    <script src="./js/CP.js"></script>
 
 {/block}

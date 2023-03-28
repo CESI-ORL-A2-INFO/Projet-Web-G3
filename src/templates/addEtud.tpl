@@ -10,7 +10,7 @@
             var prenom = document.forms['formulaire']['prenom']
             var centre = document.forms['formulaire']['centre']
             var pilote = document.forms['formulaire']['pilote']
-            var promo = document.forms['formulaire']['pilote']
+            var promo = document.forms['formulaire']['promo']
             var bool = true;
 
             if (nom.value == "") {
@@ -51,7 +51,7 @@
             return bool;
         }
     </script>
-    <form nom="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
+    <form name="formulaire" class="wrapper" action="index.php" method="post" onsubmit="return validateForm()">
         <input class="champ" type="text" name="nom" placeholder="Nom">
         <span class="error" id="errorNom"></span>
         <input class="champ" type="text" name="prenom" placeholder="Prenom">
@@ -69,14 +69,14 @@
                 <option value="{$pil['IdPilote']}">{$pil['NomPilote']} {$pil['PrenomPilote']}</option>
             {/foreach}
         </select>
-        <span class="error" id="errorCentre"></span>
+        <span class="error" id="errorPilote"></span>
         <select name="promo">
             <option value="none">Promotion</option>
             {foreach $allPromotion as $promo1}
                 <option value="{$promo1['IdPromo']}">{$promo1['Promotion']}</option>
             {/foreach}
         </select>
-        <span class="error" id="errorCentre"></span>
+        <span class="error" id="errorPromo"></span>
         <button type="submit" id="ButAddEtud" name="addEtud" value="add">Ajouter</button>
     </form>
 {/block}
