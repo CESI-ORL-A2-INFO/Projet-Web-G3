@@ -49,8 +49,8 @@
                     {/foreach}
                 </select>
                 <div class="buttons-container">
-                    <button type="submit" name="actionPil" value="modif">Modifier</button>
-                    <button type="submit" name="actionPil" value="suppr">Supprimer</button>
+                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>
         </form>
