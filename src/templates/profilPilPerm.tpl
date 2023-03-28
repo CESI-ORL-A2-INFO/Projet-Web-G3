@@ -12,8 +12,8 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
         <div class="form">
-            <input class="champ" id="name" type="text" name="nom" value="{$nom}">
-            <input class="champ" id="Prenom" type="text" name="prenom" value="{$prenom}">
+            <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
+            <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
             <select class="champ abxd" name="centre">
                 {foreach $allCentre as $cent}
                     {if $centre == $cent['Centre']}

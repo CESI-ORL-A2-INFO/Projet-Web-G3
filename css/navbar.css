@@ -128,13 +128,12 @@
         border-right: none;
 
     }
-
-
-    #filtre, #typefiltre,#nom{
+    #nom{
         display:none;
     }
 
     #butSearch {
+        display:none;
         width: 50%;
         height: 90%;
         float :right;
@@ -166,7 +165,7 @@
         display: none;
     }
     #Afficher{
-        display:inline-block;
+        display:none;
         margin-left : 30%;
     }
     #searchbar {

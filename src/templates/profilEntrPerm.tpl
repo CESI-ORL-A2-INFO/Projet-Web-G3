@@ -1,22 +1,85 @@
 {extends file='navbarPerm.tpl'}
 {block name="include"}
-    <link rel="stylesheet" href="./css/profilEntr.css">
+    <link rel="stylesheet" href="./css/profilEntrPerm.css">
 {/block}
 
 {block name=content}
+    <script>
+    function validateForm() {
+        var nomEntr = document.forms["formulaire"]["nomEntr"];
+        var numRue = document.forms["formulaire"]["numRue"]
+        var nomRue = document.forms["formulaire"]["nomRue"]
+        var ville = document.forms["formulaire"]["ville"]
+        var CP = document.forms["formulaire"]["cp"]
+        var pays = document.forms["formulaire"]["pays"]
+        var bool = true;
+
+        if (nomEntr.value == "") {
+
+            document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
+
+            nomEntr.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNomEntr').innerHTML = "";
+        }
+        if (numRue.value == "") {
+            document.getElementById('errorNumRue').innerHTML = "* Veuillez entrer un numéro de rue valide!";
+
+            numRue.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNumRue').innerHTML = "";
+        }
+        if (nomRue.value == "") {
+
+            document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
+
+            nomRue.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorNomRue').innerHTML = "";
+        }
+        if (ville.value == "") {
+            document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
+
+            ville.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorVille').innerHTML = "";
+        }
+        if (CP.value == "") {
+            document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postale valide!";
+
+            CP.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorCP').innerHTML = "";
+        }
+        if (pays.value == "") {
+            document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
+
+            pays.focus();
+            bool = false;
+        } else {
+            document.getElementById('errorPays').innerHTML = "";
+        }
+        return bool;
+    }
+    </script>
     <div class="info">
+
         <form action="index.php" method="post">
             <p>Nom de l'entreprise : </p>
-                <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
+                <input class="champ" placeholder="Entrer le nom de l'entreprise" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
                 <p class="adresse">Adresse : </p>
-                <input class="champ" name="numRue" value="{$infoEntr['NumRue']}">
-                <input class="champ" name="nomRue" value="{$infoEntr['NomRue']}">
-                <input class="champ" id="cp" name="cp" value="" placeholder="Code Postal">
-                <select class="champ" id="ville" name="ville">
+                <input class="champ" placeholder="Numéro de rue" name="numRue" value="{$infoEntr['NumRue']}">
+                <input class="champ" placeholder="Nom de rue" name="nomRue" value="{$infoEntr['NomRue']}">
+                <input class="champ" placeholder="Code Postale" id="cp" name="cp" value="" placeholder="Code Postal">
+                <select class="champ" placeholder="Ville" id="ville" name="ville">
                     <option value="none">Ville</option>
                 </select>
-                <input class="champ" name="pays" value="" placeholder="Pays">
-                <input class="champ" name="pays" value="{$infoEntr['Pays']}">
+                <input class="champ" placeholder="Pays" name="pays" value="{$infoEntr['Pays']}">
                 <p>Secteur : </p>
                 <select class="secteur" name="secteur1">
                     <option value="none">Secteur</option>
@@ -61,9 +124,10 @@
                     {/if}
 
                 {/foreach}
+
                 </select>
                 <p>Nombre de stagiaire : </p>
-                <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
                 <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
                 <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
@@ -88,7 +152,7 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <textarea class="com" type="text" name="commentaire"></textarea>
+        <textarea placeholder="Entrer votre commentaire ici" class="com" type="text" name="commentaire"></textarea>
         <button class="add" type="submit" name="action" value="add">Ajouter</button>
         {else}
         <select class="noteUser" name="note">

@@ -6,7 +6,8 @@
 {block name=content}
     <div class="offre">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <a href="./index.php?bookmark=true" class="icons" style="color: 
+
+        <a href="./index.php?bookmark=true" class="icons" title="Enregistré" style="color: 
         {if $isBook == array()}
             gray
         {else}
@@ -49,7 +50,7 @@
         <p class="dateEmission">Date d'emission : {$dateEmission}</p>
         <p class="place">Nombre de place : {$place}</p>
         <p class="paie">Rémunération : {$paie}</p>
-        <p class="mail">email : {$mail}</p>
+        <a class="mail" href="mailto:{$mail}">email : {$mail}</a>
         <p class="descr">{$descr}</p>
         <form action="./index.php" method="post">
             <select class="statut" name="statut">
