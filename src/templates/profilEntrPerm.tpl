@@ -130,11 +130,12 @@
 
             {/foreach}
 
-        </select>
-        <p>Nombre de stagiaire : </p>
-        <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
-        <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-        <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+                </select>
+                <p>Nombre de stagiaire : </p>
+                <input type="text" class="input-stagiaire" placeholder="Nombre de stagiaire" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <br><button type="submit" name="actionEntr" value="modif" class="btn-modif">Modifier l'entreprise</button>
+                <button type="submit" name="actionEntr" value="suppr" class="btn-suppr">Supprimer l'entreprise</button>
+
     </form>
     <form class="cardContainer" method="get" action="./index.php">
         {foreach $card as $data key=$i}
