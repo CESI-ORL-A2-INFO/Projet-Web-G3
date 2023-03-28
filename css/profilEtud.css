@@ -169,4 +169,42 @@ main {
     
     .btn-deconnexion:hover {
     background-color: #757272;
+
     }
+    /* Style the Modifier and Supprimer buttons */
+.form button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 49%;
+}
+
+.form button[type="submit"][name="actionPil"][value="modif"] {
+  background-color: #008CBA;
+  color: #fff;
+  margin-right: 3%;
+}
+
+.form button[type="submit"][name="actionPil"][value="modif"]:hover {
+  background-color: #0074a7;
+}
+
+.form button[type="submit"][name="actionPil"][value="suppr"] {
+  background-color: #f44336;
+  color: #fff;
+  margin-left: 1%;
+}
+
+.form button[type="submit"][name="actionPil"][value="suppr"]:hover {
+  background-color: #da190b;
+}
+
+/* Style the buttons container */
+.form .buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 3%;
+}

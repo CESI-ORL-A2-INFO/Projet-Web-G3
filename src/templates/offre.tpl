@@ -6,7 +6,8 @@
 {block name=content}
     <div class="offre">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <a href="./index.php?bookmark=true" class="icons" style="color: 
+
+        <a href="./index.php?bookmark=true" class="icons" title="Enregistré" style="color: 
         {if $isBook == array()}
             gray
         {else}

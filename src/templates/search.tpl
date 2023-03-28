@@ -6,7 +6,7 @@
 {block name=content}
     <div class="formfiltre">
         <form action="index.php?" method="get" id="formfiltre">
-            <input type="search" id="bar" value="{$content}"  name="search" placeholder="Recherche...">
+            <input type="search" id="bar" value="{$content}" name="search" placeholder="Recherche...">
 
             <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
             <select id="typefiltre" name="filtre">
@@ -42,17 +42,21 @@
             {foreach $data['competences'] as $comp}
             {$comp['Compétences']} - {$comp['niveau']} /
             {/foreach}</p>
-        </button>
+    </button>
     {/foreach}
 </form>
-<a class="firstPage" href="./index.php?p=search&current_page=1">
+<a class="firstPage"
+    href="./index.php?p=search&current_page=1&filtre={$filtre}&search={$search}&searchfiltre={$searchfiltre}">
     <<</a>
         {if $current_page != 1}
-            <a class="pagePrec" href="./index.php?p=search&current_page={$current_page-1}">
+            <a class="pagePrec"
+                href="./index.php?p=search&current_page={$current_page-1}&filtre={$filtre}&search={$search}&searchfiltre={$searchfiltre}">
                 <</a>
                 {/if}
                 {if $current_page != $lastPage}
-                    <a class="pageSuiv" href="./index.php?p=search&current_page={$current_page+1}">></a>
+                    <a class="pageSuiv"
+                        href="./index.php?p=search&current_page={$current_page+1}&filtre={$filtre}&search={$search}&searchfiltre={$searchfiltre}">></a>
                 {/if}
-                <a class="lastPage" href="./index.php?p=search&current_page={$lastPage}">>></a>
+                <a class="lastPage"
+                    href="./index.php?p=search&current_page={$lastPage}&filtre={$filtre}&search={$search}&searchfiltre={$searchfiltre}">>></a>
 {/block}

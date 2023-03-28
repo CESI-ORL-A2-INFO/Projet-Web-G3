@@ -6,7 +6,8 @@
 {block name=content}
     <form class="offre" method="post" action="./index.php">
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
-        <input type="text" name="nomOffre" value="{$nomOffre}">
+        <label for="nomOffre" hidden>Nom Offre</label>
+        <input type="text" id="nomOffre" name="nomOffre" value="{$nomOffre}">
         <select name="nomEntr">
             {foreach $nomEntr as $name}
                 {if $name['NomEntreprise'] == $nomEntrSelect}
@@ -68,7 +69,7 @@
                     <option value="{$promo4['Promotion']}">{$promo4['Promotion']}</option>
                 {/if}
             {/foreach}
-        </select>
+        </select><br>
         <h3>Compétences : </h3>
         <select name="comp1">
             <option value="none">Compétence</option>
@@ -80,7 +81,8 @@
                 {/if}
             {/foreach}
         </select>
-        <input type="text" name="lvl1" value="{$compOffre[0]['niveau']}">
+        
+        <input type="text" id="comp1" name="lvl1" value="{$compOffre[0]['niveau']}">
         <select name="comp2">
             <option value="none">Compétence</option>
             {foreach $competences as $comp2}

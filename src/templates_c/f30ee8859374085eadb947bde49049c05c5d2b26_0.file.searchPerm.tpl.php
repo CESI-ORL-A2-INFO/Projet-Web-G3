@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-25 12:52:45
+/* Smarty version 4.2.1, created on 2023-03-27 09:15:44
   from 'C:\www\Projet-Web-G3\src\templates\searchPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_641ee08d365fd9_06286344',
+  'unifunc' => 'content_642142a031ffe0_74029039',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f30ee8859374085eadb947bde49049c05c5d2b26' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\searchPerm.tpl',
-      1 => 1679744671,
+      1 => 1679901332,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641ee08d365fd9_06286344 (Smarty_Internal_Template $_smarty_tpl) {
+function content_642142a031ffe0_74029039 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_397114027641ee08d34ddf8_20435956', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_493714996642142a030d175_32535708', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1696225683641ee08d34e789_68404011', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_898875865642142a030daa5_68261427', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_397114027641ee08d34ddf8_20435956 extends Smarty_Internal_Block
+class Block_493714996642142a030d175_32535708 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_397114027641ee08d34ddf8_20435956',
+    0 => 'Block_493714996642142a030d175_32535708',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,33 +52,33 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1696225683641ee08d34e789_68404011 extends Smarty_Internal_Block
+class Block_898875865642142a030daa5_68261427 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1696225683641ee08d34e789_68404011',
+    0 => 'Block_898875865642142a030daa5_68261427',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
     <div class="formfiltre">
-            <form action="index.php?" method="get" id="formfiltre">
-                <input type="search" id="bar" value="<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+        <form action="index.php?" method="get" id="formfiltre">
+            <input type="search" id="bar" value="<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 " name="search" placeholder="Recherche...">
 
-                <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
-                <select id="typefiltre" name="filtre">
-                    <option value="offre">Offre</option>
-                    <option value="entreprise">Entreprise</option>
-                    <option value="promotion">Promotion</option>
-                    <option value="comp">Compétences</option>
-                    <option value="secteur">Secteur d'activité</option>
-            </select>
-            <button id="butbar" name="p" value="search">Recherche</button>
-        </form>
-    </div>
+            <input type="text" id="filtre" name="searchfiltre" placeholder="Filtre...">
+            <select id="typefiltre" name="filtre">
+                <option value="offre">Offre</option>
+                <option value="entreprise">Entreprise</option>
+                <option value="promotion">Promotion</option>
+                <option value="comp">Compétences</option>
+                <option value="secteur">Secteur d'activité</option>
+        </select>
+        <button id="butbar" name="p" value="search">Recherche</button>
+    </form>
+</div>
 
 <form class="cardContainer" method="get" action="./index.php">
     <?php
@@ -138,24 +138,40 @@ $_smarty_tpl->tpl_vars['comp']->do_else = false;
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></p>
-      
-        </button>
+
+    </button>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </form>
-<a class="firstPage" href="./index.php?p=search&current_page=1">
+<a class="firstPage"
+    href="./index.php?p=search&current_page=1&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
+">
     <<</a>
         <?php if ($_smarty_tpl->tpl_vars['current_page']->value != 1) {?>
-            <a class="pagePrec" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;?>
+            <a class="pagePrec"
+                href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">
                 <</a>
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['current_page']->value != $_smarty_tpl->tpl_vars['lastPage']->value) {?>
-                    <a class="pageSuiv" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;?>
+                    <a class="pageSuiv"
+                        href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">></a>
                 <?php }?>
-                <a class="lastPage" href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['lastPage']->value;?>
+                <a class="lastPage"
+                    href="./index.php?p=search&current_page=<?php echo $_smarty_tpl->tpl_vars['lastPage']->value;?>
+&filtre=<?php echo $_smarty_tpl->tpl_vars['filtre']->value;?>
+&search=<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+&searchfiltre=<?php echo $_smarty_tpl->tpl_vars['searchfiltre']->value;?>
 ">>></a>
 <?php
 }

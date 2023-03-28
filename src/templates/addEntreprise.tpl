@@ -106,4 +106,6 @@
         return bool;
     }
 </script>
+<script src="./js/CP.js"></script>
+
 {/block}
