@@ -16,11 +16,11 @@ body{
     background-image: url(../backgroundConnexion.jpg);
     background-size: auto;
     background-repeat: no-repeat;
-    
+
 }
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;     
     grid-template-rows: 1fr 1fr 1fr;
     border-radius: 20px;
 
@@ -83,6 +83,11 @@ body{
 }
 
 @media only screen and (max-width: 830px){
+    body{
+        background-image: url(../backgroundConnexion.jpg);
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
     .all {
         display: flex;
         justify-content: center;
