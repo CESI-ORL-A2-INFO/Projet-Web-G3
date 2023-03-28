@@ -259,5 +259,13 @@ class ModelUpdate
     {
         $this->bdd->execute("DELETE FROM demande_promo WHERE IdOffre = ?", [$idOffre]);
     }
+    public function delPostuleOffre(int $idOffre)
+    {
+        $this->bdd->execute("DELETE FROM postule WHERE IdOffre = ?", [$idOffre]);
+    }
+    public function addAdrEntr(int $idEntr, int $idAdr)
+    {
+        $this->bdd->execute("INSERT INTO se_situe VALUES(?,?)", [$idEntr, $idAdr]);
+    }
 }
 ?>
