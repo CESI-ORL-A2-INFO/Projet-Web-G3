@@ -20,21 +20,30 @@ main {
     margin-bottom: 2%;
 }
 
-#nbstagiaire {
+.input-stagiaire {
     border-radius: 12px;
     padding: 1%;
+    margin-bottom: 2%;
     border: 1px solid;
+  }
+    
+.btn-modif,
+.btn-suppr {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 10px;
 }
 
-.ButModifier,
-.ButSuppr {
-    font-size: 16px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    background-color: #4CAF50;
+.btn-modif:hover,
+.btn-suppr:hover {
+  background-color: #009222;
 }
 
 .error {
@@ -147,6 +156,10 @@ main {
 .add {
     background-color: #4CAF50;
 }
+.add:hover{
+    background-color: #009222;
+
+}
 
 .upd {
     background-color: #2196F3;
@@ -194,10 +207,11 @@ main {
         padding-top: 2%;
     }
 
-    .upd,
-    .del {
+    .btn-modif,
+    .btn-suppr {
         grid-row: 3;
         width: 50%;
+        margin-top: 7px;
     }
 
     .upd {
@@ -213,5 +227,5 @@ main {
     .error{
         margin-left:0%;
     }
-
+    
 }

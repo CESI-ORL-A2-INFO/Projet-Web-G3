@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 10:06:51
+/* Smarty version 4.2.1, created on 2023-03-28 14:13:42
   from 'C:\www\955\Projet-Web-G3\src\templates\profilEntrPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422a01b7e5398_03914113',
+  'unifunc' => 'content_6422d9f6e92c12_43571480',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '56d871b0bb205c1bdada1dc4ce4962cac365a810' => 
     array (
       0 => 'C:\\www\\955\\Projet-Web-G3\\src\\templates\\profilEntrPerm.tpl',
-      1 => 1679990764,
+      1 => 1680005565,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422a01b7e5398_03914113 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6422d9f6e92c12_43571480 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9435633136422a01b7b75b1_95912960', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11889180936422d9f6e78a80_93514133', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1225591916422a01b7b8802_20194974', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1151405856422d9f6e79366_29794291', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_9435633136422a01b7b75b1_95912960 extends Smarty_Internal_Block
+class Block_11889180936422d9f6e78a80_93514133 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_9435633136422a01b7b75b1_95912960',
+    0 => 'Block_11889180936422d9f6e78a80_93514133',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_1225591916422a01b7b8802_20194974 extends Smarty_Internal_Block
+class Block_1151405856422d9f6e79366_29794291 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1225591916422a01b7b8802_20194974',
+    0 => 'Block_1151405856422d9f6e79366_29794291',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -75,7 +75,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         var bool = true;
 
         if (nomEntr.value == "") {
+
             document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
+
             nomEntr.focus();
             bool = false;
         } else {
@@ -83,13 +85,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         }
         if (numRue.value == "") {
             document.getElementById('errorNumRue').innerHTML = "* Veuillez entrer un numéro de rue valide!";
+
             numRue.focus();
             bool = false;
         } else {
             document.getElementById('errorNumRue').innerHTML = "";
         }
         if (nomRue.value == "") {
+
             document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
+
             nomRue.focus();
             bool = false;
         } else {
@@ -97,6 +102,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         }
         if (ville.value == "") {
             document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
+
             ville.focus();
             bool = false;
         } else {
@@ -104,6 +110,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         }
         if (CP.value == "") {
             document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postale valide!";
+
             CP.focus();
             bool = false;
         } else {
@@ -111,6 +118,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         }
         if (pays.value == "") {
             document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
+
             pays.focus();
             bool = false;
         } else {
@@ -217,10 +225,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                 </select>
                 <p>Nombre de stagiaire : </p>
-                <input type="text" placeholder="Nombre de stagiaire" name="nbStagiaire" value="<?php echo $_smarty_tpl->tpl_vars['infoEntr']->value['NbreStagiaire'];?>
+                <input type="text" class="input-stagiaire" placeholder="Nombre de stagiaire" name="nbStagiaire" value="<?php echo $_smarty_tpl->tpl_vars['infoEntr']->value['NbreStagiaire'];?>
 ">
-                <button type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-                <button type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
+                <br><button type="submit" name="actionEntr" value="modif" class="btn-modif">Modifier l'entreprise</button>
+                <button type="submit" name="actionEntr" value="suppr" class="btn-suppr">Supprimer l'entreprise</button>
+
     </form>
     <form class="cardContainer" method="get" action="./index.php">
         <?php

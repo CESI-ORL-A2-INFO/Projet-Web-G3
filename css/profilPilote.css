@@ -211,14 +211,26 @@ select {
     }
   
     .wrapper {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 5fr;
-      margin: 7% 6%;
+      display: flex;
+      flex-direction: column;
+      margin-left: 5%;
+      margin-right: 5%;
     }
-  
-    .champ {
-      margin-top: 7%;
-      margin-left: 6%;
+    #left {
+      grid-column: initial;
+      grid-row: initial;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-bottom: 3%;
+    }
+    .form {
+      grid-column: initial;
+      grid-row: initial;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .form select {
+      width: 82%;
     }
   }
   
