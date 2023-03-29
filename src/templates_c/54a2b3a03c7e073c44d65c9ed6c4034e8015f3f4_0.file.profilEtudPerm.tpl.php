@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-29 09:56:53
+/* Smarty version 4.2.1, created on 2023-03-29 12:57:34
   from 'C:\www\Projet-Web-G3\src\templates\profilEtudPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6423ef450eebd3_09096651',
+  'unifunc' => 'content_6424199e3555a5_02557756',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54a2b3a03c7e073c44d65c9ed6c4034e8015f3f4' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEtudPerm.tpl',
-      1 => 1680073218,
+      1 => 1680079664,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6423ef450eebd3_09096651 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6424199e3555a5_02557756 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8875074716423ef450dbfb0_76945146', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1738231536424199ddc5642_79180829', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21470738926423ef450dc8c9_39847745', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5287656776424199ddc6977_18503443', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_8875074716423ef450dbfb0_76945146 extends Smarty_Internal_Block
+class Block_1738231536424199ddc5642_79180829 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_8875074716423ef450dbfb0_76945146',
+    0 => 'Block_1738231536424199ddc5642_79180829',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_21470738926423ef450dc8c9_39847745 extends Smarty_Internal_Block
+class Block_5287656776424199ddc6977_18503443 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_21470738926423ef450dc8c9_39847745',
+    0 => 'Block_5287656776424199ddc6977_18503443',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -72,7 +72,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form name="formulaire "method="post" action="index.php" onsubmit="return validateForm()">
+        <form name="formulaire "method="post" action="index.php" >
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
@@ -150,7 +150,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
                 <span class="error" id="errorPromo"></span>
                 <div class="buttons-container">
-                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button onclick="return validateForm()" type="submit" name="action" value="modif">Modifier</button>
                     <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>

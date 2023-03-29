@@ -300,7 +300,7 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
     if ($_POST['action'] == 'modif') {
         $change->updEtudiant($_SESSION['etud'], $_POST['nom'], $_POST['prenom'], $_POST['centre'], $_POST['pilote'], $_POST['promo']);
     } else {
-        $_SESSION['p'] = 'promotion';
+        $_SESSION['p'] = 'home';
         $change->delEtud($_SESSION['etud']);
     }
 }
