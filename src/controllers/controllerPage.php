@@ -64,8 +64,8 @@ class Controller
                 $lastPage = ceil(count($this->search->searchAll($nom)) / $nbParPage);
                 break;
             case "entreprise":
-                $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
-                $lastPage = ceil(count($this->search->SearchEntrepriseAll($nom)) / $nbParPage);
+                $id = $this->search->SearchEntreprise($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchEntrepriseAll($nom, $nomfilter)) / $nbParPage);
                 break;
             case "comp":
                 $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
@@ -441,21 +441,27 @@ class Controller
         switch ($filtre) {
             default:
                 $id = $this->home->getIdLastOffre($nbParPage, $offset); // Juste pour offre sans filtre
+                $lastPage = ceil(count($this->home->getIdAllLastOffre()) / $nbParPage);
                 break;
             case "offre":
                 $id = $this->search->Search($nom, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchAll($nom)) / $nbParPage);
                 break;
             case "entreprise":
-                $id = $this->search->SearchEntreprise($nom, $offset, $nbParPage);
+                $id = $this->search->SearchEntreprise($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchEntrepriseAll($nom, $nomfilter)) / $nbParPage);
                 break;
             case "comp":
                 $id = $this->search->SearchComp($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchCompAll($nom, $nomfilter)) / $nbParPage);
                 break;
             case "secteur":
                 $id = $this->search->SearchSecteur($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchSecteurAll($nom, $nomfilter)) / $nbParPage);
                 break;
             case "promotion":
                 $id = $this->search->SearchPromo($nom, $nomfilter, $offset, $nbParPage);
+                $lastPage = ceil(count($this->search->SearchPromoAll($nom, $nomfilter)) / $nbParPage);
                 break;
         }
         if (count($id)) {

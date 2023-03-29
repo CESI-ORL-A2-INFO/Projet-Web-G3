@@ -29,9 +29,9 @@ class modelSearch
     {
         return $this->bdd->executeReturn("SELECT IdOffre FROM OFFRE INNER JOIN travail_dans ON Offre.IdEntreprise = travail_dans.IdEntreprise INNER JOIN secteuractivite ON travail_dans.Id_Secteur = secteuractivite.Id_Secteur WHERE nomOffre LIKE ? AND Secteur_Activite = ? LIMIT {$offset},{$nbParPage}",[("%{$NomOffre}%"),$Secteur]);
     }
-    public function SearchEntreprise(String $NomEntreprise, int $offset, int $nbParPage)
+    public function SearchEntreprise(String $NomEntreprise, string $nomFiltre, int $offset, int $nbParPage)
     {
-        return $this->bdd->executeReturn("SELECT IdOffre FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise WHERE entreprise.NomEntreprise LIKE ? LIMIT {$offset},{$nbParPage}", [("%{$NomEntreprise}%")]);
+        return $this->bdd->executeReturn("SELECT IdOffre FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise WHERE entreprise.NomEntreprise LIKE ? AND offre.nomOffre LIKE ? LIMIT {$offset},{$nbParPage}", [("%{$nomFiltre}%"), ("%{$NomEntreprise}%")]);
     }
     public function SearchAll(String $NomOffre)
     {
@@ -49,9 +49,9 @@ class modelSearch
     {
         return $this->bdd->executeReturn("SELECT IdOffre FROM OFFRE INNER JOIN travail_dans ON Offre.IdEntreprise = travail_dans.IdEntreprise INNER JOIN secteuractivite ON travail_dans.Id_Secteur = secteuractivite.Id_Secteur WHERE nomOffre LIKE ? AND Secteur_Activite = ?",[("%{$NomOffre}%"),$Secteur]);
     }
-    public function SearchEntrepriseAll(String $NomEntreprise)
+    public function SearchEntrepriseAll(String $NomEntreprise, string $nomFiltre)
     {
-        return $this->bdd->executeReturn("SELECT IdEntreprise FROM entreprise WHERE nomEntreprise LIKE ?",["%{$NomEntreprise}%"]);
+        return $this->bdd->executeReturn("SELECT IdOffre FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise WHERE entreprise.NomEntreprise LIKE ? AND offre.nomOffre LIKE ?", [("%{$nomFiltre}%"), ("%{$NomEntreprise}%")]);
     }
 }
 ?>
