@@ -1,4 +1,4 @@
-// Nom du cache
+/* // Nom du cache
 var CACHE_NAME = 'ma_pwa_cache';
 
 if ("serviceWorker" in navigator) {
@@ -66,4 +66,4 @@ self.addEventListener('fetch', function (event) {
           });
       })
   );
-});
+}); */

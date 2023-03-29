@@ -6,7 +6,7 @@
 {block name=content}
     <div class="info">
 
-        <form name="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
+        <form name="formulaire" action="index.php" method="post" >
             <p>Nom de l'entreprise : </p>
                 <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
                 <span class="error" id="errorNomEntr"></span>
@@ -73,7 +73,7 @@
                 <p>Nombre de stagiaire : </p>
                 <input class="champ" type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
                 <span class="error" id="errorStg"></span>
-                <button class="btn-modif" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
+                <button onclick="return validateForm()" class="btn-modif" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
                 <button class="btn-suppr" type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
     <form class="cardContainer" method="get" action="./index.php">

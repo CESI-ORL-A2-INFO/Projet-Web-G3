@@ -12,7 +12,7 @@
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <form name="formulaire" action="index.php" method="get" class="form" onsubmit="return validateForm()">
+        <form name="formulaire" action="index.php" method="get" class="form" >
             <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
             <span class="error" id="errorNom"></span>
             <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="{$prenom}">
@@ -27,7 +27,7 @@
                 {/foreach}
             </select>
             <div class="buttons-container">
-                <button type="submit" name="actionPil" value="modif">Modifier</button>
+                <button onclick="return validateForm()" type="submit" name="actionPil" value="modif">Modifier</button>
                 <button type="submit" name="actionPil" value="suppr">Supprimer</button>
         </form>
     </div>

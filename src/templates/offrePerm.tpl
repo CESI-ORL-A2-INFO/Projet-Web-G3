@@ -4,7 +4,7 @@
 {/block}
 
 {block name=content}
-    <form name="formulaire" class="offre" method="post" action="./index.php" onsubmit="return validateForm()">
+    <form name="formulaire" class="offre" method="post" action="./index.php" >
         <img src="./logoEnt.png" alt="logoEnt" class="logoEnt">
         <label for="nomOffre" class="abvc" hidden>Nom Offre</label>
         <input type="text" id="nomOffre" name="nomOffre" value="{$nomOffre}">
@@ -166,7 +166,7 @@
         <textarea name="descr" rows="20" cols="120">{$descr}</textarea>
         <span class="error" id="errorDesc"></span>
 
-        <button type="submit" name="action" value="modif">Modifier</button>
+        <button onclick="return validateForm()" type="submit" name="action" value="modif">Modifier</button>
         <button type="submit" name="action" value="suppr">Supprimer</button>
     </form>
     <script>

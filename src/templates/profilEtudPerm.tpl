@@ -13,7 +13,7 @@
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form name="formulaire "method="post" action="index.php" onsubmit="return validateForm()">
+        <form name="formulaire "method="post" action="index.php" >
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="{$nom}">
@@ -54,7 +54,7 @@
                 </select>
                 <span class="error" id="errorPromo"></span>
                 <div class="buttons-container">
-                    <button type="submit" name="action" value="modif">Modifier</button>
+                    <button onclick="return validateForm()" type="submit" name="action" value="modif">Modifier</button>
                     <button type="submit" name="action" value="suppr">Supprimer</button>
                 </div>
             </div>
