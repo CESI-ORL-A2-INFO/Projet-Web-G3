@@ -26,7 +26,7 @@ self.addEventListener('install', function (event) {
   );
 });
 
-/* // Activation du service worker
+// Activation du service worker
 self.addEventListener('activate', function (event) {
   // Supprimer les anciens caches
   event.waitUntil(
@@ -66,4 +66,4 @@ self.addEventListener('fetch', function (event) {
           });
       })
   );
-});  */
+}); 

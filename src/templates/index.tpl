@@ -27,8 +27,8 @@
 
         {/block}
     </footer>
-    
+    <script type="text/javascript" src="service-worker.js"></script>
     {block name="script"}
-        <script type="text/javascript" src="service-worker.js"></script>
+        
     {/block}
 </body>
