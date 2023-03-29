@@ -4,155 +4,77 @@
 {/block}
 
 {block name=content}
-
-    <script>
-        function validateForm() {
-            var nomEntr = document.forms["formulaire"]["nomEntr"];
-            var numRue = document.forms["formulaire"]["numRue"]
-            var nomRue = document.forms["formulaire"]["nomRue"]
-            var ville = document.forms["formulaire"]["ville"]
-            var CP = document.forms["formulaire"]["cp"]
-            var pays = document.forms["formulaire"]["pays"]
-            var bool = true;
-
-            if (nomEntr.value == "") {
-
-                document.getElementById('errorNomEntr').innerHTML = "* Veuillez entrer un nom valide!";
-
-                nomEntr.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorNomEntr').innerHTML = "";
-            }
-            if (numRue.value == "") {
-                document.getElementById('errorNumRue').innerHTML = "* Veuillez entrer un numéro de rue valide!";
-
-                numRue.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorNumRue').innerHTML = "";
-            }
-            if (nomRue.value == "") {
-
-                document.getElementById('errorNomRue').innerHTML = "* Veuillez entrer un nom de rue valide!";
-
-                nomRue.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorNomRue').innerHTML = "";
-            }
-            if (ville.value == "") {
-                document.getElementById('errorVille').innerHTML = "* Veuillez entrer une ville valide!";
-
-                ville.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorVille').innerHTML = "";
-            }
-            if (CP.value == "") {
-                document.getElementById('errorCP').innerHTML = "* Veuillez entrer un code postale valide!";
-
-                CP.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorCP').innerHTML = "";
-            }
-            if (pays.value == "") {
-                document.getElementById('errorPays').innerHTML = "* Veuillez entrer un pays valide!";
-
-                pays.focus();
-                bool = false;
-            } else {
-                document.getElementById('errorPays').innerHTML = "";
-            }
-            return bool;
-        }
-    </script>
     <div class="info">
 
         <form name="formulaire" action="index.php" method="post" onsubmit="return validateForm()">
             <p>Nom de l'entreprise : </p>
+                <input class="champ" name="nomEntr" value="{$infoEntr['NomEntreprise']}">
+                <span class="error" id="errorNomEntr"></span>
+                <p class="adresse">Adresse : </p>
+                <input class="champ" name="numRue" value="{$infoEntr['NumRue']}">
+                <span class="error" id="errorNumRue"></span>
+                <input class="champ" name="nomRue" value="{$infoEntr['NomRue']}">
+                <span class="error" id="errorNomRue"></span>
+                <input class="champ" id="cp" name="cp" value="{$infoEntr['CodePostale']}" placeholder="Code Postal">
+                <span class="error" id="errorCP"></span>
+                <select class="champ" id="ville" name="ville">
+                    <option value="none">{$infoEntr['Ville']}</option>
+                </select>
+                <span class="error" id="errorVille"></span>
+                <input class="champ" name="pays" value="{$infoEntr['Pays']}" placeholder="Pays">
+                <span class="error" id="errorPays"></span>
+                <p>Secteur : </p>
+                <select class="secteur" name="secteur1">
+                    <option value="none">Secteur</option>
+                    {foreach $secteur as $sect1}
 
-        <input class="champ" placeholder="Entrer le nom de l'entreprise" name="nomEntr"
-            value="{$infoEntr['NomEntreprise']}">
-                        <span class="error" id="errorNomEntr"></span>
+                    {if $card[0]['secteur'][0]['Secteur_Activite'] == $sect1['Secteur_Activite']}
+                            <option value="{$sect1['Secteur_Activite']}" selected>{$sect1['Secteur_Activite']}</option>
 
-        <p class="adresse">Adresse : </p>
-        <input class="champ" placeholder="Numéro de rue" name="numRue" value="{$infoEntr['NumRue']}">
-                        <span class="error" id="errorNumRue"></span>
+                    {else}
+                            <option value="{$sect1['Secteur_Activite']}">{$sect1['Secteur_Activite']}</option>
 
-        <input class="champ" placeholder="Nom de rue" name="nomRue" value="{$infoEntr['NomRue']}">
-                        <span class="error" id="errorNomRue"></span>
+                    {/if}
 
-        <input class="champ" placeholder="Code Postale" id="cp" name="cp" value="{$infoEntr['CodePostale']}"
-            placeholder="Code Postal">
-                            <span class="error" id="errorCP"></span>
+                {/foreach}
+                </select>
+                <select class="secteur" name="secteur2">
+                    <option value="none">Secteur</option>
 
-        <select class="champ" placeholder="Ville" id="ville" name="ville">
-            <option value="none">Ville</option>
-            {if $infoEntr['Ville'] != null}
-            <option value="{$infoEntr['Ville']}" selected>{$infoEntr['Ville']}</option>
-            {/if}
-        </select>
-                        <span class="error" id="errorVille"></span>
+                {foreach $secteur as $sect2}
 
-        <input class="champ" placeholder="Pays" name="pays" value="{$infoEntr['Pays']}">
-                        <span class="error" id="errorPays"></span>
+                    {if $card[0]['secteur'][1]['Secteur_Activite'] == $sect2['Secteur_Activite']}
+                            <option value="{$sect2['Secteur_Activite']}" selected>{$sect2['Secteur_Activite']}</option>
 
-        <p>Secteur : </p>
-        <select class="secteur" name="secteur1">
-            <option value="none">Secteur</option>
-            {foreach $secteur as $sect1}
+                    {else}
+                            <option value="{$sect2['Secteur_Activite']}">{$sect2['Secteur_Activite']}</option>
 
-            {if $secteurEntr[0]['Secteur_Activite'] == $sect1['Secteur_Activite']}
-            <option value="{$sect1['Secteur_Activite']}" selected>{$sect1['Secteur_Activite']}</option>
+                    {/if}
 
-            {else}
-            <option value="{$sect1['Secteur_Activite']}">{$sect1['Secteur_Activite']}</option>
+                {/foreach}
+                </select>
+                <select class="secteur" name="secteur3">
+                    <option value="none">Secteur</option>
 
-            {/if}
+                {foreach $secteur as $sect3}
 
-            {/foreach}
-        </select>
-        <select class="secteur" name="secteur2">
-            <option value="none">Secteur</option>
+                    {if $card[0]['secteur'][2]['Secteur_Activite'] == $sect3['Secteur_Activite']}
+                            <option value="{$sect3['Secteur_Activite']}" selected>{$sect3['Secteur_Activite']}</option>
 
-            {foreach $secteur as $sect2}
+                    {else}
+                            <option value="{$sect3['Secteur_Activite']}">{$sect3['Secteur_Activite']}</option>
 
-            {if $secteurEntr[1]['Secteur_Activite'] == $sect2['Secteur_Activite']}
-            <option value="{$sect2['Secteur_Activite']}" selected>{$sect2['Secteur_Activite']}</option>
+                    {/if}
 
-            {else}
-            <option value="{$sect2['Secteur_Activite']}">{$sect2['Secteur_Activite']}</option>
-
-            {/if}
-
-            {/foreach}
-        </select>
-        <select class="secteur" name="secteur3">
-            <option value="none">Secteur</option>
-
-            {foreach $secteur as $sect3}
-
-            {if $secteurEntr[2]['Secteur_Activite'] == $sect3['Secteur_Activite']}
-            <option value="{$sect3['Secteur_Activite']}" selected>{$sect3['Secteur_Activite']}</option>
-
-            {else}
-            <option value="{$sect3['Secteur_Activite']}">{$sect3['Secteur_Activite']}</option>
-
-            {/if}
-
-            {/foreach}
-
+                {/foreach}
 
                 </select>
                 <span class="error" id="errorSecteur"></span>
                 <p>Nombre de stagiaire : </p>
-                <input type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
+                <input class="champ" type="text" name="nbStagiaire" value="{$infoEntr['NbreStagiaire']}">
                 <span class="error" id="errorStg"></span>
-                <br><button class="ButModifier" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
-                <button class="ButSuppr" type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
-
+                <button class="btn-modif" type="submit" name="actionEntr" value="modif">Modifier l'entreprise</button>
+                <button class="btn-suppr" type="submit" name="actionEntr" value="suppr">Supprimer l'entreprise</button>
     </form>
     <form class="cardContainer" method="get" action="./index.php">
         {foreach $card as $data key=$i}
@@ -175,7 +97,7 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <textarea placeholder="Entrer votre commentaire ici" class="com" type="text" name="commentaire"></textarea>
+        <textarea class="com" type="text" name="commentaire"></textarea>
         <button class="add" type="submit" name="action" value="add">Ajouter</button>
         {else}
         <select class="noteUser" name="note">
@@ -231,14 +153,14 @@
     </form>
     {foreach $comPil as $pil}
     <h3 class="nomPil">{$pil['NomPilote']} {$pil['PrenomPilote']}</h3>
-    <p class="note">{$pil['confiance']} / 5</p>
+    <p class="note">{$pil['confiance']}</p>
     <p class="comPil">{$pil['commentaire']}</p>
     {/foreach}
     {foreach $comEtud as $etud}
     <h3 class="nomEtud">{$etud['NomEtudiant']} {$etud['PrenomEtudiant']}</h3>
-    <p class="note">{$etud['note']} / 5</p>
+    <p class="note">{$etud['note']}</p>
     <p class="comEtud">{$etud['commentaire']}</p>
-    {/foreach}
+        {/foreach}
 
     </div>
     <script>
@@ -325,5 +247,4 @@
     }
     </script>
     <script src="./js/CP.js"></script>
-
 {/block}

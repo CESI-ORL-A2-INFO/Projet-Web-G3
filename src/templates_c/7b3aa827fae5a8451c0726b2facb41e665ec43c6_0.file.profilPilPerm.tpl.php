@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 11:01:18
+/* Smarty version 4.2.1, created on 2023-03-29 09:01:44
   from 'C:\www\Projet-Web-G3\src\templates\profilPilPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422acdeaddd59_03694553',
+  'unifunc' => 'content_6423e2585a94d0_38530589',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3aa827fae5a8451c0726b2facb41e665ec43c6' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilPilPerm.tpl',
-      1 => 1679994076,
+      1 => 1680073218,
       2 => 'file',
     ),
   ),
@@ -20,32 +20,32 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422acdeaddd59_03694553 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6423e2585a94d0_38530589 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6268511296422acdeacd631_41998636', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3697684706423e258595348_76662131', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19794778616422acdeacdfc4_21221369', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15447810286423e258595d87_83740731', 'content');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11715933146422acdeadc3f4_47208076', "script");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14384798206423e2585a8521_73646198', "script");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_6268511296422acdeacd631_41998636 extends Smarty_Internal_Block
+class Block_3697684706423e258595348_76662131 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_6268511296422acdeacd631_41998636',
+    0 => 'Block_3697684706423e258595348_76662131',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,12 +57,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_19794778616422acdeacdfc4_21221369 extends Smarty_Internal_Block
+class Block_15447810286423e258595d87_83740731 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_19794778616422acdeacdfc4_21221369',
+    0 => 'Block_15447810286423e258595d87_83740731',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,16 +70,19 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="wrapper">
         <div id="left">
-            <h1> Profile Tuteur</h1>
+            <h1>    Profil Tuteur</h1>
+
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
-        <form action="index.php" method="get" class="form">
+        <form name="formulaire" action="index.php" method="get" class="form" onsubmit="return validateForm()">
             <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
 ">
+            <span class="error" id="errorNom"></span>
             <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
 ">
+            <span class="error" id="errorPrenom"></span>
             <select class="champ abxd" name="centre">
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allCentre']->value, 'cent');
@@ -162,12 +165,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'content'} */
 /* {block "script"} */
-class Block_11715933146422acdeadc3f4_47208076 extends Smarty_Internal_Block
+class Block_14384798206423e2585a8521_73646198 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'script' => 
   array (
-    0 => 'Block_11715933146422acdeadc3f4_47208076',
+    0 => 'Block_14384798206423e2585a8521_73646198',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -186,6 +189,26 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 }
                 form.submit();
             })
+            function validateForm(){
+                var nom = document.forms['formulaire']['nom'];
+                var prenom = document.forms['formulaire']['prenom'];
+                var bool = true;
+                if (nom.value == ""){
+                    document.getElementById('errorNom').innerHTML = "*Veuillez entrer un nom valide!"
+                    nom.focus()
+                    bool = false
+                }else{
+                    document.getElementById('errorNom').innerHTML = ""
+                }
+                if (prenom.value == ""){
+                    document.getElementById('errorPrenom').innerHTML = "*Veuillez entrer un prenom valide!"
+                    prenom.focus()
+                    bool = false
+                }else{
+                    document.getElementById('errorPrenom').innerHTML = ""
+                }
+            return bool;
+            }
         <?php echo '</script'; ?>
 >
     <?php }

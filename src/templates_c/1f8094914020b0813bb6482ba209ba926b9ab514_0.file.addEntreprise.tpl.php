@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 16:56:32
+/* Smarty version 4.2.1, created on 2023-03-29 09:39:41
   from 'C:\www\Projet-Web-G3\src\templates\addEntreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_64230020d35ac0_08531531',
+  'unifunc' => 'content_6423eb3d896569_67379164',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1f8094914020b0813bb6482ba209ba926b9ab514' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\addEntreprise.tpl',
-      1 => 1680010091,
+      1 => 1680075580,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64230020d35ac0_08531531 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6423eb3d896569_67379164 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_210549474964230020d2b4e8_08795210', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3809189336423eb3d88bb10_05121174', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18272347464230020d2bdf4_11361970', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_411494786423eb3d88c685_15194990', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_210549474964230020d2b4e8_08795210 extends Smarty_Internal_Block
+class Block_3809189336423eb3d88bb10_05121174 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_210549474964230020d2b4e8_08795210',
+    0 => 'Block_3809189336423eb3d88bb10_05121174',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,12 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_18272347464230020d2bdf4_11361970 extends Smarty_Internal_Block
+class Block_411494786423eb3d88c685_15194990 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_18272347464230020d2bdf4_11361970',
+    0 => 'Block_411494786423eb3d88c685_15194990',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -79,7 +79,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         </select>
         <span class="error" id="errorVille"></span>
         <input class="champ" name="pays" value="" placeholder="Pays">
-        <span class="error" id="errorpays"></span>
+        <span class="error" id="errorPays"></span>
         <p>Secteur : </p>
         <select class="secteur" name="secteur1">
             <option value="none">Secteur</option>
@@ -126,6 +126,7 @@ $_smarty_tpl->tpl_vars['sect3']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
+        <span class="error" id="errorSecteur"></span>
         <p>Nombre de stagiaire : </p>
         <input class="champ" name="nbStagiaire" value="" id="nbstagiaire" placeholder="Nombre de stagiaires">
         <span class="error" id="errorstg"></span>
@@ -141,6 +142,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         var CP = document.forms["formulaire"]["cp"]
         var pays = document.forms["formulaire"]["pays"]
         var stg = document.forms["formulaire"]["nbStagiaire"]
+        var secteur = document.forms["formulaire"]["secteur1"]
         var bool = true;
 
         if (nomEntr.value == "") {
@@ -164,7 +166,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         } else {
             document.getElementById('errorNomRue').innerHTML = "";
         }
-        if (ville.value == "") {
+        if (ville.value == 'none') {
             document.getElementById('errorVille').innerHTML = "*Veuillez entrer une ville valide!";
             ville.focus();
             bool = false;
@@ -192,11 +194,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         } else {
             document.getElementById('errorstg').innerHTML = "";
         }
+        if (secteur.value == "none") {
+            document.getElementById('errorSecteur').innerHTML = "Veuillez entrer un secteur!";
+            secteur.focus()
+            bool = false;
+        } else {
+            document.getElementById('errorSecteur').innerHTML = "";
+        }
         return bool;
     }
-<?php echo '</script'; ?>
+    <?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="./js/CP.js"><?php echo '</script'; ?>
 >
 

@@ -138,7 +138,7 @@ if (isset($_GET['bookmark']) && $_GET['bookmark'] == true) {
 
 // Ajout, modification et suppression Offre
 
-if (isset($_POST['addOffre']) && $_POST['addOffre'] == true) {
+if (isset($_POST['addOffre']) && $_POST['addOffre'] == 'add') {
     $_SESSION['p'] = 'home';
     $data = [
         'nomOffre' => $_POST['nomOffre'],
@@ -305,7 +305,7 @@ if (isset($_POST['action']) && $_SESSION['p'] == 'profilEtud') {
     }
 }
 
-if (isset($_POST['addEtud']) && $_SESSION['p'] == 'addEtud') {
+if (isset($_POST['addEtud']) && $_POST['addEtud'] == 'add') {
     $change->addEtudiantCentre($_POST['pilote'], $_POST['nom'], $_POST['prenom'], $_POST['promo'], $_POST['centre']);
     $_SESSION['p'] = 'home';
 }

@@ -5,12 +5,12 @@
 
 {block name=content}
     <h1>{$promo} : </h1>
-    <form name="formulaire" class="newEtud" method="post" accept="index.php" onsubmit="return validateForm()">
+    <form name="formulaire" class="newEtud" method="post" accept="index.php" >
         <input type="text" name="nomEtud" placeholder="Nom de l'étudiant">
         <span class="error" id="errorNom"></span>
         <input type="text" name="prenomEtud" placeholder="Prénom de l'étudiant">
         <span class="error" id="errorPrenom"></span>
-        <br><button type="submit" name="action" value="add">Ajouter un étudiant</button>
+        <br><button type="submit" name="action" value="add" onclick="return validateForm()">Ajouter un étudiant</button>
         <button type="submit" name="actionPromo" value="del">Supprimer la promotion</button>
     </form>
     <h2>Etudiant : </h2>

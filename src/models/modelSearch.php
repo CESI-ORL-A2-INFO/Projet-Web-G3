@@ -31,11 +31,11 @@ class modelSearch
     }
     public function SearchEntreprise(String $NomEntreprise, int $offset, int $nbParPage)
     {
-        return $this->bdd->executeReturn("SELECT IdEntreprise FROM entreprise WHERE nomEntreprise LIKE '%?%' LIMIT {$offset},{$nbParPage}",[$NomEntreprise]);
+        return $this->bdd->executeReturn("SELECT IdOffre FROM offre LEFT JOIN entreprise ON offre.IdEntreprise = entreprise.IdEntreprise WHERE entreprise.NomEntreprise LIKE ? LIMIT {$offset},{$nbParPage}", [("%{$NomEntreprise}%")]);
     }
     public function SearchAll(String $NomOffre)
     {
-        return $this->bdd->executeReturn("SELECT IdOffre FROM OFFRE WHERE nomOffre LIKE ?",[("%{$NomOffre}%")]);
+        return $this->bdd->executeReturn("SELECT IdOffre FROM OFFRE WHERE nomOffre LIKE ?", [("%{$NomOffre}%")]);
     }
     public function SearchPromoAll(String $NomOffre, String $Promo)
     {
@@ -51,7 +51,7 @@ class modelSearch
     }
     public function SearchEntrepriseAll(String $NomEntreprise)
     {
-        return $this->bdd->executeReturn("SELECT IdEntreprise FROM entreprise WHERE nomEntreprise LIKE '%?%'",[$NomEntreprise]);
+        return $this->bdd->executeReturn("SELECT IdEntreprise FROM entreprise WHERE nomEntreprise LIKE ?",["%{$NomEntreprise}%"]);
     }
 }
 ?>

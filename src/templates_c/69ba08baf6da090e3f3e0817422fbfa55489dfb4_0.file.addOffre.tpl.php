@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 16:56:27
+/* Smarty version 4.2.1, created on 2023-03-29 09:50:08
   from 'C:\www\Projet-Web-G3\src\templates\addOffre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6423001b2a35c8_08788359',
+  'unifunc' => 'content_6423edb0ca8417_51991446',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69ba08baf6da090e3f3e0817422fbfa55489dfb4' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\addOffre.tpl',
-      1 => 1680010111,
+      1 => 1680076188,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6423001b2a35c8_08788359 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6423edb0ca8417_51991446 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21005819166423001b28ce43_56968861', "include");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4338831446423edb0c96e06_02364352', "include");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21376663176423001b28d7c3_95859156', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10696635286423edb0c97878_33253781', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_21005819166423001b28ce43_56968861 extends Smarty_Internal_Block
+class Block_4338831446423edb0c96e06_02364352 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_21005819166423001b28ce43_56968861',
+    0 => 'Block_4338831446423edb0c96e06_02364352',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,12 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_21376663176423001b28d7c3_95859156 extends Smarty_Internal_Block
+class Block_10696635286423edb0c97878_33253781 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_21376663176423001b28d7c3_95859156',
+    0 => 'Block_10696635286423edb0c97878_33253781',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,6 +76,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             var email = document.forms["formulaire"]["email"];
             var promo1 = document.forms["formulaire"]["promo1"];
             var comp1 = document.forms["formulaire"]["comp1"];
+            var desc = document.forms["formulaire"]["descr"];
+            var debut = document.forms["formulaire"]["dateDebut"];     
+            var emi = document.forms["formulaire"]["dateEmi"]; 
             var bool = true;
 
             if (nomOffre.value == "") {
@@ -93,8 +96,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 document.getElementById('errorDuree').innerHTML = "";
             }
             if (NbPlace.value == "") {
+
                 document.getElementById('errorNbPlace').innerHTML = "* Veuillez entrer un nombre de stagiaire valide!";
-                nbPlace.focus();
+                NbPlace.focus();
                 bool = false;
             } else {
                 document.getElementById('errorNbPlace').innerHTML = "";
@@ -127,6 +131,27 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             } else {
                 document.getElementById('errorC1').innerHTML = "";
             }
+            if (desc.value == "") {
+                document.getElementById('errorDesc').innerHTML = "* Veuillez entrer une description!";
+                desc.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDesc').innerHTML = "";
+            }
+            if (debut.value == "") {
+                document.getElementById('errorDateDebut').innerHTML = "* Veuillez entrer une date de début valide!";
+                debut.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateDebut').innerHTML = "";
+            }
+            if (emi.value == "") {
+                document.getElementById('errorDateEmi').innerHTML = "* Veuillez entrer une date d'émission valide!";
+                emi.focus();
+                bool = false;
+            } else {
+                document.getElementById('errorDateEmi').innerHTML = "";
+            }
             return bool;
         }
     <?php echo '</script'; ?>
@@ -155,10 +180,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </br>
         <label for="dateDeb">Date de début : </label>
         <input id="dateDeb" type="date" class="champ" name="dateDebut" placeholder="Date de début du stage">
+        <span class="error" id="errorDateDebut"></span>
         </br>
         <label for="dateEmi">Date émission : </label>
         <input id="dateEmi" type="date" class="champ" name="dateEmi" placeholder="Date d'émission du stage">
-        <input type="text" name="nbPlace" class="champ" placeholder="Nombre de place pour ce stage">
+        <span class="error" id="errorDateEmi"></span>
+        <input type="text" name="nbPlace" class="champ" value="" placeholder="Nombre de place pour ce stage">
         <span class="error" id="errorNbPlace"></span>
         <input type="text" name="remuneration" class="champ" placeholder="Rémunération de l'offre">
         <span class="error" id="errorRemuneration"></span>
@@ -357,8 +384,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <span class="error" id="errorLvl5"></span>
         <br>
         <input type="text" id="descr" name="descr" placeholder="Description de l'offre">
-        <span class="error" id="errorDescr"></span>
+        <span class="error" id="errorDesc"></span>
         <button type="submit" id="ButAddOffre" name="addOffre" value="add">Ajouter</button>
+
     </form>
 <?php
 }

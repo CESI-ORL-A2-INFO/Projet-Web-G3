@@ -1,21 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-03-28 14:07:42
-
+/* Smarty version 4.2.1, created on 2023-03-29 09:56:53
   from 'C:\www\Projet-Web-G3\src\templates\profilEtudPerm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6422d88e892693_57895839',
-
+  'unifunc' => 'content_6423ef450eebd3_09096651',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54a2b3a03c7e073c44d65c9ed6c4034e8015f3f4' => 
     array (
       0 => 'C:\\www\\Projet-Web-G3\\src\\templates\\profilEtudPerm.tpl',
-      1 => 1680005243,
-
+      1 => 1680073218,
       2 => 'file',
     ),
   ),
@@ -23,34 +20,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6422d88e892693_57895839 (Smarty_Internal_Template $_smarty_tpl) {
-
+function content_6423ef450eebd3_09096651 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3640008076422d88e8768f6_67542218', "include");
-
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8875074716423ef450dbfb0_76945146', "include");
 ?>
 
 
-<?php ob_start();
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3917277646422d88e878278_37138105', 'content');
-
-$_prefixVariable1 = ob_get_clean();
-echo $_prefixVariable1;
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21470738926423ef450dc8c9_39847745', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'navbarPerm.tpl');
 }
 /* {block "include"} */
-class Block_3640008076422d88e8768f6_67542218 extends Smarty_Internal_Block
-
+class Block_8875074716423ef450dbfb0_76945146 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'include' => 
   array (
-    0 => 'Block_3640008076422d88e8768f6_67542218',
-
+    0 => 'Block_8875074716423ef450dbfb0_76945146',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -62,14 +52,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "include"} */
 /* {block 'content'} */
-class Block_3917277646422d88e878278_37138105 extends Smarty_Internal_Block
-
+class Block_21470738926423ef450dc8c9_39847745 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_3917277646422d88e878278_37138105',
-
+    0 => 'Block_21470738926423ef450dc8c9_39847745',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -77,20 +65,22 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div class="wrapper">
         <div id="left">
-            <h1>Profile</h1>
+            <h1>Profil</h1>
             <h3>Etudiant</h3>
         </div>
         <div id="icon">
             <i class="fa-solid fa-user fa-10x non-hover"></i>
         </div>
 
-        <form method="post" action="index.php">
+        <form name="formulaire "method="post" action="index.php" onsubmit="return validateForm()">
             <div class="form">
 
                 <input class="champ" placeholder="Nom" id="name" type="text" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
 ">
+                <span class="error" id="errorNom"></span>
                 <input class="champ" placeholder="Prénom" id="Prenom" type="text" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
 ">
+                <span class="error" id="errorPrenom"></span>
                 <select class="champ abxd" name="centre">
                     <option value="none">Centre</option>
                     <?php
@@ -112,6 +102,7 @@ $_smarty_tpl->tpl_vars['cent']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
+                <span class="error" id="errorCentre"></span>
                 <select class="champ abxd" name="pilote">
                     <option value="none">Pilote</option>
                     <?php
@@ -135,6 +126,7 @@ $_smarty_tpl->tpl_vars['pil']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
+                <span class="error" id="errorPilote"></span>
                 <select class="champ abxd" name="promo">
                     <option value="none">Promotion</option>
                     <?php
@@ -156,6 +148,7 @@ $_smarty_tpl->tpl_vars['promo1']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </select>
+                <span class="error" id="errorPromo"></span>
                 <div class="buttons-container">
                     <button type="submit" name="action" value="modif">Modifier</button>
                     <button type="submit" name="action" value="suppr">Supprimer</button>
@@ -167,7 +160,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
     <div class="wrapperStage">
-
         <form class="cardContainer" method="get" action="./index.php">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['card']->value, 'data', false, 'i');
@@ -208,7 +200,58 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </form>
     </div>
+    <?php echo '<script'; ?>
+>
+    function validateForm(){
+        var nom = document.forms['formulaire']['nom'];
+        var prenom = document.forms['formulaire']['prenom'];
+        var centre = document.forms['formulaire']['centre'];
+        var pilote = document.forms['formulaire']['pilote'];
+        var promo = document.forms['formulaire']['promo'];
+        var bool = true;
 
+        if (nom.value=""){
+            document.getElementById('errorNom').innerHTML = "*Veuillez entrer un nom valide!"
+            nom.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorNom').innerHTML = "";
+        }
+
+        if (prenom.value=""){
+            document.getElementById('errorPrenom').innerHTML = "*Veuillez entrer un prenom valide!"
+            prenom.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPrenom').innerHTML = "";
+        }
+
+        if (centre.value="none"){
+            document.getElementById('errorCentre').innerHTML = "*Veuillez entrer un centre valide!"
+            centre.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorCentre').innerHTML = "";
+        }
+
+        if (pilote.value="none"){
+            document.getElementById('errorPilote').innerHTML = "*Veuillez entrer un pilote valide!"
+            pilote.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPilote').innerHTML = "";
+        }
+
+        if (promo.value="none"){
+            document.getElementById('errorPromo').innerHTML = "*Veuillez entrer une promotion valide!"
+            promo.focus();
+            bool = false;
+        }else{
+            document.getElementById('errorPromo').innerHTML = "";
+        }
+    }
+    <?php echo '</script'; ?>
+>
 <?php
 }
 }

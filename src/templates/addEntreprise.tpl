@@ -79,7 +79,7 @@
         } else {
             document.getElementById('errorNomRue').innerHTML = "";
         }
-        if (ville.value == "") {
+        if (ville.value == 'none') {
             document.getElementById('errorVille').innerHTML = "*Veuillez entrer une ville valide!";
             ville.focus();
             bool = false;

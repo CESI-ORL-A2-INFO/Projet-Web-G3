@@ -80,18 +80,22 @@ class Controller
                 $lastPage = ceil(count($this->search->SearchPromoAll($nom, $nomfilter)) / $nbParPage);
                 break;
         }
-        for ($i = 0; $i < count($id); $i++) {
-            $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
-            $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
-            $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
-            $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
-            $card[$i]['dateDebut'] = $temp[$i][0]['DateDebut'];
-            $card[$i]['descr'] = $temp[$i][0]['Description'];
-            $card[$i]['promo'] = $this->home->getPromo($temp[$i][0]['IdOffre']);
-            $card[$i]['secteur'] = $this->home->getSecteur($temp[$i][0]['IdOffre']);
-            $card[$i]['competences'] = $this->home->getComp($temp[$i][0]['IdOffre']);
-            $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
-            $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
+        if (count($id) != null) {
+            for ($i = 0; $i < count($id); $i++) {
+                $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
+                $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
+                $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
+                $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
+                $card[$i]['dateDebut'] = $temp[$i][0]['DateDebut'];
+                $card[$i]['descr'] = $temp[$i][0]['Description'];
+                $card[$i]['promo'] = $this->home->getPromo($temp[$i][0]['IdOffre']);
+                $card[$i]['secteur'] = $this->home->getSecteur($temp[$i][0]['IdOffre']);
+                $card[$i]['competences'] = $this->home->getComp($temp[$i][0]['IdOffre']);
+                $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
+                $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
+            }
+        } else {
+            $card = [];
         }
         $this->tpl->assign('card', $card);
         $this->tpl->assign('filtre', $filtre);
@@ -454,18 +458,22 @@ class Controller
                 $id = $this->search->SearchPromo($nom, $nomfilter, $offset, $nbParPage);
                 break;
         }
-        for ($i = 0; $i < count($id); $i++) {
-            $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
-            $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
-            $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
-            $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
-            $card[$i]['dateDebut'] = $temp[$i][0]['DateDebut'];
-            $card[$i]['descr'] = $temp[$i][0]['Description'];
-            $card[$i]['promo'] = $this->home->getPromo($temp[$i][0]['IdOffre']);
-            $card[$i]['secteur'] = $this->home->getSecteur($temp[$i][0]['IdOffre']);
-            $card[$i]['competences'] = $this->home->getComp($temp[$i][0]['IdOffre']);
-            $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
-            $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
+        if (count($id)) {
+            for ($i = 0; $i < count($id); $i++) {
+                $temp[$i] = $this->home->getOffre($id[$i]['IdOffre']);
+                $card[$i]['IdOffre'] = $temp[$i][0]['IdOffre'];
+                $card[$i]['nomOffre'] = $temp[$i][0]['nomOffre'];
+                $card[$i]['duree'] = $temp[$i][0]['DuréeStage'];
+                $card[$i]['dateDebut'] = $temp[$i][0]['DateDebut'];
+                $card[$i]['descr'] = $temp[$i][0]['Description'];
+                $card[$i]['promo'] = $this->home->getPromo($temp[$i][0]['IdOffre']);
+                $card[$i]['secteur'] = $this->home->getSecteur($temp[$i][0]['IdOffre']);
+                $card[$i]['competences'] = $this->home->getComp($temp[$i][0]['IdOffre']);
+                $card[$i]['ville'] = $this->home->getVille($temp[$i][0]['IdOffre']);
+                $card[$i]['nomEntr'] = $this->home->getEntr($temp[$i][0]['IdOffre']);
+            }
+        } else {
+            $card = array();
         }
 
         $this->tpl->assign('content', $nom);

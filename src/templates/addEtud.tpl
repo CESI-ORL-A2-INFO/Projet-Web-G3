@@ -56,21 +56,21 @@
         <span class="error" id="errorNom"></span>
         <input class="champ" type="text" name="prenom" placeholder="Prenom">
         <span class="error" id="errorPrenom"></span>
-        <select name="centre">
+        <select class="secteur" name="centre">
             <option value="none">Centre</option>
             {foreach $allCentre as $cent}
                 <option value="{$cent['IdCentre']}">{$cent['Centre']}</option>
             {/foreach}
         </select>
         <span class="error" id="errorCentre"></span>
-        <select name="pilote">
+        <select class="secteur" name="pilote">
             <option value="none">Pilote</option>
             {foreach $allPilote as $pil}
                 <option value="{$pil['IdPilote']}">{$pil['NomPilote']} {$pil['PrenomPilote']}</option>
             {/foreach}
         </select>
         <span class="error" id="errorPilote"></span>
-        <select name="promo">
+        <select class="secteur" name="promo">
             <option value="none">Promotion</option>
             {foreach $allPromotion as $promo1}
                 <option value="{$promo1['IdPromo']}">{$promo1['Promotion']}</option>
