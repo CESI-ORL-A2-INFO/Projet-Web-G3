@@ -30,14 +30,14 @@
     <style>
         .error {
             color: #D8000C;
-            margin-left : 20%;
-            padding-top:5%;
-            
+            margin-left: 20%;
+            padding-top: 5%;
+
         }
-        @media only screen and (max-width: 830px)
-        {
-            .error{
-                margin-left:0%;
+
+        @media only screen and (max-width: 830px) {
+            .error {
+                margin-left: 0%;
             }
         }
     </style>
@@ -49,11 +49,11 @@
                     <input class="champ" id="email" type="email" name="mail" placeholder="Adresse e-mail">
                     <span class="error" id="errormail"></span>
                     <input class="champ" id="password" type="password" name="mdp" placeholder="Mot de passe">
-                    <span class="error" id="errorpass"></span> 
+                    <span class="error" id="errorpass"></span>
                     <button class="champ" id="connect" type="submit" name="p" value="home">Se connecter</button>
                 </form>
             </div>
         </div>
     </div>
-
+    
 {/block}
